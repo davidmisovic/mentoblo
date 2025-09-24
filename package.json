@@ -1,0 +1,17 @@
+{
+  "name": "mentoblo",
+  "private": true,
+  "packageManager": "pnpm@9.12.0",
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "pnpm --filter @mentoblo/web dev",
+    "build": "pnpm --filter @mentoblo/web build",
+    "start": "pnpm --filter @mentoblo/web start",
+    "lint": "pnpm --filter @mentoblo/web lint"
+  }
+}
+

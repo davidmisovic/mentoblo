@@ -8,10 +8,9 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "pnpm --filter @mentoblo/web dev",
-    "build": "pnpm --filter @mentoblo/web build",
-    "start": "pnpm --filter @mentoblo/web start",
-    "lint": "pnpm --filter @mentoblo/web lint"
+    "build": "cd apps/web && npm install && npm run build",
+    "dev": "cd apps/web && npm run dev",
+    "start": "cd apps/web && npm run start"
   }
 }
 

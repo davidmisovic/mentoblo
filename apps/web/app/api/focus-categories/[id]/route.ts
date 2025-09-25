@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { supabaseAdmin } from '@/lib/supabaseAdmin'
+import { supabaseAdmin } from '../../../../lib/supabaseAdmin'
 
 export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
   const userId = req.cookies.get('mb_user')?.value

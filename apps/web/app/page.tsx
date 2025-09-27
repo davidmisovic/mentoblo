@@ -14,16 +14,20 @@ export default function HomePage() {
   async function onCalculate() {
     setLoading(true)
     try {
+      console.log('Sending request to /api/calculate with:', { age, startAge, wastedHoursPerDay })
       const res = await fetch('/api/calculate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ age, startAge, wastedHoursPerDay })
       })
+      console.log('Response status:', res.status)
       const json = await res.json()
+      console.log('Response data:', json)
       if (!res.ok) throw new Error(json.error || 'Failed')
       router.push(`/result/${json.id}`)
     } catch (e) {
-      alert('Something went wrong. Please try again.')
+      console.error('Calculate error:', e)
+      alert(`Error: ${e instanceof Error ? e.message : 'Something went wrong. Please try again.'}`)
     } finally {
       setLoading(false)
     }

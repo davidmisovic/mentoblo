@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { supabasePublic } from '@/lib/supabasePublic'
+import { supabasePublic } from '../../../../lib/supabasePublic'
 
 export async function GET(req: NextRequest, { params }: { params: { provider: string } }) {
   const redirectParam = req.nextUrl.searchParams.get('redirect') || '/onboarding'

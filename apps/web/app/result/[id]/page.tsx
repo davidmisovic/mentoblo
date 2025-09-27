@@ -1,7 +1,8 @@
 type ResultPageProps = { params: { id: string } }
 
 async function getData(id: string) {
-  const res = await fetch(`/api/result/${id}`, { cache: 'no-store' })
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mentoblo.com'
+  const res = await fetch(`${baseUrl}/api/result/${id}`, { cache: 'no-store' })
   if (!res.ok) return null
   return res.json()
 }

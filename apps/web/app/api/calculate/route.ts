@@ -14,6 +14,10 @@ function computeWastedYears(age: number, wastedHoursPerDay: number, startAge: nu
   return totalWastedHours / (24 * 365)
 }
 
+export async function GET() {
+  return NextResponse.json({ message: 'Calculate API is working', method: 'GET' })
+}
+
 export async function POST(req: NextRequest) {
   try {
     const body = (await req.json()) as Payload

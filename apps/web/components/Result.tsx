@@ -66,44 +66,102 @@ export function Result({ yearsLost, onStartTrial }: ResultProps) {
   const alternatives = getAlternativeActivities(yearsLost)
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 py-20 relative">
-      {/* Enhanced atmospheric background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/5 via-transparent to-background" />
-      <div className="absolute top-1/4 left-1/2 w-96 h-96 bg-accent-primary/5 rounded-full blur-3xl -translate-x-1/2" />
+    <section className="min-h-screen flex items-center justify-center px-6 py-20 relative overflow-hidden">
+      {/* Cosmic/Constellation Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-background">
+        {/* Constellation dots and lines */}
+        <div className="absolute inset-0">
+          {/* Top left constellation */}
+          <div className="absolute top-20 left-20 w-1 h-1 bg-accent-primary/60 rounded-full animate-pulse" />
+          <div className="absolute top-32 left-16 w-1 h-1 bg-accent-primary/40 rounded-full animate-pulse delay-1000" />
+          <div className="absolute top-24 left-32 w-1 h-1 bg-accent-primary/50 rounded-full animate-pulse delay-2000" />
+          <div className="absolute top-28 left-28 w-px h-8 bg-accent-primary/20 rotate-45" />
+          <div className="absolute top-36 left-20 w-px h-6 bg-accent-primary/15 rotate-12" />
+          
+          {/* Top right constellation */}
+          <div className="absolute top-24 right-24 w-1 h-1 bg-accent-primary/60 rounded-full animate-pulse delay-500" />
+          <div className="absolute top-40 right-16 w-1 h-1 bg-accent-primary/40 rounded-full animate-pulse delay-1500" />
+          <div className="absolute top-32 right-32 w-1 h-1 bg-accent-primary/50 rounded-full animate-pulse delay-2500" />
+          <div className="absolute top-28 right-28 w-px h-6 bg-accent-primary/20 rotate-12" />
+          <div className="absolute top-36 right-20 w-px h-8 bg-accent-primary/15 rotate-45" />
+          
+          {/* Bottom left constellation */}
+          <div className="absolute bottom-32 left-32 w-1 h-1 bg-accent-primary/60 rounded-full animate-pulse delay-1000" />
+          <div className="absolute bottom-20 left-20 w-1 h-1 bg-accent-primary/40 rounded-full animate-pulse delay-2000" />
+          <div className="absolute bottom-28 left-40 w-1 h-1 bg-accent-primary/50 rounded-full animate-pulse delay-500" />
+          <div className="absolute bottom-24 left-24 w-px h-8 bg-accent-primary/20 rotate-12" />
+          <div className="absolute bottom-32 left-16 w-px h-6 bg-accent-primary/15 rotate-45" />
+          
+          {/* Bottom right constellation */}
+          <div className="absolute bottom-24 right-20 w-1 h-1 bg-accent-primary/60 rounded-full animate-pulse delay-1500" />
+          <div className="absolute bottom-32 right-32 w-1 h-1 bg-accent-primary/40 rounded-full animate-pulse delay-500" />
+          <div className="absolute bottom-20 right-40 w-1 h-1 bg-accent-primary/50 rounded-full animate-pulse delay-2500" />
+          <div className="absolute bottom-28 right-24 w-px h-6 bg-accent-primary/20 rotate-45" />
+          <div className="absolute bottom-32 right-16 w-px h-8 bg-accent-primary/15 rotate-12" />
+          
+          {/* Center constellation */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-1 bg-accent-primary/80 rounded-full animate-pulse" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-accent-primary/20 rounded-full animate-ping" />
+        </div>
+      </div>
       
-      <div className="max-w-5xl mx-auto text-center space-y-20 relative z-10">
-        {/* Enhanced Icon with glow effect */}
-        <div className="animate-fade-in relative">
-          <div className="absolute inset-0 bg-accent-primary/20 rounded-full blur-2xl animate-glow-pulse w-32 h-32 mx-auto" />
-          <div className="relative w-24 h-24 bg-surface border border-accent-primary/30 rounded-full flex items-center justify-center mx-auto">
-            <Hourglass className="w-12 h-12 text-accent-primary" />
-          </div>
+      <div className="max-w-4xl mx-auto text-center space-y-16 relative z-10">
+        {/* The Verdict Title */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          className="text-accent-primary font-mono text-sm uppercase tracking-widest"
+        >
+          THE VERDICT
+        </motion.div>
+
+        {/* The Revelation - Centered Layout */}
+        <div className="space-y-8">
+          {/* "You have lost" */}
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.8 }}
+            className="font-display text-4xl md:text-5xl text-foreground-muted leading-tight"
+          >
+            You have lost
+          </motion.h2>
+          
+          {/* The Number - Massive and Centered */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1.5, duration: 1.2, ease: "easeOut" }}
+            className="relative"
+          >
+            <div className="font-display text-8xl md:text-9xl lg:text-[12rem] xl:text-[14rem] text-accent-primary font-bold leading-none tracking-tighter">
+              {formatYears(yearsLost)}
+            </div>
+          </motion.div>
+          
+          {/* "of your precious life" */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2, duration: 0.8 }}
+            className="text-3xl md:text-4xl text-foreground-muted"
+          >
+            of your precious life
+          </motion.p>
         </div>
 
-        {/* The Revelation with enhanced drama */}
-        <div className="space-y-12">
-          <div className="space-y-6 animate-fade-in delay-300">
-            <div className="text-accent-primary font-mono text-sm uppercase tracking-widest">
-              The Verdict
-            </div>
-            <h2 className="font-display text-4xl md:text-5xl text-foreground-muted leading-tight">
-              You have lost
-            </h2>
-          </div>
-          
-          {/* The Number - Monument to Time Lost */}
-          <div className={`transition-all duration-1200 ${isVisible ? 'animate-number-reveal' : 'opacity-0'}`}>
-            <div className="relative">
-              <div className="absolute inset-0 bg-accent-primary/10 blur-3xl rounded-full" />
-              <div className="relative font-display text-9xl md:text-[10rem] lg:text-[14rem] xl:text-[18rem] text-accent-primary font-bold leading-none tracking-tighter">
-                {formatYears(yearsLost)}
-              </div>
-            </div>
-            <p className="text-3xl md:text-4xl text-foreground-muted mt-8 animate-fade-in delay-1000">
-              of your precious life
-            </p>
-          </div>
-        </div>
+        {/* "In an alternative reality..." - Bottom */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2.5, duration: 0.8 }}
+          className="pt-16"
+        >
+          <p className="text-xl text-foreground font-medium">
+            In an alternative reality...
+          </p>
+        </motion.div>
 
         {/* Enhanced Alternative Reality Section */}
         <div className={`transition-all duration-1000 ${showAlternatives ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>

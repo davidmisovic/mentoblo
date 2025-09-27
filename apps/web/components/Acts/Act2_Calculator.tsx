@@ -42,7 +42,7 @@ export function Act2_Calculator({
             value={sliderValues.age}
             min={18}
             max={80}
-            onChange={(value) => setSliderValues({ ...sliderValues, age: value })}
+            onValueChange={(value) => setSliderValues({ ...sliderValues, age: value })}
           />
         </motion.div>
 
@@ -59,8 +59,7 @@ export function Act2_Calculator({
             min={0.5}
             max={12}
             step={0.5}
-            showClockVisualization={true}
-            onChange={(value) => setSliderValues({ ...sliderValues, wastedHours: value })}
+            onValueChange={(value) => setSliderValues({ ...sliderValues, wastedHours: value })}
           />
           <motion.p
             initial={{ opacity: 0 }}
@@ -85,7 +84,7 @@ export function Act2_Calculator({
             value={sliderValues.startAge}
             min={10}
             max={50}
-            onChange={(value) => setSliderValues({ ...sliderValues, startAge: value })}
+            onValueChange={(value) => setSliderValues({ ...sliderValues, startAge: value })}
           />
         </motion.div>
 

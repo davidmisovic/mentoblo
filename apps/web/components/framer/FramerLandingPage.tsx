@@ -10,11 +10,15 @@ interface FramerLandingPageProps {
 export function FramerLandingPage({ framerUrl, className = "" }: FramerLandingPageProps) {
   const [isLoaded, setIsLoaded] = useState(false)
 
+  // Default to your prototype if no URL provided
+  const defaultFramerUrl = "https://moody-windows-819566.framer.app/"
+  const finalUrl = framerUrl || defaultFramerUrl
+
   useEffect(() => {
     setIsLoaded(true)
   }, [])
 
-  if (!framerUrl) {
+  if (!finalUrl) {
     return (
       <div className={`min-h-screen flex items-center justify-center bg-background ${className}`}>
         <div className="text-center space-y-4">
@@ -40,7 +44,7 @@ export function FramerLandingPage({ framerUrl, className = "" }: FramerLandingPa
       )}
       
       <iframe
-        src={framerUrl}
+        src={finalUrl}
         width="100%"
         height="100vh"
         frameBorder="0"

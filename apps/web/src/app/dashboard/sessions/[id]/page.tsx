@@ -5,6 +5,7 @@ import { VirtualClassroom } from '@/components/sessions/VirtualClassroom'
 import { SessionNotes } from '@/components/sessions/SessionNotes'
 import { SessionMaterials } from '@/components/sessions/SessionMaterials'
 import { SessionDetails } from '@/components/sessions/SessionDetails'
+import Image from 'next/image'
 
 interface SessionPageProps {
   params: {
@@ -127,9 +128,11 @@ export default async function SessionPage({ params }: SessionPageProps) {
                 </div>
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
                   {session.profiles?.avatar_url ? (
-                    <img 
+                    <Image 
                       src={session.profiles.avatar_url} 
                       alt={session.profiles.full_name || 'User'} 
+                      width={48}
+                      height={48}
                       className="w-12 h-12 rounded-full object-cover"
                     />
                   ) : (

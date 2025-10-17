@@ -2,6 +2,7 @@
 
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import Image from 'next/image'
 import type { Booking } from '@/types'
 
 interface SessionHeaderProps {
@@ -62,9 +63,11 @@ export function SessionHeader({ session, isTutor, isStudent, date, time }: Sessi
           <div className="flex items-center space-x-4">
             <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
               {session.profiles?.avatar_url ? (
-                <img 
+                <Image 
                   src={session.profiles.avatar_url} 
                   alt={studentName} 
+                  width={64}
+                  height={64}
                   className="w-16 h-16 rounded-full object-cover"
                 />
               ) : (

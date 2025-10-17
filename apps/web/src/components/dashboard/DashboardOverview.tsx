@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button'
 import { formatCurrency } from '@/lib/stripe'
 import Link from 'next/link'
+import Image from 'next/image'
 import type { Profile } from '@/types'
 
 interface DashboardOverviewProps {
@@ -37,9 +38,11 @@ export function DashboardOverview({ profile, totalBookings, completedSessions, t
         <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
           <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
             {profile.avatar_url ? (
-              <img 
+              <Image 
                 src={profile.avatar_url} 
                 alt={profile.full_name || 'User'} 
+                width={40}
+                height={40}
                 className="w-10 h-10 rounded-full object-cover"
               />
             ) : (

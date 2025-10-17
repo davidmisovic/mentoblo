@@ -158,7 +158,9 @@ export function BookingCalendar({ tutorId, availability, existingBookings }: Boo
             {Array.from({ length: 35 }, (_, i) => {
               const date = new Date()
               date.setDate(date.getDate() + i - date.getDay())
-              const isPast = date < new Date().setHours(0, 0, 0, 0)
+              const today = new Date()
+              today.setHours(0, 0, 0, 0)
+              const isPast = date < today
               const isSelected = selectedDate?.toDateString() === date.toDateString()
               
               return (

@@ -31,7 +31,7 @@ export async function createLessonPlan(prompt: LessonPlanPrompt) {
     // Generate lesson plan using Google AI with high-quality prompt
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" })
 
-    const prompt = `
+    const promptText = `
   You are an expert curriculum designer for the Mentoblo platform.
   Your task is to create an engaging and structured 60-minute lesson plan.
   Format the entire output in Markdown with clear headings for these sections:
@@ -51,7 +51,7 @@ export async function createLessonPlan(prompt: LessonPlanPrompt) {
   ---
 `;
 
-    const result = await model.generateContent(prompt)
+    const result = await model.generateContent(promptText)
     const response = await result.response
     const generatedText = response.text()
     
@@ -283,7 +283,7 @@ export async function generateStudentReport(summaryPoints: string, bookingId: nu
     // Generate feedback report using Google AI with high-quality prompt
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" })
 
-    const prompt = `
+    const promptText = `
   You are a helpful and encouraging tutor on the Mentoblo platform.
   Your task is to write a professional, positive, and clear feedback report for a parent or an adult student based on the provided summary points.
   Your tone must be supportive and constructive. Structure the report with a positive opening, details of the key points, and an encouraging closing statement. Do not use Markdown formatting, just plain text with paragraphs.
@@ -294,7 +294,7 @@ export async function generateStudentReport(summaryPoints: string, bookingId: nu
   ---
 `;
 
-    const result = await model.generateContent(prompt)
+    const result = await model.generateContent(promptText)
     const response = await result.response
     const generatedText = response.text()
     

@@ -151,7 +151,7 @@ export default async function TutorProfilePage({ params }: TutorProfilePageProps
                         {DAYS_OF_WEEK[parseInt(dayOfWeek)]}
                       </h4>
                       <div className="space-y-1">
-                        {slots.map((slot, index) => (
+                        {(slots as TutorAvailability[]).map((slot, index) => (
                           <div key={index} className="flex items-center gap-2 text-sm">
                             <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded">
                               {slot.start_time} - {slot.end_time}

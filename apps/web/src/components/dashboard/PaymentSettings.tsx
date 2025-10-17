@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -28,6 +28,16 @@ export function PaymentSettings({ profile }: PaymentSettingsProps) {
   })
   const supabase = createClient()
 
+  const checkStripeStatus = useCallback(async () => {
+    try {
+      const { data, error } = await supabase.functions.invoke('check-stripe-status')
+      if (error) throw error
+      setStripeStatus(data)
+    } catch (error) {
+      console.error('Error checking Stripe status:', error)
+    }
+  }, [supabase])
+
   useEffect(() => {
     // Initialize hourly rate from profile
     if (profile.hourly_rate_cents) {
@@ -37,16 +47,6 @@ export function PaymentSettings({ profile }: PaymentSettingsProps) {
     // Check Stripe Connect status
     checkStripeStatus()
   }, [profile, checkStripeStatus])
-
-  const checkStripeStatus = async () => {
-    try {
-      const { data, error } = await supabase.functions.invoke('check-stripe-status')
-      if (error) throw error
-      setStripeStatus(data)
-    } catch (error) {
-      console.error('Error checking Stripe status:', error)
-    }
-  }
 
   const handleCreateStripeAccount = async () => {
     setLoading(true)

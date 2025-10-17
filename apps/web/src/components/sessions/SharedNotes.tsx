@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
@@ -17,20 +17,7 @@ export function SharedNotes({ session, isTutor }: SharedNotesProps) {
   const [isSaving, setIsSaving] = useState(false)
   const [lastSaved, setLastSaved] = useState<Date | null>(null)
 
-  // Debounced save function
-  useEffect(() => {
-    if (!isTutor) return
-
-    const timeoutId = setTimeout(async () => {
-      if (notes !== (session.session_notes_markdown || '')) {
-        await saveNotes(notes)
-      }
-    }, 2000) // Save after 2 seconds of inactivity
-
-    return () => clearTimeout(timeoutId)
-  }, [notes, isTutor, session.session_notes_markdown, saveNotes])
-
-  const saveNotes = async (notesToSave: string) => {
+  const saveNotes = useCallback(async (notesToSave: string) => {
     if (!isTutor) return
 
     setIsSaving(true)
@@ -53,7 +40,20 @@ export function SharedNotes({ session, isTutor }: SharedNotesProps) {
     } finally {
       setIsSaving(false)
     }
-  }
+  }, [isTutor, session.id])
+
+  // Debounced save function
+  useEffect(() => {
+    if (!isTutor) return
+
+    const timeoutId = setTimeout(async () => {
+      if (notes !== (session.session_notes_markdown || '')) {
+        await saveNotes(notes)
+      }
+    }, 2000) // Save after 2 seconds of inactivity
+
+    return () => clearTimeout(timeoutId)
+  }, [notes, isTutor, session.session_notes_markdown, saveNotes])
 
   const handleManualSave = async () => {
     await saveNotes(notes)

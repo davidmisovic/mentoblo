@@ -136,7 +136,10 @@ export function FeedbackGenerator() {
           id="studentAge"
           type="number"
           value={formData.studentAge || ''}
-          onChange={(e) => handleInputChange('studentAge', parseInt(e.target.value) || undefined)}
+          onChange={(e) => {
+            const value = parseInt(e.target.value);
+            handleInputChange('studentAge', isNaN(value) ? undefined : value);
+          }}
           placeholder="Optional"
           min="5"
           max="18"

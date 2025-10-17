@@ -141,7 +141,7 @@ export function BookingManagement({ bookings }: BookingManagementProps) {
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">No upcoming sessions</h3>
             <p className="text-gray-600 mb-4">
-              When students book sessions with you, they'll appear here.
+              When students book sessions with you, they&apos;ll appear here.
             </p>
             <Button variant="outline">
               Share Your Profile

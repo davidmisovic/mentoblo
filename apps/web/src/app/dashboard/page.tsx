@@ -130,11 +130,11 @@ export default async function DashboardPage() {
         <div className="max-w-7xl mx-auto">
           {/* Welcome Section */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Welcome back, {profile.full_name || 'Tutor'}!
-            </h1>
+                <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                  Welcome back, {profile.full_name || &apos;Tutor&apos;}!
+                </h1>
             <p className="text-lg text-gray-600">
-              Here's what's happening with your tutoring business today.
+              Here&apos;s what&apos;s happening with your tutoring business today.
             </p>
           </div>
 

@@ -80,7 +80,7 @@ export function StripeConnectManager({ profile }: StripeConnectManagerProps) {
             <div className="p-4 bg-green-50 rounded-lg">
               <h4 className="font-semibold text-green-900 mb-2">Payment Information</h4>
               <div className="text-sm text-green-700 space-y-1">
-                <p>• You'll receive 95% of each session payment</p>
+                <p>• You&apos;ll receive 95% of each session payment</p>
                 <p>• Payments are processed securely through Stripe</p>
                 <p>• Funds are transferred to your bank account automatically</p>
                 <p>• You can track all transactions in your Stripe dashboard</p>
@@ -131,7 +131,7 @@ export function StripeConnectManager({ profile }: StripeConnectManagerProps) {
           <div className="p-4 bg-gray-50 rounded-lg">
             <h4 className="font-semibold text-gray-900 mb-2">How it works</h4>
             <div className="text-sm text-gray-700 space-y-1">
-              <p>1. Connect your bank account through Stripe's secure onboarding</p>
+              <p>1. Connect your bank account through Stripe&apos;s secure onboarding</p>
               <p>2. Students pay for sessions through our platform</p>
               <p>3. You receive 95% of each payment (5% platform fee)</p>
               <p>4. Funds are automatically transferred to your account</p>

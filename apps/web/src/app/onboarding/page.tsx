@@ -101,7 +101,7 @@ export default function OnboardingPage() {
             </div>
             <CardTitle className="text-3xl">Welcome to Mentoblo!</CardTitle>
             <CardDescription className="text-lg">
-              Let's set up your profile to get started
+              Let&apos;s set up your profile to get started
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -124,7 +124,7 @@ export default function OnboardingPage() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                           </svg>
                         </div>
-                        <h4 className="text-lg font-semibold mb-2">I'm a Tutor</h4>
+                        <h4 className="text-lg font-semibold mb-2">I&apos;m a Tutor</h4>
                         <p className="text-sm text-muted-foreground">
                           I want to teach students and manage my tutoring business
                         </p>
@@ -143,7 +143,7 @@ export default function OnboardingPage() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
                           </svg>
                         </div>
-                        <h4 className="text-lg font-semibold mb-2">I'm a Student</h4>
+                        <h4 className="text-lg font-semibold mb-2">I&apos;m a Student</h4>
                         <p className="text-sm text-muted-foreground">
                           I want to find tutors and book learning sessions
                         </p>

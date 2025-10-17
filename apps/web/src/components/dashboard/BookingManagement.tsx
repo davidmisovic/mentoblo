@@ -123,6 +123,7 @@ export function BookingManagement({ bookings }: BookingManagementProps) {
   }
 
   return (
+    <>
     <Card>
       <CardHeader>
         <CardTitle>Upcoming Sessions</CardTitle>

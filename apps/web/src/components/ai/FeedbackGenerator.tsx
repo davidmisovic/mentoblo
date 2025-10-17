@@ -47,7 +47,7 @@ export function FeedbackGenerator() {
     setLoading(false)
   }
 
-  const handleInputChange = (field: keyof FeedbackPrompt, value: string | number) => {
+  const handleInputChange = (field: keyof FeedbackPrompt, value: string | number | undefined) => {
     setFormData(prev => ({
       ...prev,
       [field]: value

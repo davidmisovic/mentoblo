@@ -3,41 +3,53 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { ArrowRight, CheckCircle, Star, Users, Zap, Brain, Shield, Globe, Sparkles } from 'lucide-react'
+import { 
+  AnimatedHeader, 
+  AnimatedLogo, 
+  AnimatedNavItem, 
+  AnimatedButton
+} from '@/components/ui/animated-header'
+import { 
+  AnimatedFeatureCard, 
+  AnimatedStatusBadge, 
+  AnimatedStep,
+  AnimatedFAB 
+} from '@/components/ui/enhanced-components'
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Clean 2025 Header */}
-      <header className="sticky top-0 z-50 w-full border-b border-slate-200/50 bg-white/80 backdrop-blur-xl">
+      {/* Animated 2025 Header */}
+      <AnimatedHeader>
         <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">M</span>
-              </div>
-              <span className="text-xl font-bold text-slate-900">Mentoblo</span>
-            </div>
+            <AnimatedLogo />
             <div className="flex items-center space-x-6">
               <nav className="hidden md:flex items-center space-x-8">
-                <a href="#" className="text-slate-600 hover:text-slate-900 transition-colors">Features</a>
-                <a href="#" className="text-slate-600 hover:text-slate-900 transition-colors">Pricing</a>
-                <a href="#" className="text-slate-600 hover:text-slate-900 transition-colors">About</a>
+                <AnimatedNavItem href="#features">Features</AnimatedNavItem>
+                <AnimatedNavItem href="#pricing">Pricing</AnimatedNavItem>
+                <AnimatedNavItem href="#about">About</AnimatedNavItem>
               </nav>
               <AuthButton />
             </div>
           </div>
         </div>
-      </header>
+      </AnimatedHeader>
 
       <main>
         {/* Hero Section - 2025 Style */}
         <section className="py-24 lg:py-32">
           <div className="container mx-auto px-6">
             <div className="text-center max-w-4xl mx-auto">
-              <div className="inline-flex items-center space-x-2 bg-orange-50 border border-orange-200 rounded-full px-4 py-2 mb-8">
-                <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                <span className="text-sm text-orange-700 font-medium">New: AI-powered lesson planning</span>
-              </div>
+              <AnimatedStatusBadge 
+                variant="secondary" 
+                className="bg-orange-50 text-orange-700 border-orange-200 mb-8"
+              >
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
+                  <span className="text-sm font-medium">New: AI-powered lesson planning</span>
+                </div>
+              </AnimatedStatusBadge>
               
               <h1 className="text-6xl md:text-7xl font-bold mb-8 leading-tight">
                 Launch your tutoring business in{' '}
@@ -50,13 +62,21 @@ export default function HomePage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-                <Button className="button-modern text-lg px-8 py-4">
+                <AnimatedButton 
+                  variant="primary" 
+                  size="lg" 
+                  className="text-lg px-8 py-4"
+                >
                   Get Started
                   <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-                <Button variant="outline" className="button-outline-modern text-lg px-8 py-4">
+                </AnimatedButton>
+                <AnimatedButton 
+                  variant="outline" 
+                  size="lg" 
+                  className="text-lg px-8 py-4"
+                >
                   Watch Demo
-                </Button>
+                </AnimatedButton>
               </div>
               
               {/* Social Proof */}
@@ -95,35 +115,23 @@ export default function HomePage() {
             </div>
             
             <div className="grid lg:grid-cols-3 gap-8">
-              <Card className="card-modern p-8">
-                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
-                  <Brain className="w-6 h-6 text-orange-600" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">AI Site Builder</h3>
-                <p className="text-slate-600 leading-relaxed">
-                  Instantly generate layouts, sections and content so you can launch in minutes not days.
-                </p>
-              </Card>
+              <AnimatedFeatureCard
+                icon={Brain}
+                title="AI Site Builder"
+                description="Instantly generate layouts, sections and content so you can launch in minutes not days."
+              />
 
-              <Card className="card-modern p-8">
-                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
-                  <Users className="w-6 h-6 text-orange-600" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">Founder-Ready Templates</h3>
-                <p className="text-slate-600 leading-relaxed">
-                  Built for tutoring services, pricing pages, launches, and case studies everything a tutor needs to go live.
-                </p>
-              </Card>
+              <AnimatedFeatureCard
+                icon={Users}
+                title="Founder-Ready Templates"
+                description="Built for tutoring services, pricing pages, launches, and case studies everything a tutor needs to go live."
+              />
 
-              <Card className="card-modern p-8">
-                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
-                  <Zap className="w-6 h-6 text-orange-600" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">Portfolio Pages in Seconds</h3>
-                <p className="text-slate-600 leading-relaxed">
-                  Highlight your expertise, projects, or case studies fast with layouts designed to impress and convert.
-                </p>
-              </Card>
+              <AnimatedFeatureCard
+                icon={Zap}
+                title="Portfolio Pages in Seconds"
+                description="Highlight your expertise, projects, or case studies fast with layouts designed to impress and convert."
+              />
             </div>
           </div>
         </section>
@@ -143,10 +151,10 @@ export default function HomePage() {
                 <p className="text-xl text-slate-600 mb-8 leading-relaxed">
                   Launch a beautiful, high-converting site in minutes using smart layout and copy tools built specifically for tutors.
                 </p>
-                <Button className="button-outline-modern">
+                <AnimatedButton variant="outline">
                   Learn More
                   <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
+                </AnimatedButton>
               </div>
               <div className="relative">
                 <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-8">
@@ -187,29 +195,24 @@ export default function HomePage() {
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-white font-bold text-xl">1</span>
-                </div>
-                <h3 className="text-2xl font-bold mb-4">Pick a template</h3>
-                <p className="text-slate-600">Clean, confident. Sets the foundation with minimal words.</p>
-              </div>
+              <AnimatedStep
+                step={1}
+                title="Pick a template"
+                description="Clean, confident. Sets the foundation with minimal words."
+                isActive={true}
+              />
               
-              <div className="text-center">
-                <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-white font-bold text-xl">2</span>
-                </div>
-                <h3 className="text-2xl font-bold mb-4">Customize with AI</h3>
-                <p className="text-slate-600">Direct and modern clearly shows value and tech power.</p>
-              </div>
+              <AnimatedStep
+                step={2}
+                title="Customize with AI"
+                description="Direct and modern clearly shows value and tech power."
+              />
               
-              <div className="text-center">
-                <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-white font-bold text-xl">3</span>
-                </div>
-                <h3 className="text-2xl font-bold mb-4">Launch your site</h3>
-                <p className="text-slate-600">Clear and motivating focused on action and result.</p>
-              </div>
+              <AnimatedStep
+                step={3}
+                title="Launch your site"
+                description="Clear and motivating focused on action and result."
+              />
             </div>
           </div>
         </section>
@@ -226,18 +229,31 @@ export default function HomePage() {
                 Start your free trial today and see the difference.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="button-modern text-lg px-8 py-4">
+                <AnimatedButton 
+                  variant="primary" 
+                  size="lg" 
+                  className="text-lg px-8 py-4"
+                >
                   Get Started
                   <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-                <Button variant="outline" className="button-outline-modern text-lg px-8 py-4">
+                </AnimatedButton>
+                <AnimatedButton 
+                  variant="outline" 
+                  size="lg" 
+                  className="text-lg px-8 py-4"
+                >
                   Schedule Demo
-                </Button>
+                </AnimatedButton>
               </div>
             </div>
           </div>
         </section>
       </main>
+
+      {/* Floating Action Button */}
+      <AnimatedFAB onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+        <ArrowRight className="w-6 h-6 rotate-90" />
+      </AnimatedFAB>
 
       {/* Clean 2025 Footer */}
       <footer className="bg-slate-900 text-white py-16">

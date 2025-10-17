@@ -21,7 +21,7 @@ const toastVariants = cva(
   }
 )
 
-export interface ToastProps
+interface ToastProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof toastVariants> {
 }
@@ -97,7 +97,6 @@ const ToastDescription = React.forwardRef<
 ))
 ToastDescription.displayName = 'ToastDescription'
 
-type ToastProps = React.ComponentPropsWithoutRef<typeof Toast>
 
 type ToastActionElement = React.ReactElement<typeof ToastAction>
 

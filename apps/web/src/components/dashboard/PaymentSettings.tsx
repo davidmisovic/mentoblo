@@ -36,7 +36,7 @@ export function PaymentSettings({ profile }: PaymentSettingsProps) {
 
     // Check Stripe Connect status
     checkStripeStatus()
-  }, [profile])
+  }, [profile, checkStripeStatus])
 
   const checkStripeStatus = async () => {
     try {

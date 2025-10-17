@@ -28,7 +28,7 @@ export function SharedNotes({ session, isTutor }: SharedNotesProps) {
     }, 2000) // Save after 2 seconds of inactivity
 
     return () => clearTimeout(timeoutId)
-  }, [notes, isTutor, session.session_notes_markdown])
+  }, [notes, isTutor, session.session_notes_markdown, saveNotes])
 
   const saveNotes = async (notesToSave: string) => {
     if (!isTutor) return

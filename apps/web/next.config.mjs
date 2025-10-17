@@ -1,11 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    serverActions: {
-      bodySizeLimit: '2mb'
-    }
+    serverComponentsExternalPackages: ['@supabase/ssr']
   }
-};
+}
 
-export default nextConfig;
-
+export default nextConfig

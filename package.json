@@ -1,16 +1,38 @@
 {
   "name": "mentoblo",
+  "version": "1.0.0",
+  "description": "The all-in-one platform for independent tutors. Streamline your business, automate administrative tasks, and focus on what you do best - teaching.",
   "private": true,
-  "packageManager": "pnpm@9.12.0",
-  "version": "0.1.0",
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "scripts": {
-    "build": "cd apps/web && npm install && npm run build",
     "dev": "cd apps/web && npm run dev",
-    "start": "cd apps/web && npm run start"
-  }
+    "build": "cd apps/web && npm run build",
+    "start": "cd apps/web && npm run start",
+    "lint": "cd apps/web && npm run lint",
+    "type-check": "cd apps/web && npm run type-check"
+  },
+  "keywords": [
+    "tutoring",
+    "education",
+    "teaching",
+    "business-management",
+    "automation",
+    "saas",
+    "nextjs",
+    "supabase",
+    "stripe"
+  ],
+  "author": "Mentoblo Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/mentoblo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/mentoblo/issues"
+  },
+  "homepage": "https://github.com/yourusername/mentoblo#readme"
 }
-

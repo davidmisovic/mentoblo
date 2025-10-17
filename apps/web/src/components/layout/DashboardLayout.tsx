@@ -6,6 +6,17 @@ import { usePathname } from 'next/navigation'
 import { AuthButton } from '@/components/auth/auth-button'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { 
+  LayoutDashboard, 
+  Calendar, 
+  FileText, 
+  Brain, 
+  Settings, 
+  Menu, 
+  X,
+  Bell,
+  Search
+} from 'lucide-react'
 
 interface DashboardLayoutProps {
   children: React.ReactNode
@@ -19,142 +30,167 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
     {
       name: 'Dashboard',
       href: '/dashboard',
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5a2 2 0 012-2h4a2 2 0 012 2v6H8V5z" />
-        </svg>
-      )
+      icon: LayoutDashboard,
+      color: 'text-blue-600'
     },
     {
-      name: 'Bookings',
-      href: '/dashboard/bookings',
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-      )
+      name: 'Sessions',
+      href: '/dashboard/sessions',
+      icon: Calendar,
+      color: 'text-green-600'
     },
     {
       name: 'Materials',
       href: '/dashboard/materials',
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-        </svg>
-      )
+      icon: FileText,
+      color: 'text-purple-600'
     },
     {
-      name: 'AI Planner',
-      href: '/dashboard/planner',
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-        </svg>
-      )
+      name: 'AI Tools',
+      href: '/dashboard/ai-tools',
+      icon: Brain,
+      color: 'text-orange-600'
     },
     {
       name: 'Settings',
       href: '/dashboard/settings',
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 00-1.066 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      )
+      icon: Settings,
+      color: 'text-gray-600'
     }
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50">
       {/* Mobile sidebar overlay */}
       {sidebarOpen && (
         <div 
-          className="fixed inset-0 z-40 bg-black bg-opacity-50 lg:hidden"
+          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
-      {/* Sidebar */}
+      {/* Modern Sidebar */}
       <div className={cn(
-        "fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-gray-200 transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0",
+        "fixed inset-y-0 left-0 z-50 w-72 bg-white/80 backdrop-blur-xl border-r border-white/20 shadow-2xl transform transition-all duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0",
         sidebarOpen ? "translate-x-0" : "-translate-x-full"
       )}>
         <div className="flex flex-col h-full">
-          {/* Logo */}
-          <div className="flex items-center justify-between h-16 px-4 border-b border-gray-200">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">M</span>
+          {/* Logo Section */}
+          <div className="flex items-center justify-between h-20 px-6 border-b border-slate-200/50">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center shadow-lg">
+                <span className="text-white font-bold text-lg">M</span>
               </div>
-              <span className="text-xl font-bold text-gray-900">Mentoblo</span>
+              <span className="text-2xl font-bold text-gradient">Mentoblo</span>
             </div>
             <Button
               variant="ghost"
               size="sm"
-              className="lg:hidden"
+              className="lg:hidden hover:bg-slate-100 rounded-xl"
               onClick={() => setSidebarOpen(false)}
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              <X className="w-5 h-5" />
             </Button>
           </div>
 
           {/* Navigation */}
-          <nav className="flex-1 px-4 py-6 space-y-2">
+          <nav className="flex-1 px-4 py-8 space-y-2">
             {navigation.map((item) => {
               const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
+              const Icon = item.icon
               return (
                 <Link
                   key={item.name}
                   href={item.href}
                   className={cn(
-                    "flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors",
+                    "group flex items-center space-x-4 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 hover:scale-105",
                     isActive
-                      ? "bg-blue-100 text-blue-700"
-                      : "text-gray-700 hover:bg-gray-100"
+                      ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-blue-500/25"
+                      : "text-slate-600 hover:bg-white/60 hover:text-slate-900 hover:shadow-md"
                   )}
                 >
-                  {item.icon}
-                  <span>{item.name}</span>
+                  <div className={cn(
+                    "p-2 rounded-lg transition-all duration-200",
+                    isActive 
+                      ? "bg-white/20" 
+                      : "bg-slate-100 group-hover:bg-white"
+                  )}>
+                    <Icon className={cn(
+                      "w-5 h-5",
+                      isActive ? "text-white" : item.color
+                    )} />
+                  </div>
+                  <span className="font-semibold">{item.name}</span>
                 </Link>
               )
             })}
           </nav>
 
           {/* User section */}
-          <div className="p-4 border-t border-gray-200">
+          <div className="p-6 border-t border-slate-200/50 bg-white/50">
             <AuthButton />
           </div>
         </div>
       </div>
 
-      {/* Main content */}
-      <div className="lg:pl-64">
-        {/* Mobile header */}
-        <div className="lg:hidden flex items-center justify-between h-16 px-4 bg-white border-b border-gray-200">
+      {/* Main content area */}
+      <div className="lg:pl-72">
+        {/* Modern Mobile Header */}
+        <div className="lg:hidden flex items-center justify-between h-20 px-6 bg-white/80 backdrop-blur-xl border-b border-white/20 shadow-sm">
           <Button
             variant="ghost"
             size="sm"
             onClick={() => setSidebarOpen(true)}
+            className="hover:bg-slate-100 rounded-xl"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+            <Menu className="w-6 h-6" />
           </Button>
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">M</span>
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center shadow-lg">
+              <span className="text-white font-bold text-lg">M</span>
             </div>
-            <span className="text-xl font-bold text-gray-900">Mentoblo</span>
+            <span className="text-2xl font-bold text-gradient">Mentoblo</span>
           </div>
-          <div className="w-8" /> {/* Spacer for centering */}
+          <div className="flex items-center space-x-2">
+            <Button variant="ghost" size="sm" className="hover:bg-slate-100 rounded-xl">
+              <Search className="w-5 h-5" />
+            </Button>
+            <Button variant="ghost" size="sm" className="hover:bg-slate-100 rounded-xl relative">
+              <Bell className="w-5 h-5" />
+              <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></span>
+            </Button>
+          </div>
         </div>
 
-        {/* Page content */}
-        <main className="flex-1">
-          {children}
+        {/* Desktop Header */}
+        <div className="hidden lg:block sticky top-0 z-30 bg-white/80 backdrop-blur-xl border-b border-white/20 shadow-sm">
+          <div className="flex items-center justify-between h-20 px-8">
+            <div className="flex items-center space-x-4">
+              <h1 className="text-2xl font-bold text-slate-900">Dashboard</h1>
+            </div>
+            <div className="flex items-center space-x-4">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  className="pl-10 pr-4 py-2 w-64 bg-slate-100 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                />
+              </div>
+              <Button variant="ghost" size="sm" className="hover:bg-slate-100 rounded-xl relative">
+                <Bell className="w-5 h-5" />
+                <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></span>
+              </Button>
+              <AuthButton />
+            </div>
+          </div>
+        </div>
+
+        {/* Page content with modern styling */}
+        <main className="min-h-screen">
+          <div className="p-6 lg:p-8">
+            {children}
+          </div>
         </main>
       </div>
     </div>

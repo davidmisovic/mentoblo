@@ -163,7 +163,6 @@ export default async function SessionPage({ params }: SessionPageProps) {
               <SessionDetails 
                 session={session}
                 isTutor={isTutor}
-                isStudent={isStudent}
               />
               
               <SessionMaterials 

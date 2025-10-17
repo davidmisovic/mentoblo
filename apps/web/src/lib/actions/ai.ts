@@ -152,8 +152,8 @@ Make the feedback encouraging, specific, and constructive. Focus on growth and l
 
       if (booking) {
         studentId = booking.student_id
-        studentName = booking.guest_name || booking.profiles?.full_name || null
-        studentEmail = booking.guest_email || booking.profiles?.email || null
+        studentName = booking.guest_name || (booking as any).profiles?.full_name || null
+        studentEmail = booking.guest_email || (booking as any).profiles?.email || null
       }
     }
     

@@ -9,10 +9,10 @@ export function createClient() {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
-        getAll(): any[] {
+        getAll() {
           return cookieStore.getAll()
         },
-        setAll(cookiesToSet: any[]) {
+        setAll(cookiesToSet) {
           try {
             cookiesToSet.forEach(({ name, value, options }) =>
               cookieStore.set(name, value, options)

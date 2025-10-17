@@ -325,5 +325,6 @@ export function BookingManagement({ bookings }: BookingManagementProps) {
         }}
       />
     )}
+  </>
   )
 }

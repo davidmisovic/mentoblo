@@ -92,8 +92,8 @@ function parseLessonPlanResponse(text: string): AILessonPlan {
     materials: extractList(lines, 'materials', 'required materials'),
     activities: extractActivities(lines),
     assessment: extractSection(lines, 'assessment', 'assessment methods') || 'Formative assessment through observation and participation',
-    homework: extractSection(lines, 'homework', 'homework'),
-    notes: extractSection(lines, 'notes', 'additional notes')
+    homework: extractSection(lines, 'homework', 'homework') || 'Practice exercises and review',
+    notes: extractSection(lines, 'notes', 'additional notes') || 'Additional notes and observations'
   }
 
   return lessonPlan

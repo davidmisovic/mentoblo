@@ -137,8 +137,8 @@ export function FeedbackGenerator() {
           type="number"
           value={formData.studentAge || ''}
           onChange={(e) => {
-            const value = parseInt(e.target.value);
-            handleInputChange('studentAge', isNaN(value) ? undefined : value);
+            const value = e.target.value;
+            handleInputChange('studentAge', value === '' ? undefined : parseInt(value));
           }}
           placeholder="Optional"
           min="5"

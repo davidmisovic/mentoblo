@@ -52,6 +52,7 @@ export interface Booking {
   payment_status: 'pending' | 'paid' | 'refunded' | 'processing' | 'unpaid'
   amount: number
   currency: string
+  session_notes_markdown?: string
   created_at: string
   updated_at: string
 }
@@ -72,6 +73,7 @@ export interface Profile {
   currency: string
   timezone: string
   is_available: boolean
+  stripe_onboarding_complete?: boolean
   created_at: string
   updated_at: string
 }
@@ -153,6 +155,33 @@ export type StudentLevel = 'beginner' | 'intermediate' | 'advanced' | 'expert'
 
 export type BookingStatus = 'pending' | 'confirmed' | 'cancelled' | 'completed'
 
+export type FeedbackStatus = 'draft' | 'shared' | 'archived'
+
+export type BookingPaymentStatus = 'pending' | 'paid' | 'refunded' | 'processing' | 'unpaid'
+
+export interface AILessonPlan {
+  title: string
+  topic: string
+  subject: string
+  student_level: string
+  duration: number
+  objectives: string[]
+  activities: string[]
+  materials: string[]
+  assessment: string
+  homework?: string
+  notes?: string
+}
+
+export interface AIFeedbackReport {
+  content: string
+  summary?: string
+  strengths: string[]
+  areas_for_improvement: string[]
+  areasForImprovement?: string[]
+  recommendations: string[]
+}
+
 export interface LessonPlanPrompt {
   subject: string
   topic: string
@@ -178,6 +207,23 @@ export interface StudentReport {
   strengths: string[]
   areas_for_improvement: string[]
   recommendations: string[]
+  created_at: string
+  updated_at: string
+}
+
+export interface SharedMaterial {
+  id: string
+  tutor_id: string
+  student_id?: string
+  title: string
+  description?: string
+  file_url: string
+  file_name?: string
+  storage_path?: string
+  file_type: string
+  file_size: number
+  file_size_bytes?: number
+  is_public: boolean
   created_at: string
   updated_at: string
 }

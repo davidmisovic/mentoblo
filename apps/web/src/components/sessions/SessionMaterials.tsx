@@ -172,7 +172,7 @@ export function SessionMaterials({ session, materials, isTutor }: SessionMateria
                 <div className="flex-1 min-w-0">
                   <h4 className="font-medium text-gray-900 truncate">{material.file_name}</h4>
                   <div className="flex items-center space-x-2 text-sm text-gray-600">
-                    <span>{formatFileSize(material.file_size_bytes)}</span>
+                    <span>{formatFileSize(material.file_size_bytes || material.file_size)}</span>
                     <span>•</span>
                     <span>{formatDate(material.created_at)}</span>
                     {material.student_id && (

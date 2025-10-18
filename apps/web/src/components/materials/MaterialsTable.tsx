@@ -30,7 +30,7 @@ interface MaterialsTableProps {
 }
 
 export function MaterialsTable({ materials }: MaterialsTableProps) {
-  const [deletingId, setDeletingId] = useState<number | null>(null)
+  const [deletingId, setDeletingId] = useState<string | null>(null)
 
   const formatFileSize = (bytes: number | null) => {
     if (!bytes) return 'Unknown size'
@@ -70,6 +70,11 @@ export function MaterialsTable({ materials }: MaterialsTableProps) {
       const supabase = createClient()
       
       // Get the file from storage
+      if (!material.storage_path) {
+        console.error('No storage path available')
+        return
+      }
+      
       const { data, error } = await supabase.storage
         .from('materials')
         .download(material.storage_path)
@@ -83,7 +88,7 @@ export function MaterialsTable({ materials }: MaterialsTableProps) {
       const url = URL.createObjectURL(data)
       const link = document.createElement('a')
       link.href = url
-      link.download = material.file_name
+      link.download = material.file_name || material.title
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)
@@ -93,7 +98,7 @@ export function MaterialsTable({ materials }: MaterialsTableProps) {
     }
   }
 
-  const handleDelete = async (materialId: number) => {
+  const handleDelete = async (materialId: string) => {
     if (!confirm('Are you sure you want to delete this material? This action cannot be undone.')) {
       return
     }
@@ -195,7 +200,7 @@ export function MaterialsTable({ materials }: MaterialsTableProps) {
               </TableCell>
               <TableCell>
                 <span className="text-sm text-gray-600">
-                  {formatFileSize(material.file_size_bytes)}
+                  {formatFileSize(material.file_size_bytes || material.file_size)}
                 </span>
               </TableCell>
               <TableCell>

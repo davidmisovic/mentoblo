@@ -260,7 +260,7 @@ export async function deleteLessonPlan(planId: number) {
   return { success: true }
 }
 
-export async function generateStudentReport(summaryPoints: string, bookingId: number) {
+export async function generateStudentReport(summaryPoints: string, bookingId: string) {
   const supabase = createClient()
   const { data: { user } } = await supabase.auth.getUser()
 

@@ -88,6 +88,10 @@ function parseLessonPlanResponse(text: string): AILessonPlan {
   
   const lessonPlan: AILessonPlan = {
     title: extractSection(lines, 'title', 'lesson plan') || 'Generated Lesson Plan',
+    topic: extractSection(lines, 'topic', 'topic') || 'General Topic',
+    subject: extractSection(lines, 'subject', 'subject') || 'General Subject',
+    student_level: extractSection(lines, 'student_level', 'student level') || 'intermediate',
+    duration: 60, // Default duration
     objectives: extractList(lines, 'objectives', 'learning objectives'),
     materials: extractList(lines, 'materials', 'required materials'),
     activities: extractActivities(lines),
@@ -103,12 +107,11 @@ function parseFeedbackResponse(text: string): AIFeedbackReport {
   const lines = text.split('\n').filter(line => line.trim())
   
   const feedback: AIFeedbackReport = {
+    content: extractSection(lines, 'content', 'feedback content') || 'Session completed successfully',
     summary: extractSection(lines, 'summary', 'session summary') || 'Session completed successfully',
     strengths: extractList(lines, 'strengths', 'key strengths'),
-    areasForImprovement: extractList(lines, 'improvement', 'areas for improvement'),
+    areas_for_improvement: extractList(lines, 'improvement', 'areas for improvement'),
     recommendations: extractList(lines, 'recommendations', 'recommendations'),
-    nextSteps: extractList(lines, 'next steps', 'next steps'),
-    overallProgress: determineProgress(text)
   }
 
   return feedback
@@ -156,11 +159,7 @@ function extractActivities(lines: string[]): AILessonPlan['activities'] {
       for (let j = i + 1; j < Math.min(i + 15, lines.length); j++) {
         const activityLine = lines[j].trim()
         if (activityLine && activityLine.length > 10) {
-          activities.push({
-            name: activityLine.split(':')[0] || `Activity ${activities.length + 1}`,
-            description: activityLine.split(':').slice(1).join(':').trim() || activityLine,
-            duration: 15 // Default duration
-          })
+          activities.push(activityLine)
         }
       }
       break

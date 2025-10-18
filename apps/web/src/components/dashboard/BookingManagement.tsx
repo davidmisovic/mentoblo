@@ -26,7 +26,7 @@ interface BookingManagementProps {
 
 export function BookingManagement({ bookings }: BookingManagementProps) {
   const [selectedBooking, setSelectedBooking] = useState<typeof bookings[0] | null>(null)
-  const [loading, setLoading] = useState<number | null>(null)
+  const [loading, setLoading] = useState<string | null>(null)
   const [message, setMessage] = useState('')
   const [showReportDialog, setShowReportDialog] = useState(false)
   const [reportBooking, setReportBooking] = useState<typeof bookings[0] | null>(null)
@@ -76,7 +76,7 @@ export function BookingManagement({ bookings }: BookingManagementProps) {
     return booking.guest_email || 'No email provided'
   }
 
-  const handleMarkCompleted = async (bookingId: number) => {
+  const handleMarkCompleted = async (bookingId: string) => {
     setLoading(bookingId)
     setMessage('')
     
@@ -90,10 +90,10 @@ export function BookingManagement({ bookings }: BookingManagementProps) {
     setLoading(null)
   }
 
-  const handleCancelBooking = async (bookingId: number) => {
+  const handleCancelBooking = async (bookingId: string) => {
     setLoading(bookingId)
     setMessage('')
-
+    
     try {
       await cancelBooking(bookingId)
       setMessage('Booking cancelled successfully!')

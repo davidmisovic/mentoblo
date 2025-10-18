@@ -48,7 +48,7 @@ export interface Booking {
   end_time: string
   guest_name?: string
   guest_email?: string
-  status: 'pending' | 'confirmed' | 'cancelled'
+  status: 'pending' | 'confirmed' | 'cancelled' | 'completed'
   payment_status: 'pending' | 'paid' | 'refunded' | 'processing' | 'unpaid'
   amount: number
   currency: string
@@ -61,10 +61,14 @@ export interface Profile {
   user_id: string
   handle: string
   display_name: string
+  full_name?: string
+  user_role?: string
+  public_handle?: string
   bio?: string
   avatar_url?: string
   subjects: string[]
   hourly_rate: number
+  hourly_rate_cents?: number
   currency: string
   timezone: string
   is_available: boolean
@@ -161,4 +165,19 @@ export interface LessonPlanPrompt {
   assessmentType?: 'formative' | 'summative' | 'diagnostic'
   specialNeeds?: string
   learningStyle?: 'visual' | 'auditory' | 'kinesthetic' | 'reading'
+}
+
+export interface StudentReport {
+  id: string
+  student_id: string
+  tutor_id: string
+  session_id: string
+  title: string
+  content: string
+  summary_points?: string
+  strengths: string[]
+  areas_for_improvement: string[]
+  recommendations: string[]
+  created_at: string
+  updated_at: string
 }

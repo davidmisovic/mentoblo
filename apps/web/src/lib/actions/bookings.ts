@@ -5,7 +5,7 @@ import { revalidatePath } from 'next/cache'
 import type { BookingStatus, BookingPaymentStatus } from '@/types'
 
 export async function updateBookingStatus(
-  bookingId: number, 
+  bookingId: string, 
   status: BookingStatus
 ) {
   const supabase = createClient()
@@ -40,7 +40,7 @@ export async function updateBookingStatus(
 }
 
 export async function updateBookingPaymentStatus(
-  bookingId: number, 
+  bookingId: string, 
   paymentStatus: BookingPaymentStatus,
   stripeInvoiceId?: string
 ) {
@@ -80,18 +80,18 @@ export async function updateBookingPaymentStatus(
   return { success: true }
 }
 
-export async function markBookingAsCompleted(bookingId: number) {
+export async function markBookingAsCompleted(bookingId: string) {
   return updateBookingStatus(bookingId, 'completed')
 }
 
-export async function cancelBooking(bookingId: number) {
+export async function cancelBooking(bookingId: string) {
   return updateBookingStatus(bookingId, 'cancelled')
 }
 
-export async function markPaymentAsProcessing(bookingId: number, stripeInvoiceId: string) {
+export async function markPaymentAsProcessing(bookingId: string, stripeInvoiceId: string) {
   return updateBookingPaymentStatus(bookingId, 'processing', stripeInvoiceId)
 }
 
-export async function markPaymentAsPaid(bookingId: number) {
+export async function markPaymentAsPaid(bookingId: string) {
   return updateBookingPaymentStatus(bookingId, 'paid')
 }

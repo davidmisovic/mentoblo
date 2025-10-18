@@ -110,7 +110,7 @@ export function RecentActivityFeed({
       id: `report-${report.id}`,
       type: 'report' as const,
       title: `Student report generated`,
-      description: `Summary: ${report.summary_points.substring(0, 50)}...`,
+      description: `Summary: ${report.summary_points?.substring(0, 50) || 'No summary available'}...`,
       date: report.created_at,
       status: 'generated',
       icon: getActivityIcon('report')

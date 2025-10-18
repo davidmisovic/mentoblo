@@ -58,7 +58,7 @@ export function RecentActivity({ lessonPlans, studentReports }: RecentActivityPr
       id: `report-${report.id}`,
       type: 'student_report' as const,
       title: 'Student Report Generated',
-      description: `Summary: ${report.summary_points.substring(0, 50)}...`,
+      description: `Summary: ${report.summary_points?.substring(0, 50) || 'No summary available'}...`,
       createdAt: report.created_at,
       href: `/dashboard/reports`
     }))

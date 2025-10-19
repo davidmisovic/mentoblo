@@ -6,6 +6,20 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 export const metadata: Metadata = {
   title: 'Mentoblo — Build a professional solo tutoring business',
   description: 'Mentoblo is the all‑in‑one platform for independent tutors that helps them win clients, automate admin, and teach smarter with AI.',
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: 'any' }
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
+    ]
+  },
+  manifest: '/site.webmanifest',
+  appleWebApp: {
+    title: 'Mentoblo',
+    statusBarStyle: 'default'
+  }
 }
 
 export default function RootLayout({

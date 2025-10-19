@@ -17,7 +17,7 @@ This document lists all the environment variables needed for deploying the Mento
 - `GEMINI_API_KEY` - Your Google Gemini API key
 
 ### App Configuration
-- `NEXTAUTH_URL` - Your app URL (e.g., https://your-app.vercel.app)
+- `NEXTAUTH_URL` - Your app URL (e.g., https://mentoblo.com)
 - `NEXTAUTH_SECRET` - A random secret string for NextAuth
 
 ## How to Set Environment Variables in Vercel
@@ -51,6 +51,6 @@ NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your-stripe-publishable-key
 GEMINI_API_KEY=your-gemini-api-key
 
 # App Configuration
-NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_URL=https://mentoblo.com
 NEXTAUTH_SECRET=your-secret-key-here
 ```

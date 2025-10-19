@@ -27,10 +27,18 @@ export default function NewStudent() {
     setError('')
 
     try {
+      const { data: { session } } = await supabase.auth.getSession()
+      if (!session) {
+        setError('You must be signed in to create a student')
+        setLoading(false)
+        return
+      }
+
       const response = await fetch('/api/students', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`
         },
         body: JSON.stringify(formData),
       })

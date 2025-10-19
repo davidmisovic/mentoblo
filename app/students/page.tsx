@@ -36,7 +36,17 @@ export default function Students() {
 
   const fetchStudents = async () => {
     try {
-      const response = await fetch('/api/students')
+      const { data: { session } } = await supabase.auth.getSession()
+      if (!session) {
+        router.push('/signin')
+        return
+      }
+
+      const response = await fetch('/api/students', {
+        headers: {
+          'Authorization': `Bearer ${session.access_token}`
+        }
+      })
       const data = await response.json()
       if (response.ok) {
         setStudents(data.students)

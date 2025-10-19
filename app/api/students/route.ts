@@ -8,8 +8,18 @@ export async function GET(request: NextRequest) {
   const supabase = createClient(supabaseUrl, supabaseServiceKey)
   
   try {
-    const { data: { user } } = await supabase.auth.getUser()
-    if (!user) {
+    // Get the authorization header
+    const authHeader = request.headers.get('authorization')
+    if (!authHeader) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
+    // Extract the token from the header
+    const token = authHeader.replace('Bearer ', '')
+    
+    // Verify the token and get user
+    const { data: { user }, error: authError } = await supabase.auth.getUser(token)
+    if (authError || !user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
@@ -33,8 +43,18 @@ export async function POST(request: NextRequest) {
   const supabase = createClient(supabaseUrl, supabaseServiceKey)
   
   try {
-    const { data: { user } } = await supabase.auth.getUser()
-    if (!user) {
+    // Get the authorization header
+    const authHeader = request.headers.get('authorization')
+    if (!authHeader) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
+    // Extract the token from the header
+    const token = authHeader.replace('Bearer ', '')
+    
+    // Verify the token and get user
+    const { data: { user }, error: authError } = await supabase.auth.getUser(token)
+    if (authError || !user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 

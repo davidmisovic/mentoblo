@@ -96,8 +96,8 @@ const MentobloLanding = () => {
       {/* Hero */}
       <section className="relative">
         <div className="mx-auto max-w-7xl px-6 pt-14 pb-8 md:pt-20 md:pb-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            <div className="lg:pt-8">
               <div className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-[12px] text-neutral-700 shadow-sm">
                 <Target className="h-3.5 w-3.5" />
                 Purpose-built for independent tutors

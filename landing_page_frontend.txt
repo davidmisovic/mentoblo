@@ -1,0 +1,1051 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mentoblo — Build a professional solo tutoring business</title>
+    <meta name="description" content="Mentoblo is the all‑in‑one platform for independent tutors that helps them win clients, automate admin, and teach smarter with AI.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  <link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">.font-geist { font-family: 'Geist', sans-serif !important; }</style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-roboto">.font-roboto { font-family: 'Roboto', sans-serif !important; }</style><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-montserrat">.font-montserrat { font-family: 'Montserrat', sans-serif !important; }</style><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-poppins">.font-poppins { font-family: 'Poppins', sans-serif !important; }</style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style id="all-fonts-style-font-playfair">.font-playfair { font-family: 'Playfair Display', serif !important; }</style><link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-instrument-serif">.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style id="all-fonts-style-font-merriweather">.font-merriweather { font-family: 'Merriweather', serif !important; }</style><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-bricolage">.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }</style><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-jakarta">.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style><link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-manrope">.font-manrope { font-family: 'Manrope', sans-serif !important; }</style><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-space-grotesk">.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }</style><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-work-sans">.font-work-sans { font-family: 'Work Sans', sans-serif !important; }</style><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-pt-serif">.font-pt-serif { font-family: 'PT Serif', serif !important; }</style><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist-mono">.font-geist-mono { font-family: 'Geist Mono', monospace !important; }</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-space-mono">.font-space-mono { font-family: 'Space Mono', monospace !important; }</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-quicksand">.font-quicksand { font-family: 'Quicksand', sans-serif !important; }</style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-nunito">.font-nunito { font-family: 'Nunito', sans-serif !important; }</style></head>
+  <body class="antialiased bg-white text-neutral-900 selection:bg-neutral-900 selection:text-white" style="font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Apple Color Emoji, Segoe UI Emoji;">
+    <!-- Top Nav -->
+    <header class="sticky z-50 bg-white/80 border-neutral-200/70 border-b top-0 backdrop-blur" bis_size="{&quot;x&quot;:0,&quot;y&quot;:2700,&quot;w&quot;:825,&quot;h&quot;:65,&quot;abs_x&quot;:440,&quot;abs_y&quot;:2743}">
+      <div class="max-w-7xl mr-auto ml-auto pr-6 pl-6" bis_size="{&quot;x&quot;:0,&quot;y&quot;:2700,&quot;w&quot;:825,&quot;h&quot;:64,&quot;abs_x&quot;:440,&quot;abs_y&quot;:2743}">
+        <div class="flex h-16 items-center justify-between" bis_size="{&quot;x&quot;:24,&quot;y&quot;:2700,&quot;w&quot;:777,&quot;h&quot;:64,&quot;abs_x&quot;:464,&quot;abs_y&quot;:2743}">
+          <a href="#" class="flex items-center gap-2 group" bis_size="{&quot;x&quot;:24,&quot;y&quot;:2718,&quot;w&quot;:100,&quot;h&quot;:28,&quot;abs_x&quot;:464,&quot;abs_y&quot;:2761}">
+            <div class="h-7 w-7 rounded-[8px] border border-neutral-200 bg-white shadow-sm grid place-items-center" bis_size="{&quot;x&quot;:24,&quot;y&quot;:2718,&quot;w&quot;:28,&quot;h&quot;:28,&quot;abs_x&quot;:464,&quot;abs_y&quot;:2761}">
+              <span class="text-[13px] font-medium tracking-tight text-neutral-900" bis_size="{&quot;x&quot;:32,&quot;y&quot;:2722,&quot;w&quot;:11,&quot;h&quot;:19,&quot;abs_x&quot;:472,&quot;abs_y&quot;:2765}">M</span>
+            </div>
+            <span class="text-[15px] font-medium tracking-tight text-neutral-900" bis_size="{&quot;x&quot;:60,&quot;y&quot;:2720,&quot;w&quot;:64,&quot;h&quot;:22,&quot;abs_x&quot;:500,&quot;abs_y&quot;:2763}">Mentoblo</span>
+          </a>
+          <nav class="hidden md:flex items-center gap-8" bis_size="{&quot;x&quot;:171,&quot;y&quot;:2721,&quot;w&quot;:341,&quot;h&quot;:21,&quot;abs_x&quot;:611,&quot;abs_y&quot;:2764}">
+            <a href="#pillars" class="text-[14px] text-neutral-700 hover:text-neutral-900 transition" bis_size="{&quot;x&quot;:171,&quot;y&quot;:2721,&quot;w&quot;:51,&quot;h&quot;:21,&quot;abs_x&quot;:611,&quot;abs_y&quot;:2764}">Product</a>
+            <a href="#why" class="text-[14px] text-neutral-700 hover:text-neutral-900 transition" bis_size="{&quot;x&quot;:255,&quot;y&quot;:2721,&quot;w&quot;:95,&quot;h&quot;:21,&quot;abs_x&quot;:695,&quot;abs_y&quot;:2764}">Why Mentoblo</a>
+            <a href="#ai" class="text-[14px] hover:text-neutral-900 transition text-neutral-700" bis_size="{&quot;x&quot;:383,&quot;y&quot;:2721,&quot;w&quot;:45,&quot;h&quot;:21,&quot;abs_x&quot;:823,&quot;abs_y&quot;:2764}">Pricing</a>
+            <a href="#contact" class="text-[14px] text-neutral-700 hover:text-neutral-900 transition" bis_size="{&quot;x&quot;:461,&quot;y&quot;:2721,&quot;w&quot;:51,&quot;h&quot;:21,&quot;abs_x&quot;:901,&quot;abs_y&quot;:2764}">Contact</a>
+          </nav>
+          <div class="flex items-center gap-3" bis_size="{&quot;x&quot;:560,&quot;y&quot;:2712,&quot;w&quot;:240,&quot;h&quot;:39,&quot;abs_x&quot;:1000,&quot;abs_y&quot;:2755}">
+            <a href="/signin" class="hidden sm:inline-flex items-center gap-2 rounded-md border border-neutral-200 bg-white px-3.5 py-2 text-[14px] font-medium text-neutral-900 hover:bg-neutral-50 hover:border-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-800 transition" bis_size="{&quot;x&quot;:560,&quot;y&quot;:2712,&quot;w&quot;:99,&quot;h&quot;:39,&quot;abs_x&quot;:1000,&quot;abs_y&quot;:2755}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="log-in" class="lucide lucide-log-in h-4 w-4" bis_size="{&quot;x&quot;:575,&quot;y&quot;:2724,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:1015,&quot;abs_y&quot;:2767}"><path d="m10 17 5-5-5-5"></path><path d="M15 12H3"></path><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path></svg>
+              Sign in
+            </a>
+            <a href="/signup" class="inline-flex items-center gap-2 rounded-md border border-neutral-900 bg-neutral-900 px-3.5 py-2 text-[14px] font-medium text-white hover:bg-neutral-800 hover:border-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-800 transition" bis_size="{&quot;x&quot;:672,&quot;y&quot;:2712,&quot;w&quot;:128,&quot;h&quot;:39,&quot;abs_x&quot;:1112,&quot;abs_y&quot;:2755}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="sparkles" class="lucide lucide-sparkles h-4 w-4" bis_size="{&quot;x&quot;:687,&quot;y&quot;:2724,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:1127,&quot;abs_y&quot;:2767}"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
+              Get started
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="relative" bis_size="{&quot;x&quot;:0,&quot;y&quot;:65,&quot;w&quot;:825,&quot;h&quot;:990,&quot;abs_x&quot;:440,&quot;abs_y&quot;:108}">
+      <div class="md:pt-20 md:pb-12 max-w-7xl mr-auto ml-auto pt-14 pr-6 pb-8 pl-6" bis_size="{&quot;x&quot;:0,&quot;y&quot;:65,&quot;w&quot;:825,&quot;h&quot;:990,&quot;abs_x&quot;:440,&quot;abs_y&quot;:108}">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center" bis_size="{&quot;x&quot;:24,&quot;y&quot;:145,&quot;w&quot;:777,&quot;h&quot;:862,&quot;abs_x&quot;:464,&quot;abs_y&quot;:188}">
+          <div class="" bis_size="{&quot;x&quot;:24,&quot;y&quot;:145,&quot;w&quot;:777,&quot;h&quot;:338,&quot;abs_x&quot;:464,&quot;abs_y&quot;:188}">
+            <div class="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-[12px] text-neutral-700 shadow-sm" bis_size="{&quot;x&quot;:24,&quot;y&quot;:145,&quot;w&quot;:255,&quot;h&quot;:28,&quot;abs_x&quot;:464,&quot;abs_y&quot;:188}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="target" class="lucide lucide-target h-3.5 w-3.5" bis_size="{&quot;x&quot;:37,&quot;y&quot;:152,&quot;w&quot;:14,&quot;h&quot;:14,&quot;abs_x&quot;:477,&quot;abs_y&quot;:195}"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+              Purpose-built for independent tutors
+            </div>
+            <h1 class="mt-4 text-4xl md:text-5xl tracking-tight font-semibold text-neutral-900" bis_size="{&quot;x&quot;:24,&quot;y&quot;:189,&quot;w&quot;:777,&quot;h&quot;:96,&quot;abs_x&quot;:464,&quot;abs_y&quot;:232}">
+              Build a professional solo tutoring business — without the chaos
+            </h1>
+            <p class="mt-4 text-[16px] md:text-[17px] leading-7 text-neutral-700" bis_size="{&quot;x&quot;:24,&quot;y&quot;:301,&quot;w&quot;:777,&quot;h&quot;:56,&quot;abs_x&quot;:464,&quot;abs_y&quot;:344}">
+              Mentoblo is the all‑in‑one platform for independent tutors that helps you win clients, automate admin, and teach smarter with AI.
+            </p>
+            <div class="mt-6 flex flex-col sm:flex-row gap-3" bis_size="{&quot;x&quot;:24,&quot;y&quot;:381,&quot;w&quot;:777,&quot;h&quot;:46,&quot;abs_x&quot;:464,&quot;abs_y&quot;:424}">
+              <a href="/signup" class="inline-flex items-center justify-center gap-2 rounded-md border border-neutral-900 bg-neutral-900 px-4 py-2.5 text-[14px] font-medium text-white hover:bg-neutral-800 hover:border-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-800 transition" bis_size="{&quot;x&quot;:24,&quot;y&quot;:381,&quot;w&quot;:128,&quot;h&quot;:46,&quot;abs_x&quot;:464,&quot;abs_y&quot;:424}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="rocket" class="lucide lucide-rocket h-4.5 w-4.5" bis_size="{&quot;x&quot;:41,&quot;y&quot;:392,&quot;w&quot;:24,&quot;h&quot;:24,&quot;abs_x&quot;:481,&quot;abs_y&quot;:435}"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
+                Start free
+              </a>
+              <a href="#pillars" class="inline-flex items-center justify-center gap-2 rounded-md border border-neutral-200 bg-white px-4 py-2.5 text-[14px] font-medium text-neutral-900 hover:bg-neutral-50 hover:border-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-800 transition" bis_size="{&quot;x&quot;:164,&quot;y&quot;:381,&quot;w&quot;:185,&quot;h&quot;:46,&quot;abs_x&quot;:604,&quot;abs_y&quot;:424}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="layers" class="lucide lucide-layers h-4.5 w-4.5" bis_size="{&quot;x&quot;:181,&quot;y&quot;:392,&quot;w&quot;:24,&quot;h&quot;:24,&quot;abs_x&quot;:621,&quot;abs_y&quot;:435}"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path></svg>
+                Explore the pillars
+              </a>
+            </div>
+            <div class="mt-6 flex items-center gap-4" bis_size="{&quot;x&quot;:24,&quot;y&quot;:451,&quot;w&quot;:777,&quot;h&quot;:32,&quot;abs_x&quot;:464,&quot;abs_y&quot;:494}">
+              <div class="flex -space-x-2" bis_size="{&quot;x&quot;:24,&quot;y&quot;:451,&quot;w&quot;:80,&quot;h&quot;:32,&quot;abs_x&quot;:464,&quot;abs_y&quot;:494}">
+                <img src="https://images.unsplash.com/photo-1548142813-c348350df52b?q=80&amp;w=200&amp;auto=format&amp;fit=crop" alt="Tutor" class="h-8 w-8 rounded-full ring-2 ring-white border border-neutral-200 object-cover" bis_size="{&quot;x&quot;:24,&quot;y&quot;:451,&quot;w&quot;:32,&quot;h&quot;:32,&quot;abs_x&quot;:464,&quot;abs_y&quot;:494}">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&amp;w=200&amp;auto=format&amp;fit=crop" alt="Tutor" class="h-8 w-8 rounded-full ring-2 ring-white border border-neutral-200 object-cover" bis_size="{&quot;x&quot;:48,&quot;y&quot;:451,&quot;w&quot;:32,&quot;h&quot;:32,&quot;abs_x&quot;:488,&quot;abs_y&quot;:494}">
+                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&amp;w=200&amp;auto=format&amp;fit=crop" alt="Tutor" class="h-8 w-8 rounded-full ring-2 ring-white border border-neutral-200 object-cover" bis_size="{&quot;x&quot;:72,&quot;y&quot;:451,&quot;w&quot;:32,&quot;h&quot;:32,&quot;abs_x&quot;:512,&quot;abs_y&quot;:494}">
+              </div>
+              <p class="text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:120,&quot;y&quot;:457,&quot;w&quot;:279,&quot;h&quot;:19,&quot;abs_x&quot;:560,&quot;abs_y&quot;:500}">
+                Loved by independent tutors and small teams
+              </p>
+            </div>
+          </div>
+
+          <!-- Product Preview Card -->
+          <div class="relative" bis_size="{&quot;x&quot;:24,&quot;y&quot;:523,&quot;w&quot;:777,&quot;h&quot;:484,&quot;abs_x&quot;:464,&quot;abs_y&quot;:566}">
+            <div class="rounded-xl border border-neutral-200 bg-white shadow-sm overflow-hidden" bis_size="{&quot;x&quot;:24,&quot;y&quot;:523,&quot;w&quot;:777,&quot;h&quot;:484,&quot;abs_x&quot;:464,&quot;abs_y&quot;:566}">
+              <div class="flex items-center justify-between border-b border-neutral-200 bg-neutral-50/60 px-4 py-2.5" bis_size="{&quot;x&quot;:25,&quot;y&quot;:524,&quot;w&quot;:775,&quot;h&quot;:39,&quot;abs_x&quot;:465,&quot;abs_y&quot;:567}">
+                <div class="flex items-center gap-2" bis_size="{&quot;x&quot;:41,&quot;y&quot;:538,&quot;w&quot;:46,&quot;h&quot;:10,&quot;abs_x&quot;:481,&quot;abs_y&quot;:581}">
+                  <div class="h-2.5 w-2.5 rounded-full bg-rose-400" bis_size="{&quot;x&quot;:41,&quot;y&quot;:538,&quot;w&quot;:10,&quot;h&quot;:10,&quot;abs_x&quot;:481,&quot;abs_y&quot;:581}"></div>
+                  <div class="h-2.5 w-2.5 rounded-full bg-amber-400" bis_size="{&quot;x&quot;:59,&quot;y&quot;:538,&quot;w&quot;:10,&quot;h&quot;:10,&quot;abs_x&quot;:499,&quot;abs_y&quot;:581}"></div>
+                  <div class="h-2.5 w-2.5 rounded-full bg-emerald-400" bis_size="{&quot;x&quot;:77,&quot;y&quot;:538,&quot;w&quot;:10,&quot;h&quot;:10,&quot;abs_x&quot;:517,&quot;abs_y&quot;:581}"></div>
+                </div>
+                <span class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:377,&quot;y&quot;:534,&quot;w&quot;:99,&quot;h&quot;:18,&quot;abs_x&quot;:817,&quot;abs_y&quot;:577}">Command Center</span>
+                <div class="flex items-center gap-2 text-neutral-500" bis_size="{&quot;x&quot;:767,&quot;y&quot;:535,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:1207,&quot;abs_y&quot;:578}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="ellipsis" class="lucide lucide-ellipsis h-4 w-4" bis_size="{&quot;x&quot;:767,&quot;y&quot;:535,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:1207,&quot;abs_y&quot;:578}"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                </div>
+              </div>
+
+              <div class="p-5 md:p-6" bis_size="{&quot;x&quot;:25,&quot;y&quot;:563,&quot;w&quot;:775,&quot;h&quot;:443,&quot;abs_x&quot;:465,&quot;abs_y&quot;:606}">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4" bis_size="{&quot;x&quot;:49,&quot;y&quot;:587,&quot;w&quot;:727,&quot;h&quot;:339,&quot;abs_x&quot;:489,&quot;abs_y&quot;:630}">
+                  <div class="md:col-span-2 space-y-4" bis_size="{&quot;x&quot;:49,&quot;y&quot;:587,&quot;w&quot;:479,&quot;h&quot;:339,&quot;abs_x&quot;:489,&quot;abs_y&quot;:630}">
+                    <div class="grid grid-cols-3 gap-3" bis_size="{&quot;x&quot;:49,&quot;y&quot;:587,&quot;w&quot;:479,&quot;h&quot;:106,&quot;abs_x&quot;:489,&quot;abs_y&quot;:630}">
+                      <div class="rounded-lg border border-neutral-200 p-3" bis_size="{&quot;x&quot;:49,&quot;y&quot;:587,&quot;w&quot;:151,&quot;h&quot;:106,&quot;abs_x&quot;:489,&quot;abs_y&quot;:630}">
+                        <div class="flex items-center justify-between" bis_size="{&quot;x&quot;:62,&quot;y&quot;:600,&quot;w&quot;:125,&quot;h&quot;:18,&quot;abs_x&quot;:502,&quot;abs_y&quot;:643}">
+                          <span class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:62,&quot;y&quot;:600,&quot;w&quot;:63,&quot;h&quot;:18,&quot;abs_x&quot;:502,&quot;abs_y&quot;:643}">This month</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="line-chart" class="lucide lucide-line-chart h-4 w-4 text-neutral-500" bis_size="{&quot;x&quot;:171,&quot;y&quot;:601,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:611,&quot;abs_y&quot;:644}"><path d="M3 3v16a2 2 0 0 0 2 2h16"></path><path d="m19 9-5 5-4-4-3 3"></path></svg>
+                        </div>
+                        <p class="mt-1 text-2xl tracking-tight font-semibold" bis_size="{&quot;x&quot;:62,&quot;y&quot;:622,&quot;w&quot;:125,&quot;h&quot;:32,&quot;abs_x&quot;:502,&quot;abs_y&quot;:665}">€2,840</p>
+                        <p class="text-[12px] text-emerald-600 mt-1 inline-flex items-center gap-1" bis_size="{&quot;x&quot;:62,&quot;y&quot;:658,&quot;w&quot;:50,&quot;h&quot;:18,&quot;abs_x&quot;:502,&quot;abs_y&quot;:701}">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-up-right" class="lucide lucide-arrow-up-right h-3.5 w-3.5" bis_size="{&quot;x&quot;:62,&quot;y&quot;:660,&quot;w&quot;:14,&quot;h&quot;:14,&quot;abs_x&quot;:502,&quot;abs_y&quot;:703}"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                          +14%
+                        </p>
+                      </div>
+                      <div class="rounded-lg border border-neutral-200 p-3" bis_size="{&quot;x&quot;:212,&quot;y&quot;:587,&quot;w&quot;:151,&quot;h&quot;:106,&quot;abs_x&quot;:652,&quot;abs_y&quot;:630}">
+                        <div class="flex items-center justify-between" bis_size="{&quot;x&quot;:225,&quot;y&quot;:600,&quot;w&quot;:125,&quot;h&quot;:18,&quot;abs_x&quot;:665,&quot;abs_y&quot;:643}">
+                          <span class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:225,&quot;y&quot;:600,&quot;w&quot;:59,&quot;h&quot;:18,&quot;abs_x&quot;:665,&quot;abs_y&quot;:643}">New leads</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="inbox" class="lucide lucide-inbox h-4 w-4 text-neutral-500" bis_size="{&quot;x&quot;:335,&quot;y&quot;:601,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:775,&quot;abs_y&quot;:644}"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg>
+                        </div>
+                        <p class="mt-1 text-2xl tracking-tight font-semibold" bis_size="{&quot;x&quot;:225,&quot;y&quot;:622,&quot;w&quot;:125,&quot;h&quot;:32,&quot;abs_x&quot;:665,&quot;abs_y&quot;:665}">19</p>
+                        <p class="text-[12px] text-neutral-600 mt-1" bis_size="{&quot;x&quot;:225,&quot;y&quot;:658,&quot;w&quot;:125,&quot;h&quot;:18,&quot;abs_x&quot;:665,&quot;abs_y&quot;:701}">Conversion 42%</p>
+                      </div>
+                      <div class="rounded-lg border border-neutral-200 p-3" bis_size="{&quot;x&quot;:376,&quot;y&quot;:587,&quot;w&quot;:151,&quot;h&quot;:106,&quot;abs_x&quot;:816,&quot;abs_y&quot;:630}">
+                        <div class="flex items-center justify-between" bis_size="{&quot;x&quot;:389,&quot;y&quot;:600,&quot;w&quot;:125,&quot;h&quot;:18,&quot;abs_x&quot;:829,&quot;abs_y&quot;:643}">
+                          <span class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:389,&quot;y&quot;:600,&quot;w&quot;:58,&quot;h&quot;:18,&quot;abs_x&quot;:829,&quot;abs_y&quot;:643}">Upcoming</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" class="lucide lucide-calendar h-4 w-4 text-neutral-500" bis_size="{&quot;x&quot;:499,&quot;y&quot;:601,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:939,&quot;abs_y&quot;:644}"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
+                        </div>
+                        <p class="mt-1 text-2xl tracking-tight font-semibold" bis_size="{&quot;x&quot;:389,&quot;y&quot;:622,&quot;w&quot;:125,&quot;h&quot;:32,&quot;abs_x&quot;:829,&quot;abs_y&quot;:665}">7 lessons</p>
+                        <p class="text-[12px] text-neutral-600 mt-1" bis_size="{&quot;x&quot;:389,&quot;y&quot;:658,&quot;w&quot;:125,&quot;h&quot;:18,&quot;abs_x&quot;:829,&quot;abs_y&quot;:701}">Next in 45m</p>
+                      </div>
+                    </div>
+
+                    <div class="rounded-lg border border-neutral-200" bis_size="{&quot;x&quot;:49,&quot;y&quot;:709,&quot;w&quot;:479,&quot;h&quot;:217,&quot;abs_x&quot;:489,&quot;abs_y&quot;:752}">
+                      <div class="flex items-center justify-between border-b border-neutral-200 px-3 py-2.5" bis_size="{&quot;x&quot;:50,&quot;y&quot;:710,&quot;w&quot;:477,&quot;h&quot;:40,&quot;abs_x&quot;:490,&quot;abs_y&quot;:753}">
+                        <div class="flex items-center gap-2" bis_size="{&quot;x&quot;:62,&quot;y&quot;:720,&quot;w&quot;:114,&quot;h&quot;:19,&quot;abs_x&quot;:502,&quot;abs_y&quot;:763}">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="notebook-text" class="lucide lucide-notebook-text h-4 w-4 text-neutral-600" bis_size="{&quot;x&quot;:62,&quot;y&quot;:722,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:502,&quot;abs_y&quot;:765}"><path d="M2 6h4"></path><path d="M2 10h4"></path><path d="M2 14h4"></path><path d="M2 18h4"></path><rect width="16" height="20" x="4" y="2" rx="2"></rect><path d="M9.5 8h5"></path><path d="M9.5 12H16"></path><path d="M9.5 16H14"></path></svg>
+                          <span class="text-[13px] text-neutral-700" bis_size="{&quot;x&quot;:86,&quot;y&quot;:720,&quot;w&quot;:90,&quot;h&quot;:19,&quot;abs_x&quot;:526,&quot;abs_y&quot;:763}">Recent activity</span>
+                        </div>
+                        <button class="text-[12px] text-neutral-700 hover:text-neutral-900 inline-flex items-center gap-1" bis_size="{&quot;x&quot;:453,&quot;y&quot;:721,&quot;w&quot;:61,&quot;h&quot;:18,&quot;abs_x&quot;:893,&quot;abs_y&quot;:764}">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="refresh-cw" class="lucide lucide-refresh-cw h-3.5 w-3.5" bis_size="{&quot;x&quot;:453,&quot;y&quot;:723,&quot;w&quot;:14,&quot;h&quot;:14,&quot;abs_x&quot;:893,&quot;abs_y&quot;:766}"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg> Refresh
+                        </button>
+                      </div>
+                      <ul class="divide-y divide-neutral-200" bis_size="{&quot;x&quot;:50,&quot;y&quot;:751,&quot;w&quot;:477,&quot;h&quot;:174,&quot;abs_x&quot;:490,&quot;abs_y&quot;:794}">
+                        <li class="flex items-center justify-between px-3 py-2.5" bis_size="{&quot;x&quot;:50,&quot;y&quot;:751,&quot;w&quot;:477,&quot;h&quot;:57,&quot;abs_x&quot;:490,&quot;abs_y&quot;:794}">
+                          <div class="flex items-center gap-3" bis_size="{&quot;x&quot;:62,&quot;y&quot;:761,&quot;w&quot;:193,&quot;h&quot;:37,&quot;abs_x&quot;:502,&quot;abs_y&quot;:804}">
+                            <div class="h-8 w-8 rounded-md border border-neutral-200 bg-white grid place-items-center" bis_size="{&quot;x&quot;:62,&quot;y&quot;:763,&quot;w&quot;:32,&quot;h&quot;:32,&quot;abs_x&quot;:502,&quot;abs_y&quot;:806}">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="credit-card" class="lucide lucide-credit-card h-4 w-4 text-emerald-600" bis_size="{&quot;x&quot;:70,&quot;y&quot;:771,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:510,&quot;abs_y&quot;:814}"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg>
+                            </div>
+                            <div bis_size="{&quot;x&quot;:106,&quot;y&quot;:761,&quot;w&quot;:149,&quot;h&quot;:37,&quot;abs_x&quot;:546,&quot;abs_y&quot;:804}">
+                              <p class="text-[13px] text-neutral-900" bis_size="{&quot;x&quot;:106,&quot;y&quot;:761,&quot;w&quot;:149,&quot;h&quot;:19,&quot;abs_x&quot;:546,&quot;abs_y&quot;:804}">Payment received • €60</p>
+                              <p class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:106,&quot;y&quot;:780,&quot;w&quot;:149,&quot;h&quot;:18,&quot;abs_x&quot;:546,&quot;abs_y&quot;:823}">From Sarah’s parent</p>
+                            </div>
+                          </div>
+                          <span class="text-[12px] text-neutral-500" bis_size="{&quot;x&quot;:472,&quot;y&quot;:770,&quot;w&quot;:42,&quot;h&quot;:18,&quot;abs_x&quot;:912,&quot;abs_y&quot;:813}">2m ago</span>
+                        </li>
+                        <li class="flex items-center justify-between px-3 py-2.5" bis_size="{&quot;x&quot;:50,&quot;y&quot;:808,&quot;w&quot;:477,&quot;h&quot;:58,&quot;abs_x&quot;:490,&quot;abs_y&quot;:851}">
+                          <div class="flex items-center gap-3" bis_size="{&quot;x&quot;:62,&quot;y&quot;:819,&quot;w&quot;:230,&quot;h&quot;:37,&quot;abs_x&quot;:502,&quot;abs_y&quot;:862}">
+                            <div class="h-8 w-8 rounded-md border border-neutral-200 bg-white grid place-items-center" bis_size="{&quot;x&quot;:62,&quot;y&quot;:822,&quot;w&quot;:32,&quot;h&quot;:32,&quot;abs_x&quot;:502,&quot;abs_y&quot;:865}">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="user-plus" class="lucide lucide-user-plus h-4 w-4 text-blue-600" bis_size="{&quot;x&quot;:70,&quot;y&quot;:830,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:510,&quot;abs_y&quot;:873}"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><line x1="19" x2="19" y1="8" y2="14"></line><line x1="22" x2="16" y1="11" y2="11"></line></svg>
+                            </div>
+                            <div bis_size="{&quot;x&quot;:106,&quot;y&quot;:819,&quot;w&quot;:186,&quot;h&quot;:37,&quot;abs_x&quot;:546,&quot;abs_y&quot;:862}">
+                              <p class="text-[13px] text-neutral-900" bis_size="{&quot;x&quot;:106,&quot;y&quot;:819,&quot;w&quot;:186,&quot;h&quot;:19,&quot;abs_x&quot;:546,&quot;abs_y&quot;:862}">New lead booked consultation</p>
+                              <p class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:106,&quot;y&quot;:839,&quot;w&quot;:186,&quot;h&quot;:18,&quot;abs_x&quot;:546,&quot;abs_y&quot;:882}">Marco, Tuesday 10:00</p>
+                            </div>
+                          </div>
+                          <span class="text-[12px] text-neutral-500" bis_size="{&quot;x&quot;:468,&quot;y&quot;:829,&quot;w&quot;:47,&quot;h&quot;:18,&quot;abs_x&quot;:908,&quot;abs_y&quot;:872}">15m ago</span>
+                        </li>
+                        <li class="flex items-center justify-between px-3 py-2.5" bis_size="{&quot;x&quot;:50,&quot;y&quot;:867,&quot;w&quot;:477,&quot;h&quot;:58,&quot;abs_x&quot;:490,&quot;abs_y&quot;:910}">
+                          <div class="flex items-center gap-3" bis_size="{&quot;x&quot;:62,&quot;y&quot;:878,&quot;w&quot;:209,&quot;h&quot;:37,&quot;abs_x&quot;:502,&quot;abs_y&quot;:921}">
+                            <div class="h-8 w-8 rounded-md border border-neutral-200 bg-white grid place-items-center" bis_size="{&quot;x&quot;:62,&quot;y&quot;:880,&quot;w&quot;:32,&quot;h&quot;:32,&quot;abs_x&quot;:502,&quot;abs_y&quot;:923}">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="file-text" class="lucide lucide-file-text h-4 w-4 text-violet-600" bis_size="{&quot;x&quot;:70,&quot;y&quot;:888,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:510,&quot;abs_y&quot;:931}"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>
+                            </div>
+                            <div bis_size="{&quot;x&quot;:106,&quot;y&quot;:878,&quot;w&quot;:165,&quot;h&quot;:37,&quot;abs_x&quot;:546,&quot;abs_y&quot;:921}">
+                              <p class="text-[13px] text-neutral-900" bis_size="{&quot;x&quot;:106,&quot;y&quot;:878,&quot;w&quot;:165,&quot;h&quot;:19,&quot;abs_x&quot;:546,&quot;abs_y&quot;:921}">Invoice sent • Lesson #182</p>
+                              <p class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:106,&quot;y&quot;:897,&quot;w&quot;:165,&quot;h&quot;:18,&quot;abs_x&quot;:546,&quot;abs_y&quot;:940}">Peter • English B1</p>
+                            </div>
+                          </div>
+                          <span class="text-[12px] text-neutral-500" bis_size="{&quot;x&quot;:478,&quot;y&quot;:887,&quot;w&quot;:36,&quot;h&quot;:18,&quot;abs_x&quot;:918,&quot;abs_y&quot;:930}">1h ago</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- Mini Calendar -->
+                  <div class="space-y-4" bis_size="{&quot;x&quot;:544,&quot;y&quot;:587,&quot;w&quot;:231,&quot;h&quot;:339,&quot;abs_x&quot;:984,&quot;abs_y&quot;:630}">
+                    <div class="rounded-lg border border-neutral-200 p-3" bis_size="{&quot;x&quot;:544,&quot;y&quot;:587,&quot;w&quot;:231,&quot;h&quot;:156,&quot;abs_x&quot;:984,&quot;abs_y&quot;:630}">
+                      <div class="flex items-center justify-between" bis_size="{&quot;x&quot;:557,&quot;y&quot;:600,&quot;w&quot;:205,&quot;h&quot;:18,&quot;abs_x&quot;:997,&quot;abs_y&quot;:643}">
+                        <span class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:557,&quot;y&quot;:600,&quot;w&quot;:60,&quot;h&quot;:18,&quot;abs_x&quot;:997,&quot;abs_y&quot;:643}">Availability</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="clock" class="lucide lucide-clock h-4 w-4 text-neutral-500" bis_size="{&quot;x&quot;:747,&quot;y&quot;:601,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:1187,&quot;abs_y&quot;:644}"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="10"></circle></svg>
+                      </div>
+                      <div class="mt-2 grid grid-cols-7 gap-1.5" bis_size="{&quot;x&quot;:557,&quot;y&quot;:626,&quot;w&quot;:205,&quot;h&quot;:15,&quot;abs_x&quot;:997,&quot;abs_y&quot;:669}">
+                        <span class="text-[10px] text-neutral-500 text-center" bis_size="{&quot;x&quot;:557,&quot;y&quot;:626,&quot;w&quot;:24,&quot;h&quot;:15,&quot;abs_x&quot;:997,&quot;abs_y&quot;:669}">M</span>
+                        <span class="text-[10px] text-neutral-500 text-center" bis_size="{&quot;x&quot;:587,&quot;y&quot;:626,&quot;w&quot;:24,&quot;h&quot;:15,&quot;abs_x&quot;:1027,&quot;abs_y&quot;:669}">T</span>
+                        <span class="text-[10px] text-neutral-500 text-center" bis_size="{&quot;x&quot;:617,&quot;y&quot;:626,&quot;w&quot;:24,&quot;h&quot;:15,&quot;abs_x&quot;:1057,&quot;abs_y&quot;:669}">W</span>
+                        <span class="text-[10px] text-neutral-500 text-center" bis_size="{&quot;x&quot;:648,&quot;y&quot;:626,&quot;w&quot;:24,&quot;h&quot;:15,&quot;abs_x&quot;:1088,&quot;abs_y&quot;:669}">T</span>
+                        <span class="text-[10px] text-neutral-500 text-center" bis_size="{&quot;x&quot;:678,&quot;y&quot;:626,&quot;w&quot;:24,&quot;h&quot;:15,&quot;abs_x&quot;:1118,&quot;abs_y&quot;:669}">F</span>
+                        <span class="text-[10px] text-neutral-500 text-center" bis_size="{&quot;x&quot;:708,&quot;y&quot;:626,&quot;w&quot;:24,&quot;h&quot;:15,&quot;abs_x&quot;:1148,&quot;abs_y&quot;:669}">S</span>
+                        <span class="text-[10px] text-neutral-500 text-center" bis_size="{&quot;x&quot;:738,&quot;y&quot;:626,&quot;w&quot;:24,&quot;h&quot;:15,&quot;abs_x&quot;:1178,&quot;abs_y&quot;:669}">S</span>
+                      </div>
+                      <div class="mt-2 grid grid-cols-7 gap-1.5" bis_size="{&quot;x&quot;:557,&quot;y&quot;:649,&quot;w&quot;:205,&quot;h&quot;:32,&quot;abs_x&quot;:997,&quot;abs_y&quot;:692}">
+                        <!-- simple availability dots -->
+                        <div class="h-8 w-full rounded border border-neutral-200 grid place-items-center text-[12px] text-neutral-700" bis_size="{&quot;x&quot;:557,&quot;y&quot;:649,&quot;w&quot;:24,&quot;h&quot;:32,&quot;abs_x&quot;:997,&quot;abs_y&quot;:692}">9</div>
+                        <div class="h-8 w-full rounded border border-neutral-200 bg-emerald-50 text-emerald-800 grid place-items-center text-[12px]" bis_size="{&quot;x&quot;:587,&quot;y&quot;:649,&quot;w&quot;:24,&quot;h&quot;:32,&quot;abs_x&quot;:1027,&quot;abs_y&quot;:692}">10</div>
+                        <div class="h-8 w-full rounded border border-neutral-200 grid place-items-center text-[12px] text-neutral-700" bis_size="{&quot;x&quot;:617,&quot;y&quot;:649,&quot;w&quot;:24,&quot;h&quot;:32,&quot;abs_x&quot;:1057,&quot;abs_y&quot;:692}">11</div>
+                        <div class="h-8 w-full rounded border border-neutral-200 grid place-items-center text-[12px] text-neutral-700" bis_size="{&quot;x&quot;:648,&quot;y&quot;:649,&quot;w&quot;:24,&quot;h&quot;:32,&quot;abs_x&quot;:1088,&quot;abs_y&quot;:692}">12</div>
+                        <div class="h-8 w-full rounded border border-neutral-200 bg-emerald-50 text-emerald-800 grid place-items-center text-[12px]" bis_size="{&quot;x&quot;:678,&quot;y&quot;:649,&quot;w&quot;:24,&quot;h&quot;:32,&quot;abs_x&quot;:1118,&quot;abs_y&quot;:692}">13</div>
+                        <div class="h-8 w-full rounded border border-neutral-200 grid place-items-center text-[12px] text-neutral-700" bis_size="{&quot;x&quot;:708,&quot;y&quot;:649,&quot;w&quot;:24,&quot;h&quot;:32,&quot;abs_x&quot;:1148,&quot;abs_y&quot;:692}">14</div>
+                        <div class="h-8 w-full rounded border border-neutral-200 grid place-items-center text-[12px] text-neutral-700" bis_size="{&quot;x&quot;:738,&quot;y&quot;:649,&quot;w&quot;:24,&quot;h&quot;:32,&quot;abs_x&quot;:1178,&quot;abs_y&quot;:692}">15</div>
+                      </div>
+                      <a href="/booking" class="mt-3 w-full inline-flex items-center justify-center gap-2 rounded-md border border-neutral-200 bg-white px-3 py-2 text-[13px] font-medium text-neutral-900 hover:bg-neutral-50 hover:border-neutral-300 transition" bis_size="{&quot;x&quot;:557,&quot;y&quot;:693,&quot;w&quot;:205,&quot;h&quot;:37,&quot;abs_x&quot;:997,&quot;abs_y&quot;:736}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar-plus" class="lucide lucide-calendar-plus h-4 w-4" bis_size="{&quot;x&quot;:587,&quot;y&quot;:703,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:1027,&quot;abs_y&quot;:746}"><path d="M16 19h6"></path><path d="M16 2v4"></path><path d="M19 16v6"></path><path d="M21 12.598V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8.5"></path><path d="M3 10h18"></path><path d="M8 2v4"></path></svg>
+                        Open booking page
+                      </a>
+                    </div>
+
+                    <div class="rounded-lg border border-neutral-200 p-3" bis_size="{&quot;x&quot;:544,&quot;y&quot;:759,&quot;w&quot;:231,&quot;h&quot;:126,&quot;abs_x&quot;:984,&quot;abs_y&quot;:802}">
+                      <div class="flex items-center justify-between" bis_size="{&quot;x&quot;:557,&quot;y&quot;:772,&quot;w&quot;:205,&quot;h&quot;:18,&quot;abs_x&quot;:997,&quot;abs_y&quot;:815}">
+                        <span class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:557,&quot;y&quot;:772,&quot;w&quot;:95,&quot;h&quot;:18,&quot;abs_x&quot;:997,&quot;abs_y&quot;:815}">Materials Library</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="folder" class="lucide lucide-folder h-4 w-4 text-neutral-500" bis_size="{&quot;x&quot;:747,&quot;y&quot;:773,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:1187,&quot;abs_y&quot;:816}"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg>
+                      </div>
+                      <ul class="mt-2 space-y-2" bis_size="{&quot;x&quot;:557,&quot;y&quot;:798,&quot;w&quot;:205,&quot;h&quot;:74,&quot;abs_x&quot;:997,&quot;abs_y&quot;:841}">
+                        <li class="flex items-center justify-between" bis_size="{&quot;x&quot;:557,&quot;y&quot;:798,&quot;w&quot;:205,&quot;h&quot;:19,&quot;abs_x&quot;:997,&quot;abs_y&quot;:841}">
+                          <div class="flex items-center gap-2" bis_size="{&quot;x&quot;:557,&quot;y&quot;:798,&quot;w&quot;:137,&quot;h&quot;:19,&quot;abs_x&quot;:997,&quot;abs_y&quot;:841}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="file" class="lucide lucide-file h-4 w-4 text-neutral-500" bis_size="{&quot;x&quot;:557,&quot;y&quot;:800,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:997,&quot;abs_y&quot;:843}"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path></svg>
+                            <span class="text-[13px] text-neutral-800" bis_size="{&quot;x&quot;:581,&quot;y&quot;:798,&quot;w&quot;:113,&quot;h&quot;:19,&quot;abs_x&quot;:1021,&quot;abs_y&quot;:841}">B1 Past Simple.pdf</span>
+                          </div>
+                          <span class="text-[12px] text-neutral-500" bis_size="{&quot;x&quot;:726,&quot;y&quot;:799,&quot;w&quot;:36,&quot;h&quot;:18,&quot;abs_x&quot;:1166,&quot;abs_y&quot;:842}">2.1 MB</span>
+                        </li>
+                        <li class="flex items-center justify-between" bis_size="{&quot;x&quot;:557,&quot;y&quot;:826,&quot;w&quot;:205,&quot;h&quot;:19,&quot;abs_x&quot;:997,&quot;abs_y&quot;:869}">
+                          <div class="flex items-center gap-2" bis_size="{&quot;x&quot;:557,&quot;y&quot;:826,&quot;w&quot;:161,&quot;h&quot;:19,&quot;abs_x&quot;:997,&quot;abs_y&quot;:869}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="video" class="lucide lucide-video h-4 w-4 text-neutral-500" bis_size="{&quot;x&quot;:557,&quot;y&quot;:827,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:997,&quot;abs_y&quot;:870}"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"></path><rect x="2" y="6" width="14" height="12" rx="2"></rect></svg>
+                            <span class="text-[13px] text-neutral-800" bis_size="{&quot;x&quot;:581,&quot;y&quot;:826,&quot;w&quot;:137,&quot;h&quot;:19,&quot;abs_x&quot;:1021,&quot;abs_y&quot;:869}">Dialogue practice.mov</span>
+                          </div>
+                          <span class="text-[12px] text-neutral-500" bis_size="{&quot;x&quot;:726,&quot;y&quot;:826,&quot;w&quot;:36,&quot;h&quot;:18,&quot;abs_x&quot;:1166,&quot;abs_y&quot;:869}">38 MB</span>
+                        </li>
+                        <li class="flex items-center justify-between" bis_size="{&quot;x&quot;:557,&quot;y&quot;:853,&quot;w&quot;:205,&quot;h&quot;:19,&quot;abs_x&quot;:997,&quot;abs_y&quot;:896}">
+                          <div class="flex items-center gap-2" bis_size="{&quot;x&quot;:557,&quot;y&quot;:853,&quot;w&quot;:140,&quot;h&quot;:19,&quot;abs_x&quot;:997,&quot;abs_y&quot;:896}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="file-text" class="lucide lucide-file-text h-4 w-4 text-neutral-500" bis_size="{&quot;x&quot;:557,&quot;y&quot;:855,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:997,&quot;abs_y&quot;:898}"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>
+                            <span class="text-[13px] text-neutral-800" bis_size="{&quot;x&quot;:581,&quot;y&quot;:853,&quot;w&quot;:116,&quot;h&quot;:19,&quot;abs_x&quot;:1021,&quot;abs_y&quot;:896}">Worksheet 12.docx</span>
+                          </div>
+                          <span class="text-[12px] text-neutral-500" bis_size="{&quot;x&quot;:723,&quot;y&quot;:854,&quot;w&quot;:39,&quot;h&quot;:18,&quot;abs_x&quot;:1163,&quot;abs_y&quot;:897}">310 KB</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4 rounded-lg border border-neutral-200 bg-neutral-50/70 px-3 py-2.5 text-[12px] text-neutral-700" bis_size="{&quot;x&quot;:49,&quot;y&quot;:942,&quot;w&quot;:727,&quot;h&quot;:40,&quot;abs_x&quot;:489,&quot;abs_y&quot;:985}">
+                  Stripe payments, calendar sync, and shared notes all in one place.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>      
+    </section>
+
+    <!-- Why / Enemy / Hero -->
+    <section id="why" class="border-t border-neutral-200" bis_size="{&quot;x&quot;:0,&quot;y&quot;:1055,&quot;w&quot;:825,&quot;h&quot;:393,&quot;abs_x&quot;:440,&quot;abs_y&quot;:1098}">
+      <div class="mx-auto max-w-7xl px-6 py-12 md:py-16" bis_size="{&quot;x&quot;:0,&quot;y&quot;:1056,&quot;w&quot;:825,&quot;h&quot;:392,&quot;abs_x&quot;:440,&quot;abs_y&quot;:1099}">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8" bis_size="{&quot;x&quot;:24,&quot;y&quot;:1120,&quot;w&quot;:777,&quot;h&quot;:264,&quot;abs_x&quot;:464,&quot;abs_y&quot;:1163}">
+          <div class="rounded-xl border border-neutral-200 p-6 bg-white" bis_size="{&quot;x&quot;:24,&quot;y&quot;:1120,&quot;w&quot;:237,&quot;h&quot;:264,&quot;abs_x&quot;:464,&quot;abs_y&quot;:1163}">
+            <div class="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-2.5 py-1 text-[11px] text-neutral-700" bis_size="{&quot;x&quot;:49,&quot;y&quot;:1145,&quot;w&quot;:106,&quot;h&quot;:26,&quot;abs_x&quot;:489,&quot;abs_y&quot;:1188}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="flag" class="lucide lucide-flag h-3.5 w-3.5" bis_size="{&quot;x&quot;:60,&quot;y&quot;:1151,&quot;w&quot;:14,&quot;h&quot;:14,&quot;abs_x&quot;:500,&quot;abs_y&quot;:1194}"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"></path></svg> Our Mission
+            </div>
+            <h3 class="mt-3 text-xl tracking-tight font-semibold" bis_size="{&quot;x&quot;:49,&quot;y&quot;:1184,&quot;w&quot;:187,&quot;h&quot;:84,&quot;abs_x&quot;:489,&quot;abs_y&quot;:1227}">Liberate tutors from administrative chaos</h3>
+            <p class="mt-2 text-[14px] text-neutral-700" bis_size="{&quot;x&quot;:49,&quot;y&quot;:1276,&quot;w&quot;:187,&quot;h&quot;:84,&quot;abs_x&quot;:489,&quot;abs_y&quot;:1319}">
+              Equip tutors to build a confident, elegant solo business — focused on teaching, not juggling tools.
+            </p>
+          </div>
+
+          <div class="rounded-xl border border-neutral-200 p-6 bg-white" bis_size="{&quot;x&quot;:293,&quot;y&quot;:1120,&quot;w&quot;:237,&quot;h&quot;:264,&quot;abs_x&quot;:733,&quot;abs_y&quot;:1163}">
+            <div class="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-2.5 py-1 text-[11px] text-neutral-700" bis_size="{&quot;x&quot;:318,&quot;y&quot;:1145,&quot;w&quot;:161,&quot;h&quot;:26,&quot;abs_x&quot;:758,&quot;abs_y&quot;:1188}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="ban" class="lucide lucide-ban h-3.5 w-3.5" bis_size="{&quot;x&quot;:329,&quot;y&quot;:1151,&quot;w&quot;:14,&quot;h&quot;:14,&quot;abs_x&quot;:769,&quot;abs_y&quot;:1194}"><path d="M4.929 4.929 19.07 19.071"></path><circle cx="12" cy="12" r="10"></circle></svg> The Problem We Solve
+            </div>
+            <h3 class="mt-3 text-xl tracking-tight font-semibold" bis_size="{&quot;x&quot;:318,&quot;y&quot;:1184,&quot;w&quot;:187,&quot;h&quot;:56,&quot;abs_x&quot;:758,&quot;abs_y&quot;:1227}">The chaos of glued‑together tools</h3>
+            <p class="mt-2 text-[14px] text-neutral-700" bis_size="{&quot;x&quot;:318,&quot;y&quot;:1248,&quot;w&quot;:187,&quot;h&quot;:105,&quot;abs_x&quot;:758,&quot;abs_y&quot;:1291}">
+              Website, calendar, invoicing, calls, notes, CRM — scattered apps that don’t talk to each other. Lost time and lost trust.
+            </p>
+          </div>
+
+          <div class="rounded-xl border border-neutral-200 p-6 bg-white" bis_size="{&quot;x&quot;:563,&quot;y&quot;:1120,&quot;w&quot;:237,&quot;h&quot;:264,&quot;abs_x&quot;:1003,&quot;abs_y&quot;:1163}">
+            <div class="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-2.5 py-1 text-[11px] text-neutral-700" bis_size="{&quot;x&quot;:588,&quot;y&quot;:1145,&quot;w&quot;:91,&quot;h&quot;:26,&quot;abs_x&quot;:1028,&quot;abs_y&quot;:1188}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="user" class="lucide lucide-user h-3.5 w-3.5" bis_size="{&quot;x&quot;:599,&quot;y&quot;:1151,&quot;w&quot;:14,&quot;h&quot;:14,&quot;abs_x&quot;:1039,&quot;abs_y&quot;:1194}"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Our Hero
+            </div>
+            <h3 class="mt-3 text-xl tracking-tight font-semibold" bis_size="{&quot;x&quot;:588,&quot;y&quot;:1184,&quot;w&quot;:187,&quot;h&quot;:56,&quot;abs_x&quot;:1028,&quot;abs_y&quot;:1227}">Independent tutors and small teams</h3>
+            <p class="mt-2 text-[14px] text-neutral-700" bis_size="{&quot;x&quot;:588,&quot;y&quot;:1248,&quot;w&quot;:187,&quot;h&quot;:105,&quot;abs_x&quot;:1028,&quot;abs_y&quot;:1291}">
+              Not large schools. Individuals who need help with everything besides teaching: marketing, sales, admin, invoicing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Three Pillars -->
+    <section id="pillars" class="border-t border-neutral-200 bg-neutral-50/40" bis_size="{&quot;x&quot;:0,&quot;y&quot;:1449,&quot;w&quot;:825,&quot;h&quot;:2137,&quot;abs_x&quot;:440,&quot;abs_y&quot;:1492}">
+      <div class="md:py-18 max-w-7xl mr-auto ml-auto pt-14 pr-6 pb-14 pl-6" bis_size="{&quot;x&quot;:0,&quot;y&quot;:1450,&quot;w&quot;:825,&quot;h&quot;:2136,&quot;abs_x&quot;:440,&quot;abs_y&quot;:1493}">
+        <div class="max-w-2xl" bis_size="{&quot;x&quot;:24,&quot;y&quot;:1506,&quot;w&quot;:672,&quot;h&quot;:72,&quot;abs_x&quot;:464,&quot;abs_y&quot;:1549}">
+          <h2 class="text-3xl md:text-4xl tracking-tight font-semibold" bis_size="{&quot;x&quot;:24,&quot;y&quot;:1506,&quot;w&quot;:672,&quot;h&quot;:40,&quot;abs_x&quot;:464,&quot;abs_y&quot;:1549}">The three pillars</h2>
+          <p class="mt-2 text-[16px] text-neutral-700" bis_size="{&quot;x&quot;:24,&quot;y&quot;:1554,&quot;w&quot;:672,&quot;h&quot;:24,&quot;abs_x&quot;:464,&quot;abs_y&quot;:1597}">Everything in Mentoblo ladders up to growth, operations, or AI leverage.</p>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6" bis_size="{&quot;x&quot;:24,&quot;y&quot;:1610,&quot;w&quot;:777,&quot;h&quot;:1132,&quot;abs_x&quot;:464,&quot;abs_y&quot;:1653}">
+          <!-- Pillar 1 -->
+          <div class="rounded-xl border border-neutral-200 bg-white p-6" bis_size="{&quot;x&quot;:24,&quot;y&quot;:1610,&quot;w&quot;:777,&quot;h&quot;:309,&quot;abs_x&quot;:464,&quot;abs_y&quot;:1653}">
+            <div class="flex items-start justify-between" bis_size="{&quot;x&quot;:49,&quot;y&quot;:1635,&quot;w&quot;:727,&quot;h&quot;:26,&quot;abs_x&quot;:489,&quot;abs_y&quot;:1678}">
+              <div class="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-2.5 py-1 text-[11px] text-neutral-700" bis_size="{&quot;x&quot;:49,&quot;y&quot;:1635,&quot;w&quot;:70,&quot;h&quot;:26,&quot;abs_x&quot;:489,&quot;abs_y&quot;:1678}">
+                <span class="h-2 w-2 rounded-full bg-emerald-500" bis_size="{&quot;x&quot;:60,&quot;y&quot;:1644,&quot;w&quot;:8,&quot;h&quot;:8,&quot;abs_x&quot;:500,&quot;abs_y&quot;:1687}"></span>
+                Pillar 1
+              </div>
+              <i data-lucide="growth" class="h-5 w-5 text-neutral-500" bis_size="{&quot;x&quot;:756,&quot;y&quot;:1635,&quot;w&quot;:20,&quot;h&quot;:20,&quot;abs_x&quot;:1196,&quot;abs_y&quot;:1678}"></i>
+            </div>
+            <h3 class="mt-3 text-[20px] tracking-tight font-semibold" bis_size="{&quot;x&quot;:49,&quot;y&quot;:1673,&quot;w&quot;:727,&quot;h&quot;:30,&quot;abs_x&quot;:489,&quot;abs_y&quot;:1716}">The Growth Engine</h3>
+            <p class="mt-2 text-[14px] text-neutral-700" bis_size="{&quot;x&quot;:49,&quot;y&quot;:1711,&quot;w&quot;:727,&quot;h&quot;:21,&quot;abs_x&quot;:489,&quot;abs_y&quot;:1754}">Get more clients with a professional storefront and instant bookings.</p>
+            <ul class="mt-4 space-y-3" bis_size="{&quot;x&quot;:49,&quot;y&quot;:1748,&quot;w&quot;:727,&quot;h&quot;:145,&quot;abs_x&quot;:489,&quot;abs_y&quot;:1791}">
+              <li class="flex items-start gap-3" bis_size="{&quot;x&quot;:49,&quot;y&quot;:1748,&quot;w&quot;:727,&quot;h&quot;:40,&quot;abs_x&quot;:489,&quot;abs_y&quot;:1791}">
+                <div class="h-8 w-8 rounded-md border border-neutral-200 bg-white grid place-items-center" bis_size="{&quot;x&quot;:49,&quot;y&quot;:1748,&quot;w&quot;:32,&quot;h&quot;:32,&quot;abs_x&quot;:489,&quot;abs_y&quot;:1791}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="globe" class="lucide lucide-globe h-4 w-4 text-neutral-600" bis_size="{&quot;x&quot;:57,&quot;y&quot;:1756,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:497,&quot;abs_y&quot;:1799}"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+                </div>
+                <div bis_size="{&quot;x&quot;:93,&quot;y&quot;:1748,&quot;w&quot;:568,&quot;h&quot;:40,&quot;abs_x&quot;:533,&quot;abs_y&quot;:1791}">
+                  <p class="text-[14px] font-medium text-neutral-900" bis_size="{&quot;x&quot;:93,&quot;y&quot;:1748,&quot;w&quot;:568,&quot;h&quot;:21,&quot;abs_x&quot;:533,&quot;abs_y&quot;:1791}">Professional Public Page</p>
+                  <p class="text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:93,&quot;y&quot;:1769,&quot;w&quot;:568,&quot;h&quot;:19,&quot;abs_x&quot;:533,&quot;abs_y&quot;:1812}">SEO‑friendly profile at mentoblo.com/t/your-profile with bio, specialties, testimonials, pricing.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3" bis_size="{&quot;x&quot;:49,&quot;y&quot;:1801,&quot;w&quot;:727,&quot;h&quot;:40,&quot;abs_x&quot;:489,&quot;abs_y&quot;:1844}">
+                <div class="h-8 w-8 rounded-md border border-neutral-200 bg-white grid place-items-center" bis_size="{&quot;x&quot;:49,&quot;y&quot;:1801,&quot;w&quot;:32,&quot;h&quot;:32,&quot;abs_x&quot;:489,&quot;abs_y&quot;:1844}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar-check-2" class="lucide lucide-calendar-check-2 h-4 w-4 text-neutral-600" bis_size="{&quot;x&quot;:57,&quot;y&quot;:1809,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:497,&quot;abs_y&quot;:1852}"><path d="M8 2v4"></path><path d="M16 2v4"></path><path d="M21 14V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"></path><path d="M3 10h18"></path><path d="m16 20 2 2 4-4"></path></svg>
+                </div>
+                <div bis_size="{&quot;x&quot;:93,&quot;y&quot;:1801,&quot;w&quot;:517,&quot;h&quot;:40,&quot;abs_x&quot;:533,&quot;abs_y&quot;:1844}">
+                  <p class="text-[14px] font-medium text-neutral-900" bis_size="{&quot;x&quot;:93,&quot;y&quot;:1801,&quot;w&quot;:517,&quot;h&quot;:21,&quot;abs_x&quot;:533,&quot;abs_y&quot;:1844}">Integrated Booking &amp; Payments</p>
+                  <p class="text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:93,&quot;y&quot;:1822,&quot;w&quot;:517,&quot;h&quot;:19,&quot;abs_x&quot;:533,&quot;abs_y&quot;:1865}">Real‑time availability with instant booking of consultations or lessons — pay upfront.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3" bis_size="{&quot;x&quot;:49,&quot;y&quot;:1853,&quot;w&quot;:727,&quot;h&quot;:40,&quot;abs_x&quot;:489,&quot;abs_y&quot;:1896}">
+                <div class="h-8 w-8 rounded-md border border-neutral-200 bg-white grid place-items-center" bis_size="{&quot;x&quot;:49,&quot;y&quot;:1853,&quot;w&quot;:32,&quot;h&quot;:32,&quot;abs_x&quot;:489,&quot;abs_y&quot;:1896}">
+                  <i data-lucide="pipeline" class="h-4 w-4 text-neutral-600" bis_size="{&quot;x&quot;:57,&quot;y&quot;:1861,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:497,&quot;abs_y&quot;:1904}"></i>
+                </div>
+                <div bis_size="{&quot;x&quot;:93,&quot;y&quot;:1853,&quot;w&quot;:487,&quot;h&quot;:40,&quot;abs_x&quot;:533,&quot;abs_y&quot;:1896}">
+                  <p class="text-[14px] font-medium text-neutral-900" bis_size="{&quot;x&quot;:93,&quot;y&quot;:1853,&quot;w&quot;:487,&quot;h&quot;:21,&quot;abs_x&quot;:533,&quot;abs_y&quot;:1896}">Lead Mini‑CRM</p>
+                  <p class="text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:93,&quot;y&quot;:1874,&quot;w&quot;:487,&quot;h&quot;:19,&quot;abs_x&quot;:533,&quot;abs_y&quot;:1917}">Track every booking from new inquiry to paying student, in one simple pipeline.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="rounded-xl border border-neutral-200 bg-white p-6" bis_size="{&quot;x&quot;:24,&quot;y&quot;:1943,&quot;w&quot;:777,&quot;h&quot;:466,&quot;abs_x&quot;:464,&quot;abs_y&quot;:1986}">
+            <div class="flex items-start justify-between" bis_size="{&quot;x&quot;:49,&quot;y&quot;:1968,&quot;w&quot;:727,&quot;h&quot;:26,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2011}">
+              <div class="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-2.5 py-1 text-[11px] text-neutral-700" bis_size="{&quot;x&quot;:49,&quot;y&quot;:1968,&quot;w&quot;:73,&quot;h&quot;:26,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2011}">
+                <span class="h-2 w-2 rounded-full bg-blue-600" bis_size="{&quot;x&quot;:60,&quot;y&quot;:1977,&quot;w&quot;:8,&quot;h&quot;:8,&quot;abs_x&quot;:500,&quot;abs_y&quot;:2020}"></span>
+                Pillar 2
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="layout-dashboard" class="lucide lucide-layout-dashboard h-5 w-5 text-neutral-500" bis_size="{&quot;x&quot;:756,&quot;y&quot;:1968,&quot;w&quot;:20,&quot;h&quot;:20,&quot;abs_x&quot;:1196,&quot;abs_y&quot;:2011}"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg>
+            </div>
+            <h3 class="mt-3 text-[20px] tracking-tight font-semibold" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2006,&quot;w&quot;:727,&quot;h&quot;:30,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2049}">The Operating System</h3>
+            <p class="mt-2 text-[14px] text-neutral-700" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2044,&quot;w&quot;:727,&quot;h&quot;:21,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2087}">Automate scheduling, invoicing, and student management in one place.</p>
+            <ul class="mt-4 space-y-3" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2081,&quot;w&quot;:727,&quot;h&quot;:303,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2124}">
+              <li class="flex items-start gap-3" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2081,&quot;w&quot;:727,&quot;h&quot;:40,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2124}">
+                <div class="h-8 w-8 rounded-md border border-neutral-200 bg-white grid place-items-center" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2081,&quot;w&quot;:32,&quot;h&quot;:32,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2124}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="gantt-chart" class="lucide lucide-gantt-chart h-4 w-4 text-neutral-600" bis_size="{&quot;x&quot;:57,&quot;y&quot;:2089,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:497,&quot;abs_y&quot;:2132}"><path d="M6 5h12"></path><path d="M4 12h10"></path><path d="M12 19h8"></path></svg>
+                </div>
+                <div bis_size="{&quot;x&quot;:93,&quot;y&quot;:2081,&quot;w&quot;:435,&quot;h&quot;:40,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2124}">
+                  <p class="text-[14px] font-medium text-neutral-900" bis_size="{&quot;x&quot;:93,&quot;y&quot;:2081,&quot;w&quot;:435,&quot;h&quot;:21,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2124}">Command Center Dashboard</p>
+                  <p class="text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:93,&quot;y&quot;:2102,&quot;w&quot;:435,&quot;h&quot;:19,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2145}">Upcoming lessons, revenue overview, recent activity — always in view.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2134,&quot;w&quot;:727,&quot;h&quot;:40,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2177}">
+                <div class="h-8 w-8 rounded-md border border-neutral-200 bg-white grid place-items-center" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2134,&quot;w&quot;:32,&quot;h&quot;:32,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2177}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar-sync" class="lucide lucide-calendar-sync h-4 w-4 text-neutral-600" bis_size="{&quot;x&quot;:57,&quot;y&quot;:2142,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:497,&quot;abs_y&quot;:2185}"><path d="M11 10v4h4"></path><path d="m11 14 1.535-1.605a5 5 0 0 1 8 1.5"></path><path d="M16 2v4"></path><path d="m21 18-1.535 1.605a5 5 0 0 1-8-1.5"></path><path d="M21 22v-4h-4"></path><path d="M21 8.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h4.3"></path><path d="M3 10h4"></path><path d="M8 2v4"></path></svg>
+                </div>
+                <div bis_size="{&quot;x&quot;:93,&quot;y&quot;:2134,&quot;w&quot;:432,&quot;h&quot;:40,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2177}">
+                  <p class="text-[14px] font-medium text-neutral-900" bis_size="{&quot;x&quot;:93,&quot;y&quot;:2134,&quot;w&quot;:432,&quot;h&quot;:21,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2177}">Intelligent Calendar &amp; Scheduling</p>
+                  <p class="text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:93,&quot;y&quot;:2155,&quot;w&quot;:432,&quot;h&quot;:19,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2198}">Two‑way sync with Google/Outlook. Offer only real, conflict‑free slots.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2186,&quot;w&quot;:727,&quot;h&quot;:40,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2229}">
+                <div class="h-8 w-8 rounded-md border border-neutral-200 bg-white grid place-items-center" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2186,&quot;w&quot;:32,&quot;h&quot;:32,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2229}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="id-card" class="lucide lucide-id-card h-4 w-4 text-neutral-600" bis_size="{&quot;x&quot;:57,&quot;y&quot;:2194,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:497,&quot;abs_y&quot;:2237}"><path d="M16 10h2"></path><path d="M16 14h2"></path><path d="M6.17 15a3 3 0 0 1 5.66 0"></path><circle cx="9" cy="11" r="2"></circle><rect x="2" y="5" width="20" height="14" rx="2"></rect></svg>
+                </div>
+                <div bis_size="{&quot;x&quot;:93,&quot;y&quot;:2186,&quot;w&quot;:479,&quot;h&quot;:40,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2229}">
+                  <p class="text-[14px] font-medium text-neutral-900" bis_size="{&quot;x&quot;:93,&quot;y&quot;:2186,&quot;w&quot;:479,&quot;h&quot;:21,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2229}">Complete Student Management</p>
+                  <p class="text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:93,&quot;y&quot;:2207,&quot;w&quot;:479,&quot;h&quot;:19,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2250}">Profiles with notes, history, attendance, payment status, and shared materials.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2239,&quot;w&quot;:727,&quot;h&quot;:40,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2282}">
+                <div class="h-8 w-8 rounded-md border border-neutral-200 bg-white grid place-items-center" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2239,&quot;w&quot;:32,&quot;h&quot;:32,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2282}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="badge-dollar-sign" class="lucide lucide-badge-dollar-sign h-4 w-4 text-neutral-600" bis_size="{&quot;x&quot;:57,&quot;y&quot;:2247,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:497,&quot;abs_y&quot;:2290}"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><path d="M12 18V6"></path></svg>
+                </div>
+                <div bis_size="{&quot;x&quot;:93,&quot;y&quot;:2239,&quot;w&quot;:520,&quot;h&quot;:40,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2282}">
+                  <p class="text-[14px] font-medium text-neutral-900" bis_size="{&quot;x&quot;:93,&quot;y&quot;:2239,&quot;w&quot;:520,&quot;h&quot;:21,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2282}">Automated Invoicing &amp; Payments</p>
+                  <p class="text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:93,&quot;y&quot;:2260,&quot;w&quot;:520,&quot;h&quot;:19,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2303}">Stripe Connect, one‑click invoices, automatic payment detection and status updates.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2291,&quot;w&quot;:727,&quot;h&quot;:40,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2334}">
+                <div class="h-8 w-8 rounded-md border border-neutral-200 bg-white grid place-items-center" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2291,&quot;w&quot;:32,&quot;h&quot;:32,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2334}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="presentation" class="lucide lucide-presentation h-4 w-4 text-neutral-600" bis_size="{&quot;x&quot;:57,&quot;y&quot;:2299,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:497,&quot;abs_y&quot;:2342}"><path d="M2 3h20"></path><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"></path><path d="m7 21 5-5 5 5"></path></svg>
+                </div>
+                <div bis_size="{&quot;x&quot;:93,&quot;y&quot;:2291,&quot;w&quot;:472,&quot;h&quot;:40,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2334}">
+                  <p class="text-[14px] font-medium text-neutral-900" bis_size="{&quot;x&quot;:93,&quot;y&quot;:2291,&quot;w&quot;:472,&quot;h&quot;:21,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2334}">Virtual Classroom &amp; Shared Notes</p>
+                  <p class="text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:93,&quot;y&quot;:2312,&quot;w&quot;:472,&quot;h&quot;:19,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2355}">Session page with Meet/Zoom link and autosaved real‑time notes per lesson.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2344,&quot;w&quot;:727,&quot;h&quot;:40,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2387}">
+                <div class="h-8 w-8 rounded-md border border-neutral-200 bg-white grid place-items-center" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2344,&quot;w&quot;:32,&quot;h&quot;:32,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2387}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="library" class="lucide lucide-library h-4 w-4 text-neutral-600" bis_size="{&quot;x&quot;:57,&quot;y&quot;:2352,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:497,&quot;abs_y&quot;:2395}"><path d="m16 6 4 14"></path><path d="M12 6v14"></path><path d="M8 8v12"></path><path d="M4 4v16"></path></svg>
+                </div>
+                <div bis_size="{&quot;x&quot;:93,&quot;y&quot;:2344,&quot;w&quot;:488,&quot;h&quot;:40,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2387}">
+                  <p class="text-[14px] font-medium text-neutral-900" bis_size="{&quot;x&quot;:93,&quot;y&quot;:2344,&quot;w&quot;:488,&quot;h&quot;:21,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2387}">Materials Library</p>
+                  <p class="text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:93,&quot;y&quot;:2365,&quot;w&quot;:488,&quot;h&quot;:19,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2408}">Upload PDFs, videos, worksheets and share with students or assign to courses.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div id="ai" class="rounded-xl border border-neutral-200 bg-white p-6" bis_size="{&quot;x&quot;:24,&quot;y&quot;:2433,&quot;w&quot;:777,&quot;h&quot;:309,&quot;abs_x&quot;:464,&quot;abs_y&quot;:2476}">
+            <div class="flex items-start justify-between" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2458,&quot;w&quot;:727,&quot;h&quot;:26,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2501}">
+              <div class="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-2.5 py-1 text-[11px] text-neutral-700" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2458,&quot;w&quot;:73,&quot;h&quot;:26,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2501}">
+                <span class="h-2 w-2 rounded-full bg-violet-600" bis_size="{&quot;x&quot;:60,&quot;y&quot;:2468,&quot;w&quot;:8,&quot;h&quot;:8,&quot;abs_x&quot;:500,&quot;abs_y&quot;:2511}"></span>
+                Pillar 3
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="bot" class="lucide lucide-bot h-5 w-5 text-neutral-500" bis_size="{&quot;x&quot;:756,&quot;y&quot;:2458,&quot;w&quot;:20,&quot;h&quot;:20,&quot;abs_x&quot;:1196,&quot;abs_y&quot;:2501}"><path d="M12 8V4H8"></path><rect width="16" height="12" x="4" y="8" rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg>
+            </div>
+            <h3 class="mt-3 text-[20px] tracking-tight font-semibold" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2497,&quot;w&quot;:727,&quot;h&quot;:30,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2540}">The AI Copilot (coming soon)</h3>
+            <p class="mt-2 text-[14px] text-neutral-700" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2535,&quot;w&quot;:727,&quot;h&quot;:21,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2578}">Save time and elevate quality — powered by advanced models.</p>
+            <ul class="mt-4 space-y-3" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2572,&quot;w&quot;:727,&quot;h&quot;:145,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2615}">
+              <li class="flex items-start gap-3" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2572,&quot;w&quot;:727,&quot;h&quot;:40,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2615}">
+                <div class="h-8 w-8 rounded-md border border-neutral-200 bg-white grid place-items-center" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2572,&quot;w&quot;:32,&quot;h&quot;:32,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2615}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="wand-2" class="lucide lucide-wand-2 h-4 w-4 text-neutral-600" bis_size="{&quot;x&quot;:57,&quot;y&quot;:2580,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:497,&quot;abs_y&quot;:2623}"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"></path><path d="m14 7 3 3"></path><path d="M5 6v4"></path><path d="M19 14v4"></path><path d="M10 2v2"></path><path d="M7 8H3"></path><path d="M21 16h-4"></path><path d="M11 3H9"></path></svg>
+                </div>
+                <div bis_size="{&quot;x&quot;:93,&quot;y&quot;:2572,&quot;w&quot;:398,&quot;h&quot;:40,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2615}">
+                  <p class="text-[14px] font-medium text-neutral-900" bis_size="{&quot;x&quot;:93,&quot;y&quot;:2572,&quot;w&quot;:398,&quot;h&quot;:21,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2615}">AI Lesson Planner</p>
+                  <p class="text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:93,&quot;y&quot;:2593,&quot;w&quot;:398,&quot;h&quot;:19,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2636}">Instant 60‑minute plans with objectives, activities, and exercises.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2624,&quot;w&quot;:727,&quot;h&quot;:40,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2667}">
+                <div class="h-8 w-8 rounded-md border border-neutral-200 bg-white grid place-items-center" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2624,&quot;w&quot;:32,&quot;h&quot;:32,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2667}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="file-signature" class="lucide lucide-file-signature h-4 w-4 text-neutral-600" bis_size="{&quot;x&quot;:57,&quot;y&quot;:2632,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:497,&quot;abs_y&quot;:2675}"><path d="m18 5-2.414-2.414A2 2 0 0 0 14.172 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2"></path><path d="M21.378 12.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"></path><path d="M8 18h1"></path></svg>
+                </div>
+                <div bis_size="{&quot;x&quot;:93,&quot;y&quot;:2624,&quot;w&quot;:428,&quot;h&quot;:40,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2667}">
+                  <p class="text-[14px] font-medium text-neutral-900" bis_size="{&quot;x&quot;:93,&quot;y&quot;:2624,&quot;w&quot;:428,&quot;h&quot;:21,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2667}">AI Parent Report Generator</p>
+                  <p class="text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:93,&quot;y&quot;:2645,&quot;w&quot;:428,&quot;h&quot;:19,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2688}">Turn bullet notes into clear, positive, professional updates for parents.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2677,&quot;w&quot;:727,&quot;h&quot;:40,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2720}">
+                <div class="h-8 w-8 rounded-md border border-neutral-200 bg-white grid place-items-center" bis_size="{&quot;x&quot;:49,&quot;y&quot;:2677,&quot;w&quot;:32,&quot;h&quot;:32,&quot;abs_x&quot;:489,&quot;abs_y&quot;:2720}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="mail-question" class="lucide lucide-mail-question h-4 w-4 text-neutral-600" bis_size="{&quot;x&quot;:57,&quot;y&quot;:2685,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:497,&quot;abs_y&quot;:2728}"><path d="M22 10.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h12.5"></path><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path><path d="M18 15.28c.2-.4.5-.8.9-1a2.1 2.1 0 0 1 2.6.4c.3.4.5.8.5 1.3 0 1.3-2 2-2 2"></path><path d="M20 22v.01"></path></svg>
+                </div>
+                <div bis_size="{&quot;x&quot;:93,&quot;y&quot;:2677,&quot;w&quot;:472,&quot;h&quot;:40,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2720}">
+                  <p class="text-[14px] font-medium text-neutral-900" bis_size="{&quot;x&quot;:93,&quot;y&quot;:2677,&quot;w&quot;:472,&quot;h&quot;:21,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2720}">AI Communication Assistant</p>
+                  <p class="text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:93,&quot;y&quot;:2698,&quot;w&quot;:472,&quot;h&quot;:19,&quot;abs_x&quot;:533,&quot;abs_y&quot;:2741}">Draft payment reminders, price updates, and sensitive messages in seconds.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Pillar Previews -->
+        <div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6" bis_size="{&quot;x&quot;:24,&quot;y&quot;:2782,&quot;w&quot;:777,&quot;h&quot;:747,&quot;abs_x&quot;:464,&quot;abs_y&quot;:2825}">
+          <!-- Growth Preview -->
+          <div class="rounded-xl border border-neutral-200 bg-white p-5" bis_size="{&quot;x&quot;:24,&quot;y&quot;:2782,&quot;w&quot;:777,&quot;h&quot;:297,&quot;abs_x&quot;:464,&quot;abs_y&quot;:2825}">
+            <div class="flex items-center justify-between" bis_size="{&quot;x&quot;:45,&quot;y&quot;:2803,&quot;w&quot;:735,&quot;h&quot;:18,&quot;abs_x&quot;:485,&quot;abs_y&quot;:2846}">
+              <span class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:45,&quot;y&quot;:2803,&quot;w&quot;:135,&quot;h&quot;:18,&quot;abs_x&quot;:485,&quot;abs_y&quot;:2846}">Public Profile &amp; Booking</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="external-link" class="lucide lucide-external-link h-4 w-4 text-neutral-500" bis_size="{&quot;x&quot;:764,&quot;y&quot;:2804,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:1204,&quot;abs_y&quot;:2847}"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+            </div>
+            <div class="mt-3 rounded-lg border border-neutral-200 overflow-hidden" bis_size="{&quot;x&quot;:45,&quot;y&quot;:2833,&quot;w&quot;:735,&quot;h&quot;:225,&quot;abs_x&quot;:485,&quot;abs_y&quot;:2876}">
+              
+              <div class="p-3" bis_size="{&quot;x&quot;:46,&quot;y&quot;:2994,&quot;w&quot;:733,&quot;h&quot;:63,&quot;abs_x&quot;:486,&quot;abs_y&quot;:3037}">
+                <div class="flex items-center justify-between" bis_size="{&quot;x&quot;:58,&quot;y&quot;:3006,&quot;w&quot;:709,&quot;h&quot;:39,&quot;abs_x&quot;:498,&quot;abs_y&quot;:3049}">
+                  <div class="" bis_size="{&quot;x&quot;:58,&quot;y&quot;:3006,&quot;w&quot;:244,&quot;h&quot;:39,&quot;abs_x&quot;:498,&quot;abs_y&quot;:3049}">
+                    <p class="text-[14px] font-medium text-neutral-900 tracking-tight" style="" bis_size="{&quot;x&quot;:58,&quot;y&quot;:3006,&quot;w&quot;:244,&quot;h&quot;:21,&quot;abs_x&quot;:498,&quot;abs_y&quot;:3049}">Example: Jane Clark — English Tutor</p>
+                    <p class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:58,&quot;y&quot;:3027,&quot;w&quot;:244,&quot;h&quot;:18,&quot;abs_x&quot;:498,&quot;abs_y&quot;:3070}">Cambridge C2 • Exam prep • Conversation</p>
+                  </div>
+                  <a href="/book" class="rounded-md border border-neutral-200 bg-white px-2.5 py-1.5 text-[12px] font-medium hover:bg-neutral-50" bis_size="{&quot;x&quot;:715,&quot;y&quot;:3010,&quot;w&quot;:51,&quot;h&quot;:32,&quot;abs_x&quot;:1155,&quot;abs_y&quot;:3053}">Book</a>
+                </div>
+              </div><img src="https://id-preview--7b9e3fd5-ea22-464b-b2bc-c762c7a18989.lovable.app/assets/hero-image-LhWo51nP.jpg" alt="Public page preview" class="md:relative w-full h-120 object-cover" bis_size="{&quot;x&quot;:46,&quot;y&quot;:4000,&quot;w&quot;:950,&quot;h&quot;:160,&quot;abs_x&quot;:486,&quot;abs_y&quot;:2877}">
+            </div>
+          </div>
+
+          <!-- OS Preview -->
+          <div class="rounded-xl border border-neutral-200 bg-white p-5" bis_size="{&quot;x&quot;:24,&quot;y&quot;:3103,&quot;w&quot;:777,&quot;h&quot;:185,&quot;abs_x&quot;:464,&quot;abs_y&quot;:3146}">
+            <div class="flex items-center justify-between" bis_size="{&quot;x&quot;:45,&quot;y&quot;:3124,&quot;w&quot;:735,&quot;h&quot;:18,&quot;abs_x&quot;:485,&quot;abs_y&quot;:3167}">
+              <span class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:45,&quot;y&quot;:3124,&quot;w&quot;:133,&quot;h&quot;:18,&quot;abs_x&quot;:485,&quot;abs_y&quot;:3167}">Scheduling &amp; Payments</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="shield-check" class="lucide lucide-shield-check h-4 w-4 text-neutral-500" bis_size="{&quot;x&quot;:764,&quot;y&quot;:3125,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:1204,&quot;abs_y&quot;:3168}"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
+            </div>
+            <div class="mt-3 rounded-lg border border-neutral-200 p-3" bis_size="{&quot;x&quot;:45,&quot;y&quot;:3154,&quot;w&quot;:735,&quot;h&quot;:113,&quot;abs_x&quot;:485,&quot;abs_y&quot;:3197}">
+              <div class="flex items-center gap-3" bis_size="{&quot;x&quot;:58,&quot;y&quot;:3167,&quot;w&quot;:709,&quot;h&quot;:37,&quot;abs_x&quot;:498,&quot;abs_y&quot;:3210}">
+                <div class="h-9 w-9 rounded-md border border-neutral-200 grid place-items-center" bis_size="{&quot;x&quot;:58,&quot;y&quot;:3168,&quot;w&quot;:36,&quot;h&quot;:36,&quot;abs_x&quot;:498,&quot;abs_y&quot;:3211}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="credit-card" class="lucide lucide-credit-card h-4 w-4 text-emerald-600" bis_size="{&quot;x&quot;:68,&quot;y&quot;:3178,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:508,&quot;abs_y&quot;:3221}"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg>
+                </div>
+                <div class="flex-1" bis_size="{&quot;x&quot;:106,&quot;y&quot;:3167,&quot;w&quot;:597,&quot;h&quot;:37,&quot;abs_x&quot;:546,&quot;abs_y&quot;:3210}">
+                  <p class="text-[13px] text-neutral-900" bis_size="{&quot;x&quot;:106,&quot;y&quot;:3167,&quot;w&quot;:597,&quot;h&quot;:19,&quot;abs_x&quot;:546,&quot;abs_y&quot;:3210}">Invoice #184 • €60</p>
+                  <p class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:106,&quot;y&quot;:3187,&quot;w&quot;:597,&quot;h&quot;:18,&quot;abs_x&quot;:546,&quot;abs_y&quot;:3230}">Awaiting payment</p>
+                </div>
+                <button class="rounded-md border border-neutral-200 bg-white px-2.5 py-1.5 text-[12px] font-medium hover:bg-neutral-50" bis_size="{&quot;x&quot;:715,&quot;y&quot;:3170,&quot;w&quot;:51,&quot;h&quot;:32,&quot;abs_x&quot;:1155,&quot;abs_y&quot;:3213}">Send</button>
+              </div>
+              <div class="mt-3 flex items-center gap-3" bis_size="{&quot;x&quot;:58,&quot;y&quot;:3217,&quot;w&quot;:709,&quot;h&quot;:37,&quot;abs_x&quot;:498,&quot;abs_y&quot;:3260}">
+                <div class="h-9 w-9 rounded-md border border-neutral-200 grid place-items-center" bis_size="{&quot;x&quot;:58,&quot;y&quot;:3218,&quot;w&quot;:36,&quot;h&quot;:36,&quot;abs_x&quot;:498,&quot;abs_y&quot;:3261}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" class="lucide lucide-calendar h-4 w-4 text-blue-600" bis_size="{&quot;x&quot;:68,&quot;y&quot;:3228,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:508,&quot;abs_y&quot;:3271}"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
+                </div>
+                <div class="flex-1" bis_size="{&quot;x&quot;:106,&quot;y&quot;:3217,&quot;w&quot;:661,&quot;h&quot;:37,&quot;abs_x&quot;:546,&quot;abs_y&quot;:3260}">
+                  <p class="text-[13px] text-neutral-900" bis_size="{&quot;x&quot;:106,&quot;y&quot;:3217,&quot;w&quot;:661,&quot;h&quot;:19,&quot;abs_x&quot;:546,&quot;abs_y&quot;:3260}">Wed, 13:00–14:00</p>
+                <p class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:106,&quot;y&quot;:3236,&quot;w&quot;:661,&quot;h&quot;:18,&quot;abs_x&quot;:546,&quot;abs_y&quot;:3279}">Offered automatically from availability</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI Preview -->
+          <div class="rounded-xl border border-neutral-200 bg-white p-5" bis_size="{&quot;x&quot;:24,&quot;y&quot;:3312,&quot;w&quot;:777,&quot;h&quot;:217,&quot;abs_x&quot;:464,&quot;abs_y&quot;:3355}">
+            <div class="flex items-center justify-between" bis_size="{&quot;x&quot;:45,&quot;y&quot;:3333,&quot;w&quot;:735,&quot;h&quot;:18,&quot;abs_x&quot;:485,&quot;abs_y&quot;:3376}">
+              <span class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:45,&quot;y&quot;:3333,&quot;w&quot;:55,&quot;h&quot;:18,&quot;abs_x&quot;:485,&quot;abs_y&quot;:3376}">AI Copilot</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="sparkles" class="lucide lucide-sparkles h-4 w-4 text-neutral-500" bis_size="{&quot;x&quot;:764,&quot;y&quot;:3334,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:1204,&quot;abs_y&quot;:3377}"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
+            </div>
+            <div class="mt-3 rounded-lg border border-neutral-200 p-3" bis_size="{&quot;x&quot;:45,&quot;y&quot;:3363,&quot;w&quot;:735,&quot;h&quot;:145,&quot;abs_x&quot;:485,&quot;abs_y&quot;:3406}">
+              <div class="flex items-center gap-3" bis_size="{&quot;x&quot;:58,&quot;y&quot;:3376,&quot;w&quot;:709,&quot;h&quot;:37,&quot;abs_x&quot;:498,&quot;abs_y&quot;:3419}">
+                <div class="h-9 w-9 rounded-md border border-neutral-200 grid place-items-center" bis_size="{&quot;x&quot;:58,&quot;y&quot;:3377,&quot;w&quot;:36,&quot;h&quot;:36,&quot;abs_x&quot;:498,&quot;abs_y&quot;:3420}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="wand-2" class="lucide lucide-wand-2 h-4 w-4 text-violet-600" bis_size="{&quot;x&quot;:68,&quot;y&quot;:3387,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:508,&quot;abs_y&quot;:3430}"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"></path><path d="m14 7 3 3"></path><path d="M5 6v4"></path><path d="M19 14v4"></path><path d="M10 2v2"></path><path d="M7 8H3"></path><path d="M21 16h-4"></path><path d="M11 3H9"></path></svg>
+                </div>
+                <div bis_size="{&quot;x&quot;:106,&quot;y&quot;:3376,&quot;w&quot;:144,&quot;h&quot;:37,&quot;abs_x&quot;:546,&quot;abs_y&quot;:3419}">
+                  <p class="text-[13px] text-neutral-900" bis_size="{&quot;x&quot;:106,&quot;y&quot;:3376,&quot;w&quot;:144,&quot;h&quot;:19,&quot;abs_x&quot;:546,&quot;abs_y&quot;:3419}">English, Past Simple, B1</p>
+                  <p class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:106,&quot;y&quot;:3396,&quot;w&quot;:144,&quot;h&quot;:18,&quot;abs_x&quot;:546,&quot;abs_y&quot;:3439}">Plan generated in 2.1s</p>
+                </div>
+              </div>
+              <ul class="mt-3 space-y-2" bis_size="{&quot;x&quot;:58,&quot;y&quot;:3426,&quot;w&quot;:709,&quot;h&quot;:70,&quot;abs_x&quot;:498,&quot;abs_y&quot;:3469}">
+                <li class="text-[12px] text-neutral-700" bis_size="{&quot;x&quot;:58,&quot;y&quot;:3426,&quot;w&quot;:709,&quot;h&quot;:18,&quot;abs_x&quot;:498,&quot;abs_y&quot;:3469}">Objectives: usage, form, pronunciation</li>
+                <li class="text-[12px] text-neutral-700" bis_size="{&quot;x&quot;:58,&quot;y&quot;:3452,&quot;w&quot;:709,&quot;h&quot;:18,&quot;abs_x&quot;:498,&quot;abs_y&quot;:3495}">Activities: warm‑up, timeline drill, dialogue</li>
+                <li class="text-[12px] text-neutral-700" bis_size="{&quot;x&quot;:58,&quot;y&quot;:3478,&quot;w&quot;:709,&quot;h&quot;:18,&quot;abs_x&quot;:498,&quot;abs_y&quot;:3521}">Exercises: gap‑fill, role‑play, mini quiz</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deep Features: Operating System -->
+    <section class="border-t border-neutral-200" bis_size="{&quot;x&quot;:0,&quot;y&quot;:3586,&quot;w&quot;:825,&quot;h&quot;:802,&quot;abs_x&quot;:440,&quot;abs_y&quot;:3629}">
+      <div class="mx-auto max-w-7xl px-6 py-14 md:py-18" bis_size="{&quot;x&quot;:0,&quot;y&quot;:3587,&quot;w&quot;:825,&quot;h&quot;:801,&quot;abs_x&quot;:440,&quot;abs_y&quot;:3630}">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center" bis_size="{&quot;x&quot;:24,&quot;y&quot;:3643,&quot;w&quot;:777,&quot;h&quot;:689,&quot;abs_x&quot;:464,&quot;abs_y&quot;:3686}">
+          <div bis_size="{&quot;x&quot;:24,&quot;y&quot;:3643,&quot;w&quot;:777,&quot;h&quot;:364,&quot;abs_x&quot;:464,&quot;abs_y&quot;:3686}">
+            <div class="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-2.5 py-1 text-[11px] text-neutral-700" bis_size="{&quot;x&quot;:24,&quot;y&quot;:3643,&quot;w&quot;:160,&quot;h&quot;:26,&quot;abs_x&quot;:464,&quot;abs_y&quot;:3686}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="layout-dashboard" class="lucide lucide-layout-dashboard h-3.5 w-3.5" bis_size="{&quot;x&quot;:35,&quot;y&quot;:3649,&quot;w&quot;:14,&quot;h&quot;:14,&quot;abs_x&quot;:475,&quot;abs_y&quot;:3692}"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg> The Operating System
+            </div>
+            <h3 class="mt-3 text-3xl tracking-tight font-semibold" bis_size="{&quot;x&quot;:24,&quot;y&quot;:3682,&quot;w&quot;:777,&quot;h&quot;:36,&quot;abs_x&quot;:464,&quot;abs_y&quot;:3725}">Run the entire business from one command center</h3>
+            <p class="mt-3 text-[15px] text-neutral-700" bis_size="{&quot;x&quot;:24,&quot;y&quot;:3730,&quot;w&quot;:777,&quot;h&quot;:45,&quot;abs_x&quot;:464,&quot;abs_y&quot;:3773}">
+              A single, coherent system for scheduling, student records, and payments — with reliable automations that reduce admin to minutes.
+            </p>
+            <ul class="mt-5 space-y-3" bis_size="{&quot;x&quot;:24,&quot;y&quot;:3795,&quot;w&quot;:777,&quot;h&quot;:145,&quot;abs_x&quot;:464,&quot;abs_y&quot;:3838}">
+              <li class="flex items-start gap-3" bis_size="{&quot;x&quot;:24,&quot;y&quot;:3795,&quot;w&quot;:777,&quot;h&quot;:40,&quot;abs_x&quot;:464,&quot;abs_y&quot;:3838}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" class="lucide lucide-check-circle h-4.5 w-4.5 text-emerald-600 mt-0.5" bis_size="{&quot;x&quot;:24,&quot;y&quot;:3797,&quot;w&quot;:24,&quot;h&quot;:24,&quot;abs_x&quot;:464,&quot;abs_y&quot;:3840}"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                <div bis_size="{&quot;x&quot;:60,&quot;y&quot;:3795,&quot;w&quot;:350,&quot;h&quot;:40,&quot;abs_x&quot;:500,&quot;abs_y&quot;:3838}">
+                  <p class="text-[14px] font-medium text-neutral-900" bis_size="{&quot;x&quot;:60,&quot;y&quot;:3795,&quot;w&quot;:350,&quot;h&quot;:21,&quot;abs_x&quot;:500,&quot;abs_y&quot;:3838}">Two‑way calendar sync</p>
+                  <p class="text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:60,&quot;y&quot;:3816,&quot;w&quot;:350,&quot;h&quot;:19,&quot;abs_x&quot;:500,&quot;abs_y&quot;:3859}">Integrates with Google and Outlook to eliminate conflicts.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3" bis_size="{&quot;x&quot;:24,&quot;y&quot;:3847,&quot;w&quot;:777,&quot;h&quot;:40,&quot;abs_x&quot;:464,&quot;abs_y&quot;:3890}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" class="lucide lucide-check-circle h-4.5 w-4.5 text-emerald-600 mt-0.5" bis_size="{&quot;x&quot;:24,&quot;y&quot;:3849,&quot;w&quot;:24,&quot;h&quot;:24,&quot;abs_x&quot;:464,&quot;abs_y&quot;:3892}"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                <div bis_size="{&quot;x&quot;:60,&quot;y&quot;:3847,&quot;w&quot;:592,&quot;h&quot;:40,&quot;abs_x&quot;:500,&quot;abs_y&quot;:3890}">
+                  <p class="text-[14px] font-medium text-neutral-900" bis_size="{&quot;x&quot;:60,&quot;y&quot;:3847,&quot;w&quot;:592,&quot;h&quot;:21,&quot;abs_x&quot;:500,&quot;abs_y&quot;:3890}">Stripe‑powered billing</p>
+                  <p class="text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:60,&quot;y&quot;:3868,&quot;w&quot;:592,&quot;h&quot;:19,&quot;abs_x&quot;:500,&quot;abs_y&quot;:3911}">Upfront payments at booking, one‑click invoices after lessons, automatic tracking via webhooks.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3" bis_size="{&quot;x&quot;:24,&quot;y&quot;:3900,&quot;w&quot;:777,&quot;h&quot;:40,&quot;abs_x&quot;:464,&quot;abs_y&quot;:3943}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" class="lucide lucide-check-circle h-4.5 w-4.5 text-emerald-600 mt-0.5" bis_size="{&quot;x&quot;:24,&quot;y&quot;:3902,&quot;w&quot;:24,&quot;h&quot;:24,&quot;abs_x&quot;:464,&quot;abs_y&quot;:3945}"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                <div bis_size="{&quot;x&quot;:60,&quot;y&quot;:3900,&quot;w&quot;:458,&quot;h&quot;:40,&quot;abs_x&quot;:500,&quot;abs_y&quot;:3943}">
+                  <p class="text-[14px] font-medium text-neutral-900" bis_size="{&quot;x&quot;:60,&quot;y&quot;:3900,&quot;w&quot;:458,&quot;h&quot;:21,&quot;abs_x&quot;:500,&quot;abs_y&quot;:3943}">Session notes that stick</p>
+                  <p class="text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:60,&quot;y&quot;:3921,&quot;w&quot;:458,&quot;h&quot;:19,&quot;abs_x&quot;:500,&quot;abs_y&quot;:3964}">Shared notes are autosaved to each lesson and visible to the right student.</p>
+                </div>
+              </li>
+            </ul>
+            <div class="mt-6 flex gap-3" bis_size="{&quot;x&quot;:24,&quot;y&quot;:3964,&quot;w&quot;:777,&quot;h&quot;:43,&quot;abs_x&quot;:464,&quot;abs_y&quot;:4007}">
+              <a href="/scheduling" class="inline-flex items-center gap-2 rounded-md border border-neutral-200 bg-white px-3.5 py-2.5 text-[14px] font-medium text-neutral-900 hover:bg-neutral-50 hover:border-neutral-300 transition" bis_size="{&quot;x&quot;:24,&quot;y&quot;:3964,&quot;w&quot;:156,&quot;h&quot;:43,&quot;abs_x&quot;:464,&quot;abs_y&quot;:4007}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" class="lucide lucide-calendar h-4 w-4" bis_size="{&quot;x&quot;:39,&quot;y&quot;:3978,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:479,&quot;abs_y&quot;:4021}"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
+                See scheduling
+              </a>
+              <a href="/invoicing" class="inline-flex items-center gap-2 rounded-md border border-neutral-900 bg-neutral-900 px-3.5 py-2.5 text-[14px] font-medium text-white hover:bg-neutral-800 hover:border-neutral-800 transition" bis_size="{&quot;x&quot;:192,&quot;y&quot;:3964,&quot;w&quot;:139,&quot;h&quot;:43,&quot;abs_x&quot;:632,&quot;abs_y&quot;:4007}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="credit-card" class="lucide lucide-credit-card h-4 w-4" bis_size="{&quot;x&quot;:207,&quot;y&quot;:3978,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:647,&quot;abs_y&quot;:4021}"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg>
+                Try invoicing
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-xl border border-neutral-200 bg-white p-5 shadow-sm" bis_size="{&quot;x&quot;:24,&quot;y&quot;:4047,&quot;w&quot;:777,&quot;h&quot;:285,&quot;abs_x&quot;:464,&quot;abs_y&quot;:4090}">
+            <div class="flex items-center justify-between border-b border-neutral-200 pb-3" bis_size="{&quot;x&quot;:45,&quot;y&quot;:4068,&quot;w&quot;:735,&quot;h&quot;:32,&quot;abs_x&quot;:485,&quot;abs_y&quot;:4111}">
+              <div class="flex items-center gap-2" bis_size="{&quot;x&quot;:45,&quot;y&quot;:4068,&quot;w&quot;:78,&quot;h&quot;:19,&quot;abs_x&quot;:485,&quot;abs_y&quot;:4111}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="users" class="lucide lucide-users h-4 w-4 text-neutral-600" bis_size="{&quot;x&quot;:45,&quot;y&quot;:4070,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:485,&quot;abs_y&quot;:4113}"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                <span class="text-[13px] text-neutral-700" bis_size="{&quot;x&quot;:69,&quot;y&quot;:4068,&quot;w&quot;:54,&quot;h&quot;:19,&quot;abs_x&quot;:509,&quot;abs_y&quot;:4111}">Students</span>
+              </div>
+              <a href="/students/new" class="text-[12px] text-neutral-700 hover:text-neutral-900 inline-flex items-center gap-1" bis_size="{&quot;x&quot;:739,&quot;y&quot;:4069,&quot;w&quot;:40,&quot;h&quot;:18,&quot;abs_x&quot;:1179,&quot;abs_y&quot;:4112}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="plus" class="lucide lucide-plus h-3.5 w-3.5" bis_size="{&quot;x&quot;:739,&quot;y&quot;:4071,&quot;w&quot;:14,&quot;h&quot;:14,&quot;abs_x&quot;:1179,&quot;abs_y&quot;:4114}"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg> Add
+              </a>
+            </div>
+            <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3" bis_size="{&quot;x&quot;:45,&quot;y&quot;:4113,&quot;w&quot;:735,&quot;h&quot;:199,&quot;abs_x&quot;:485,&quot;abs_y&quot;:4156}">
+              <div class="rounded-lg border border-neutral-200 p-3" bis_size="{&quot;x&quot;:45,&quot;y&quot;:4113,&quot;w&quot;:361,&quot;h&quot;:93,&quot;abs_x&quot;:485,&quot;abs_y&quot;:4156}">
+                <div class="flex items-center gap-3" bis_size="{&quot;x&quot;:58,&quot;y&quot;:4126,&quot;w&quot;:335,&quot;h&quot;:37,&quot;abs_x&quot;:498,&quot;abs_y&quot;:4169}">
+                  <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&amp;w=200&amp;auto=format&amp;fit=crop" class="h-9 w-9 rounded-full border border-neutral-200 object-cover" alt="Student" bis_size="{&quot;x&quot;:58,&quot;y&quot;:4126,&quot;w&quot;:36,&quot;h&quot;:36,&quot;abs_x&quot;:498,&quot;abs_y&quot;:4169}">
+                  <div class="flex-1" bis_size="{&quot;x&quot;:106,&quot;y&quot;:4126,&quot;w&quot;:238,&quot;h&quot;:37,&quot;abs_x&quot;:546,&quot;abs_y&quot;:4169}">
+                    <p class="text-[13px] text-neutral-900" bis_size="{&quot;x&quot;:106,&quot;y&quot;:4126,&quot;w&quot;:238,&quot;h&quot;:19,&quot;abs_x&quot;:546,&quot;abs_y&quot;:4169}">Sarah Chen</p>
+                    <p class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:106,&quot;y&quot;:4145,&quot;w&quot;:238,&quot;h&quot;:18,&quot;abs_x&quot;:546,&quot;abs_y&quot;:4188}">English • B2</p>
+                  </div>
+                  <span class="text-[11px] text-emerald-700 bg-emerald-50 border border-emerald-200 rounded px-1.5 py-0.5" bis_size="{&quot;x&quot;:356,&quot;y&quot;:4133,&quot;w&quot;:36,&quot;h&quot;:22,&quot;abs_x&quot;:796,&quot;abs_y&quot;:4176}">Paid</span>
+                </div>
+                <div class="mt-3 flex items-center gap-3 text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:58,&quot;y&quot;:4175,&quot;w&quot;:335,&quot;h&quot;:18,&quot;abs_x&quot;:498,&quot;abs_y&quot;:4218}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" class="lucide lucide-calendar h-4 w-4" bis_size="{&quot;x&quot;:58,&quot;y&quot;:4176,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:498,&quot;abs_y&quot;:4219}"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg> Thu 16:00
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="file-text" class="lucide lucide-file-text h-4 w-4 ml-2" bis_size="{&quot;x&quot;:162,&quot;y&quot;:4176,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:602,&quot;abs_y&quot;:4219}"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg> 12 lessons
+                </div>
+              </div>
+
+              <div class="rounded-lg border border-neutral-200 p-3" bis_size="{&quot;x&quot;:418,&quot;y&quot;:4113,&quot;w&quot;:361,&quot;h&quot;:93,&quot;abs_x&quot;:858,&quot;abs_y&quot;:4156}">
+                <div class="flex items-center gap-3" bis_size="{&quot;x&quot;:431,&quot;y&quot;:4126,&quot;w&quot;:335,&quot;h&quot;:37,&quot;abs_x&quot;:871,&quot;abs_y&quot;:4169}">
+                  <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&amp;w=200&amp;auto=format&amp;fit=crop" class="h-9 w-9 rounded-full border border-neutral-200 object-cover" alt="Student" bis_size="{&quot;x&quot;:431,&quot;y&quot;:4126,&quot;w&quot;:36,&quot;h&quot;:36,&quot;abs_x&quot;:871,&quot;abs_y&quot;:4169}">
+                  <div class="flex-1" bis_size="{&quot;x&quot;:479,&quot;y&quot;:4126,&quot;w&quot;:240,&quot;h&quot;:37,&quot;abs_x&quot;:919,&quot;abs_y&quot;:4169}">
+                    <p class="text-[13px] text-neutral-900" bis_size="{&quot;x&quot;:479,&quot;y&quot;:4126,&quot;w&quot;:240,&quot;h&quot;:19,&quot;abs_x&quot;:919,&quot;abs_y&quot;:4169}">Marco Díaz</p>
+                    <p class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:479,&quot;y&quot;:4145,&quot;w&quot;:240,&quot;h&quot;:18,&quot;abs_x&quot;:919,&quot;abs_y&quot;:4188}">English • B1</p>
+                  </div>
+                  <span class="text-[11px] text-amber-700 bg-amber-50 border border-amber-200 rounded px-1.5 py-0.5" bis_size="{&quot;x&quot;:732,&quot;y&quot;:4133,&quot;w&quot;:34,&quot;h&quot;:22,&quot;abs_x&quot;:1172,&quot;abs_y&quot;:4176}">Due</span>
+                </div>
+                <div class="mt-3 flex items-center gap-3 text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:431,&quot;y&quot;:4175,&quot;w&quot;:335,&quot;h&quot;:18,&quot;abs_x&quot;:871,&quot;abs_y&quot;:4218}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" class="lucide lucide-calendar h-4 w-4" bis_size="{&quot;x&quot;:431,&quot;y&quot;:4176,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:871,&quot;abs_y&quot;:4219}"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg> Tue 10:00
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="file-text" class="lucide lucide-file-text h-4 w-4 ml-2" bis_size="{&quot;x&quot;:534,&quot;y&quot;:4176,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:974,&quot;abs_y&quot;:4219}"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg> 5 lessons
+                </div>
+              </div>
+
+              <div class="rounded-lg border border-neutral-200 p-3" bis_size="{&quot;x&quot;:45,&quot;y&quot;:4218,&quot;w&quot;:361,&quot;h&quot;:93,&quot;abs_x&quot;:485,&quot;abs_y&quot;:4261}">
+                <div class="flex items-center gap-3" bis_size="{&quot;x&quot;:58,&quot;y&quot;:4231,&quot;w&quot;:335,&quot;h&quot;:37,&quot;abs_x&quot;:498,&quot;abs_y&quot;:4274}">
+                  <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&amp;w=200&amp;auto=format&amp;fit=crop" class="h-9 w-9 rounded-full border border-neutral-200 object-cover" alt="Student" bis_size="{&quot;x&quot;:58,&quot;y&quot;:4232,&quot;w&quot;:36,&quot;h&quot;:36,&quot;abs_x&quot;:498,&quot;abs_y&quot;:4275}">
+                  <div class="flex-1" bis_size="{&quot;x&quot;:106,&quot;y&quot;:4231,&quot;w&quot;:206,&quot;h&quot;:37,&quot;abs_x&quot;:546,&quot;abs_y&quot;:4274}">
+                    <p class="text-[13px] text-neutral-900" bis_size="{&quot;x&quot;:106,&quot;y&quot;:4231,&quot;w&quot;:206,&quot;h&quot;:19,&quot;abs_x&quot;:546,&quot;abs_y&quot;:4274}">Peter Novak</p>
+                    <p class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:106,&quot;y&quot;:4251,&quot;w&quot;:206,&quot;h&quot;:18,&quot;abs_x&quot;:546,&quot;abs_y&quot;:4294}">Pronunciation • A2</p>
+                  </div>
+                  <span class="text-[11px] text-neutral-700 bg-neutral-50 border border-neutral-200 rounded px-1.5 py-0.5" bis_size="{&quot;x&quot;:324,&quot;y&quot;:4239,&quot;w&quot;:69,&quot;h&quot;:22,&quot;abs_x&quot;:764,&quot;abs_y&quot;:4282}">Scheduled</span>
+                </div>
+                <div class="mt-3 flex items-center gap-3 text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:58,&quot;y&quot;:4281,&quot;w&quot;:335,&quot;h&quot;:18,&quot;abs_x&quot;:498,&quot;abs_y&quot;:4324}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" class="lucide lucide-calendar h-4 w-4" bis_size="{&quot;x&quot;:58,&quot;y&quot;:4282,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:498,&quot;abs_y&quot;:4325}"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg> Fri 11:30
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="file-text" class="lucide lucide-file-text h-4 w-4 ml-2" bis_size="{&quot;x&quot;:151,&quot;y&quot;:4282,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:591,&quot;abs_y&quot;:4325}"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg> 8 lessons
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deep Features: Growth Engine -->
+    <section class="border-t border-neutral-200 bg-neutral-50/40" bis_size="{&quot;x&quot;:0,&quot;y&quot;:4389,&quot;w&quot;:825,&quot;h&quot;:825,&quot;abs_x&quot;:440,&quot;abs_y&quot;:4432}">
+      <div class="mx-auto max-w-7xl px-6 py-14 md:py-18" bis_size="{&quot;x&quot;:0,&quot;y&quot;:4390,&quot;w&quot;:825,&quot;h&quot;:824,&quot;abs_x&quot;:440,&quot;abs_y&quot;:4433}">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center" bis_size="{&quot;x&quot;:24,&quot;y&quot;:4446,&quot;w&quot;:777,&quot;h&quot;:712,&quot;abs_x&quot;:464,&quot;abs_y&quot;:4489}">
+          <!-- Visual -->
+          <div class="order-2 lg:order-1" bis_size="{&quot;x&quot;:24,&quot;y&quot;:4787,&quot;w&quot;:777,&quot;h&quot;:370,&quot;abs_x&quot;:464,&quot;abs_y&quot;:4830}">
+            <div class="rounded-xl border border-neutral-200 bg-white p-5 shadow-sm" bis_size="{&quot;x&quot;:24,&quot;y&quot;:4787,&quot;w&quot;:777,&quot;h&quot;:370,&quot;abs_x&quot;:464,&quot;abs_y&quot;:4830}">
+              <div class="flex items-center justify-between border-b border-neutral-200 pb-3" bis_size="{&quot;x&quot;:45,&quot;y&quot;:4808,&quot;w&quot;:735,&quot;h&quot;:32,&quot;abs_x&quot;:485,&quot;abs_y&quot;:4851}">
+                <div class="flex items-center gap-2" bis_size="{&quot;x&quot;:45,&quot;y&quot;:4808,&quot;w&quot;:194,&quot;h&quot;:19,&quot;abs_x&quot;:485,&quot;abs_y&quot;:4851}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="globe" class="lucide lucide-globe h-4 w-4 text-neutral-600" bis_size="{&quot;x&quot;:45,&quot;y&quot;:4810,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:485,&quot;abs_y&quot;:4853}"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+                  <span class="text-[13px] text-neutral-700" bis_size="{&quot;x&quot;:69,&quot;y&quot;:4808,&quot;w&quot;:170,&quot;h&quot;:19,&quot;abs_x&quot;:509,&quot;abs_y&quot;:4851}">mentoblo.com/t/your-profile</span>
+                </div>
+                <button class="text-[12px] text-neutral-700 hover:text-neutral-900 inline-flex items-center gap-1" bis_size="{&quot;x&quot;:732,&quot;y&quot;:4809,&quot;w&quot;:47,&quot;h&quot;:18,&quot;abs_x&quot;:1172,&quot;abs_y&quot;:4852}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="copy" class="lucide lucide-copy h-3.5 w-3.5" bis_size="{&quot;x&quot;:732,&quot;y&quot;:4811,&quot;w&quot;:14,&quot;h&quot;:14,&quot;abs_x&quot;:1172,&quot;abs_y&quot;:4854}"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg> Copy
+                </button>
+              </div>
+              <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-5" bis_size="{&quot;x&quot;:45,&quot;y&quot;:4857,&quot;w&quot;:735,&quot;h&quot;:224,&quot;abs_x&quot;:485,&quot;abs_y&quot;:4900}">
+                <div class="md:col-span-2" bis_size="{&quot;x&quot;:45,&quot;y&quot;:4857,&quot;w&quot;:483,&quot;h&quot;:224,&quot;abs_x&quot;:485,&quot;abs_y&quot;:4900}">
+                  <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&amp;w=1400&amp;auto=format&amp;fit=crop" class="h-56 w-full object-cover rounded-lg border border-neutral-200" alt="Tutor public page" bis_size="{&quot;x&quot;:45,&quot;y&quot;:4857,&quot;w&quot;:483,&quot;h&quot;:224,&quot;abs_x&quot;:485,&quot;abs_y&quot;:4900}">
+                </div>
+                <div class="space-y-3" bis_size="{&quot;x&quot;:548,&quot;y&quot;:4857,&quot;w&quot;:231,&quot;h&quot;:224,&quot;abs_x&quot;:988,&quot;abs_y&quot;:4900}">
+                  <div class="rounded-lg border border-neutral-200 p-3" bis_size="{&quot;x&quot;:548,&quot;y&quot;:4857,&quot;w&quot;:231,&quot;h&quot;:103,&quot;abs_x&quot;:988,&quot;abs_y&quot;:4900}">
+                    <p class="text-[13px] text-neutral-900" bis_size="{&quot;x&quot;:561,&quot;y&quot;:4870,&quot;w&quot;:205,&quot;h&quot;:19,&quot;abs_x&quot;:1001,&quot;abs_y&quot;:4913}">Intro consultation</p>
+                    <p class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:561,&quot;y&quot;:4889,&quot;w&quot;:205,&quot;h&quot;:18,&quot;abs_x&quot;:1001,&quot;abs_y&quot;:4932}">30 min • €0</p>
+                    <a href="/book/consultation" class="mt-2 w-full rounded-md border border-neutral-200 bg-white px-2.5 py-1.5 text-[12px] font-medium hover:bg-neutral-50 inline-flex items-center justify-center" bis_size="{&quot;x&quot;:561,&quot;y&quot;:4915,&quot;w&quot;:205,&quot;h&quot;:32,&quot;abs_x&quot;:1001,&quot;abs_y&quot;:4958}">Book</a>
+                  </div>
+                  <div class="rounded-lg border border-neutral-200 p-3" bis_size="{&quot;x&quot;:548,&quot;y&quot;:4972,&quot;w&quot;:231,&quot;h&quot;:103,&quot;abs_x&quot;:988,&quot;abs_y&quot;:5015}">
+                    <p class="text-[13px] text-neutral-900" bis_size="{&quot;x&quot;:561,&quot;y&quot;:4985,&quot;w&quot;:205,&quot;h&quot;:19,&quot;abs_x&quot;:1001,&quot;abs_y&quot;:5028}">Lesson — 60 minutes</p>
+                    <p class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:561,&quot;y&quot;:5005,&quot;w&quot;:205,&quot;h&quot;:18,&quot;abs_x&quot;:1001,&quot;abs_y&quot;:5048}">€60</p>
+                    <a href="/book/lesson" class="mt-2 w-full rounded-md border border-neutral-200 bg-white px-2.5 py-1.5 text-[12px] font-medium hover:bg-neutral-50 inline-flex items-center justify-center" bis_size="{&quot;x&quot;:561,&quot;y&quot;:5031,&quot;w&quot;:205,&quot;h&quot;:32,&quot;abs_x&quot;:1001,&quot;abs_y&quot;:5074}">Book</a>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4 rounded-lg border border-neutral-200 bg-neutral-50/70 px-3 py-2.5 text-[12px] text-neutral-700" bis_size="{&quot;x&quot;:45,&quot;y&quot;:5097,&quot;w&quot;:735,&quot;h&quot;:40,&quot;abs_x&quot;:485,&quot;abs_y&quot;:5140}">
+                New bookings appear as leads you can track to conversion.
+              </div>
+            </div>
+          </div>
+
+          <!-- Copy -->
+          <div class="order-1 lg:order-2" bis_size="{&quot;x&quot;:24,&quot;y&quot;:4446,&quot;w&quot;:777,&quot;h&quot;:301,&quot;abs_x&quot;:464,&quot;abs_y&quot;:4489}">
+            <div class="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-2.5 py-1 text-[11px] text-neutral-700" bis_size="{&quot;x&quot;:24,&quot;y&quot;:4446,&quot;w&quot;:143,&quot;h&quot;:26,&quot;abs_x&quot;:464,&quot;abs_y&quot;:4489}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="rocket" class="lucide lucide-rocket h-3.5 w-3.5" bis_size="{&quot;x&quot;:35,&quot;y&quot;:4452,&quot;w&quot;:14,&quot;h&quot;:14,&quot;abs_x&quot;:475,&quot;abs_y&quot;:4495}"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg> The Growth Engine
+            </div>
+            <h3 class="mt-3 text-3xl tracking-tight font-semibold" bis_size="{&quot;x&quot;:24,&quot;y&quot;:4484,&quot;w&quot;:777,&quot;h&quot;:36,&quot;abs_x&quot;:464,&quot;abs_y&quot;:4527}">Turn your profile into a client‑winning storefront</h3>
+            <p class="mt-3 text-[15px] text-neutral-700" bis_size="{&quot;x&quot;:24,&quot;y&quot;:4532,&quot;w&quot;:777,&quot;h&quot;:45,&quot;abs_x&quot;:464,&quot;abs_y&quot;:4575}">
+              Replace “email me to book” with instant scheduling and upfront payments. Present a polished brand with testimonials and pricing that inspire confidence.
+            </p>
+            <ul class="mt-5 space-y-3" bis_size="{&quot;x&quot;:24,&quot;y&quot;:4597,&quot;w&quot;:777,&quot;h&quot;:150,&quot;abs_x&quot;:464,&quot;abs_y&quot;:4640}">
+              <li class="flex items-start gap-3" bis_size="{&quot;x&quot;:24,&quot;y&quot;:4597,&quot;w&quot;:777,&quot;h&quot;:45,&quot;abs_x&quot;:464,&quot;abs_y&quot;:4640}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" class="lucide lucide-check-circle h-4.5 w-4.5 text-emerald-600 mt-0.5" bis_size="{&quot;x&quot;:24,&quot;y&quot;:4599,&quot;w&quot;:24,&quot;h&quot;:24,&quot;abs_x&quot;:464,&quot;abs_y&quot;:4642}"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                <div bis_size="{&quot;x&quot;:60,&quot;y&quot;:4597,&quot;w&quot;:465,&quot;h&quot;:45,&quot;abs_x&quot;:500,&quot;abs_y&quot;:4640}">
+                  <p class="text-[14px] font-medium text-neutral-900" bis_size="{&quot;x&quot;:60,&quot;y&quot;:4597,&quot;w&quot;:465,&quot;h&quot;:21,&quot;abs_x&quot;:500,&quot;abs_y&quot;:4640}">SEO‑friendly and shareable</p>
+                  <p class="text&gt;[13px] text-neutral-600" bis_size="{&quot;x&quot;:60,&quot;y&quot;:4618,&quot;w&quot;:465,&quot;h&quot;:24,&quot;abs_x&quot;:500,&quot;abs_y&quot;:4661}">Appears great on search and social; simple link that converts.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3" bis_size="{&quot;x&quot;:24,&quot;y&quot;:4654,&quot;w&quot;:777,&quot;h&quot;:40,&quot;abs_x&quot;:464,&quot;abs_y&quot;:4697}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" class="lucide lucide-check-circle h-4.5 w-4.5 text-emerald-600 mt-0.5" bis_size="{&quot;x&quot;:24,&quot;y&quot;:4656,&quot;w&quot;:24,&quot;h&quot;:24,&quot;abs_x&quot;:464,&quot;abs_y&quot;:4699}"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                <div bis_size="{&quot;x&quot;:60,&quot;y&quot;:4654,&quot;w&quot;:339,&quot;h&quot;:40,&quot;abs_x&quot;:500,&quot;abs_y&quot;:4697}">
+                  <p class="text-[14px] font-medium text-neutral-900" bis_size="{&quot;x&quot;:60,&quot;y&quot;:4654,&quot;w&quot;:339,&quot;h&quot;:21,&quot;abs_x&quot;:500,&quot;abs_y&quot;:4697}">Real‑time availability</p>
+                  <p class="text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:60,&quot;y&quot;:4675,&quot;w&quot;:339,&quot;h&quot;:19,&quot;abs_x&quot;:500,&quot;abs_y&quot;:4718}">Only offer slots you can actually teach — automatically.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3" bis_size="{&quot;x&quot;:24,&quot;y&quot;:4707,&quot;w&quot;:777,&quot;h&quot;:40,&quot;abs_x&quot;:464,&quot;abs_y&quot;:4750}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" class="lucide lucide-check-circle h-4.5 w-4.5 text-emerald-600 mt-0.5" bis_size="{&quot;x&quot;:24,&quot;y&quot;:4709,&quot;w&quot;:24,&quot;h&quot;:24,&quot;abs_x&quot;:464,&quot;abs_y&quot;:4752}"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                <div bis_size="{&quot;x&quot;:60,&quot;y&quot;:4707,&quot;w&quot;:406,&quot;h&quot;:40,&quot;abs_x&quot;:500,&quot;abs_y&quot;:4750}">
+                  <p class="text-[14px] font-medium text-neutral-900" bis_size="{&quot;x&quot;:60,&quot;y&quot;:4707,&quot;w&quot;:406,&quot;h&quot;:21,&quot;abs_x&quot;:500,&quot;abs_y&quot;:4750}">Lead pipeline</p>
+                  <p class="text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:60,&quot;y&quot;:4728,&quot;w&quot;:406,&quot;h&quot;:19,&quot;abs_x&quot;:500,&quot;abs_y&quot;:4771}">Every booking becomes a trackable lead to convert into a student.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deep Features: AI Copilot -->
+    <section class="border-t border-neutral-200" bis_size="{&quot;x&quot;:0,&quot;y&quot;:5214,&quot;w&quot;:825,&quot;h&quot;:1044,&quot;abs_x&quot;:440,&quot;abs_y&quot;:5257}">
+      <div class="mx-auto max-w-7xl px-6 py-14 md:py-18" bis_size="{&quot;x&quot;:0,&quot;y&quot;:5215,&quot;w&quot;:825,&quot;h&quot;:1043,&quot;abs_x&quot;:440,&quot;abs_y&quot;:5258}">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center" bis_size="{&quot;x&quot;:24,&quot;y&quot;:5271,&quot;w&quot;:777,&quot;h&quot;:931,&quot;abs_x&quot;:464,&quot;abs_y&quot;:5314}">
+          <div bis_size="{&quot;x&quot;:24,&quot;y&quot;:5271,&quot;w&quot;:777,&quot;h&quot;:401,&quot;abs_x&quot;:464,&quot;abs_y&quot;:5314}">
+            <div class="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-2.5 py-1 text-[11px] text-neutral-700" bis_size="{&quot;x&quot;:24,&quot;y&quot;:5271,&quot;w&quot;:117,&quot;h&quot;:26,&quot;abs_x&quot;:464,&quot;abs_y&quot;:5314}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="bot" class="lucide lucide-bot h-3.5 w-3.5" bis_size="{&quot;x&quot;:35,&quot;y&quot;:5277,&quot;w&quot;:14,&quot;h&quot;:14,&quot;abs_x&quot;:475,&quot;abs_y&quot;:5320}"><path d="M12 8V4H8"></path><rect width="16" height="12" x="4" y="8" rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg> The AI Copilot
+            </div>
+            <h3 class="mt-3 text-3xl tracking-tight font-semibold" bis_size="{&quot;x&quot;:24,&quot;y&quot;:5310,&quot;w&quot;:777,&quot;h&quot;:72,&quot;abs_x&quot;:464,&quot;abs_y&quot;:5353}">Ship quality faster — plans, reports, and emails in seconds</h3>
+            <p class="mt-3 text-[15px] text-neutral-700" bis_size="{&quot;x&quot;:24,&quot;y&quot;:5394,&quot;w&quot;:777,&quot;h&quot;:45,&quot;abs_x&quot;:464,&quot;abs_y&quot;:5437}">
+              Capture a few inputs and let AI draft the heavy lifting. You keep the expertise; Mentoblo removes the busywork.
+            </p>
+            <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3" bis_size="{&quot;x&quot;:24,&quot;y&quot;:5459,&quot;w&quot;:777,&quot;h&quot;:147,&quot;abs_x&quot;:464,&quot;abs_y&quot;:5502}">
+              <div class="rounded-lg border border-neutral-200 p-3" bis_size="{&quot;x&quot;:24,&quot;y&quot;:5459,&quot;w&quot;:382,&quot;h&quot;:67,&quot;abs_x&quot;:464,&quot;abs_y&quot;:5502}">
+                <div class="flex items-center gap-2" bis_size="{&quot;x&quot;:37,&quot;y&quot;:5472,&quot;w&quot;:356,&quot;h&quot;:19,&quot;abs_x&quot;:477,&quot;abs_y&quot;:5515}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="wand-2" class="lucide lucide-wand-2 h-4 w-4 text-violet-600" bis_size="{&quot;x&quot;:37,&quot;y&quot;:5473,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:477,&quot;abs_y&quot;:5516}"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"></path><path d="m14 7 3 3"></path><path d="M5 6v4"></path><path d="M19 14v4"></path><path d="M10 2v2"></path><path d="M7 8H3"></path><path d="M21 16h-4"></path><path d="M11 3H9"></path></svg>
+                  <p class="text-[13px] text-neutral-900" bis_size="{&quot;x&quot;:61,&quot;y&quot;:5472,&quot;w&quot;:94,&quot;h&quot;:19,&quot;abs_x&quot;:501,&quot;abs_y&quot;:5515}">Lesson Planner</p>
+                </div>
+                <p class="mt-1 text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:37,&quot;y&quot;:5495,&quot;w&quot;:356,&quot;h&quot;:18,&quot;abs_x&quot;:477,&quot;abs_y&quot;:5538}">Generate a 60‑minute plan from topic + level.</p>
+              </div>
+              <div class="rounded-lg border border-neutral-200 p-3" bis_size="{&quot;x&quot;:418,&quot;y&quot;:5459,&quot;w&quot;:382,&quot;h&quot;:67,&quot;abs_x&quot;:858,&quot;abs_y&quot;:5502}">
+                <div class="flex items-center gap-2" bis_size="{&quot;x&quot;:431,&quot;y&quot;:5472,&quot;w&quot;:356,&quot;h&quot;:19,&quot;abs_x&quot;:871,&quot;abs_y&quot;:5515}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="file-signature" class="lucide lucide-file-signature h-4 w-4 text-violet-600" bis_size="{&quot;x&quot;:431,&quot;y&quot;:5473,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:871,&quot;abs_y&quot;:5516}"><path d="m18 5-2.414-2.414A2 2 0 0 0 14.172 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2"></path><path d="M21.378 12.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"></path><path d="M8 18h1"></path></svg>
+                  <p class="text-[13px] text-neutral-900" bis_size="{&quot;x&quot;:455,&quot;y&quot;:5472,&quot;w&quot;:91,&quot;h&quot;:19,&quot;abs_x&quot;:895,&quot;abs_y&quot;:5515}">Parent Reports</p>
+                </div>
+                <p class="mt-1 text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:431,&quot;y&quot;:5495,&quot;w&quot;:356,&quot;h&quot;:18,&quot;abs_x&quot;:871,&quot;abs_y&quot;:5538}">Turn bullets into professional updates post‑lesson.</p>
+              </div>
+              <div class="rounded-lg border border-neutral-200 p-3" bis_size="{&quot;x&quot;:24,&quot;y&quot;:5538,&quot;w&quot;:382,&quot;h&quot;:67,&quot;abs_x&quot;:464,&quot;abs_y&quot;:5581}">
+                <div class="flex items-center gap-2" bis_size="{&quot;x&quot;:37,&quot;y&quot;:5551,&quot;w&quot;:356,&quot;h&quot;:19,&quot;abs_x&quot;:477,&quot;abs_y&quot;:5594}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="mail-question" class="lucide lucide-mail-question h-4 w-4 text-violet-600" bis_size="{&quot;x&quot;:37,&quot;y&quot;:5553,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:477,&quot;abs_y&quot;:5596}"><path d="M22 10.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h12.5"></path><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path><path d="M18 15.28c.2-.4.5-.8.9-1a2.1 2.1 0 0 1 2.6.4c.3.4.5.8.5 1.3 0 1.3-2 2-2 2"></path><path d="M20 22v.01"></path></svg>
+                  <p class="text-[13px] text-neutral-900" bis_size="{&quot;x&quot;:61,&quot;y&quot;:5551,&quot;w&quot;:156,&quot;h&quot;:19,&quot;abs_x&quot;:501,&quot;abs_y&quot;:5594}">Communication Assistant</p>
+                </div>
+                <p class="mt-1 text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:37,&quot;y&quot;:5575,&quot;w&quot;:356,&quot;h&quot;:18,&quot;abs_x&quot;:477,&quot;abs_y&quot;:5618}">Draft reminders, increases, and sensitive messages.</p>
+              </div>
+              <div class="rounded-lg border border-neutral-200 p-3" bis_size="{&quot;x&quot;:418,&quot;y&quot;:5538,&quot;w&quot;:382,&quot;h&quot;:67,&quot;abs_x&quot;:858,&quot;abs_y&quot;:5581}">
+                <div class="flex items-center gap-2" bis_size="{&quot;x&quot;:431,&quot;y&quot;:5551,&quot;w&quot;:356,&quot;h&quot;:19,&quot;abs_x&quot;:871,&quot;abs_y&quot;:5594}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="settings-2" class="lucide lucide-settings-2 h-4 w-4 text-violet-600" bis_size="{&quot;x&quot;:431,&quot;y&quot;:5553,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:871,&quot;abs_y&quot;:5596}"><path d="M14 17H5"></path><path d="M19 7h-9"></path><circle cx="17" cy="17" r="3"></circle><circle cx="7" cy="7" r="3"></circle></svg>
+                  <p class="text-[13px] text-neutral-900" bis_size="{&quot;x&quot;:455,&quot;y&quot;:5551,&quot;w&quot;:79,&quot;h&quot;:19,&quot;abs_x&quot;:895,&quot;abs_y&quot;:5594}">Tunable tone</p>
+                </div>
+                <p class="mt-1 text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:431,&quot;y&quot;:5575,&quot;w&quot;:356,&quot;h&quot;:18,&quot;abs_x&quot;:871,&quot;abs_y&quot;:5618}">Professional, positive, and on‑brand by default.</p>
+              </div>
+            </div>
+            <div class="mt-6 flex gap-3" bis_size="{&quot;x&quot;:24,&quot;y&quot;:5630,&quot;w&quot;:777,&quot;h&quot;:43,&quot;abs_x&quot;:464,&quot;abs_y&quot;:5673}">
+              <a href="/ai" class="inline-flex items-center gap-2 rounded-md border border-neutral-200 bg-white px-3.5 py-2.5 text-[14px] font-medium text-neutral-900 hover:bg-neutral-50 hover:border-neutral-300 transition" bis_size="{&quot;x&quot;:24,&quot;y&quot;:5630,&quot;w&quot;:152,&quot;h&quot;:43,&quot;abs_x&quot;:464,&quot;abs_y&quot;:5673}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="play-circle" class="lucide lucide-play-circle h-4 w-4" bis_size="{&quot;x&quot;:39,&quot;y&quot;:5643,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:479,&quot;abs_y&quot;:5686}"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z"></path><circle cx="12" cy="12" r="10"></circle></svg>
+                See it in action
+              </a>
+              <a href="/ai/lesson-planner" class="inline-flex items-center gap-2 rounded-md border border-neutral-900 bg-neutral-900 px-3.5 py-2.5 text-[14px] font-medium text-white hover:bg-neutral-800 hover:border-neutral-800 transition" bis_size="{&quot;x&quot;:188,&quot;y&quot;:5630,&quot;w&quot;:159,&quot;h&quot;:43,&quot;abs_x&quot;:628,&quot;abs_y&quot;:5673}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="sparkles" class="lucide lucide-sparkles h-4 w-4" bis_size="{&quot;x&quot;:203,&quot;y&quot;:5643,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:643,&quot;abs_y&quot;:5686}"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
+                Generate a plan
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-xl border border-neutral-200 bg-white p-5 shadow-sm" bis_size="{&quot;x&quot;:24,&quot;y&quot;:5713,&quot;w&quot;:777,&quot;h&quot;:490,&quot;abs_x&quot;:464,&quot;abs_y&quot;:5756}">
+            <div class="grid grid-cols-1 gap-4" bis_size="{&quot;x&quot;:45,&quot;y&quot;:5734,&quot;w&quot;:735,&quot;h&quot;:448,&quot;abs_x&quot;:485,&quot;abs_y&quot;:5777}">
+              <div class="rounded-lg border border-neutral-200 p-3" bis_size="{&quot;x&quot;:45,&quot;y&quot;:5734,&quot;w&quot;:735,&quot;h&quot;:200,&quot;abs_x&quot;:485,&quot;abs_y&quot;:5777}">
+                <div class="flex items-center gap-2" bis_size="{&quot;x&quot;:58,&quot;y&quot;:5747,&quot;w&quot;:709,&quot;h&quot;:19,&quot;abs_x&quot;:498,&quot;abs_y&quot;:5790}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="wand-2" class="lucide lucide-wand-2 h-4 w-4 text-violet-600" bis_size="{&quot;x&quot;:58,&quot;y&quot;:5748,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:498,&quot;abs_y&quot;:5791}"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"></path><path d="m14 7 3 3"></path><path d="M5 6v4"></path><path d="M19 14v4"></path><path d="M10 2v2"></path><path d="M7 8H3"></path><path d="M21 16h-4"></path><path d="M11 3H9"></path></svg>
+                  <span class="text-[13px] text-neutral-700" bis_size="{&quot;x&quot;:82,&quot;y&quot;:5747,&quot;w&quot;:110,&quot;h&quot;:19,&quot;abs_x&quot;:522,&quot;abs_y&quot;:5790}">AI Lesson Planner</span>
+                </div>
+                <div class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-2" bis_size="{&quot;x&quot;:58,&quot;y&quot;:5778,&quot;w&quot;:709,&quot;h&quot;:37,&quot;abs_x&quot;:498,&quot;abs_y&quot;:5821}">
+                  <input class="rounded-md border border-neutral-200 px-2.5 py-2 text-[13px] outline-none focus:ring-2 focus:ring-neutral-900/10" placeholder="Subject (e.g., English)" bis_size="{&quot;x&quot;:58,&quot;y&quot;:5778,&quot;w&quot;:231,&quot;h&quot;:37,&quot;abs_x&quot;:498,&quot;abs_y&quot;:5821}">
+                  <input class="rounded-md border border-neutral-200 px-2.5 py-2 text-[13px] outline-none focus:ring-2 focus:ring-neutral-900/10" placeholder="Topic (e.g., Past Simple)" bis_size="{&quot;x&quot;:297,&quot;y&quot;:5778,&quot;w&quot;:231,&quot;h&quot;:37,&quot;abs_x&quot;:737,&quot;abs_y&quot;:5821}">
+                  <input class="rounded-md border border-neutral-200 px-2.5 py-2 text-[13px] outline-none focus:ring-2 focus:ring-neutral-900/10" placeholder="Level (e.g., B1)" bis_size="{&quot;x&quot;:536,&quot;y&quot;:5778,&quot;w&quot;:231,&quot;h&quot;:37,&quot;abs_x&quot;:976,&quot;abs_y&quot;:5821}">
+                </div>
+                <a href="/ai/lesson-planner" class="mt-3 inline-flex items-center gap-2 rounded-md border border-neutral-200 bg-white px-3 py-2 text-[13px] font-medium hover:bg-neutral-50" bis_size="{&quot;x&quot;:58,&quot;y&quot;:5828,&quot;w&quot;:83,&quot;h&quot;:37,&quot;abs_x&quot;:498,&quot;abs_y&quot;:5871}">Generate</a>
+                <div class="mt-3 rounded-md border border-neutral-200 bg-neutral-50/70 p-3" bis_size="{&quot;x&quot;:58,&quot;y&quot;:5877,&quot;w&quot;:709,&quot;h&quot;:44,&quot;abs_x&quot;:498,&quot;abs_y&quot;:5920}">
+                  <p class="text-[12px] text-neutral-700" bis_size="{&quot;x&quot;:71,&quot;y&quot;:5890,&quot;w&quot;:683,&quot;h&quot;:18,&quot;abs_x&quot;:511,&quot;abs_y&quot;:5933}">Objectives • Warm‑up • Controlled practice • Dialogue • Assessment</p>
+                </div>
+              </div>
+
+              <div class="rounded-lg border border-neutral-200 p-3" bis_size="{&quot;x&quot;:45,&quot;y&quot;:5950,&quot;w&quot;:735,&quot;h&quot;:231,&quot;abs_x&quot;:485,&quot;abs_y&quot;:5993}">
+                <div class="flex items-center gap-2" bis_size="{&quot;x&quot;:58,&quot;y&quot;:5963,&quot;w&quot;:709,&quot;h&quot;:19,&quot;abs_x&quot;:498,&quot;abs_y&quot;:6006}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="file-signature" class="lucide lucide-file-signature h-4 w-4 text-violet-600" bis_size="{&quot;x&quot;:58,&quot;y&quot;:5965,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:498,&quot;abs_y&quot;:6008}"><path d="m18 5-2.414-2.414A2 2 0 0 0 14.172 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2"></path><path d="M21.378 12.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"></path><path d="M8 18h1"></path></svg>
+                  <span class="text-[13px] text-neutral-700" bis_size="{&quot;x&quot;:82,&quot;y&quot;:5963,&quot;w&quot;:100,&quot;h&quot;:19,&quot;abs_x&quot;:522,&quot;abs_y&quot;:6006}">AI Parent Report</span>
+                </div>
+                <div class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2" bis_size="{&quot;x&quot;:58,&quot;y&quot;:5991,&quot;w&quot;:709,&quot;h&quot;:37,&quot;abs_x&quot;:498,&quot;abs_y&quot;:6034}">
+                  <input class="rounded-md border border-neutral-200 px-2.5 py-2 text-[13px] outline-none focus:ring-2 focus:ring-neutral-900/10" placeholder="Student (e.g., Peter)" bis_size="{&quot;x&quot;:58,&quot;y&quot;:5991,&quot;w&quot;:350,&quot;h&quot;:37,&quot;abs_x&quot;:498,&quot;abs_y&quot;:6034}">
+                  <input class="rounded-md border border-neutral-200 px-2.5 py-2 text-[13px] outline-none focus:ring-2 focus:ring-neutral-900/10" placeholder="Focus (e.g., pronunciation)" bis_size="{&quot;x&quot;:416,&quot;y&quot;:5991,&quot;w&quot;:350,&quot;h&quot;:37,&quot;abs_x&quot;:856,&quot;abs_y&quot;:6034}">
+                </div>
+                <textarea class="mt-2 w-full rounded-md border border-neutral-200 px-2.5 py-2 text-[13px] outline-none focus:ring-2 focus:ring-neutral-900/10" rows="3" placeholder="Key points (2–3 bullets)" bis_size="{&quot;x&quot;:58,&quot;y&quot;:6036,&quot;w&quot;:709,&quot;h&quot;:76,&quot;abs_x&quot;:498,&quot;abs_y&quot;:6079}"></textarea>
+                <a href="/ai/parent-report" class="mt-3 inline-flex items-center gap-2 rounded-md border border-neutral-200 bg-white px-3 py-2 text-[13px] font-medium hover:bg-neutral-50" bis_size="{&quot;x&quot;:58,&quot;y&quot;:6131,&quot;w&quot;:98,&quot;h&quot;:37,&quot;abs_x&quot;:498,&quot;abs_y&quot;:6174}">Draft report</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tone of Voice -->
+    <section class="border-t border-neutral-200 bg-neutral-50/40" bis_size="{&quot;x&quot;:0,&quot;y&quot;:6259,&quot;w&quot;:825,&quot;h&quot;:390,&quot;abs_x&quot;:440,&quot;abs_y&quot;:6302}">
+      <div class="mx-auto max-w-7xl px-6 py-14 md:py-18" bis_size="{&quot;x&quot;:0,&quot;y&quot;:6260,&quot;w&quot;:825,&quot;h&quot;:389,&quot;abs_x&quot;:440,&quot;abs_y&quot;:6303}">
+        <div class="max-w-2xl" bis_size="{&quot;x&quot;:24,&quot;y&quot;:6316,&quot;w&quot;:672,&quot;h&quot;:66,&quot;abs_x&quot;:464,&quot;abs_y&quot;:6359}">
+          <h3 class="text-3xl tracking-tight font-semibold" bis_size="{&quot;x&quot;:24,&quot;y&quot;:6316,&quot;w&quot;:672,&quot;h&quot;:36,&quot;abs_x&quot;:464,&quot;abs_y&quot;:6359}">Our tone of voice</h3>
+          <p class="mt-2 text-[15px] text-neutral-700" bis_size="{&quot;x&quot;:24,&quot;y&quot;:6360,&quot;w&quot;:672,&quot;h&quot;:22,&quot;abs_x&quot;:464,&quot;abs_y&quot;:6403}">Professional and intelligent. Empowering. Elegant and simple. Reliable.</p>
+        </div>
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-4 gap-6" bis_size="{&quot;x&quot;:24,&quot;y&quot;:6414,&quot;w&quot;:777,&quot;h&quot;:178,&quot;abs_x&quot;:464,&quot;abs_y&quot;:6457}">
+          <div class="rounded-xl border border-neutral-200 bg-white p-5" bis_size="{&quot;x&quot;:24,&quot;y&quot;:6414,&quot;w&quot;:176,&quot;h&quot;:178,&quot;abs_x&quot;:464,&quot;abs_y&quot;:6457}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="brain" class="lucide lucide-brain h-5 w-5 text-neutral-600" bis_size="{&quot;x&quot;:45,&quot;y&quot;:6435,&quot;w&quot;:20,&quot;h&quot;:20,&quot;abs_x&quot;:485,&quot;abs_y&quot;:6478}"><path d="M12 18V5"></path><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"></path><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"></path><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"></path><path d="M18 18a4 4 0 0 0 2-7.464"></path><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"></path><path d="M6 18a4 4 0 0 1-2-7.464"></path><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"></path></svg>
+            <p class="mt-3 text-[14px] font-medium text-neutral-900" bis_size="{&quot;x&quot;:45,&quot;y&quot;:6467,&quot;w&quot;:134,&quot;h&quot;:42,&quot;abs_x&quot;:485,&quot;abs_y&quot;:6510}">Professional &amp; Intelligent</p>
+            <p class="mt-1 text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:45,&quot;y&quot;:6513,&quot;w&quot;:134,&quot;h&quot;:58,&quot;abs_x&quot;:485,&quot;abs_y&quot;:6556}">Clear, precise, and grounded in expertise.</p>
+          </div>
+          <div class="rounded-xl border border-neutral-200 bg-white p-5" bis_size="{&quot;x&quot;:224,&quot;y&quot;:6414,&quot;w&quot;:176,&quot;h&quot;:178,&quot;abs_x&quot;:664,&quot;abs_y&quot;:6457}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="zap" class="lucide lucide-zap h-5 w-5 text-neutral-600" bis_size="{&quot;x&quot;:245,&quot;y&quot;:6435,&quot;w&quot;:20,&quot;h&quot;:20,&quot;abs_x&quot;:685,&quot;abs_y&quot;:6478}"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
+            <p class="mt-3 text-[14px] font-medium text-neutral-900" bis_size="{&quot;x&quot;:245,&quot;y&quot;:6467,&quot;w&quot;:134,&quot;h&quot;:21,&quot;abs_x&quot;:685,&quot;abs_y&quot;:6510}">Empowering</p>
+            <p class="mt-1 text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:245,&quot;y&quot;:6492,&quot;w&quot;:134,&quot;h&quot;:58,&quot;abs_x&quot;:685,&quot;abs_y&quot;:6535}">Give tutors superpowers, never overwhelm them.</p>
+          </div>
+          <div class="rounded-xl border border-neutral-200 bg-white p-5" bis_size="{&quot;x&quot;:424,&quot;y&quot;:6414,&quot;w&quot;:176,&quot;h&quot;:178,&quot;abs_x&quot;:864,&quot;abs_y&quot;:6457}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="feather" class="lucide lucide-feather h-5 w-5 text-neutral-600" bis_size="{&quot;x&quot;:445,&quot;y&quot;:6435,&quot;w&quot;:20,&quot;h&quot;:20,&quot;abs_x&quot;:885,&quot;abs_y&quot;:6478}"><path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V18a1 1 0 0 0 1 1z"></path><path d="M16 8 2 22"></path><path d="M17.5 15H9"></path></svg>
+            <p class="mt-3 text-[14px] font-medium text-neutral-900" bis_size="{&quot;x&quot;:445,&quot;y&quot;:6467,&quot;w&quot;:134,&quot;h&quot;:21,&quot;abs_x&quot;:885,&quot;abs_y&quot;:6510}">Elegant &amp; Simple</p>
+            <p class="mt-1 text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:445,&quot;y&quot;:6492,&quot;w&quot;:134,&quot;h&quot;:39,&quot;abs_x&quot;:885,&quot;abs_y&quot;:6535}">Minimal, readable UI with obvious actions.</p>
+          </div>
+          <div class="rounded-xl border border-neutral-200 bg-white p-5" bis_size="{&quot;x&quot;:624,&quot;y&quot;:6414,&quot;w&quot;:176,&quot;h&quot;:178,&quot;abs_x&quot;:1064,&quot;abs_y&quot;:6457}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="shield" class="lucide lucide-shield h-5 w-5 text-neutral-600" bis_size="{&quot;x&quot;:645,&quot;y&quot;:6435,&quot;w&quot;:20,&quot;h&quot;:20,&quot;abs_x&quot;:1085,&quot;abs_y&quot;:6478}"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
+            <p class="mt-3 text-[14px] font-medium text-neutral-900" bis_size="{&quot;x&quot;:645,&quot;y&quot;:6467,&quot;w&quot;:134,&quot;h&quot;:21,&quot;abs_x&quot;:1085,&quot;abs_y&quot;:6510}">Reliable</p>
+            <p class="mt-1 text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:645,&quot;y&quot;:6492,&quot;w&quot;:134,&quot;h&quot;:58,&quot;abs_x&quot;:1085,&quot;abs_y&quot;:6535}">Dependable platform for mission‑critical work.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="border-t border-neutral-200" bis_size="{&quot;x&quot;:0,&quot;y&quot;:6649,&quot;w&quot;:825,&quot;h&quot;:754,&quot;abs_x&quot;:440,&quot;abs_y&quot;:6692}">
+      <div class="mx-auto max-w-7xl px-6 py-14 md:py-18" bis_size="{&quot;x&quot;:0,&quot;y&quot;:6650,&quot;w&quot;:825,&quot;h&quot;:753,&quot;abs_x&quot;:440,&quot;abs_y&quot;:6693}">
+        <div class="max-w-2xl" bis_size="{&quot;x&quot;:24,&quot;y&quot;:6706,&quot;w&quot;:672,&quot;h&quot;:72,&quot;abs_x&quot;:464,&quot;abs_y&quot;:6749}">
+          <h3 class="text-3xl md:text-4xl tracking-tight font-semibold" bis_size="{&quot;x&quot;:24,&quot;y&quot;:6706,&quot;w&quot;:672,&quot;h&quot;:40,&quot;abs_x&quot;:464,&quot;abs_y&quot;:6749}">Simple, transparent pricing</h3>
+          <p class="mt-2 text-[16px] text-neutral-700" bis_size="{&quot;x&quot;:24,&quot;y&quot;:6754,&quot;w&quot;:672,&quot;h&quot;:24,&quot;abs_x&quot;:464,&quot;abs_y&quot;:6797}">Start free. Upgrade when you’re ready. Cancel anytime.</p>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6" bis_size="{&quot;x&quot;:24,&quot;y&quot;:6810,&quot;w&quot;:777,&quot;h&quot;:451,&quot;abs_x&quot;:464,&quot;abs_y&quot;:6853}">
+          <!-- Starter -->
+          <div class="rounded-xl border border-neutral-200 bg-white p-6 flex flex-col" bis_size="{&quot;x&quot;:24,&quot;y&quot;:6810,&quot;w&quot;:243,&quot;h&quot;:451,&quot;abs_x&quot;:464,&quot;abs_y&quot;:6853}">
+            <div class="flex items-start justify-between" bis_size="{&quot;x&quot;:49,&quot;y&quot;:6835,&quot;w&quot;:193,&quot;h&quot;:52,&quot;abs_x&quot;:489,&quot;abs_y&quot;:6878}">
+              <div bis_size="{&quot;x&quot;:49,&quot;y&quot;:6835,&quot;w&quot;:169,&quot;h&quot;:52,&quot;abs_x&quot;:489,&quot;abs_y&quot;:6878}">
+                <p class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:49,&quot;y&quot;:6835,&quot;w&quot;:169,&quot;h&quot;:18,&quot;abs_x&quot;:489,&quot;abs_y&quot;:6878}">Starter</p>
+                <h4 class="mt-1 text-[20px] tracking-tight font-semibold text-neutral-900" bis_size="{&quot;x&quot;:49,&quot;y&quot;:6857,&quot;w&quot;:169,&quot;h&quot;:30,&quot;abs_x&quot;:489,&quot;abs_y&quot;:6900}">For getting started</h4>
+              </div>
+            </div>
+            <div class="mt-4" bis_size="{&quot;x&quot;:49,&quot;y&quot;:6903,&quot;w&quot;:193,&quot;h&quot;:36,&quot;abs_x&quot;:489,&quot;abs_y&quot;:6946}">
+              <span class="text-3xl tracking-tight font-semibold text-neutral-900" bis_size="{&quot;x&quot;:49,&quot;y&quot;:6903,&quot;w&quot;:38,&quot;h&quot;:36,&quot;abs_x&quot;:489,&quot;abs_y&quot;:6946}">€0</span>
+              <span class="text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:92,&quot;y&quot;:6919,&quot;w&quot;:43,&quot;h&quot;:15,&quot;abs_x&quot;:532,&quot;abs_y&quot;:6962}">/month</span>
+            </div>
+            <p class="mt-2 text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:49,&quot;y&quot;:6947,&quot;w&quot;:193,&quot;h&quot;:39,&quot;abs_x&quot;:489,&quot;abs_y&quot;:6990}">Test the platform and publish a basic profile.</p>
+            <ul class="mt-4 space-y-2" bis_size="{&quot;x&quot;:49,&quot;y&quot;:7002,&quot;w&quot;:193,&quot;h&quot;:128,&quot;abs_x&quot;:489,&quot;abs_y&quot;:7045}">
+              <li class="flex items-start gap-2" bis_size="{&quot;x&quot;:49,&quot;y&quot;:7002,&quot;w&quot;:193,&quot;h&quot;:26,&quot;abs_x&quot;:489,&quot;abs_y&quot;:7045}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" class="lucide lucide-check-circle h-4.5 w-4.5 text-emerald-600 mt-0.5" bis_size="{&quot;x&quot;:49,&quot;y&quot;:7004,&quot;w&quot;:24,&quot;h&quot;:24,&quot;abs_x&quot;:489,&quot;abs_y&quot;:7047}"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                <span class="text-[13px] text-neutral-700" bis_size="{&quot;x&quot;:81,&quot;y&quot;:7002,&quot;w&quot;:145,&quot;h&quot;:19,&quot;abs_x&quot;:521,&quot;abs_y&quot;:7045}">Public profile &amp; booking</span>
+              </li>
+              <li class="flex items-start gap-2" bis_size="{&quot;x&quot;:49,&quot;y&quot;:7036,&quot;w&quot;:193,&quot;h&quot;:26,&quot;abs_x&quot;:489,&quot;abs_y&quot;:7079}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" class="lucide lucide-check-circle h-4.5 w-4.5 text-emerald-600 mt-0.5" bis_size="{&quot;x&quot;:49,&quot;y&quot;:7038,&quot;w&quot;:24,&quot;h&quot;:24,&quot;abs_x&quot;:489,&quot;abs_y&quot;:7081}"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                <span class="text-[13px] text-neutral-700" bis_size="{&quot;x&quot;:81,&quot;y&quot;:7036,&quot;w&quot;:107,&quot;h&quot;:19,&quot;abs_x&quot;:521,&quot;abs_y&quot;:7079}">Up to 10 students</span>
+              </li>
+              <li class="flex items-start gap-2" bis_size="{&quot;x&quot;:49,&quot;y&quot;:7070,&quot;w&quot;:193,&quot;h&quot;:26,&quot;abs_x&quot;:489,&quot;abs_y&quot;:7113}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" class="lucide lucide-check-circle h-4.5 w-4.5 text-emerald-600 mt-0.5" bis_size="{&quot;x&quot;:49,&quot;y&quot;:7072,&quot;w&quot;:24,&quot;h&quot;:24,&quot;abs_x&quot;:489,&quot;abs_y&quot;:7115}"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                <span class="text-[13px] text-neutral-700" bis_size="{&quot;x&quot;:81,&quot;y&quot;:7070,&quot;w&quot;:112,&quot;h&quot;:19,&quot;abs_x&quot;:521,&quot;abs_y&quot;:7113}">5 invoices / month</span>
+              </li>
+              <li class="flex items-start gap-2" bis_size="{&quot;x&quot;:49,&quot;y&quot;:7104,&quot;w&quot;:193,&quot;h&quot;:26,&quot;abs_x&quot;:489,&quot;abs_y&quot;:7147}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" class="lucide lucide-check-circle h-4.5 w-4.5 text-emerald-600 mt-0.5" bis_size="{&quot;x&quot;:49,&quot;y&quot;:7106,&quot;w&quot;:24,&quot;h&quot;:24,&quot;abs_x&quot;:489,&quot;abs_y&quot;:7149}"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                <span class="text-[13px] text-neutral-700" bis_size="{&quot;x&quot;:81,&quot;y&quot;:7104,&quot;w&quot;:140,&quot;h&quot;:19,&quot;abs_x&quot;:521,&quot;abs_y&quot;:7147}">Materials library • 1 GB</span>
+              </li>
+            </ul>
+            <a href="/signup" class="mt-6 inline-flex items-center justify-center gap-2 rounded-md border border-neutral-200 bg-white px-3.5 py-2.5 text-[14px] font-medium text-neutral-900 hover:bg-neutral-50 hover:border-neutral-300 transition" bis_size="{&quot;x&quot;:49,&quot;y&quot;:7154,&quot;w&quot;:193,&quot;h&quot;:43,&quot;abs_x&quot;:489,&quot;abs_y&quot;:7197}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="rocket" class="lucide lucide-rocket h-4 w-4" bis_size="{&quot;x&quot;:80,&quot;y&quot;:7167,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:520,&quot;abs_y&quot;:7210}"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
+              Get started free
+            </a>
+          </div>
+
+          <!-- Pro -->
+          <div class="relative rounded-xl border border-neutral-900 bg-white p-6 shadow-sm flex flex-col" bis_size="{&quot;x&quot;:291,&quot;y&quot;:6810,&quot;w&quot;:243,&quot;h&quot;:451,&quot;abs_x&quot;:731,&quot;abs_y&quot;:6853}">
+            <div class="absolute -top-3 left-4" bis_size="{&quot;x&quot;:308,&quot;y&quot;:6799,&quot;w&quot;:108,&quot;h&quot;:26,&quot;abs_x&quot;:748,&quot;abs_y&quot;:6842}">
+              <span class="inline-flex items-center gap-1 rounded-full border border-neutral-900 bg-neutral-900 text-white px-2.5 py-1 text-[11px]" bis_size="{&quot;x&quot;:308,&quot;y&quot;:6799,&quot;w&quot;:108,&quot;h&quot;:26,&quot;abs_x&quot;:748,&quot;abs_y&quot;:6842}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="star" class="lucide lucide-star h-3.5 w-3.5" bis_size="{&quot;x&quot;:319,&quot;y&quot;:6805,&quot;w&quot;:14,&quot;h&quot;:14,&quot;abs_x&quot;:759,&quot;abs_y&quot;:6848}"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg> Most popular
+              </span>
+            </div>
+            <div class="flex items-start justify-between" bis_size="{&quot;x&quot;:316,&quot;y&quot;:6835,&quot;w&quot;:193,&quot;h&quot;:52,&quot;abs_x&quot;:756,&quot;abs_y&quot;:6878}">
+              <div bis_size="{&quot;x&quot;:316,&quot;y&quot;:6835,&quot;w&quot;:168,&quot;h&quot;:52,&quot;abs_x&quot;:756,&quot;abs_y&quot;:6878}">
+                <p class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:316,&quot;y&quot;:6835,&quot;w&quot;:168,&quot;h&quot;:18,&quot;abs_x&quot;:756,&quot;abs_y&quot;:6878}">Pro</p>
+                <h4 class="mt-1 text-[20px] tracking-tight font-semibold text-neutral-900" bis_size="{&quot;x&quot;:316,&quot;y&quot;:6857,&quot;w&quot;:168,&quot;h&quot;:30,&quot;abs_x&quot;:756,&quot;abs_y&quot;:6900}">For growing tutors</h4>
+              </div>
+            </div>
+            <div class="mt-4" bis_size="{&quot;x&quot;:316,&quot;y&quot;:6903,&quot;w&quot;:193,&quot;h&quot;:36,&quot;abs_x&quot;:756,&quot;abs_y&quot;:6946}">
+              <span class="text-3xl tracking-tight font-semibold text-neutral-900" bis_size="{&quot;x&quot;:316,&quot;y&quot;:6903,&quot;w&quot;:49,&quot;h&quot;:36,&quot;abs_x&quot;:756,&quot;abs_y&quot;:6946}">€19</span>
+              <span class="text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:370,&quot;y&quot;:6919,&quot;w&quot;:43,&quot;h&quot;:15,&quot;abs_x&quot;:810,&quot;abs_y&quot;:6962}">/month</span>
+            </div>
+            <p class="mt-2 text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:316,&quot;y&quot;:6947,&quot;w&quot;:193,&quot;h&quot;:39,&quot;abs_x&quot;:756,&quot;abs_y&quot;:6990}">Everything you need to run a professional solo business.</p>
+            <ul class="mt-4 space-y-2" bis_size="{&quot;x&quot;:316,&quot;y&quot;:7002,&quot;w&quot;:193,&quot;h&quot;:167,&quot;abs_x&quot;:756,&quot;abs_y&quot;:7045}">
+              <li class="flex items-start gap-2" bis_size="{&quot;x&quot;:316,&quot;y&quot;:7002,&quot;w&quot;:193,&quot;h&quot;:26,&quot;abs_x&quot;:756,&quot;abs_y&quot;:7045}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" class="lucide lucide-check-circle h-4.5 w-4.5 text-emerald-600 mt-0.5" bis_size="{&quot;x&quot;:316,&quot;y&quot;:7004,&quot;w&quot;:24,&quot;h&quot;:24,&quot;abs_x&quot;:756,&quot;abs_y&quot;:7047}"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                <span class="text-[13px] text-neutral-700" bis_size="{&quot;x&quot;:348,&quot;y&quot;:7002,&quot;w&quot;:125,&quot;h&quot;:19,&quot;abs_x&quot;:788,&quot;abs_y&quot;:7045}">Everything in Starter</span>
+              </li>
+              <li class="flex items-start gap-2" bis_size="{&quot;x&quot;:316,&quot;y&quot;:7036,&quot;w&quot;:193,&quot;h&quot;:39,&quot;abs_x&quot;:756,&quot;abs_y&quot;:7079}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" class="lucide lucide-check-circle h-4.5 w-4.5 text-emerald-600 mt-0.5" bis_size="{&quot;x&quot;:316,&quot;y&quot;:7038,&quot;w&quot;:21,&quot;h&quot;:24,&quot;abs_x&quot;:756,&quot;abs_y&quot;:7081}"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                <span class="text-[13px] text-neutral-700" bis_size="{&quot;x&quot;:345,&quot;y&quot;:7036,&quot;w&quot;:163,&quot;h&quot;:39,&quot;abs_x&quot;:785,&quot;abs_y&quot;:7079}">Unlimited students &amp; invoices</span>
+              </li>
+              <li class="flex items-start gap-2" bis_size="{&quot;x&quot;:316,&quot;y&quot;:7083,&quot;w&quot;:193,&quot;h&quot;:39,&quot;abs_x&quot;:756,&quot;abs_y&quot;:7126}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" class="lucide lucide-check-circle h-4.5 w-4.5 text-emerald-600 mt-0.5" bis_size="{&quot;x&quot;:316,&quot;y&quot;:7085,&quot;w&quot;:20,&quot;h&quot;:24,&quot;abs_x&quot;:756,&quot;abs_y&quot;:7128}"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                <span class="text-[13px] text-neutral-700" bis_size="{&quot;x&quot;:344,&quot;y&quot;:7083,&quot;w&quot;:164,&quot;h&quot;:39,&quot;abs_x&quot;:784,&quot;abs_y&quot;:7126}">Stripe payments &amp; automations</span>
+              </li>
+              <li class="flex items-start gap-2" bis_size="{&quot;x&quot;:316,&quot;y&quot;:7130,&quot;w&quot;:193,&quot;h&quot;:39,&quot;abs_x&quot;:756,&quot;abs_y&quot;:7173}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" class="lucide lucide-check-circle h-4.5 w-4.5 text-emerald-600 mt-0.5" bis_size="{&quot;x&quot;:316,&quot;y&quot;:7132,&quot;w&quot;:21,&quot;h&quot;:24,&quot;abs_x&quot;:756,&quot;abs_y&quot;:7175}"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                <span class="text-[13px] text-neutral-700" bis_size="{&quot;x&quot;:345,&quot;y&quot;:7130,&quot;w&quot;:163,&quot;h&quot;:39,&quot;abs_x&quot;:785,&quot;abs_y&quot;:7173}">AI Copilot — planner &amp; reports</span>
+              </li>
+            </ul>
+            <a href="/signup" class="mt-6 inline-flex items-center justify-center gap-2 rounded-md border border-neutral-900 bg-neutral-900 px-3.5 py-2.5 text-[14px] font-medium text-white hover:bg-neutral-800 hover:border-neutral-800 transition" bis_size="{&quot;x&quot;:316,&quot;y&quot;:7193,&quot;w&quot;:193,&quot;h&quot;:43,&quot;abs_x&quot;:756,&quot;abs_y&quot;:7236}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="sparkles" class="lucide lucide-sparkles h-4 w-4" bis_size="{&quot;x&quot;:345,&quot;y&quot;:7206,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:785,&quot;abs_y&quot;:7249}"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
+              Start 14‑day trial
+            </a>
+          </div>
+
+          <!-- Team -->
+          <div class="rounded-xl border border-neutral-200 bg-white p-6 flex flex-col" bis_size="{&quot;x&quot;:558,&quot;y&quot;:6810,&quot;w&quot;:243,&quot;h&quot;:451,&quot;abs_x&quot;:998,&quot;abs_y&quot;:6853}">
+            <div class="flex items-start justify-between" bis_size="{&quot;x&quot;:583,&quot;y&quot;:6835,&quot;w&quot;:193,&quot;h&quot;:52,&quot;abs_x&quot;:1023,&quot;abs_y&quot;:6878}">
+              <div bis_size="{&quot;x&quot;:583,&quot;y&quot;:6835,&quot;w&quot;:144,&quot;h&quot;:52,&quot;abs_x&quot;:1023,&quot;abs_y&quot;:6878}">
+                <p class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:583,&quot;y&quot;:6835,&quot;w&quot;:144,&quot;h&quot;:18,&quot;abs_x&quot;:1023,&quot;abs_y&quot;:6878}">Team</p>
+                <h4 class="mt-1 text-[20px] tracking-tight font-semibold text-neutral-900" bis_size="{&quot;x&quot;:583,&quot;y&quot;:6857,&quot;w&quot;:144,&quot;h&quot;:30,&quot;abs_x&quot;:1023,&quot;abs_y&quot;:6900}">For small teams</h4>
+              </div>
+            </div>
+            <div class="mt-4" bis_size="{&quot;x&quot;:583,&quot;y&quot;:6903,&quot;w&quot;:193,&quot;h&quot;:36,&quot;abs_x&quot;:1023,&quot;abs_y&quot;:6946}">
+              <span class="text-3xl tracking-tight font-semibold text-neutral-900" bis_size="{&quot;x&quot;:583,&quot;y&quot;:6903,&quot;w&quot;:56,&quot;h&quot;:36,&quot;abs_x&quot;:1023,&quot;abs_y&quot;:6946}">€39</span>
+              <span class="text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:643,&quot;y&quot;:6919,&quot;w&quot;:74,&quot;h&quot;:15,&quot;abs_x&quot;:1083,&quot;abs_y&quot;:6962}">/seat/month</span>
+            </div>
+            <p class="mt-2 text-[13px] text-neutral-600" bis_size="{&quot;x&quot;:583,&quot;y&quot;:6947,&quot;w&quot;:193,&quot;h&quot;:58,&quot;abs_x&quot;:1023,&quot;abs_y&quot;:6990}">Multi‑tutor scheduling, permissions, and shared libraries.</p>
+            <ul class="mt-4 space-y-2" bis_size="{&quot;x&quot;:583,&quot;y&quot;:7021,&quot;w&quot;:193,&quot;h&quot;:141,&quot;abs_x&quot;:1023,&quot;abs_y&quot;:7064}">
+              <li class="flex items-start gap-2" bis_size="{&quot;x&quot;:583,&quot;y&quot;:7021,&quot;w&quot;:193,&quot;h&quot;:26,&quot;abs_x&quot;:1023,&quot;abs_y&quot;:7064}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" class="lucide lucide-check-circle h-4.5 w-4.5 text-emerald-600 mt-0.5" bis_size="{&quot;x&quot;:583,&quot;y&quot;:7023,&quot;w&quot;:24,&quot;h&quot;:24,&quot;abs_x&quot;:1023,&quot;abs_y&quot;:7066}"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                <span class="text-[13px] text-neutral-700" bis_size="{&quot;x&quot;:615,&quot;y&quot;:7021,&quot;w&quot;:104,&quot;h&quot;:19,&quot;abs_x&quot;:1055,&quot;abs_y&quot;:7064}">Everything in Pro</span>
+              </li>
+              <li class="flex items-start gap-2" bis_size="{&quot;x&quot;:583,&quot;y&quot;:7055,&quot;w&quot;:193,&quot;h&quot;:39,&quot;abs_x&quot;:1023,&quot;abs_y&quot;:7098}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" class="lucide lucide-check-circle h-4.5 w-4.5 text-emerald-600 mt-0.5" bis_size="{&quot;x&quot;:583,&quot;y&quot;:7057,&quot;w&quot;:18,&quot;h&quot;:24,&quot;abs_x&quot;:1023,&quot;abs_y&quot;:7100}"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                <span class="text-[13px] text-neutral-700" bis_size="{&quot;x&quot;:609,&quot;y&quot;:7055,&quot;w&quot;:166,&quot;h&quot;:39,&quot;abs_x&quot;:1049,&quot;abs_y&quot;:7098}">Shared student records &amp; materials</span>
+              </li>
+              <li class="flex items-start gap-2" bis_size="{&quot;x&quot;:583,&quot;y&quot;:7102,&quot;w&quot;:193,&quot;h&quot;:26,&quot;abs_x&quot;:1023,&quot;abs_y&quot;:7145}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" class="lucide lucide-check-circle h-4.5 w-4.5 text-emerald-600 mt-0.5" bis_size="{&quot;x&quot;:583,&quot;y&quot;:7104,&quot;w&quot;:24,&quot;h&quot;:24,&quot;abs_x&quot;:1023,&quot;abs_y&quot;:7147}"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                <span class="text-[13px] text-neutral-700" bis_size="{&quot;x&quot;:615,&quot;y&quot;:7102,&quot;w&quot;:147,&quot;h&quot;:19,&quot;abs_x&quot;:1055,&quot;abs_y&quot;:7145}">Role‑based permissions</span>
+              </li>
+              <li class="flex items-start gap-2" bis_size="{&quot;x&quot;:583,&quot;y&quot;:7136,&quot;w&quot;:193,&quot;h&quot;:26,&quot;abs_x&quot;:1023,&quot;abs_y&quot;:7179}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" class="lucide lucide-check-circle h-4.5 w-4.5 text-emerald-600 mt-0.5" bis_size="{&quot;x&quot;:583,&quot;y&quot;:7138,&quot;w&quot;:24,&quot;h&quot;:24,&quot;abs_x&quot;:1023,&quot;abs_y&quot;:7181}"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                <span class="text-[13px] text-neutral-700" bis_size="{&quot;x&quot;:615,&quot;y&quot;:7136,&quot;w&quot;:95,&quot;h&quot;:19,&quot;abs_x&quot;:1055,&quot;abs_y&quot;:7179}">Priority support</span>
+              </li>
+            </ul>
+            <a href="#contact" class="mt-6 inline-flex items-center justify-center gap-2 rounded-md border border-neutral-200 bg-white px-3.5 py-2.5 text-[14px] font-medium text-neutral-900 hover:bg-neutral-50 hover:border-neutral-300 transition" bis_size="{&quot;x&quot;:583,&quot;y&quot;:7186,&quot;w&quot;:193,&quot;h&quot;:43,&quot;abs_x&quot;:1023,&quot;abs_y&quot;:7229}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="send" class="lucide lucide-send h-4 w-4" bis_size="{&quot;x&quot;:621,&quot;y&quot;:7200,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:1061,&quot;abs_y&quot;:7243}"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>
+              Contact sales
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-6 rounded-xl border border-neutral-200 bg-neutral-50/70 px-4 py-3" bis_size="{&quot;x&quot;:24,&quot;y&quot;:7285,&quot;w&quot;:777,&quot;h&quot;:62,&quot;abs_x&quot;:464,&quot;abs_y&quot;:7328}">
+          <p class="text-[12px] text-neutral-700" bis_size="{&quot;x&quot;:41,&quot;y&quot;:7298,&quot;w&quot;:743,&quot;h&quot;:36,&quot;abs_x&quot;:481,&quot;abs_y&quot;:7341}">
+            All plans include secure hosting, calendar sync, and access to core features. Prices in EUR. Taxes may apply. Save 2 months with yearly billing.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="border-t border-neutral-200" bis_size="{&quot;x&quot;:0,&quot;y&quot;:7403,&quot;w&quot;:825,&quot;h&quot;:463,&quot;abs_x&quot;:440,&quot;abs_y&quot;:7446}">
+      <div class="mx-auto max-w-7xl px-6 py-14 md:py-18" bis_size="{&quot;x&quot;:0,&quot;y&quot;:7404,&quot;w&quot;:825,&quot;h&quot;:462,&quot;abs_x&quot;:440,&quot;abs_y&quot;:7447}">
+        <div class="rounded-2xl border border-neutral-200 bg-white p-8 md:p-10" bis_size="{&quot;x&quot;:24,&quot;y&quot;:7460,&quot;w&quot;:777,&quot;h&quot;:350,&quot;abs_x&quot;:464,&quot;abs_y&quot;:7503}">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center" bis_size="{&quot;x&quot;:65,&quot;y&quot;:7501,&quot;w&quot;:695,&quot;h&quot;:268,&quot;abs_x&quot;:505,&quot;abs_y&quot;:7544}">
+            <div class="md:col-span-2" bis_size="{&quot;x&quot;:65,&quot;y&quot;:7552,&quot;w&quot;:452,&quot;h&quot;:165,&quot;abs_x&quot;:505,&quot;abs_y&quot;:7595}">
+              <h4 class="text-2xl md:text-3xl tracking-tight font-semibold" bis_size="{&quot;x&quot;:65,&quot;y&quot;:7552,&quot;w&quot;:452,&quot;h&quot;:72,&quot;abs_x&quot;:505,&quot;abs_y&quot;:7595}">Win clients, automate admin, teach smarter with AI</h4>
+              <p class="mt-2 text-[15px] text-neutral-700" bis_size="{&quot;x&quot;:65,&quot;y&quot;:7632,&quot;w&quot;:452,&quot;h&quot;:22,&quot;abs_x&quot;:505,&quot;abs_y&quot;:7675}">Start building a confident, elegant solo business today.</p>
+              <div class="mt-5 flex flex-col sm:flex-row gap-3" bis_size="{&quot;x&quot;:65,&quot;y&quot;:7675,&quot;w&quot;:452,&quot;h&quot;:43,&quot;abs_x&quot;:505,&quot;abs_y&quot;:7718}">
+                <a href="/signup" class="inline-flex items-center gap-2 rounded-md border border-neutral-900 bg-neutral-900 px-4 py-2.5 text-[14px] font-medium text-white hover:bg-neutral-800 hover:border-neutral-800 transition" bis_size="{&quot;x&quot;:65,&quot;y&quot;:7675,&quot;w&quot;:163,&quot;h&quot;:43,&quot;abs_x&quot;:505,&quot;abs_y&quot;:7718}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="rocket" class="lucide lucide-rocket h-4 w-4" bis_size="{&quot;x&quot;:82,&quot;y&quot;:7688,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:522,&quot;abs_y&quot;:7731}"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
+                  Get started free
+                </a>
+                <a href="/docs" class="inline-flex items-center gap-2 rounded-md border border-neutral-200 bg-white px-4 py-2.5 text-[14px] font-medium text-neutral-900 hover:bg-neutral-50 hover:border-neutral-300 transition" bis_size="{&quot;x&quot;:240,&quot;y&quot;:7675,&quot;w&quot;:195,&quot;h&quot;:43,&quot;abs_x&quot;:680,&quot;abs_y&quot;:7718}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="book-open" class="lucide lucide-book-open h-4 w-4" bis_size="{&quot;x&quot;:257,&quot;y&quot;:7688,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:697,&quot;abs_y&quot;:7731}"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
+                  View documentation
+                </a>
+              </div>
+            </div>
+            <div class="rounded-lg border border-neutral-200 bg-neutral-50/60 p-5" bis_size="{&quot;x&quot;:549,&quot;y&quot;:7501,&quot;w&quot;:210,&quot;h&quot;:268,&quot;abs_x&quot;:989,&quot;abs_y&quot;:7544}">
+              <form id="contact" class="space-y-3" bis_size="{&quot;x&quot;:570,&quot;y&quot;:7522,&quot;w&quot;:168,&quot;h&quot;:226,&quot;abs_x&quot;:1010,&quot;abs_y&quot;:7565}">
+                <div bis_size="{&quot;x&quot;:570,&quot;y&quot;:7522,&quot;w&quot;:168,&quot;h&quot;:65,&quot;abs_x&quot;:1010,&quot;abs_y&quot;:7565}">
+                  <label class="text-[12px] text-neutral-700" bis_size="{&quot;x&quot;:570,&quot;y&quot;:7528,&quot;w&quot;:30,&quot;h&quot;:14,&quot;abs_x&quot;:1010,&quot;abs_y&quot;:7571}">Email</label>
+                  <input type="email" class="mt-1 w-full rounded-md border border-neutral-200 px-3 py-2 text-[13px] outline-none focus:ring-2 focus:ring-neutral-900/10" placeholder="you@school.com" bis_size="{&quot;x&quot;:570,&quot;y&quot;:7550,&quot;w&quot;:168,&quot;h&quot;:37,&quot;abs_x&quot;:1010,&quot;abs_y&quot;:7593}">
+                </div>
+                <div bis_size="{&quot;x&quot;:570,&quot;y&quot;:7599,&quot;w&quot;:168,&quot;h&quot;:65,&quot;abs_x&quot;:1010,&quot;abs_y&quot;:7642}">
+                  <label class="text-[12px] text-neutral-700" bis_size="{&quot;x&quot;:570,&quot;y&quot;:7605,&quot;w&quot;:57,&quot;h&quot;:14,&quot;abs_x&quot;:1010,&quot;abs_y&quot;:7648}">Team size</label>
+                  <input type="text" class="mt-1 w-full rounded-md border border-neutral-200 px-3 py-2 text-[13px] outline-none focus:ring-2 focus:ring-neutral-900/10" placeholder="1–5" bis_size="{&quot;x&quot;:570,&quot;y&quot;:7627,&quot;w&quot;:168,&quot;h&quot;:37,&quot;abs_x&quot;:1010,&quot;abs_y&quot;:7670}">
+                </div>
+                <button class="w-full inline-flex items-center justify-center gap-2 rounded-md border border-neutral-200 bg-white px-3 py-2.5 text-[14px] font-medium text-neutral-900 hover:bg-neutral-50 hover:border-neutral-300 transition" bis_size="{&quot;x&quot;:570,&quot;y&quot;:7677,&quot;w&quot;:168,&quot;h&quot;:43,&quot;abs_x&quot;:1010,&quot;abs_y&quot;:7720}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="send" class="lucide lucide-send h-4 w-4" bis_size="{&quot;x&quot;:589,&quot;y&quot;:7690,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:1029,&quot;abs_y&quot;:7733}"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>
+                  Request access
+                </button>
+                <p class="text-[11px] text-neutral-600 text-center" bis_size="{&quot;x&quot;:570,&quot;y&quot;:7732,&quot;w&quot;:168,&quot;h&quot;:16,&quot;abs_x&quot;:1010,&quot;abs_y&quot;:7775}">No credit card required</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-neutral-200" bis_size="{&quot;x&quot;:0,&quot;y&quot;:7866,&quot;w&quot;:825,&quot;h&quot;:151,&quot;abs_x&quot;:440,&quot;abs_y&quot;:7909}">
+      <div class="mx-auto max-w-7xl px-6 py-10" bis_size="{&quot;x&quot;:0,&quot;y&quot;:7867,&quot;w&quot;:825,&quot;h&quot;:150,&quot;abs_x&quot;:440,&quot;abs_y&quot;:7910}">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6" bis_size="{&quot;x&quot;:24,&quot;y&quot;:7907,&quot;w&quot;:777,&quot;h&quot;:28,&quot;abs_x&quot;:464,&quot;abs_y&quot;:7950}">
+          <div class="flex items-center gap-2" bis_size="{&quot;x&quot;:24,&quot;y&quot;:7907,&quot;w&quot;:96,&quot;h&quot;:28,&quot;abs_x&quot;:464,&quot;abs_y&quot;:7950}">
+            <div class="h-7 w-7 rounded-[8px] border border-neutral-200 bg-white shadow-sm grid place-items-center" bis_size="{&quot;x&quot;:24,&quot;y&quot;:7907,&quot;w&quot;:28,&quot;h&quot;:28,&quot;abs_x&quot;:464,&quot;abs_y&quot;:7950}">
+              <span class="text-[13px] font-medium tracking-tight text-neutral-900" bis_size="{&quot;x&quot;:32,&quot;y&quot;:7911,&quot;w&quot;:11,&quot;h&quot;:19,&quot;abs_x&quot;:472,&quot;abs_y&quot;:7954}">M</span>
+            </div>
+            <span class="text-[14px] font-medium tracking-tight text-neutral-900" bis_size="{&quot;x&quot;:60,&quot;y&quot;:7911,&quot;w&quot;:60,&quot;h&quot;:21,&quot;abs_x&quot;:500,&quot;abs_y&quot;:7954}">Mentoblo</span>
+          </div>
+          <nav class="flex flex-wrap items-center gap-x-6 gap-y-2" bis_size="{&quot;x&quot;:351,&quot;y&quot;:7911,&quot;w&quot;:449,&quot;h&quot;:19,&quot;abs_x&quot;:791,&quot;abs_y&quot;:7954}">
+            <a href="#pillars" class="text-[13px] text-neutral-700 hover:text-neutral-900" bis_size="{&quot;x&quot;:351,&quot;y&quot;:7911,&quot;w&quot;:48,&quot;h&quot;:19,&quot;abs_x&quot;:791,&quot;abs_y&quot;:7954}">Product</a>
+            <a href="#why" class="text-[13px] text-neutral-700 hover:text-neutral-900" bis_size="{&quot;x&quot;:424,&quot;y&quot;:7911,&quot;w&quot;:89,&quot;h&quot;:19,&quot;abs_x&quot;:864,&quot;abs_y&quot;:7954}">Why Mentoblo</a>
+            <a href="#ai" class="text-[13px] text-neutral-700 hover:text-neutral-900" bis_size="{&quot;x&quot;:537,&quot;y&quot;:7911,&quot;w&quot;:59,&quot;h&quot;:19,&quot;abs_x&quot;:977,&quot;abs_y&quot;:7954}">Pricing</a>
+            <a href="#contact" class="text-[13px] text-neutral-700 hover:text-neutral-900" bis_size="{&quot;x&quot;:620,&quot;y&quot;:7911,&quot;w&quot;:48,&quot;h&quot;:19,&quot;abs_x&quot;:1060,&quot;abs_y&quot;:7954}">Contact</a>
+            <a href="#" class="text-[13px] text-neutral-700 hover:text-neutral-900" bis_size="{&quot;x&quot;:693,&quot;y&quot;:7911,&quot;w&quot;:45,&quot;h&quot;:19,&quot;abs_x&quot;:1133,&quot;abs_y&quot;:7954}">Privacy</a>
+            <a href="#" class="text-[13px] text-neutral-700 hover:text-neutral-900" bis_size="{&quot;x&quot;:762,&quot;y&quot;:7911,&quot;w&quot;:38,&quot;h&quot;:19,&quot;abs_x&quot;:1202,&quot;abs_y&quot;:7954}">Terms</a>
+          </nav>
+        </div>
+        <div class="mt-6 flex items-center justify-between" bis_size="{&quot;x&quot;:24,&quot;y&quot;:7959,&quot;w&quot;:777,&quot;h&quot;:18,&quot;abs_x&quot;:464,&quot;abs_y&quot;:8002}">
+          <p class="text-[12px] text-neutral-600" bis_size="{&quot;x&quot;:24,&quot;y&quot;:7959,&quot;w&quot;:213,&quot;h&quot;:18,&quot;abs_x&quot;:464,&quot;abs_y&quot;:8002}">© <span id="year" bis_size="{&quot;x&quot;:38,&quot;y&quot;:7961,&quot;w&quot;:29,&quot;h&quot;:14,&quot;abs_x&quot;:478,&quot;abs_y&quot;:8004}">2025</span> Mentoblo. All rights reserved.</p>
+          <div class="flex items-center gap-4 text-neutral-600" bis_size="{&quot;x&quot;:721,&quot;y&quot;:7960,&quot;w&quot;:80,&quot;h&quot;:16,&quot;abs_x&quot;:1161,&quot;abs_y&quot;:8003}">
+            <a href="#" class="hover:text-neutral-900" bis_size="{&quot;x&quot;:721,&quot;y&quot;:7960,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:1161,&quot;abs_y&quot;:8003}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="twitter" class="lucide lucide-twitter h-4 w-4" bis_size="{&quot;x&quot;:721,&quot;y&quot;:7960,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:1161,&quot;abs_y&quot;:8003}"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg></a>
+            <a href="#" class="hover:text-neutral-900" bis_size="{&quot;x&quot;:753,&quot;y&quot;:7960,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:1193,&quot;abs_y&quot;:8003}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="github" class="lucide lucide-github h-4 w-4" bis_size="{&quot;x&quot;:753,&quot;y&quot;:7960,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:1193,&quot;abs_y&quot;:8003}"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a>
+            <a href="#" class="hover:text-neutral-900" bis_size="{&quot;x&quot;:785,&quot;y&quot;:7960,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:1225,&quot;abs_y&quot;:8003}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="globe" class="lucide lucide-globe h-4 w-4" bis_size="{&quot;x&quot;:785,&quot;y&quot;:7960,&quot;w&quot;:16,&quot;h&quot;:16,&quot;abs_x&quot;:1225,&quot;abs_y&quot;:8003}"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Initialize lucide icons with 1.5 stroke width
+      window.addEventListener('DOMContentLoaded', () => {
+        lucide.createIcons({ attrs: { 'stroke-width': 1.5 } });
+        const y = document.getElementById('year');
+        if (y) y.textContent = new Date().getFullYear();
+      });
+    </script>
+  
+</body></html>

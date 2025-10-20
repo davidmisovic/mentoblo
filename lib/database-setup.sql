@@ -123,3 +123,4 @@ CREATE TABLE IF NOT EXISTS public.ai_reports (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
+

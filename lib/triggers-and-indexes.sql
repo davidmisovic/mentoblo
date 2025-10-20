@@ -27,3 +27,4 @@ CREATE INDEX IF NOT EXISTS idx_invoices_student_id ON public.invoices(student_id
 CREATE INDEX IF NOT EXISTS idx_availability_tutor_id ON public.availability(tutor_id);
 CREATE INDEX IF NOT EXISTS idx_ai_reports_tutor_id ON public.ai_reports(tutor_id);
 
+

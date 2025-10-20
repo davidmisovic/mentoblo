@@ -34,6 +34,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="apple-mobile-web-app-title" content="MyWebSite" />
+      </head>
       <body className="antialiased bg-white text-neutral-900 selection:bg-neutral-900 selection:text-white" style={{fontFamily: 'Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Apple Color Emoji, Segoe UI Emoji'}}>
         {children}
         <Analytics />

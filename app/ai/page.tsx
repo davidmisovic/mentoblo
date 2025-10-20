@@ -19,10 +19,18 @@ export default function AITools() {
     const data = Object.fromEntries(formData.entries())
 
     try {
+      // Get the current session
+      const { data: { session } } = await supabase.auth.getSession()
+      if (!session) {
+        console.error('No session found')
+        return
+      }
+
       const response = await fetch('/api/ai/lesson-plan', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`,
         },
         body: JSON.stringify(data),
       })
@@ -31,7 +39,8 @@ export default function AITools() {
         const result = await response.json()
         setLessonPlan(result.lessonPlan)
       } else {
-        console.error('Failed to generate lesson plan')
+        const errorData = await response.json()
+        console.error('Failed to generate lesson plan:', errorData.error)
       }
     } catch (error) {
       console.error('Error generating lesson plan:', error)
@@ -48,10 +57,18 @@ export default function AITools() {
     const data = Object.fromEntries(formData.entries())
 
     try {
+      // Get the current session
+      const { data: { session } } = await supabase.auth.getSession()
+      if (!session) {
+        console.error('No session found')
+        return
+      }
+
       const response = await fetch('/api/ai/parent-report', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`,
         },
         body: JSON.stringify(data),
       })
@@ -60,7 +77,8 @@ export default function AITools() {
         const result = await response.json()
         setParentReport(result.parentReport)
       } else {
-        console.error('Failed to generate parent report')
+        const errorData = await response.json()
+        console.error('Failed to generate parent report:', errorData.error)
       }
     } catch (error) {
       console.error('Error generating parent report:', error)

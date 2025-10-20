@@ -2,15 +2,30 @@ import { createClient } from '@supabase/supabase-js'
 import { NextRequest, NextResponse } from 'next/server'
 import { GoogleGenerativeAI } from '@google/generative-ai'
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!)
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || 'demo-key')
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 
 export async function POST(request: NextRequest) {
-  const supabase = createClient(supabaseUrl, supabaseServiceKey)
+  const supabase = createClient(supabaseUrl, supabaseAnonKey)
   
   try {
-    const { data: { user } } = await supabase.auth.getUser()
+    // Get the authorization header
+    const authHeader = request.headers.get('authorization')
+    if (!authHeader) {
+      return NextResponse.json({ error: 'No authorization header' }, { status: 401 })
+    }
+
+    // Create a new supabase client with the user's session
+    const supabaseWithAuth = createClient(supabaseUrl, supabaseAnonKey, {
+      global: {
+        headers: {
+          Authorization: authHeader
+        }
+      }
+    })
+
+    const { data: { user } } = await supabaseWithAuth.auth.getUser()
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
@@ -40,12 +55,57 @@ Please write this as a formal report that:
 Format it as a clear, well-structured report.
     `
 
-    const result = await model.generateContent(prompt)
-    const response = await result.response
-    const parentReport = response.text()
+    let parentReport: string
+    
+    if (process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY !== 'demo-key') {
+      const result = await model.generateContent(prompt)
+      const response = await result.response
+      parentReport = response.text()
+    } else {
+      // Demo response when no API key is provided
+      parentReport = `# Progress Report for ${student_name}
+
+**Subject:** ${subject}  
+**Lesson Date:** ${lesson_date}  
+**Tutor:** [Your Name]
+
+## Lesson Summary
+
+### Content Covered
+${lesson_content}
+
+### Student Performance
+${student_performance}
+
+### Areas of Strength
+${areas_of_strength || 'Student showed good engagement and participation throughout the lesson.'}
+
+### Areas for Improvement
+${areas_for_improvement || 'Continue practicing the concepts covered to build confidence.'}
+
+### Homework Assigned
+${homework_assigned || 'Practice exercises related to today\'s lesson content.'}
+
+### Next Lesson Focus
+${next_lesson_focus || 'Building on today\'s concepts with additional practice and new related topics.'}
+
+## Recommendations for Home Support
+- Encourage regular practice of the concepts covered
+- Provide a quiet study space for homework completion
+- Review completed work together to reinforce learning
+- Contact me if you have any questions about the lesson content
+
+## Overall Assessment
+${student_name} is making good progress in ${subject}. With continued practice and support, I'm confident they will continue to improve and build confidence in this subject area.
+
+*Note: This is a demo parent report. For AI-generated content, please add your Gemini API key to the environment variables.*
+
+---
+*Generated on ${new Date().toLocaleDateString()}*`
+    }
 
     // Save the AI-generated parent report
-    const { data: aiReport, error } = await supabase
+    const { data: aiReport, error } = await supabaseWithAuth
       .from('ai_reports')
       .insert({
         tutor_id: user.id,

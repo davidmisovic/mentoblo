@@ -2,15 +2,30 @@ import { createClient } from '@supabase/supabase-js'
 import { NextRequest, NextResponse } from 'next/server'
 import { GoogleGenerativeAI } from '@google/generative-ai'
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!)
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || 'demo-key')
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 
 export async function POST(request: NextRequest) {
-  const supabase = createClient(supabaseUrl, supabaseServiceKey)
+  const supabase = createClient(supabaseUrl, supabaseAnonKey)
   
   try {
-    const { data: { user } } = await supabase.auth.getUser()
+    // Get the authorization header
+    const authHeader = request.headers.get('authorization')
+    if (!authHeader) {
+      return NextResponse.json({ error: 'No authorization header' }, { status: 401 })
+    }
+
+    // Create a new supabase client with the user's session
+    const supabaseWithAuth = createClient(supabaseUrl, supabaseAnonKey, {
+      global: {
+        headers: {
+          Authorization: authHeader
+        }
+      }
+    })
+
+    const { data: { user } } = await supabaseWithAuth.auth.getUser()
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
@@ -38,12 +53,57 @@ Please provide:
 Format the response in a clear, structured way that a tutor can easily follow.
     `
 
-    const result = await model.generateContent(prompt)
-    const response = await result.response
-    const lessonPlan = response.text()
+    let lessonPlan: string
+    
+    if (process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY !== 'demo-key') {
+      const result = await model.generateContent(prompt)
+      const response = await result.response
+      lessonPlan = response.text()
+    } else {
+      // Demo response when no API key is provided
+      lessonPlan = `# ${subject} Lesson Plan for ${student_name}
+
+**Level:** ${level}  
+**Duration:** ${duration} minutes  
+**Learning Objectives:** ${learning_objectives}
+
+## Lesson Structure
+
+### 1. Warm-up Activity (5-10 minutes)
+- Quick review of previous topics: ${previous_topics || 'None specified'}
+- Engaging starter activity to get the student focused
+
+### 2. Main Content (${Math.floor(duration * 0.6)} minutes)
+- Core concept introduction
+- Interactive examples and practice
+- Student participation and questions
+
+### 3. Practice Exercises (${Math.floor(duration * 0.2)} minutes)
+- Guided practice problems
+- Individual work with teacher support
+- Peer collaboration activities
+
+### 4. Assessment/Check for Understanding (${Math.floor(duration * 0.1)} minutes)
+- Quick quiz or discussion
+- Student self-assessment
+- Teacher feedback and clarification
+
+### 5. Homework/Next Steps
+- Practice exercises for reinforcement
+- Preview of next lesson topics
+- Resources for independent study
+
+## Materials Needed
+- Whiteboard/paper for notes
+- Practice worksheets
+- Relevant textbooks or online resources
+- Timer for activity management
+
+*Note: This is a demo lesson plan. For AI-generated content, please add your Gemini API key to the environment variables.*`
+    }
 
     // Save the AI-generated lesson plan
-    const { data: aiReport, error } = await supabase
+    const { data: aiReport, error } = await supabaseWithAuth
       .from('ai_reports')
       .insert({
         tutor_id: user.id,

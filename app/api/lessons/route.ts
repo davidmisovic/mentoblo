@@ -1,126 +1,100 @@
-import { createClient } from '@supabase/supabase-js'
 import { NextRequest, NextResponse } from 'next/server'
+import fs from 'fs'
+import path from 'path'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
+const LESSONS_FILE = path.join(process.cwd(), 'lessons-data.json')
+
+function getLessons() {
+  try {
+    if (!fs.existsSync(LESSONS_FILE)) {
+      return []
+    }
+    const data = fs.readFileSync(LESSONS_FILE, 'utf8')
+    return JSON.parse(data)
+  } catch (error) {
+    console.error('Error reading lessons:', error)
+    return []
+  }
+}
+
+function saveLessons(lessons: any[]) {
+  try {
+    fs.writeFileSync(LESSONS_FILE, JSON.stringify(lessons, null, 2))
+  } catch (error) {
+    console.error('Error saving lessons:', error)
+  }
+}
 
 export async function GET(request: NextRequest) {
-  const supabase = createClient(supabaseUrl, supabaseServiceKey)
-  
   try {
-    // Get the authorization header
-    const authHeader = request.headers.get('authorization')
-    if (!authHeader) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-    }
-
-    // Extract the token from the header
-    const token = authHeader.replace('Bearer ', '')
-    
-    // Verify the token and get user
-    const { data: { user }, error: authError } = await supabase.auth.getUser(token)
-    if (authError || !user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-    }
-
-    const { searchParams } = new URL(request.url)
-    const startDate = searchParams.get('start_date')
-    const endDate = searchParams.get('end_date')
-
-    let query = supabase
-      .from('lessons')
-      .select(`
-        *,
-        students (
-          id,
-          name,
-          email
-        )
-      `)
-      .eq('tutor_id', user.id)
-      .order('start_time', { ascending: true })
-
-    if (startDate) {
-      query = query.gte('start_time', startDate)
-    }
-    if (endDate) {
-      query = query.lte('start_time', endDate)
-    }
-
-    const { data: lessons, error } = await query
-
-    if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 })
-    }
-
+    const lessons = getLessons()
     return NextResponse.json({ lessons })
   } catch (error) {
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    console.error('Error fetching lessons:', error)
+    return NextResponse.json({ 
+      success: false, 
+      error: 'Failed to fetch lessons' 
+    }, { status: 500 })
   }
 }
 
 export async function POST(request: NextRequest) {
-  const supabase = createClient(supabaseUrl, supabaseServiceKey)
-  
   try {
-    // Get the authorization header
-    const authHeader = request.headers.get('authorization')
-    if (!authHeader) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-    }
-
-    // Extract the token from the header
-    const token = authHeader.replace('Bearer ', '')
-    
-    // Verify the token and get user
-    const { data: { user }, error: authError } = await supabase.auth.getUser(token)
-    if (authError || !user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-    }
-
     const body = await request.json()
+    console.log('Received lesson data:', body)
+    
     const { 
       student_id, 
-      title, 
-      description, 
       subject, 
       start_time, 
-      end_time, 
-      price, 
-      meeting_link, 
+      duration, 
       notes 
     } = body
 
-    const { data: lesson, error } = await supabase
-      .from('lessons')
-      .insert({
-        tutor_id: user.id,
-        student_id,
-        title,
-        description,
-        subject,
-        start_time,
-        end_time,
-        price,
-        meeting_link,
-        notes
-      })
-      .select(`
-        *,
-        students (
-          id,
-          name,
-          email
-        )
-      `)
-      .single()
-
-    if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 })
+    // Validate required fields
+    if (!student_id || !subject || !start_time || !duration) {
+      console.error('Missing required fields:', { student_id, subject, start_time, duration })
+      return NextResponse.json({ 
+        success: false, 
+        error: 'Missing required fields' 
+      }, { status: 400 })
     }
 
-    return NextResponse.json({ lesson })
+    // Get student name for display
+    const studentsResponse = await fetch(`${request.nextUrl.origin}/api/students`)
+    const studentsData = await studentsResponse.json()
+    const student = studentsData.students.find((s: any) => s.id === student_id)
+
+    // Create lesson object
+    const lesson = {
+      id: Date.now().toString(),
+      student_id,
+      student_name: student?.name || 'Unknown Student',
+      subject,
+      start_time,
+      duration,
+      notes: notes || '',
+      status: 'scheduled',
+      created_at: new Date().toISOString()
+    }
+
+    // Save to file storage
+    const lessons = getLessons()
+    lessons.push(lesson)
+    saveLessons(lessons)
+
+    console.log('Created lesson:', lesson)
+
+    return NextResponse.json({ 
+      success: true, 
+      lesson,
+      message: 'Lesson created successfully' 
+    })
   } catch (error) {
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    console.error('Lesson creation error:', error)
+    return NextResponse.json({ 
+      success: false, 
+      error: 'Failed to create lesson' 
+    }, { status: 500 })
   }
 }

@@ -17,33 +17,31 @@ interface DashboardStats {
   }>
 }
 
+interface Invoice {
+  id: string
+  total: number
+  status: string
+  created_at: string
+}
+
+interface Lesson {
+  id: string
+  student_name: string
+  subject: string
+  start_time: string
+  duration: number
+}
+
 export default function Dashboard() {
   const [stats, setStats] = useState<DashboardStats>({
-    monthlyRevenue: 2840,
-    newLeads: 19,
-    upcomingLessons: 7,
-    recentActivity: [
-      {
-        id: '1',
-        type: 'payment',
-        description: 'Payment received • $60',
-        timestamp: '2m ago'
-      },
-      {
-        id: '2',
-        type: 'lead',
-        description: 'New lead booked consultation',
-        timestamp: '15m ago'
-      },
-      {
-        id: '3',
-        type: 'invoice',
-        description: 'Invoice sent • Lesson #182',
-        timestamp: '1h ago'
-      }
-    ]
+    monthlyRevenue: 0,
+    newLeads: 0,
+    upcomingLessons: 0,
+    recentActivity: []
   })
   const [loading, setLoading] = useState(true)
+  const [hasRealData, setHasRealData] = useState(false)
+  const [upcomingLessons, setUpcomingLessons] = useState<Lesson[]>([])
   const router = useRouter()
 
   useEffect(() => {
@@ -53,10 +51,140 @@ export default function Dashboard() {
         router.push('/signin')
         return
       }
+      await fetchDashboardData()
       setLoading(false)
     }
     checkUser()
-  }, [router, supabase.auth])
+  }, [router])
+
+  const fetchDashboardData = async () => {
+    try {
+      // Fetch real data from APIs
+      const [invoicesResponse, lessonsResponse] = await Promise.all([
+        fetch('/api/invoices'),
+        fetch('/api/lessons')
+      ])
+
+      const invoicesData = await invoicesResponse.json()
+      const lessonsData = await lessonsResponse.json()
+
+      // Calculate real metrics
+      const currentMonth = new Date().getMonth()
+      const currentYear = new Date().getFullYear()
+      
+      const monthlyRevenue = invoicesData.invoices?.filter((invoice: Invoice) => {
+        const invoiceDate = new Date(invoice.created_at)
+        return invoiceDate.getMonth() === currentMonth && 
+               invoiceDate.getFullYear() === currentYear &&
+               invoice.status === 'paid'
+      }).reduce((sum: number, invoice: Invoice) => sum + invoice.total, 0) || 0
+
+      const upcomingLessons = lessonsData.lessons?.filter((lesson: Lesson) => {
+        const lessonDate = new Date(lesson.start_time)
+        return lessonDate >= new Date()
+      }).slice(0, 3) || []
+
+      // Check if we have real data
+      const hasInvoices = invoicesData.invoices?.length > 0
+      const hasLessons = lessonsData.lessons?.length > 0
+
+      if (hasInvoices || hasLessons) {
+        setHasRealData(true)
+        setStats({
+          monthlyRevenue,
+          newLeads: 0, // TODO: Implement leads tracking
+          upcomingLessons: upcomingLessons.length,
+          recentActivity: [
+            {
+              id: '1',
+              type: 'payment',
+              description: `Payment received • $${monthlyRevenue > 0 ? monthlyRevenue : 0}`,
+              timestamp: '2m ago'
+            }
+          ]
+        })
+        setUpcomingLessons(upcomingLessons)
+      } else {
+        // Show sample data with transparency
+        setStats({
+          monthlyRevenue: 2840,
+          newLeads: 19,
+          upcomingLessons: 7,
+          recentActivity: [
+            {
+              id: '1',
+              type: 'payment',
+              description: 'Payment received • $60',
+              timestamp: '2m ago'
+            },
+            {
+              id: '2',
+              type: 'lead',
+              description: 'New lead booked consultation',
+              timestamp: '15m ago'
+            },
+            {
+              id: '3',
+              type: 'invoice',
+              description: 'Invoice sent • Lesson #182',
+              timestamp: '1h ago'
+            }
+          ]
+        })
+        setUpcomingLessons([
+          {
+            id: '1',
+            student_name: 'Peter',
+            subject: 'English B1',
+            start_time: new Date(Date.now() + 45 * 60 * 1000).toISOString(),
+            duration: 45
+          },
+          {
+            id: '2',
+            student_name: 'Sarah',
+            subject: 'Math Advanced',
+            start_time: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
+            duration: 60
+          },
+          {
+            id: '3',
+            student_name: 'Marco',
+            subject: 'Physics',
+            start_time: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString(),
+            duration: 90
+          }
+        ])
+      }
+    } catch (error) {
+      console.error('Error fetching dashboard data:', error)
+      // Fallback to sample data
+      setStats({
+        monthlyRevenue: 2840,
+        newLeads: 19,
+        upcomingLessons: 7,
+        recentActivity: [
+          {
+            id: '1',
+            type: 'payment',
+            description: 'Payment received • $60',
+            timestamp: '2m ago'
+          },
+          {
+            id: '2',
+            type: 'lead',
+            description: 'New lead booked consultation',
+            timestamp: '15m ago'
+          },
+          {
+            id: '3',
+            type: 'invoice',
+            description: 'Invoice sent • Lesson #182',
+            timestamp: '1h ago'
+          }
+        ]
+      })
+    }
+  }
 
   if (loading) {
     return (
@@ -108,6 +236,22 @@ export default function Dashboard() {
         <div className="mb-8">
           <h1 className="text-2xl font-semibold text-neutral-900">Dashboard</h1>
           <p className="text-neutral-600">Welcome back! Here's what's happening with your tutoring business.</p>
+          {!hasRealData && (
+            <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+              <div className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-blue-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div>
+                  <p className="text-sm font-medium text-blue-900">Sample Data Display</p>
+                  <p className="text-sm text-blue-700 mt-1">
+                    This dashboard shows sample data to demonstrate how it will look. 
+                    Create your first invoice or lesson to see real data here.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Stats Grid */}
@@ -242,27 +386,43 @@ export default function Dashboard() {
             <div className="rounded-lg border border-neutral-200 bg-white p-6">
               <h3 className="text-sm font-medium text-neutral-900 mb-4">Upcoming Lessons</h3>
               <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm font-medium text-neutral-900">English B1</p>
-                    <p className="text-xs text-neutral-600">Peter • Today 3:00 PM</p>
+                {upcomingLessons.length > 0 ? (
+                  upcomingLessons.map((lesson) => {
+                    const lessonDate = new Date(lesson.start_time)
+                    const isToday = lessonDate.toDateString() === new Date().toDateString()
+                    const isTomorrow = lessonDate.toDateString() === new Date(Date.now() + 24 * 60 * 60 * 1000).toDateString()
+                    
+                    let timeDisplay = ''
+                    if (isToday) {
+                      timeDisplay = `Today ${lessonDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`
+                    } else if (isTomorrow) {
+                      timeDisplay = `Tomorrow ${lessonDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`
+                    } else {
+                      timeDisplay = lessonDate.toLocaleDateString([], { weekday: 'long', hour: '2-digit', minute: '2-digit' })
+                    }
+
+                    const durationDisplay = lesson.duration >= 60 
+                      ? `${Math.floor(lesson.duration / 60)}h ${lesson.duration % 60}m`.replace('0m', '').trim()
+                      : `${lesson.duration}m`
+
+                    return (
+                      <div key={lesson.id} className="flex items-center justify-between">
+                        <div>
+                          <p className="text-sm font-medium text-neutral-900">{lesson.subject}</p>
+                          <p className="text-xs text-neutral-600">{lesson.student_name} • {timeDisplay}</p>
+                        </div>
+                        <span className="text-xs text-neutral-500">{durationDisplay}</span>
+                      </div>
+                    )
+                  })
+                ) : (
+                  <div className="text-center py-4">
+                    <p className="text-sm text-neutral-500">No upcoming lessons</p>
+                    <Link href="/scheduling/new" className="text-xs text-blue-600 hover:text-blue-800 mt-1 inline-block">
+                      Schedule your first lesson
+                    </Link>
                   </div>
-                  <span className="text-xs text-neutral-500">45m</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm font-medium text-neutral-900">Math Advanced</p>
-                    <p className="text-xs text-neutral-600">Sarah • Tomorrow 10:00 AM</p>
-                  </div>
-                  <span className="text-xs text-neutral-500">1h</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm font-medium text-neutral-900">Physics</p>
-                    <p className="text-xs text-neutral-600">Marco • Wednesday 2:00 PM</p>
-                  </div>
-                  <span className="text-xs text-neutral-500">1h 30m</span>
-                </div>
+                )}
               </div>
             </div>
           </div>

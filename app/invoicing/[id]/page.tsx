@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
-import QRCode from 'qrcode'
 
 interface Invoice {
   id: string
@@ -33,7 +32,6 @@ export default function InvoiceDetailPage({ params }: { params: { id: string } }
   const [invoice, setInvoice] = useState<Invoice | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [qrCodeUrl, setQrCodeUrl] = useState<string>('')
   const router = useRouter()
 
   useEffect(() => {
@@ -58,7 +56,6 @@ export default function InvoiceDetailPage({ params }: { params: { id: string } }
 
       if (response.ok) {
         setInvoice(data.invoice)
-        generateQRCode(data.invoice)
       } else {
         setError(data.error || 'Invoice not found')
       }
@@ -70,32 +67,6 @@ export default function InvoiceDetailPage({ params }: { params: { id: string } }
     }
   }
 
-  const generateQRCode = async (invoice: Invoice) => {
-    try {
-      // Create QR code data with invoice information
-      const qrData = {
-        invoice_number: invoice.invoice_number,
-        amount: invoice.total,
-        student: invoice.student_name,
-        due_date: invoice.due_date,
-        status: invoice.status,
-        url: `${window.location.origin}/invoicing/${invoice.id}`
-      }
-      
-      const qrCodeDataURL = await QRCode.toDataURL(JSON.stringify(qrData), {
-        width: 200,
-        margin: 2,
-        color: {
-          dark: '#000000',
-          light: '#FFFFFF'
-        }
-      })
-      
-      setQrCodeUrl(qrCodeDataURL)
-    } catch (error) {
-      console.error('Error generating QR code:', error)
-    }
-  }
 
   const handleStatusChange = async (newStatus: string) => {
     if (!invoice) return
@@ -347,22 +318,6 @@ export default function InvoiceDetailPage({ params }: { params: { id: string } }
                 </div>
               </div>
 
-              {/* QR Code */}
-              {qrCodeUrl && (
-                <div className="bg-white rounded-lg border border-neutral-200 p-6 mb-6">
-                  <h2 className="text-lg font-medium text-neutral-900 mb-4">QR Code</h2>
-                  <div className="text-center">
-                    <img 
-                      src={qrCodeUrl} 
-                      alt="Invoice QR Code" 
-                      className="mx-auto rounded-lg border border-neutral-200"
-                    />
-                    <p className="text-xs text-neutral-500 mt-2">
-                      Scan to view invoice details
-                    </p>
-                  </div>
-                </div>
-              )}
 
             {/* Status Actions */}
             <div className="bg-white rounded-lg border border-neutral-200 p-6">

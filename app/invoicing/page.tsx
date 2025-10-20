@@ -38,36 +38,15 @@ export default function Invoicing() {
 
   const fetchInvoices = async () => {
     try {
-      // This would be implemented with a proper API endpoint
-      // For now, we'll show mock data
-      setInvoices([
-        {
-          id: '1',
-          invoice_number: 'INV-001',
-          issue_date: '2024-01-15',
-          due_date: '2024-01-30',
-          amount: 120.00,
-          total_amount: 120.00,
-          status: 'paid',
-          students: {
-            id: '1',
-            name: 'Sarah Johnson'
-          }
-        },
-        {
-          id: '2',
-          invoice_number: 'INV-002',
-          issue_date: '2024-01-20',
-          due_date: '2024-02-05',
-          amount: 180.00,
-          total_amount: 180.00,
-          status: 'sent',
-          students: {
-            id: '2',
-            name: 'Marco Rossi'
-          }
-        }
-      ])
+      // Fetch real invoices from API
+      const response = await fetch('/api/invoices')
+      const data = await response.json()
+      
+      if (response.ok) {
+        setInvoices(data.invoices)
+      } else {
+        console.error('Failed to fetch invoices:', data.error)
+      }
     } catch (error) {
       console.error('Error fetching invoices:', error)
     } finally {

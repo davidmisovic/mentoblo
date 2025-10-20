@@ -1,8 +1,34 @@
 import { createClient } from '@supabase/supabase-js'
 import { NextRequest, NextResponse } from 'next/server'
+import fs from 'fs'
+import path from 'path'
 
 const supabaseUrl = 'https://qnokhlujbcizmarngbhv.supabase.co'
 const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFub2tobHVqYmNpem1hcm5nYmh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA4Mjg0OTQsImV4cCI6MjA3NjQwNDQ5NH0.fGv4W9D_9lZMlPt7mAsTJJO7sytpLKswxNGGlHz88Fc'
+
+// File-based storage for invoices
+const INVOICES_FILE = path.join(process.cwd(), 'invoices-data.json')
+
+function getInvoices() {
+  try {
+    if (!fs.existsSync(INVOICES_FILE)) {
+      return []
+    }
+    const data = fs.readFileSync(INVOICES_FILE, 'utf8')
+    return JSON.parse(data)
+  } catch (error) {
+    console.error('Error reading invoices:', error)
+    return []
+  }
+}
+
+function saveInvoices(invoices: any[]) {
+  try {
+    fs.writeFileSync(INVOICES_FILE, JSON.stringify(invoices, null, 2))
+  } catch (error) {
+    console.error('Error saving invoices:', error)
+  }
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -31,26 +57,17 @@ export async function POST(request: NextRequest) {
       }, { status: 400 })
     }
 
-    // For now, we'll simulate saving to database
-    // In a real implementation, you would save to Supabase
-    console.log('Creating invoice:', {
-      invoice_number,
-      student_id,
-      issue_date,
-      due_date,
-      items,
-      subtotal,
-      tax,
-      total,
-      notes,
-      status
-    })
+    // Get student name for display
+    const studentsResponse = await fetch(`${request.nextUrl.origin}/api/students`)
+    const studentsData = await studentsResponse.json()
+    const student = studentsData.students.find((s: any) => s.id === student_id)
 
-    // Simulate successful creation
+    // Create invoice object
     const invoice = {
       id: Date.now().toString(),
       invoice_number,
       student_id,
+      student_name: student?.name || 'Unknown Student',
       issue_date,
       due_date,
       items,
@@ -61,6 +78,13 @@ export async function POST(request: NextRequest) {
       status,
       created_at: new Date().toISOString()
     }
+
+    // Save to file storage
+    const invoices = getInvoices()
+    invoices.push(invoice)
+    saveInvoices(invoices)
+
+    console.log('Created invoice:', invoice)
 
     return NextResponse.json({ 
       success: true, 
@@ -78,38 +102,24 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
-    // For now, return mock data
-    // In a real implementation, you would fetch from Supabase
-    const invoices = [
-      {
-        id: '1',
-        invoice_number: 'INV-001',
-        issue_date: '2024-01-15',
-        due_date: '2024-01-30',
-        amount: 120.00,
-        total_amount: 120.00,
-        status: 'paid',
-        students: {
-          id: '1',
-          name: 'Sarah Johnson'
-        }
-      },
-      {
-        id: '2',
-        invoice_number: 'INV-002',
-        issue_date: '2024-01-20',
-        due_date: '2024-02-05',
-        amount: 180.00,
-        total_amount: 180.00,
-        status: 'sent',
-        students: {
-          id: '2',
-          name: 'Marco Rossi'
-        }
+    const invoices = getInvoices()
+    
+    // Format invoices for display
+    const formattedInvoices = invoices.map((invoice: any) => ({
+      id: invoice.id,
+      invoice_number: invoice.invoice_number,
+      issue_date: invoice.issue_date,
+      due_date: invoice.due_date,
+      amount: invoice.subtotal,
+      total_amount: invoice.total,
+      status: invoice.status,
+      students: {
+        id: invoice.student_id,
+        name: invoice.student_name
       }
-    ]
+    }))
 
-    return NextResponse.json({ invoices })
+    return NextResponse.json({ invoices: formattedInvoices })
   } catch (error) {
     console.error('Error fetching invoices:', error)
     return NextResponse.json({ 

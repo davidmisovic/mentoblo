@@ -49,12 +49,15 @@ export default function NewInvoice() {
 
   const fetchStudents = async () => {
     try {
-      // Mock data for now - would be replaced with actual API call
-      setStudents([
-        { id: '1', name: 'Sarah Johnson', email: 'sarah@example.com', phone: '+1 (555) 123-4567' },
-        { id: '2', name: 'Marco Rossi', email: 'marco@example.com', phone: '+1 (555) 987-6543' },
-        { id: '3', name: 'Emma Wilson', email: 'emma@example.com', phone: '+1 (555) 456-7890' }
-      ])
+      // Fetch real students from API
+      const response = await fetch('/api/students')
+      const data = await response.json()
+      
+      if (response.ok) {
+        setStudents(data.students)
+      } else {
+        console.error('Failed to fetch students:', data.error)
+      }
     } catch (error) {
       console.error('Error fetching students:', error)
     }

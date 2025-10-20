@@ -9,11 +9,14 @@ interface DashboardStats {
   monthlyRevenue: number
   newLeads: number
   upcomingLessons: number
+  growthPercentage?: number
+  conversionRate?: number
   recentActivity: Array<{
     id: string
     type: string
     description: string
     timestamp: string
+    studentName?: string
   }>
 }
 
@@ -71,6 +74,8 @@ export default function Dashboard() {
       // Calculate real metrics
       const currentMonth = new Date().getMonth()
       const currentYear = new Date().getFullYear()
+      const lastMonth = currentMonth === 0 ? 11 : currentMonth - 1
+      const lastMonthYear = currentMonth === 0 ? currentYear - 1 : currentYear
       
       const monthlyRevenue = invoicesData.invoices?.filter((invoice: Invoice) => {
         const invoiceDate = new Date(invoice.created_at)
@@ -79,9 +84,23 @@ export default function Dashboard() {
                invoice.status === 'paid'
       }).reduce((sum: number, invoice: Invoice) => sum + invoice.total, 0) || 0
 
+      const lastMonthRevenue = invoicesData.invoices?.filter((invoice: Invoice) => {
+        const invoiceDate = new Date(invoice.created_at)
+        return invoiceDate.getMonth() === lastMonth && 
+               invoiceDate.getFullYear() === lastMonthYear &&
+               invoice.status === 'paid'
+      }).reduce((sum: number, invoice: Invoice) => sum + invoice.total, 0) || 0
+
+      // Calculate growth percentage
+      const growthPercentage = lastMonthRevenue > 0 
+        ? Math.round(((monthlyRevenue - lastMonthRevenue) / lastMonthRevenue) * 100)
+        : monthlyRevenue > 0 ? 100 : 0
+
       console.log('Dashboard data:', {
         invoices: invoicesData.invoices,
         monthlyRevenue,
+        lastMonthRevenue,
+        growthPercentage,
         currentMonth,
         currentYear
       })
@@ -112,7 +131,8 @@ export default function Dashboard() {
             id: `payment-${invoice.id}`,
             type: 'payment',
             description: `Payment received • $${invoice.total.toFixed(2)}`,
-            timestamp: index === 0 ? '2m ago' : index === 1 ? '1h ago' : '2h ago'
+            timestamp: index === 0 ? '2m ago' : index === 1 ? '1h ago' : '2h ago',
+            studentName: invoice.student_name
           })
         })
 
@@ -131,10 +151,17 @@ export default function Dashboard() {
           })
         })
 
+        // Calculate conversion rate (simplified: paid invoices / total invoices)
+        const totalInvoices = invoicesData.invoices?.length || 0
+        const paidInvoices = invoicesData.invoices?.filter((invoice: Invoice) => invoice.status === 'paid').length || 0
+        const conversionRate = totalInvoices > 0 ? Math.round((paidInvoices / totalInvoices) * 100) : 0
+
         setStats({
           monthlyRevenue,
           newLeads: 0, // TODO: Implement leads tracking
           upcomingLessons: upcomingLessons.length,
+          growthPercentage,
+          conversionRate,
           recentActivity: recentActivity.length > 0 ? recentActivity : [
             {
               id: '1',
@@ -151,12 +178,15 @@ export default function Dashboard() {
           monthlyRevenue: 2840,
           newLeads: 19,
           upcomingLessons: 7,
+          growthPercentage: 14,
+          conversionRate: 42,
           recentActivity: [
             {
               id: '1',
               type: 'payment',
               description: 'Payment received • $60',
-              timestamp: '2m ago'
+              timestamp: '2m ago',
+              studentName: 'Sarah'
             },
             {
               id: '2',
@@ -302,11 +332,11 @@ export default function Dashboard() {
               <div>
                 <p className="text-sm text-neutral-600">This month</p>
                 <p className="text-2xl font-semibold text-neutral-900">${stats.monthlyRevenue.toLocaleString()}</p>
-                <p className="text-sm text-emerald-600 inline-flex items-center gap-1">
+                <p className={`text-sm inline-flex items-center gap-1 ${stats.growthPercentage >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
                   <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
-                  +14%
+                  {stats.growthPercentage >= 0 ? '+' : ''}{stats.growthPercentage || 0}%
                 </p>
               </div>
               <svg className="w-8 h-8 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -320,7 +350,7 @@ export default function Dashboard() {
               <div>
                 <p className="text-sm text-neutral-600">New leads</p>
                 <p className="text-2xl font-semibold text-neutral-900">{stats.newLeads}</p>
-                <p className="text-sm text-neutral-600">Conversion 42%</p>
+                <p className="text-sm text-neutral-600">Conversion {stats.conversionRate || 0}%</p>
               </div>
               <svg className="w-8 h-8 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
@@ -388,7 +418,7 @@ export default function Dashboard() {
                       <div>
                         <p className="text-sm text-neutral-900">{activity.description}</p>
                         <p className="text-xs text-neutral-600">
-                          {activity.type === 'payment' && 'From Sarah\'s parent'}
+                          {activity.type === 'payment' && `From ${activity.studentName || 'Student'}'s parent`}
                           {activity.type === 'lead' && 'Marco, Tuesday 10:00'}
                           {activity.type === 'invoice' && 'Peter • English B1'}
                         </p>

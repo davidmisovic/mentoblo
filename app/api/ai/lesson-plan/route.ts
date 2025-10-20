@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const { subject, level, duration, student_name, learning_objectives, previous_topics } = body
 
-    const model = genAI.getGenerativeModel({ model: 'gemini-pro' })
+    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' })
 
     const prompt = `
 Create a detailed lesson plan for a ${duration}-minute ${subject} lesson for a ${level} level student named ${student_name}.

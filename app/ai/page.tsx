@@ -29,6 +29,7 @@ export default function AITools() {
 
       if (response.ok) {
         const result = await response.json()
+        console.log('Lesson plan result:', result)
         setLessonPlan(result.lessonPlan)
       } else {
         const errorData = await response.json()
@@ -59,6 +60,7 @@ export default function AITools() {
 
       if (response.ok) {
         const result = await response.json()
+        console.log('Parent report result:', result)
         setParentReport(result.parentReport)
       } else {
         const errorData = await response.json()

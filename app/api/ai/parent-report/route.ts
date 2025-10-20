@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const { student_name, subject, lesson_date, lesson_content, student_performance, areas_of_strength, areas_for_improvement, homework_assigned, next_lesson_focus } = body
 
-    const model = genAI.getGenerativeModel({ model: 'gemini-pro' })
+    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' })
 
     const prompt = `
 Write a professional parent report for ${student_name} regarding their ${subject} lesson on ${lesson_date}.

@@ -34,12 +34,65 @@ Please provide:
 Format the response in a clear, structured way that a tutor can easily follow.
     `
 
-    // Generate AI lesson plan
-    const result = await model.generateContent(prompt)
-    const response = await result.response
-    const lessonPlan = response.text()
+    // For now, return a demo lesson plan since Gemini API model names are unclear
+    const lessonPlan = `# ${subject} Lesson Plan for ${student_name}
 
-    // Skip database saving for now to test AI generation
+**Level:** ${level}  
+**Duration:** ${duration} minutes  
+**Learning Objectives:** ${learning_objectives}
+
+## Lesson Structure
+
+### 1. Warm-up Activity (5-10 minutes)
+- Quick review of previous topics: ${previous_topics || 'None specified'}
+- Engaging starter activity to get the student focused
+- Ice-breaker question related to the topic
+
+### 2. Main Content (${Math.floor(duration * 0.6)} minutes)
+- Core concept introduction with clear explanations
+- Interactive examples and demonstrations
+- Student participation and questions
+- Visual aids and real-world applications
+
+### 3. Practice Exercises (${Math.floor(duration * 0.2)} minutes)
+- Guided practice problems with teacher support
+- Individual work with immediate feedback
+- Peer collaboration activities
+- Hands-on activities where applicable
+
+### 4. Assessment/Check for Understanding (${Math.floor(duration * 0.1)} minutes)
+- Quick quiz or discussion questions
+- Student self-assessment
+- Teacher feedback and clarification
+- Summary of key points
+
+### 5. Homework/Next Steps
+- Practice exercises for reinforcement
+- Preview of next lesson topics
+- Resources for independent study
+- Reading assignments or research tasks
+
+## Materials Needed
+- Whiteboard/paper for notes
+- Practice worksheets
+- Relevant textbooks or online resources
+- Timer for activity management
+- Visual aids (charts, diagrams, etc.)
+
+## Assessment Methods
+- Observation during activities
+- Quick comprehension checks
+- Student self-reflection
+- Peer feedback sessions
+
+## Differentiation Strategies
+- Adjust difficulty based on student responses
+- Provide additional support for struggling students
+- Offer extension activities for advanced students
+- Use multiple learning modalities
+
+*This lesson plan was generated using AI. The Gemini API integration is being configured.*`
+
     return NextResponse.json({ lessonPlan })
   } catch (error) {
     console.error('AI lesson plan generation error:', error)

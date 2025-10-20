@@ -104,15 +104,26 @@ export async function GET(request: NextRequest) {
   try {
     const invoices = getInvoices()
     
-    // Format invoices for display
+    // Format invoices for display - keep all original fields for dashboard
     const formattedInvoices = invoices.map((invoice: any) => ({
       id: invoice.id,
       invoice_number: invoice.invoice_number,
+      student_id: invoice.student_id,
+      student_name: invoice.student_name,
       issue_date: invoice.issue_date,
       due_date: invoice.due_date,
+      items: invoice.items,
+      subtotal: invoice.subtotal,
+      tax: invoice.tax,
+      tax_percentage: invoice.tax_percentage,
+      total: invoice.total,
+      notes: invoice.notes,
+      status: invoice.status,
+      created_at: invoice.created_at,
+      updated_at: invoice.updated_at,
+      // Keep backward compatibility
       amount: invoice.subtotal,
       total_amount: invoice.total,
-      status: invoice.status,
       students: {
         id: invoice.student_id,
         name: invoice.student_name

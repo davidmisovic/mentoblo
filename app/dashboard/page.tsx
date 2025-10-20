@@ -79,6 +79,13 @@ export default function Dashboard() {
                invoice.status === 'paid'
       }).reduce((sum: number, invoice: Invoice) => sum + invoice.total, 0) || 0
 
+      console.log('Dashboard data:', {
+        invoices: invoicesData.invoices,
+        monthlyRevenue,
+        currentMonth,
+        currentYear
+      })
+
       const upcomingLessons = lessonsData.lessons?.filter((lesson: Lesson) => {
         const lessonDate = new Date(lesson.start_time)
         return lessonDate >= new Date()
@@ -90,15 +97,49 @@ export default function Dashboard() {
 
       if (hasInvoices || hasLessons) {
         setHasRealData(true)
+        
+        // Create recent activity from real data
+        const recentActivity = []
+        
+        // Add recent paid invoices as payment activities
+        const recentPaidInvoices = invoicesData.invoices
+          ?.filter((invoice: Invoice) => invoice.status === 'paid')
+          ?.sort((a: Invoice, b: Invoice) => new Date(b.updated_at || b.created_at).getTime() - new Date(a.updated_at || a.created_at).getTime())
+          ?.slice(0, 3) || []
+
+        recentPaidInvoices.forEach((invoice: Invoice, index: number) => {
+          recentActivity.push({
+            id: `payment-${invoice.id}`,
+            type: 'payment',
+            description: `Payment received • $${invoice.total.toFixed(2)}`,
+            timestamp: index === 0 ? '2m ago' : index === 1 ? '1h ago' : '2h ago'
+          })
+        })
+
+        // Add recent sent invoices
+        const recentSentInvoices = invoicesData.invoices
+          ?.filter((invoice: Invoice) => invoice.status === 'sent')
+          ?.sort((a: Invoice, b: Invoice) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
+          ?.slice(0, 2) || []
+
+        recentSentInvoices.forEach((invoice: Invoice, index: number) => {
+          recentActivity.push({
+            id: `invoice-${invoice.id}`,
+            type: 'invoice',
+            description: `Invoice sent • ${invoice.invoice_number}`,
+            timestamp: index === 0 ? '15m ago' : '1h ago'
+          })
+        })
+
         setStats({
           monthlyRevenue,
           newLeads: 0, // TODO: Implement leads tracking
           upcomingLessons: upcomingLessons.length,
-          recentActivity: [
+          recentActivity: recentActivity.length > 0 ? recentActivity : [
             {
               id: '1',
               type: 'payment',
-              description: `Payment received • $${monthlyRevenue > 0 ? monthlyRevenue : 0}`,
+              description: `Payment received • $${monthlyRevenue.toFixed(2)}`,
               timestamp: '2m ago'
             }
           ]
@@ -313,7 +354,10 @@ export default function Dashboard() {
                   </svg>
                   <span className="text-sm font-medium text-neutral-700">Recent activity</span>
                 </div>
-                <button className="text-xs text-neutral-700 hover:text-neutral-900 inline-flex items-center gap-1">
+                <button 
+                  onClick={fetchDashboardData}
+                  className="text-xs text-neutral-700 hover:text-neutral-900 inline-flex items-center gap-1"
+                >
                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                   </svg>

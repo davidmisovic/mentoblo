@@ -344,6 +344,7 @@ export default function NewInvoice() {
                       value={item.rate}
                       onChange={(e) => updateInvoiceItem(item.id, 'rate', parseFloat(e.target.value) || 0)}
                       className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:border-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900"
+                      placeholder="0.00"
                       required
                     />
                   </div>

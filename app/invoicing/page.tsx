@@ -126,22 +126,30 @@ export default function Invoicing() {
 
   // Handle action buttons
   const handleViewInvoice = (invoiceId: string) => {
-    // TODO: Implement view invoice functionality
-    console.log('View invoice:', invoiceId)
-    alert(`View invoice ${invoiceId} - Feature coming soon!`)
+    router.push(`/invoicing/${invoiceId}`)
   }
 
   const handleEditInvoice = (invoiceId: string) => {
-    // TODO: Implement edit invoice functionality
-    console.log('Edit invoice:', invoiceId)
-    alert(`Edit invoice ${invoiceId} - Feature coming soon!`)
+    router.push(`/invoicing/${invoiceId}/edit`)
   }
 
-  const handleDeleteInvoice = (invoiceId: string) => {
-    if (confirm('Are you sure you want to delete this invoice?')) {
-      // TODO: Implement delete invoice functionality
-      console.log('Delete invoice:', invoiceId)
-      alert(`Delete invoice ${invoiceId} - Feature coming soon!`)
+  const handleDeleteInvoice = async (invoiceId: string) => {
+    if (confirm('Are you sure you want to delete this invoice? This action cannot be undone.')) {
+      try {
+        const response = await fetch(`/api/invoices/${invoiceId}`, {
+          method: 'DELETE',
+        })
+
+        if (response.ok) {
+          // Refresh the invoices list
+          fetchInvoices()
+        } else {
+          alert('Failed to delete invoice')
+        }
+      } catch (error) {
+        console.error('Error deleting invoice:', error)
+        alert('Failed to delete invoice')
+      }
     }
   }
 

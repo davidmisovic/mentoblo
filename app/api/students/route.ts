@@ -4,36 +4,34 @@ import { NextRequest, NextResponse } from 'next/server'
 const supabaseUrl = 'https://qnokhlujbcizmarngbhv.supabase.co'
 const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFub2tobHVqYmNpem1hcm5nYmh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA4Mjg0OTQsImV4cCI6MjA3NjQwNDQ5NH0.fGv4W9D_9lZMlPt7mAsTJJO7sytpLKswxNGGlHz88Fc'
 
-export async function GET(request: NextRequest) {
-  const supabase = createClient(supabaseUrl, supabaseAnonKey)
-  
-  try {
-    // For now, skip authentication to test student creation
-    // TODO: Add proper authentication later
-    
-    // Return mock data for now
-    const students = [
-      {
-        id: '1',
-        name: 'Sarah Johnson',
-        email: 'sarah@example.com',
-        phone: '+1 (555) 123-4567',
-        level: 'A2',
-        subjects: ['Mathematics', 'Physics'],
-        created_at: new Date().toISOString()
-      },
-      {
-        id: '2',
-        name: 'Marco Rossi',
-        email: 'marco@example.com',
-        phone: '+1 (555) 987-6543',
-        level: 'B1',
-        subjects: ['English', 'Chemistry'],
-        created_at: new Date().toISOString()
-      }
-    ]
+// Simple in-memory storage for demo purposes
+// In production, this would be replaced with a real database
+let studentsStorage: any[] = [
+  {
+    id: '1',
+    name: 'Sarah Johnson',
+    email: 'sarah@example.com',
+    phone: '+1 (555) 123-4567',
+    level: 'A2',
+    subjects: ['Mathematics', 'Physics'],
+    created_at: new Date().toISOString()
+  },
+  {
+    id: '2',
+    name: 'Marco Rossi',
+    email: 'marco@example.com',
+    phone: '+1 (555) 987-6543',
+    level: 'B1',
+    subjects: ['English', 'Chemistry'],
+    created_at: new Date().toISOString()
+  }
+]
 
-    return NextResponse.json({ students })
+export async function GET(request: NextRequest) {
+  try {
+    // Return students from storage
+    console.log('Fetching students:', studentsStorage)
+    return NextResponse.json({ students: studentsStorage })
   } catch (error) {
     console.error('Error fetching students:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
@@ -60,7 +58,7 @@ export async function POST(request: NextRequest) {
       }, { status: 400 })
     }
 
-    // For now, simulate successful creation
+    // Create new student and add to storage
     const student = {
       id: Date.now().toString(),
       name,
@@ -75,7 +73,10 @@ export async function POST(request: NextRequest) {
       created_at: new Date().toISOString()
     }
 
+    // Add to storage
+    studentsStorage.push(student)
     console.log('Created student:', student)
+    console.log('Updated students storage:', studentsStorage)
 
     return NextResponse.json({ 
       success: true, 

@@ -41,7 +41,8 @@ export default function EditInvoicePage({ params }: { params: { id: string } }) 
     issue_date: '',
     due_date: '',
     notes: '',
-    status: 'draft'
+    status: 'draft',
+    tax_percentage: 10
   })
 
   const [invoiceItems, setInvoiceItems] = useState<InvoiceItem[]>([])
@@ -72,7 +73,8 @@ export default function EditInvoicePage({ params }: { params: { id: string } }) 
           issue_date: data.invoice.issue_date,
           due_date: data.invoice.due_date,
           notes: data.invoice.notes,
-          status: data.invoice.status
+          status: data.invoice.status,
+          tax_percentage: data.invoice.tax_percentage || 10
         })
         setInvoiceItems(data.invoice.items)
       } else {
@@ -119,7 +121,7 @@ export default function EditInvoicePage({ params }: { params: { id: string } }) 
   }
 
   const calculateTax = () => {
-    return calculateSubtotal() * 0.1 // 10% tax
+    return calculateSubtotal() * (formData.tax_percentage / 100)
   }
 
   const calculateTotal = () => {
@@ -143,6 +145,7 @@ export default function EditInvoicePage({ params }: { params: { id: string } }) 
           items: invoiceItems,
           subtotal: calculateSubtotal(),
           tax: calculateTax(),
+          tax_percentage: formData.tax_percentage,
           total: calculateTotal(),
           notes: formData.notes,
           status: formData.status
@@ -286,6 +289,18 @@ export default function EditInvoicePage({ params }: { params: { id: string } }) 
                 />
               </div>
               <div>
+                <label className="block text-sm font-medium text-neutral-700 mb-1">Tax Percentage (%)</label>
+                <input
+                  type="number"
+                  value={formData.tax_percentage}
+                  onChange={(e) => setFormData({ ...formData, tax_percentage: parseFloat(e.target.value) || 0 })}
+                  className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-neutral-500"
+                  min="0"
+                  max="100"
+                  step="0.1"
+                />
+              </div>
+              <div>
                 <label className="block text-sm font-medium text-neutral-700 mb-1">Status</label>
                 <select
                   value={formData.status}
@@ -393,7 +408,7 @@ export default function EditInvoicePage({ params }: { params: { id: string } }) 
                 <span className="text-sm font-medium text-neutral-900">${calculateSubtotal().toLocaleString()}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-sm text-neutral-600">Tax (10%)</span>
+                <span className="text-sm text-neutral-600">Tax ({formData.tax_percentage}%)</span>
                 <span className="text-sm font-medium text-neutral-900">${calculateTax().toLocaleString()}</span>
               </div>
               <div className="border-t border-neutral-200 pt-3">

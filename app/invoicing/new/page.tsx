@@ -29,7 +29,8 @@ export default function NewInvoice() {
   const [invoiceData, setInvoiceData] = useState({
     issue_date: new Date().toISOString().split('T')[0],
     due_date: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-    notes: ''
+    notes: '',
+    tax_percentage: 10
   })
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -98,7 +99,7 @@ export default function NewInvoice() {
   }
 
   const calculateTax = () => {
-    return calculateSubtotal() * 0.1 // 10% tax
+    return calculateSubtotal() * (invoiceData.tax_percentage / 100)
   }
 
   const calculateTotal = () => {
@@ -134,6 +135,7 @@ export default function NewInvoice() {
         items: invoiceItems,
         subtotal: calculateSubtotal(),
         tax: calculateTax(),
+        tax_percentage: invoiceData.tax_percentage,
         total: calculateTotal(),
         notes: invoiceData.notes,
         status: 'draft'
@@ -241,7 +243,7 @@ export default function NewInvoice() {
           {/* Invoice Details */}
           <div className="bg-white rounded-lg border border-neutral-200 p-6">
             <h2 className="text-lg font-medium text-neutral-900 mb-4">Invoice Details</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
                 <label htmlFor="issue_date" className="block text-sm font-medium text-neutral-700 mb-2">
                   Issue Date *
@@ -266,6 +268,21 @@ export default function NewInvoice() {
                   onChange={(e) => setInvoiceData({ ...invoiceData, due_date: e.target.value })}
                   className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:border-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900"
                   required
+                />
+              </div>
+              <div>
+                <label htmlFor="tax_percentage" className="block text-sm font-medium text-neutral-700 mb-2">
+                  Tax Percentage (%)
+                </label>
+                <input
+                  type="number"
+                  id="tax_percentage"
+                  value={invoiceData.tax_percentage}
+                  onChange={(e) => setInvoiceData({ ...invoiceData, tax_percentage: parseFloat(e.target.value) || 0 })}
+                  className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:border-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900"
+                  min="0"
+                  max="100"
+                  step="0.1"
                 />
               </div>
             </div>
@@ -365,7 +382,7 @@ export default function NewInvoice() {
                 <span className="text-sm font-medium text-neutral-900">${calculateSubtotal().toFixed(2)}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-sm text-neutral-600">Tax (10%)</span>
+                <span className="text-sm text-neutral-600">Tax ({invoiceData.tax_percentage}%)</span>
                 <span className="text-sm font-medium text-neutral-900">${calculateTax().toFixed(2)}</span>
               </div>
               <div className="border-t border-neutral-200 pt-3">

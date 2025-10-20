@@ -65,6 +65,39 @@ export default function Dashboard() {
     checkUser()
   }, [router])
 
+  // Auto-refresh timestamps every minute
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (hasRealData) {
+        fetchDashboardData()
+      }
+    }, 60000) // Update every minute
+
+    return () => clearInterval(interval)
+  }, [hasRealData])
+
+  // Time calculation function
+  const getTimeAgo = (date: Date) => {
+    const now = new Date()
+    const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000)
+    
+    if (diffInSeconds < 60) {
+      return `${diffInSeconds}s ago`
+    } else if (diffInSeconds < 3600) {
+      const minutes = Math.floor(diffInSeconds / 60)
+      return `${minutes}m ago`
+    } else if (diffInSeconds < 86400) {
+      const hours = Math.floor(diffInSeconds / 3600)
+      return `${hours}h ago`
+    } else if (diffInSeconds < 604800) {
+      const days = Math.floor(diffInSeconds / 86400)
+      return `${days}d ago`
+    } else {
+      const weeks = Math.floor(diffInSeconds / 604800)
+      return `${weeks}w ago`
+    }
+  }
+
   // Chart data generation functions
   const generateMonthlyRevenueData = (invoices: Invoice[]) => {
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -152,11 +185,12 @@ export default function Dashboard() {
           ?.slice(0, 3) || []
 
         recentPaidInvoices.forEach((invoice: Invoice, index: number) => {
+          const timeAgo = getTimeAgo(new Date(invoice.updated_at || invoice.created_at))
           recentActivity.push({
             id: `payment-${invoice.id}`,
             type: 'payment',
             description: `Payment received • $${invoice.total.toFixed(2)}`,
-            timestamp: index === 0 ? '2m ago' : index === 1 ? '1h ago' : '2h ago',
+            timestamp: timeAgo,
             studentName: invoice.student_name
           })
         })
@@ -168,11 +202,12 @@ export default function Dashboard() {
           ?.slice(0, 2) || []
 
         recentSentInvoices.forEach((invoice: Invoice, index: number) => {
+          const timeAgo = getTimeAgo(new Date(invoice.created_at))
           recentActivity.push({
             id: `invoice-${invoice.id}`,
             type: 'invoice',
             description: `Invoice sent • ${invoice.invoice_number}`,
-            timestamp: index === 0 ? '15m ago' : '1h ago'
+            timestamp: timeAgo
           })
         })
 
@@ -444,7 +479,13 @@ export default function Dashboard() {
                   <span className="text-sm font-medium text-neutral-700">Recent activity</span>
                 </div>
                 <button 
-                  onClick={fetchDashboardData}
+                  onClick={() => {
+                    fetchDashboardData()
+                    // Force re-render to update timestamps
+                    setTimeout(() => {
+                      window.location.reload()
+                    }, 100)
+                  }}
                   className="text-xs text-neutral-700 hover:text-neutral-900 inline-flex items-center gap-1"
                 >
                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -543,6 +584,7 @@ export default function Dashboard() {
                         <div>
                           <p className="text-sm font-medium text-neutral-900">{lesson.subject}</p>
                           <p className="text-xs text-neutral-600">{lesson.student_name} • {timeDisplay}</p>
+                          <p className="text-xs text-neutral-400">{getTimeAgo(new Date(lesson.start_time))}</p>
                         </div>
                         <span className="text-xs text-neutral-500">{durationDisplay}</span>
                       </div>

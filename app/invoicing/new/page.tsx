@@ -123,7 +123,7 @@ export default function NewInvoice() {
       // Generate invoice number
       const invoiceNumber = `INV-${Date.now().toString().slice(-6)}`
       
-      const invoiceData = {
+      const invoicePayload = {
         invoice_number: invoiceNumber,
         student_id: selectedStudent,
         issue_date: invoiceData.issue_date,
@@ -142,7 +142,7 @@ export default function NewInvoice() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(invoiceData),
+        body: JSON.stringify(invoicePayload),
       })
 
       if (response.ok) {

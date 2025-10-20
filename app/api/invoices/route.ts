@@ -7,6 +7,8 @@ const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYm
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
+    console.log('Received invoice data:', body)
+    
     const { 
       invoice_number, 
       student_id, 
@@ -19,6 +21,15 @@ export async function POST(request: NextRequest) {
       notes, 
       status 
     } = body
+
+    // Validate required fields
+    if (!invoice_number || !student_id || !issue_date || !due_date) {
+      console.error('Missing required fields:', { invoice_number, student_id, issue_date, due_date })
+      return NextResponse.json({ 
+        success: false, 
+        error: 'Missing required fields' 
+      }, { status: 400 })
+    }
 
     // For now, we'll simulate saving to database
     // In a real implementation, you would save to Supabase

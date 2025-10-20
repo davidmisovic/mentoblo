@@ -2,6 +2,8 @@
 
 This document lists all the environment variables needed for deploying the Mentoblo tutoring platform to Vercel.
 
+**Repository**: https://github.com/davidmisovic/mentoblo.git
+
 ## Required Environment Variables
 
 ### Supabase Configuration

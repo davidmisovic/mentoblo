@@ -19,18 +19,10 @@ export default function AITools() {
     const data = Object.fromEntries(formData.entries())
 
     try {
-      // Get the current session
-      const { data: { session } } = await supabase.auth.getSession()
-      if (!session) {
-        console.error('No session found')
-        return
-      }
-
       const response = await fetch('/api/ai/lesson-plan', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${session.access_token}`,
         },
         body: JSON.stringify(data),
       })
@@ -57,18 +49,10 @@ export default function AITools() {
     const data = Object.fromEntries(formData.entries())
 
     try {
-      // Get the current session
-      const { data: { session } } = await supabase.auth.getSession()
-      if (!session) {
-        console.error('No session found')
-        return
-      }
-
       const response = await fetch('/api/ai/parent-report', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${session.access_token}`,
         },
         body: JSON.stringify(data),
       })

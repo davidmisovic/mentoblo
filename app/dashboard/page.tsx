@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell } from 'recharts'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
 interface DashboardStats {
   monthlyRevenue: number
@@ -21,15 +21,6 @@ interface DashboardStats {
   }>
   monthlyRevenueData?: Array<{
     month: string
-    revenue: number
-  }>
-  invoiceStatusData?: Array<{
-    status: string
-    count: number
-    value: number
-  }>
-  studentRevenueData?: Array<{
-    student: string
     revenue: number
   }>
 }
@@ -93,33 +84,6 @@ export default function Dashboard() {
     })
   }
 
-  const generateInvoiceStatusData = (invoices: Invoice[]) => {
-    const statusCounts = invoices.reduce((acc, invoice) => {
-      acc[invoice.status] = (acc[invoice.status] || 0) + 1
-      return acc
-    }, {} as Record<string, number>)
-
-    return Object.entries(statusCounts).map(([status, count]) => ({
-      status: status.charAt(0).toUpperCase() + status.slice(1),
-      count,
-      value: count
-    }))
-  }
-
-  const generateStudentRevenueData = (invoices: Invoice[]) => {
-    const studentRevenue = invoices
-      .filter(invoice => invoice.status === 'paid')
-      .reduce((acc, invoice) => {
-        const student = invoice.student_name || 'Unknown'
-        acc[student] = (acc[student] || 0) + invoice.total
-        return acc
-      }, {} as Record<string, number>)
-
-    return Object.entries(studentRevenue)
-      .map(([student, revenue]) => ({ student, revenue }))
-      .sort((a, b) => b.revenue - a.revenue)
-      .slice(0, 5) // Top 5 students
-  }
 
   const fetchDashboardData = async () => {
     try {
@@ -219,8 +183,6 @@ export default function Dashboard() {
 
         // Generate chart data
         const monthlyRevenueData = generateMonthlyRevenueData(invoicesData.invoices || [])
-        const invoiceStatusData = generateInvoiceStatusData(invoicesData.invoices || [])
-        const studentRevenueData = generateStudentRevenueData(invoicesData.invoices || [])
 
         setStats({
           monthlyRevenue,
@@ -229,8 +191,6 @@ export default function Dashboard() {
           growthPercentage,
           conversionRate,
           monthlyRevenueData,
-          invoiceStatusData,
-          studentRevenueData,
           recentActivity: recentActivity.length > 0 ? recentActivity : [
             {
               id: '1',
@@ -455,66 +415,19 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Charts Section */}
-        {hasRealData && (stats.monthlyRevenueData || stats.invoiceStatusData || stats.studentRevenueData) && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-            {/* Monthly Revenue Chart */}
-            {stats.monthlyRevenueData && stats.monthlyRevenueData.length > 0 && (
-              <div className="bg-white rounded-lg border border-neutral-200 p-6">
-                <h3 className="text-lg font-medium text-neutral-900 mb-4">Monthly Revenue Trend</h3>
-                <ResponsiveContainer width="100%" height={300}>
-                  <LineChart data={stats.monthlyRevenueData}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="month" />
-                    <YAxis />
-                    <Tooltip formatter={(value) => [`$${value}`, 'Revenue']} />
-                    <Line type="monotone" dataKey="revenue" stroke="#10b981" strokeWidth={2} />
-                  </LineChart>
-                </ResponsiveContainer>
-              </div>
-            )}
-
-            {/* Invoice Status Chart */}
-            {stats.invoiceStatusData && stats.invoiceStatusData.length > 0 && (
-              <div className="bg-white rounded-lg border border-neutral-200 p-6">
-                <h3 className="text-lg font-medium text-neutral-900 mb-4">Invoice Status Distribution</h3>
-                <ResponsiveContainer width="100%" height={300}>
-                  <PieChart>
-                    <Pie
-                      data={stats.invoiceStatusData}
-                      cx="50%"
-                      cy="50%"
-                      labelLine={false}
-                      label={({ status, value }) => `${status}: ${value}`}
-                      outerRadius={80}
-                      fill="#8884d8"
-                      dataKey="value"
-                    >
-                      {stats.invoiceStatusData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={['#10b981', '#3b82f6', '#f59e0b', '#ef4444'][index % 4]} />
-                      ))}
-                    </Pie>
-                    <Tooltip />
-                  </PieChart>
-                </ResponsiveContainer>
-              </div>
-            )}
-
-            {/* Top Students Revenue */}
-            {stats.studentRevenueData && stats.studentRevenueData.length > 0 && (
-              <div className="bg-white rounded-lg border border-neutral-200 p-6 lg:col-span-2">
-                <h3 className="text-lg font-medium text-neutral-900 mb-4">Top Students by Revenue</h3>
-                <ResponsiveContainer width="100%" height={300}>
-                  <BarChart data={stats.studentRevenueData}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="student" />
-                    <YAxis />
-                    <Tooltip formatter={(value) => [`$${value}`, 'Revenue']} />
-                    <Bar dataKey="revenue" fill="#10b981" />
-                  </BarChart>
-                </ResponsiveContainer>
-              </div>
-            )}
+        {/* Monthly Revenue Chart */}
+        {hasRealData && stats.monthlyRevenueData && stats.monthlyRevenueData.length > 0 && (
+          <div className="bg-white rounded-lg border border-neutral-200 p-6 mb-8">
+            <h3 className="text-lg font-medium text-neutral-900 mb-4">Monthly Revenue Trend - {new Date().getFullYear()}</h3>
+            <ResponsiveContainer width="100%" height={300}>
+              <LineChart data={stats.monthlyRevenueData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="month" />
+                <YAxis />
+                <Tooltip formatter={(value) => [`$${value}`, 'Revenue']} />
+                <Line type="monotone" dataKey="revenue" stroke="#10b981" strokeWidth={2} />
+              </LineChart>
+            </ResponsiveContainer>
           </div>
         )}
 

@@ -136,11 +136,23 @@ export default function NewInvoice() {
         status: 'draft'
       }
 
-      // Here you would save to database
-      console.log('Invoice data:', invoiceData)
-      
-      // For now, just redirect back to invoicing page
-      router.push('/invoicing')
+      // Call the API to create the invoice
+      const response = await fetch('/api/invoices', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(invoiceData),
+      })
+
+      if (response.ok) {
+        const result = await response.json()
+        console.log('Invoice created successfully:', result)
+        router.push('/invoicing')
+      } else {
+        const errorData = await response.json()
+        setError(errorData.error || 'Failed to create invoice')
+      }
     } catch (error) {
       console.error('Error creating invoice:', error)
       setError('Failed to create invoice')

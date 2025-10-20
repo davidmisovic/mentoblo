@@ -79,10 +79,7 @@ ${student_name} is making good progress in ${subject}. With continued practice a
 - Maintain open communication about any concerns
 - Celebrate achievements and milestones
 
-*This parent report was generated using AI. The Gemini API integration is being configured.*
-
----
-*Generated on ${new Date().toLocaleDateString()}*`
+`
 
     return NextResponse.json({ parentReport })
   } catch (error) {

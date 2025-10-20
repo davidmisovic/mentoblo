@@ -91,7 +91,7 @@ Format the response in a clear, structured way that a tutor can easily follow.
 - Offer extension activities for advanced students
 - Use multiple learning modalities
 
-*This lesson plan was generated using AI. The Gemini API integration is being configured.*`
+`
 
     return NextResponse.json({ lessonPlan })
   } catch (error) {

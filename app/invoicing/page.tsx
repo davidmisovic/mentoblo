@@ -21,6 +21,8 @@ interface Invoice {
 
 export default function Invoicing() {
   const [invoices, setInvoices] = useState<Invoice[]>([])
+  const [filteredInvoices, setFilteredInvoices] = useState<Invoice[]>([])
+  const [activeFilter, setActiveFilter] = useState('all')
   const [loading, setLoading] = useState(true)
   const router = useRouter()
 
@@ -44,6 +46,7 @@ export default function Invoicing() {
       
       if (response.ok) {
         setInvoices(data.invoices)
+        setFilteredInvoices(data.invoices)
       } else {
         console.error('Failed to fetch invoices:', data.error)
       }
@@ -51,6 +54,94 @@ export default function Invoicing() {
       console.error('Error fetching invoices:', error)
     } finally {
       setLoading(false)
+    }
+  }
+
+  // Calculate summary statistics
+  const calculateStats = () => {
+    const totalRevenue = invoices
+      .filter(invoice => invoice.status === 'paid')
+      .reduce((sum, invoice) => sum + invoice.total_amount, 0)
+    
+    const outstanding = invoices
+      .filter(invoice => invoice.status === 'sent' || invoice.status === 'draft')
+      .reduce((sum, invoice) => sum + invoice.total_amount, 0)
+    
+    const overdue = invoices
+      .filter(invoice => {
+        if (invoice.status === 'sent') {
+          const dueDate = new Date(invoice.due_date)
+          const today = new Date()
+          return dueDate < today
+        }
+        return false
+      })
+      .reduce((sum, invoice) => sum + invoice.total_amount, 0)
+    
+    const thisMonth = invoices
+      .filter(invoice => {
+        const invoiceDate = new Date(invoice.issue_date)
+        const now = new Date()
+        return invoiceDate.getMonth() === now.getMonth() && 
+               invoiceDate.getFullYear() === now.getFullYear()
+      })
+      .reduce((sum, invoice) => sum + invoice.total_amount, 0)
+    
+    return { totalRevenue, outstanding, overdue, thisMonth }
+  }
+
+  // Filter invoices based on status
+  const filterInvoices = (filter: string) => {
+    setActiveFilter(filter)
+    let filtered = invoices
+    
+    switch (filter) {
+      case 'paid':
+        filtered = invoices.filter(invoice => invoice.status === 'paid')
+        break
+      case 'outstanding':
+        filtered = invoices.filter(invoice => invoice.status === 'sent' || invoice.status === 'draft')
+        break
+      case 'overdue':
+        filtered = invoices.filter(invoice => {
+          if (invoice.status === 'sent') {
+            const dueDate = new Date(invoice.due_date)
+            const today = new Date()
+            return dueDate < today
+          }
+          return false
+        })
+        break
+      default:
+        filtered = invoices
+    }
+    
+    setFilteredInvoices(filtered)
+  }
+
+  // Handle filter button clicks
+  const handleFilterClick = (filter: string) => {
+    filterInvoices(filter)
+  }
+
+  // Handle action buttons
+  const handleViewInvoice = (invoiceId: string) => {
+    // TODO: Implement view invoice functionality
+    console.log('View invoice:', invoiceId)
+    alert(`View invoice ${invoiceId} - Feature coming soon!`)
+  }
+
+  const handleEditInvoice = (invoiceId: string) => {
+    // TODO: Implement edit invoice functionality
+    console.log('Edit invoice:', invoiceId)
+    alert(`Edit invoice ${invoiceId} - Feature coming soon!`)
+  }
+
+  const handleDeleteInvoice = (invoiceId: string) => {
+    if (confirm('Are you sure you want to delete this invoice?')) {
+      // TODO: Implement delete invoice functionality
+      console.log('Delete invoice:', invoiceId)
+      alert(`Delete invoice ${invoiceId} - Feature coming soon!`)
     }
   }
 
@@ -138,7 +229,7 @@ export default function Invoicing() {
               </div>
               <div className="ml-4">
                 <p className="text-sm font-medium text-neutral-600">Total Revenue</p>
-                <p className="text-2xl font-semibold text-neutral-900">$2,840</p>
+                <p className="text-2xl font-semibold text-neutral-900">${calculateStats().totalRevenue.toLocaleString()}</p>
               </div>
             </div>
           </div>
@@ -152,7 +243,7 @@ export default function Invoicing() {
               </div>
               <div className="ml-4">
                 <p className="text-sm font-medium text-neutral-600">Outstanding</p>
-                <p className="text-2xl font-semibold text-neutral-900">$180</p>
+                <p className="text-2xl font-semibold text-neutral-900">${calculateStats().outstanding.toLocaleString()}</p>
               </div>
             </div>
           </div>
@@ -166,7 +257,7 @@ export default function Invoicing() {
               </div>
               <div className="ml-4">
                 <p className="text-sm font-medium text-neutral-600">Overdue</p>
-                <p className="text-2xl font-semibold text-neutral-900">$0</p>
+                <p className="text-2xl font-semibold text-neutral-900">${calculateStats().overdue.toLocaleString()}</p>
               </div>
             </div>
           </div>
@@ -180,7 +271,7 @@ export default function Invoicing() {
               </div>
               <div className="ml-4">
                 <p className="text-sm font-medium text-neutral-600">This Month</p>
-                <p className="text-2xl font-semibold text-neutral-900">$1,200</p>
+                <p className="text-2xl font-semibold text-neutral-900">${calculateStats().thisMonth.toLocaleString()}</p>
               </div>
             </div>
           </div>
@@ -191,10 +282,46 @@ export default function Invoicing() {
           <div className="flex items-center justify-between border-b border-neutral-200 px-6 py-4">
             <h2 className="text-lg font-medium text-neutral-900">Recent Invoices</h2>
             <div className="flex items-center gap-2">
-              <button className="text-sm text-neutral-600 hover:text-neutral-900">All</button>
-              <button className="text-sm text-neutral-600 hover:text-neutral-900">Paid</button>
-              <button className="text-sm text-neutral-600 hover:text-neutral-900">Outstanding</button>
-              <button className="text-sm text-neutral-600 hover:text-neutral-900">Overdue</button>
+              <button 
+                onClick={() => handleFilterClick('all')}
+                className={`text-sm px-3 py-1 rounded-md transition ${
+                  activeFilter === 'all' 
+                    ? 'bg-neutral-900 text-white' 
+                    : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
+                }`}
+              >
+                All
+              </button>
+              <button 
+                onClick={() => handleFilterClick('paid')}
+                className={`text-sm px-3 py-1 rounded-md transition ${
+                  activeFilter === 'paid' 
+                    ? 'bg-neutral-900 text-white' 
+                    : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
+                }`}
+              >
+                Paid
+              </button>
+              <button 
+                onClick={() => handleFilterClick('outstanding')}
+                className={`text-sm px-3 py-1 rounded-md transition ${
+                  activeFilter === 'outstanding' 
+                    ? 'bg-neutral-900 text-white' 
+                    : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
+                }`}
+              >
+                Outstanding
+              </button>
+              <button 
+                onClick={() => handleFilterClick('overdue')}
+                className={`text-sm px-3 py-1 rounded-md transition ${
+                  activeFilter === 'overdue' 
+                    ? 'bg-neutral-900 text-white' 
+                    : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
+                }`}
+              >
+                Overdue
+              </button>
             </div>
           </div>
 
@@ -223,7 +350,7 @@ export default function Invoicing() {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-neutral-200">
-                {invoices.map((invoice) => (
+                {filteredInvoices.map((invoice) => (
                   <tr key={invoice.id} className="hover:bg-neutral-50">
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div>
@@ -257,18 +384,30 @@ export default function Invoicing() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                       <div className="flex items-center gap-2">
-                        <button className="text-neutral-600 hover:text-neutral-900">
+                        <button 
+                          onClick={() => handleViewInvoice(invoice.id)}
+                          className="text-neutral-400 hover:text-neutral-600 transition-colors"
+                          title="View Invoice"
+                        >
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                           </svg>
                         </button>
-                        <button className="text-neutral-600 hover:text-neutral-900">
+                        <button 
+                          onClick={() => handleEditInvoice(invoice.id)}
+                          className="text-neutral-400 hover:text-neutral-600 transition-colors"
+                          title="Edit Invoice"
+                        >
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                           </svg>
                         </button>
-                        <button className="text-neutral-600 hover:text-neutral-900">
+                        <button 
+                          onClick={() => handleDeleteInvoice(invoice.id)}
+                          className="text-neutral-400 hover:text-red-600 transition-colors"
+                          title="Delete Invoice"
+                        >
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                           </svg>

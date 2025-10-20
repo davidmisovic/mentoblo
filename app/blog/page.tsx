@@ -76,6 +76,46 @@ export default function Blog() {
           published_at: '2024-01-01',
           slug: 'psychology-learning-understanding-students-learn',
           tags: ['Psychology', 'Learning', 'Cognitive Science']
+        },
+        {
+          id: '5',
+          title: 'How to Set Up Your Online Tutoring Business: A Step-by-Step Guide',
+          excerpt: 'Learn the essential steps to launch and grow a successful online tutoring business from scratch.',
+          content: 'Starting an online tutoring business requires careful planning...',
+          author: 'Mentoblo Team',
+          published_at: '2023-12-28',
+          slug: 'setup-online-tutoring-business-step-by-step-guide',
+          tags: ['Business', 'Online Tutoring', 'Entrepreneurship']
+        },
+        {
+          id: '6',
+          title: 'Effective Time Management for Tutors: Maximizing Your Teaching Hours',
+          excerpt: 'Discover proven strategies to optimize your tutoring schedule and increase productivity.',
+          content: 'Time management is crucial for successful tutors...',
+          author: 'Mentoblo Team',
+          published_at: '2023-12-25',
+          slug: 'effective-time-management-tutors-maximizing-teaching-hours',
+          tags: ['Time Management', 'Productivity', 'Teaching']
+        },
+        {
+          id: '7',
+          title: 'Digital Tools Every Modern Tutor Should Know About',
+          excerpt: 'Explore the latest educational technology tools that can enhance your tutoring sessions.',
+          content: 'Technology has revolutionized the way we teach and learn...',
+          author: 'Mentoblo Team',
+          published_at: '2023-12-20',
+          slug: 'digital-tools-modern-tutor-educational-technology',
+          tags: ['Technology', 'Digital Tools', 'Education']
+        },
+        {
+          id: '8',
+          title: 'Building Strong Relationships with Students and Parents',
+          excerpt: 'Learn how to foster positive relationships that lead to long-term tutoring success.',
+          content: 'Strong relationships are the foundation of successful tutoring...',
+          author: 'Mentoblo Team',
+          published_at: '2023-12-15',
+          slug: 'building-strong-relationships-students-parents-tutoring',
+          tags: ['Relationships', 'Communication', 'Teaching']
         }
       ]
       

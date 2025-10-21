@@ -126,6 +126,9 @@ export default function SignIn() {
                   className="appearance-none block w-full px-3 py-2 border border-neutral-300 rounded-md shadow-sm placeholder-neutral-400 focus:outline-none focus:ring-neutral-500 focus:border-neutral-500 sm:text-sm"
                 />
               </div>
+              <div className="mt-1 text-xs text-neutral-500">
+                Password must be at least 8 characters with uppercase, lowercase, number, and special character
+              </div>
             </div>
 
             <div className="flex items-center justify-between">

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
+import { validatePassword, getPasswordStrengthColor, getPasswordStrengthText } from '@/lib/password-validation'
 
 export default function ResetPassword() {
   const [password, setPassword] = useState('')
@@ -30,14 +31,16 @@ export default function ResetPassword() {
     setError('')
     setMessage('')
 
-    if (password !== confirmPassword) {
-      setError('Passwords do not match')
+    // Validate password strength
+    const passwordValidation = validatePassword(password)
+    if (!passwordValidation.isValid) {
+      setError(passwordValidation.message)
       setLoading(false)
       return
     }
 
-    if (password.length < 6) {
-      setError('Password must be at least 6 characters')
+    if (password !== confirmPassword) {
+      setError('Passwords do not match')
       setLoading(false)
       return
     }
@@ -110,6 +113,52 @@ export default function ResetPassword() {
                   className="appearance-none block w-full px-3 py-2 border border-neutral-300 rounded-md shadow-sm placeholder-neutral-400 focus:outline-none focus:ring-neutral-500 focus:border-neutral-500 sm:text-sm"
                 />
               </div>
+              {password && (
+                <div className="mt-2">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-neutral-600">Password strength:</span>
+                    <span className={`font-medium ${getPasswordStrengthColor(validatePassword(password).score)}`}>
+                      {getPasswordStrengthText(validatePassword(password).score)}
+                    </span>
+                  </div>
+                  <div className="mt-1 grid grid-cols-5 gap-1">
+                    {[1, 2, 3, 4, 5].map((level) => (
+                      <div
+                        key={level}
+                        className={`h-1 rounded ${
+                          level <= validatePassword(password).score
+                            ? getPasswordStrengthColor(validatePassword(password).score).replace('text-', 'bg-')
+                            : 'bg-neutral-200'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <div className="mt-2 text-xs text-neutral-600">
+                    <div className="grid grid-cols-2 gap-1">
+                      <div className={`flex items-center gap-1 ${validatePassword(password).requirements.length ? 'text-green-600' : 'text-red-600'}`}>
+                        <span>{validatePassword(password).requirements.length ? '✓' : '✗'}</span>
+                        <span>8+ characters</span>
+                      </div>
+                      <div className={`flex items-center gap-1 ${validatePassword(password).requirements.uppercase ? 'text-green-600' : 'text-red-600'}`}>
+                        <span>{validatePassword(password).requirements.uppercase ? '✓' : '✗'}</span>
+                        <span>Uppercase</span>
+                      </div>
+                      <div className={`flex items-center gap-1 ${validatePassword(password).requirements.lowercase ? 'text-green-600' : 'text-red-600'}`}>
+                        <span>{validatePassword(password).requirements.lowercase ? '✓' : '✗'}</span>
+                        <span>Lowercase</span>
+                      </div>
+                      <div className={`flex items-center gap-1 ${validatePassword(password).requirements.number ? 'text-green-600' : 'text-red-600'}`}>
+                        <span>{validatePassword(password).requirements.number ? '✓' : '✗'}</span>
+                        <span>Number</span>
+                      </div>
+                      <div className={`flex items-center gap-1 ${validatePassword(password).requirements.special ? 'text-green-600' : 'text-red-600'}`}>
+                        <span>{validatePassword(password).requirements.special ? '✓' : '✗'}</span>
+                        <span>Special char</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             <div>

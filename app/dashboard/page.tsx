@@ -27,11 +27,25 @@ interface DashboardStats {
 
 interface Invoice {
   id: string
+  invoice_number: string
+  student_id: string
+  student_name: string
+  issue_date: string
+  due_date: string
+  items: Array<{
+    id: string
+    description: string
+    quantity: number
+    rate: number
+    amount: number
+  }>
+  subtotal: number
+  tax: number
   total: number
+  notes: string
   status: string
   created_at: string
   updated_at?: string
-  student_name?: string
 }
 
 interface Lesson {

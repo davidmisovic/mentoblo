@@ -323,6 +323,7 @@ export default function Dashboard() {
         monthlyRevenue: 2840,
         newLeads: 19,
         upcomingLessons: 7,
+        totalInvoices: 12,
         recentActivity: [
           {
             id: '1',

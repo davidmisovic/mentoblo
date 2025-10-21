@@ -275,8 +275,7 @@ export default function Dashboard() {
               id: '1',
               type: 'payment',
               description: 'Payment received • $60',
-              timestamp: '2m ago',
-              studentName: 'Sarah'
+              timestamp: '2m ago'
             },
             {
               id: '2',

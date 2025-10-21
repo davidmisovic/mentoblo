@@ -97,7 +97,7 @@ const MentobloLanding = () => {
       <section className="relative">
         <div className="mx-auto max-w-7xl px-6 pt-14 pb-8 md:pt-20 md:pb-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-            <div className="lg:pt-8">
+            <div className="lg:pt-0">
               <div className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-[12px] text-neutral-700 shadow-sm">
                 <Target className="h-3.5 w-3.5" />
                 Purpose-built for independent tutors
@@ -198,7 +198,7 @@ const MentobloLanding = () => {
                               </div>
                               <div>
                                 <p className="text-[13px] text-neutral-900">Payment received • $60</p>
-                                <p className="text-[12px] text-neutral-600">From Sarah's parent</p>
+                                <p className="text-[12px] text-neutral-600">Recent payment</p>
                               </div>
                             </div>
                             <span className="text-[12px] text-neutral-500">2m ago</span>

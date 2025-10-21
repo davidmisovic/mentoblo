@@ -176,7 +176,13 @@ export default function Dashboard() {
         setHasRealData(true)
         
         // Create recent activity from real data
-        const recentActivity = []
+        const recentActivity: Array<{
+          id: string
+          type: string
+          description: string
+          timestamp: string
+          studentName?: string
+        }> = []
         
         // Add recent paid invoices as payment activities
         const recentPaidInvoices = invoicesData.invoices

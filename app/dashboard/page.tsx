@@ -10,6 +10,7 @@ interface DashboardStats {
   monthlyRevenue: number
   newLeads: number
   upcomingLessons: number
+  totalInvoices: number
   growthPercentage?: number
   conversionRate?: number
   recentActivity: Array<{
@@ -61,6 +62,7 @@ export default function Dashboard() {
     monthlyRevenue: 0,
     newLeads: 0,
     upcomingLessons: 0,
+    totalInvoices: 0,
     recentActivity: []
   })
   const [loading, setLoading] = useState(true)
@@ -245,6 +247,7 @@ export default function Dashboard() {
           monthlyRevenue,
           newLeads: 0, // TODO: Implement leads tracking
           upcomingLessons: upcomingLessons.length,
+          totalInvoices,
           growthPercentage,
           conversionRate,
           monthlyRevenueData,
@@ -264,6 +267,7 @@ export default function Dashboard() {
           monthlyRevenue: 2840,
           newLeads: 19,
           upcomingLessons: 7,
+          totalInvoices: 12,
           growthPercentage: 14,
           conversionRate: 42,
           recentActivity: [
@@ -462,7 +466,7 @@ export default function Dashboard() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-neutral-600">Total Invoices</p>
-                <p className="text-2xl font-semibold text-neutral-900">{stats.invoiceStatusData?.reduce((sum, item) => sum + item.count, 0) || 0}</p>
+                <p className="text-2xl font-semibold text-neutral-900">{stats.totalInvoices}</p>
                 <p className="text-sm text-neutral-600">All time</p>
               </div>
               <svg className="w-8 h-8 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">

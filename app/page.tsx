@@ -103,10 +103,10 @@ const MentobloLanding = () => {
                 Purpose-built for independent tutors
               </div>
               <h1 className="mt-4 text-4xl md:text-5xl tracking-tight font-semibold text-neutral-900">
-                Build a professional solo tutoring business — without the chaos
+                Mentoblo — Focus on Your Students. We'll Handle the Rest.
               </h1>
               <p className="mt-4 text-[16px] md:text-[17px] leading-7 text-neutral-700">
-                Mentoblo is the all-in-one platform for independent tutors that helps you win clients, automate admin, and teach smarter with AI.
+                Mentoblo replaces your 5+ tools with one elegant OS. We helps you win clients, automate admin, and teach smarter with AI.
               </p>
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
                 <a href="/signup" className="inline-flex items-center justify-center gap-2 rounded-md border border-neutral-900 bg-neutral-900 px-4 py-2.5 text-[14px] font-medium text-white hover:bg-neutral-800 hover:border-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-800 transition">
@@ -198,7 +198,7 @@ const MentobloLanding = () => {
                               </div>
                               <div>
                                 <p className="text-[13px] text-neutral-900">Payment received • $60</p>
-                                <p className="text-[12px] text-neutral-600">Recent payment</p>
+                                <p className="text-[12px] text-neutral-600">From Sarah's parent</p>
                               </div>
                             </div>
                             <span className="text-[12px] text-neutral-500">2m ago</span>

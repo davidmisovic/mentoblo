@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1760985170410",
+    "invoice_number": "INV-170353",
+    "student_id": "1760980460683",
+    "student_name": "Laco Capak",
+    "issue_date": "2025-10-20",
+    "due_date": "2025-11-19",
+    "items": [
+      {
+        "id": "1",
+        "description": "EE",
+        "quantity": 1,
+        "rate": 21212,
+        "amount": 21212
+      }
+    ],
+    "subtotal": 21212,
+    "tax": 2121.2000000000003,
+    "total": 23333.2,
+    "notes": "",
+    "status": "paid",
+    "created_at": "2025-10-20T18:32:50.410Z",
+    "updated_at": "2025-10-20T18:47:57.759Z"
+  },
+  {
+    "id": "1760987089411",
+    "invoice_number": "INV-089286",
+    "student_id": "1760980460683",
+    "student_name": "Laco Capak",
+    "issue_date": "2025-10-20",
+    "due_date": "2025-11-19",
+    "items": [
+      {
+        "id": "1",
+        "description": "Ma",
+        "quantity": 1,
+        "rate": 0.21,
+        "amount": 0.21
+      }
+    ],
+    "subtotal": 0.21,
+    "tax": 0.021,
+    "total": 0.23099999999999998,
+    "notes": "",
+    "status": "paid",
+    "created_at": "2025-10-20T19:04:49.411Z",
+    "updated_at": "2025-10-20T19:05:05.072Z"
+  }
+]

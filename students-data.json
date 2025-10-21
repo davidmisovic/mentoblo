@@ -1,0 +1,43 @@
+[
+  {
+    "id": "1",
+    "name": "Sarah Johnson",
+    "email": "sarah@example.com",
+    "phone": "+1 (555) 123-4567",
+    "level": "A2",
+    "subjects": [
+      "Mathematics",
+      "Physics"
+    ],
+    "created_at": "2025-10-20T17:14:20.683Z"
+  },
+  {
+    "id": "2",
+    "name": "Marco Rossi",
+    "email": "marco@example.com",
+    "phone": "+1 (555) 987-6543",
+    "level": "B1",
+    "subjects": [
+      "English",
+      "Chemistry"
+    ],
+    "created_at": "2025-10-20T17:14:20.683Z"
+  },
+  {
+    "id": "1760980460683",
+    "name": "Laco Capak",
+    "email": "",
+    "phone": "",
+    "parent_name": "",
+    "parent_email": "",
+    "parent_phone": "",
+    "subjects": [
+      "Economics",
+      "History",
+      "Geography"
+    ],
+    "level": "C2",
+    "notes": "",
+    "created_at": "2025-10-20T17:14:20.683Z"
+  }
+]

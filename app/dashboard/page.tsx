@@ -418,11 +418,11 @@ export default function Dashboard() {
               <div>
                 <p className="text-sm text-neutral-600">This month</p>
                 <p className="text-2xl font-semibold text-neutral-900">${stats.monthlyRevenue.toLocaleString()}</p>
-                <p className={`text-sm inline-flex items-center gap-1 ${stats.growthPercentage >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
+                <p className={`text-sm inline-flex items-center gap-1 ${(stats.growthPercentage ?? 0) >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
                   <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
-                  {stats.growthPercentage >= 0 ? '+' : ''}{stats.growthPercentage || 0}%
+                  {(stats.growthPercentage ?? 0) >= 0 ? '+' : ''}{stats.growthPercentage ?? 0}%
                 </p>
               </div>
               <svg className="w-8 h-8 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -436,7 +436,7 @@ export default function Dashboard() {
               <div>
                 <p className="text-sm text-neutral-600">New leads</p>
                 <p className="text-2xl font-semibold text-neutral-900">{stats.newLeads}</p>
-                <p className="text-sm text-neutral-600">Conversion {stats.conversionRate || 0}%</p>
+                <p className="text-sm text-neutral-600">Conversion {stats.conversionRate ?? 0}%</p>
               </div>
               <svg className="w-8 h-8 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />

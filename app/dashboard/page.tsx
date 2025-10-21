@@ -30,6 +30,8 @@ interface Invoice {
   total: number
   status: string
   created_at: string
+  updated_at?: string
+  student_name?: string
 }
 
 interface Lesson {

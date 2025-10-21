@@ -95,7 +95,7 @@ const MentobloLanding = () => {
 
       {/* Hero */}
       <section className="relative">
-        <div className="mx-auto max-w-7xl px-6 pt-14 pb-8 md:pt-20 md:pb-12">
+        <div className="mx-auto max-w-7xl px-6 pt-4 pb-2 md:pt-5 md:pb-3">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             <div className="lg:pt-0">
               <div className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-[12px] text-neutral-700 shadow-sm">

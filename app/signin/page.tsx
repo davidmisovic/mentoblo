@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 
 export default function SignIn() {
@@ -11,6 +11,14 @@ export default function SignIn() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const router = useRouter()
+  const searchParams = useSearchParams()
+
+  useEffect(() => {
+    const errorParam = searchParams.get('error')
+    if (errorParam === 'auth_failed') {
+      setError('Authentication failed. Please try again.')
+    }
+  }, [searchParams])
 
   const handleGoogleSignIn = async () => {
     try {
@@ -134,9 +142,9 @@ export default function SignIn() {
               </div>
 
               <div className="text-sm">
-                <a href="#" className="font-medium text-neutral-900 hover:text-neutral-700">
+                <Link href="/forgot-password" className="font-medium text-neutral-900 hover:text-neutral-700">
                   Forgot your password?
-                </a>
+                </Link>
               </div>
             </div>
 

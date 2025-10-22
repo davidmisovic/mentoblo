@@ -298,9 +298,9 @@ export default function Scheduling() {
               <div className="grid grid-cols-8">
                 {/* Time column */}
                 <div className="border-r border-neutral-200 bg-neutral-50">
-                  <div className="h-12 border-b border-neutral-200"></div>
-                  {Array.from({ length: 24 }, (_, hour) => (
-                    <div key={hour} className="h-16 border-b border-neutral-200 flex items-start justify-end pr-2 pt-1">
+                  <div className="h-8 border-b border-neutral-200"></div>
+                  {Array.from({ length: 12 }, (_, hour) => (
+                    <div key={hour} className="h-8 border-b border-neutral-200 flex items-center justify-end pr-2">
                       <span className="text-xs text-neutral-500">
                         {hour === 0 ? '12 AM' : hour < 12 ? `${hour} AM` : hour === 12 ? '12 PM' : `${hour - 12} PM`}
                       </span>
@@ -320,22 +320,19 @@ export default function Scheduling() {
                   return (
                     <div key={i} className="border-r border-neutral-200 last:border-r-0">
                       {/* Day header */}
-                      <div className={`h-12 border-b border-neutral-200 flex items-center justify-center ${
+                      <div className={`h-8 border-b border-neutral-200 flex items-center justify-center ${
                         isToday ? 'bg-blue-50' : 'bg-white'
                       }`}>
                         <div className="text-center">
-                          <div className="text-sm font-medium text-neutral-500">
-                            {date.toLocaleDateString('en-US', { weekday: 'short' })}
-                          </div>
-                          <div className={`text-lg font-semibold ${
+                          <div className={`text-sm font-semibold ${
                             isToday ? 'text-blue-900' : 'text-neutral-900'
                           }`}>
-                            {date.getDate()}
+                            {date.toLocaleDateString('en-US', { weekday: 'short' })} {date.getDate()}
                           </div>
                         </div>
                       </div>
                       
-                      {/* Time slots */}
+                      {/* Time slots - compact view */}
                       <div className="relative">
                         {/* Current time line for today */}
                         {isToday && (
@@ -347,8 +344,8 @@ export default function Scheduling() {
                           </div>
                         )}
                         
-                        {Array.from({ length: 24 }, (_, hour) => (
-                          <div key={hour} className="h-16 border-b border-neutral-100 relative">
+                        {Array.from({ length: 12 }, (_, hour) => (
+                          <div key={hour} className="h-8 border-b border-neutral-100 relative">
                             {/* Hour markers */}
                             <div className="absolute left-0 right-0 top-0 h-px bg-neutral-200"></div>
                             
@@ -362,22 +359,22 @@ export default function Scheduling() {
                                 const lessonStart = new Date(lesson.start_time)
                                 const lessonMinute = lessonStart.getMinutes()
                                 const lessonDuration = calculateDuration(lesson.start_time, lesson.end_time)
-                                const lessonHeight = Math.max((lessonDuration / 60) * 4, 1) // 4rem per hour
+                                const lessonHeight = Math.max((lessonDuration / 60) * 2, 0.5) // 2rem per hour
                                 
                                 return (
                                   <div
                                     key={lessonIndex}
-                                    className="absolute left-1 right-1 bg-blue-100 border border-blue-200 rounded text-xs p-1 z-20"
+                                    className="absolute left-1 right-1 bg-blue-100 border border-blue-200 rounded text-xs p-0.5 z-20"
                                     style={{
-                                      top: `${(lessonMinute / 60) * 4}rem`,
+                                      top: `${(lessonMinute / 60) * 2}rem`,
                                       height: `${lessonHeight}rem`
                                     }}
                                   >
-                                    <div className="font-medium text-blue-900 truncate">
+                                    <div className="font-medium text-blue-900 truncate text-xs">
                                       {lesson.student_name || 'Student'}
                                     </div>
                                     <div className="text-blue-700 text-xs">
-                                      {formatTime(lesson.start_time)} - {formatTime(lesson.end_time)}
+                                      {formatTime(lesson.start_time)}
                                     </div>
                                   </div>
                                 )
@@ -395,9 +392,9 @@ export default function Scheduling() {
               <div className="grid grid-cols-2">
                 {/* Time column */}
                 <div className="border-r border-neutral-200 bg-neutral-50">
-                  <div className="h-12 border-b border-neutral-200"></div>
-                  {Array.from({ length: 24 }, (_, hour) => (
-                    <div key={hour} className="h-16 border-b border-neutral-200 flex items-start justify-end pr-2 pt-1">
+                  <div className="h-8 border-b border-neutral-200"></div>
+                  {Array.from({ length: 12 }, (_, hour) => (
+                    <div key={hour} className="h-8 border-b border-neutral-200 flex items-center justify-end pr-2">
                       <span className="text-xs text-neutral-500">
                         {hour === 0 ? '12 AM' : hour < 12 ? `${hour} AM` : hour === 12 ? '12 PM' : `${hour - 12} PM`}
                       </span>
@@ -425,8 +422,8 @@ export default function Scheduling() {
                           <div className="absolute -left-1 -top-1 w-2 h-2 bg-red-500 rounded-full"></div>
                         </div>
                         
-                        {Array.from({ length: 24 }, (_, hour) => (
-                          <div key={hour} className="h-16 border-b border-neutral-100 relative">
+                        {Array.from({ length: 12 }, (_, hour) => (
+                          <div key={hour} className="h-8 border-b border-neutral-100 relative">
                             {/* Hour markers */}
                             <div className="absolute left-0 right-0 top-0 h-px bg-neutral-200"></div>
                             
@@ -440,22 +437,22 @@ export default function Scheduling() {
                                 const lessonStart = new Date(lesson.start_time)
                                 const lessonMinute = lessonStart.getMinutes()
                                 const lessonDuration = calculateDuration(lesson.start_time, lesson.end_time)
-                                const lessonHeight = Math.max((lessonDuration / 60) * 4, 1)
+                                const lessonHeight = Math.max((lessonDuration / 60) * 2, 0.5)
                                 
                                 return (
                                   <div
                                     key={lessonIndex}
-                                    className="absolute left-1 right-1 bg-blue-100 border border-blue-200 rounded text-xs p-1 z-20"
+                                    className="absolute left-1 right-1 bg-blue-100 border border-blue-200 rounded text-xs p-0.5 z-20"
                                     style={{
-                                      top: `${(lessonMinute / 60) * 4}rem`,
+                                      top: `${(lessonMinute / 60) * 2}rem`,
                                       height: `${lessonHeight}rem`
                                     }}
                                   >
-                                    <div className="font-medium text-blue-900 truncate">
+                                    <div className="font-medium text-blue-900 truncate text-xs">
                                       {lesson.student_name || 'Student'}
                                     </div>
                                     <div className="text-blue-700 text-xs">
-                                      {formatTime(lesson.start_time)} - {formatTime(lesson.end_time)}
+                                      {formatTime(lesson.start_time)}
                                     </div>
                                   </div>
                                 )
@@ -483,7 +480,7 @@ export default function Scheduling() {
                   return (
                     <div 
                       key={i} 
-                      className={`h-32 border border-neutral-200 rounded-lg p-2 ${
+                      className={`h-20 border border-neutral-200 rounded-lg p-2 ${
                         isToday ? 'bg-blue-50 border-blue-200' : ''
                       }`}
                     >
@@ -492,8 +489,8 @@ export default function Scheduling() {
                       }`}>
                         {date.getDate()}
                       </div>
-                      <div className="mt-1 space-y-1">
-                        {dayLessons.slice(0, 3).map((lesson, lessonIndex) => (
+                      <div className="mt-1 space-y-0.5">
+                        {dayLessons.slice(0, 2).map((lesson, lessonIndex) => (
                           <div 
                             key={lessonIndex}
                             className="text-xs bg-blue-100 text-blue-800 px-1 py-0.5 rounded truncate"
@@ -502,9 +499,9 @@ export default function Scheduling() {
                             {lesson.student_name || 'Student'}
                           </div>
                         ))}
-                        {dayLessons.length > 3 && (
+                        {dayLessons.length > 2 && (
                           <div className="text-xs text-neutral-500">
-                            +{dayLessons.length - 3} more
+                            +{dayLessons.length - 2} more
                           </div>
                         )}
                       </div>

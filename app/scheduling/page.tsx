@@ -299,7 +299,7 @@ export default function Scheduling() {
                 {/* Time column */}
                 <div className="border-r border-neutral-200 bg-neutral-50">
                   <div className="h-8 border-b border-neutral-200"></div>
-                  {Array.from({ length: 12 }, (_, hour) => (
+                  {Array.from({ length: 24 }, (_, hour) => (
                     <div key={hour} className="h-8 border-b border-neutral-200 flex items-center justify-end pr-2">
                       <span className="text-xs text-neutral-500">
                         {hour === 0 ? '12 AM' : hour < 12 ? `${hour} AM` : hour === 12 ? '12 PM' : `${hour - 12} PM`}
@@ -394,7 +394,7 @@ export default function Scheduling() {
                 {/* Time column */}
                 <div className="border-r border-neutral-200 bg-neutral-50">
                   <div className="h-8 border-b border-neutral-200"></div>
-                  {Array.from({ length: 12 }, (_, hour) => (
+                  {Array.from({ length: 24 }, (_, hour) => (
                     <div key={hour} className="h-8 border-b border-neutral-200 flex items-center justify-end pr-2">
                       <span className="text-xs text-neutral-500">
                         {hour === 0 ? '12 AM' : hour < 12 ? `${hour} AM` : hour === 12 ? '12 PM' : `${hour - 12} PM`}
@@ -423,7 +423,7 @@ export default function Scheduling() {
                           <div className="absolute -left-1 -top-1 w-2 h-2 bg-red-500 rounded-full"></div>
                         </div>
                         
-                        {Array.from({ length: 12 }, (_, hour) => (
+                        {Array.from({ length: 24 }, (_, hour) => (
                           <div key={hour} className="h-8 border-b border-neutral-100 relative">
                             {/* Hour markers */}
                             <div className="absolute left-0 right-0 top-0 h-px bg-neutral-200"></div>

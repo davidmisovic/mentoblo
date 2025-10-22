@@ -157,6 +157,13 @@ export default function Scheduling() {
     })
   }
 
+  const calculateDuration = (startTime: string, endTime: string) => {
+    if (!startTime || !endTime) return 0
+    const start = new Date(startTime)
+    const end = new Date(endTime)
+    return Math.round((end.getTime() - start.getTime()) / 60000) // duration in minutes
+  }
+
   const handleEditLesson = (lessonId: string) => {
     // Navigate to edit page
     router.push(`/scheduling/${lessonId}/edit`)
@@ -285,90 +292,227 @@ export default function Scheduling() {
             </div>
           </div>
 
-          {/* Calendar Grid */}
-          <div className="grid grid-cols-7 gap-1 mb-4">
-            {viewType !== 'today' && ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day) => (
-              <div key={day} className="text-center text-sm font-medium text-neutral-500 py-2">
-                {day}
-              </div>
-            ))}
-            {getCalendarDays().map((date, i) => {
-              const dayLessons = getLessonsForDay(date)
-              const isToday = date.toDateString() === new Date().toDateString()
-              const now = new Date()
-              const currentHour = now.getHours()
-              const currentMinute = now.getMinutes()
-              const currentTimePosition = ((currentHour * 60 + currentMinute) / (24 * 60)) * 100
-              
-              return (
-                <div 
-                  key={i} 
-                  className={`h-32 border border-neutral-200 rounded-lg p-2 relative ${
-                    isToday ? 'bg-blue-50 border-blue-200' : ''
-                  }`}
-                >
-                  <div className={`text-sm font-medium ${
-                    isToday ? 'text-blue-900' : 'text-neutral-900'
-                  }`}>
-                    {date.getDate()}
-                  </div>
-                  
-                  {/* Hour indicators for today */}
-                  {isToday && (
-                    <div className="absolute inset-0 left-0 right-0 top-6 pointer-events-none">
-                      {/* Current time line */}
-                      <div 
-                        className="absolute w-full h-0.5 bg-red-500 z-10"
-                        style={{ top: `${currentTimePosition}%` }}
-                      >
-                        <div className="absolute -left-1 -top-1 w-2 h-2 bg-red-500 rounded-full"></div>
-                      </div>
-                      
-                      {/* Hour markers */}
-                      {Array.from({ length: 24 }, (_, hour) => (
-                        <div 
-                          key={hour}
-                          className="absolute w-full h-px bg-neutral-200"
-                          style={{ top: `${(hour / 24) * 100}%` }}
-                        >
-                          <span className="absolute -left-8 -top-1 text-xs text-neutral-400">
-                            {hour === 0 ? '12 AM' : hour < 12 ? `${hour} AM` : hour === 12 ? '12 PM' : `${hour - 12} PM`}
-                          </span>
-                        </div>
-                      ))}
+          {/* Enhanced Calendar Grid */}
+          <div className="border border-neutral-200 rounded-lg overflow-hidden">
+            {viewType === 'week' && (
+              <div className="grid grid-cols-8">
+                {/* Time column */}
+                <div className="border-r border-neutral-200 bg-neutral-50">
+                  <div className="h-12 border-b border-neutral-200"></div>
+                  {Array.from({ length: 24 }, (_, hour) => (
+                    <div key={hour} className="h-16 border-b border-neutral-200 flex items-start justify-end pr-2 pt-1">
+                      <span className="text-xs text-neutral-500">
+                        {hour === 0 ? '12 AM' : hour < 12 ? `${hour} AM` : hour === 12 ? '12 PM' : `${hour - 12} PM`}
+                      </span>
                     </div>
-                  )}
-                  
-                  <div className="mt-1 space-y-1 relative z-20">
-                    {dayLessons.slice(0, 3).map((lesson, lessonIndex) => {
-                      const lessonStart = new Date(lesson.start_time)
-                      const lessonHour = lessonStart.getHours()
-                      const lessonMinute = lessonStart.getMinutes()
-                      const lessonPosition = ((lessonHour * 60 + lessonMinute) / (24 * 60)) * 100
-                      
-                      return (
-                        <div 
-                          key={lessonIndex}
-                          className="text-xs bg-blue-100 text-blue-800 px-1 py-0.5 rounded truncate absolute"
-                          style={{ 
-                            top: `${lessonPosition}%`,
-                            zIndex: 30
-                          }}
-                          title={`${lesson.student_name || 'Student'} - ${lesson.subject} (${formatTime(lesson.start_time)})`}
-                        >
-                          {lesson.student_name || 'Student'}
-                        </div>
-                      )
-                    })}
-                    {dayLessons.length > 3 && (
-                      <div className="text-xs text-neutral-500 absolute bottom-0">
-                        +{dayLessons.length - 3} more
-                      </div>
-                    )}
-                  </div>
+                  ))}
                 </div>
-              )
-            })}
+                
+                {/* Days of the week */}
+                {getCalendarDays().map((date, i) => {
+                  const dayLessons = getLessonsForDay(date)
+                  const isToday = date.toDateString() === new Date().toDateString()
+                  const now = new Date()
+                  const currentHour = now.getHours()
+                  const currentMinute = now.getMinutes()
+                  const currentTimePosition = ((currentHour * 60 + currentMinute) / (24 * 60)) * 100
+                  
+                  return (
+                    <div key={i} className="border-r border-neutral-200 last:border-r-0">
+                      {/* Day header */}
+                      <div className={`h-12 border-b border-neutral-200 flex items-center justify-center ${
+                        isToday ? 'bg-blue-50' : 'bg-white'
+                      }`}>
+                        <div className="text-center">
+                          <div className="text-sm font-medium text-neutral-500">
+                            {date.toLocaleDateString('en-US', { weekday: 'short' })}
+                          </div>
+                          <div className={`text-lg font-semibold ${
+                            isToday ? 'text-blue-900' : 'text-neutral-900'
+                          }`}>
+                            {date.getDate()}
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Time slots */}
+                      <div className="relative">
+                        {/* Current time line for today */}
+                        {isToday && (
+                          <div 
+                            className="absolute left-0 right-0 h-0.5 bg-red-500 z-10"
+                            style={{ top: `${currentTimePosition}%` }}
+                          >
+                            <div className="absolute -left-1 -top-1 w-2 h-2 bg-red-500 rounded-full"></div>
+                          </div>
+                        )}
+                        
+                        {Array.from({ length: 24 }, (_, hour) => (
+                          <div key={hour} className="h-16 border-b border-neutral-100 relative">
+                            {/* Hour markers */}
+                            <div className="absolute left-0 right-0 top-0 h-px bg-neutral-200"></div>
+                            
+                            {/* Lessons for this hour */}
+                            {dayLessons
+                              .filter(lesson => {
+                                const lessonHour = new Date(lesson.start_time).getHours()
+                                return lessonHour === hour
+                              })
+                              .map((lesson, lessonIndex) => {
+                                const lessonStart = new Date(lesson.start_time)
+                                const lessonMinute = lessonStart.getMinutes()
+                                const lessonDuration = calculateDuration(lesson.start_time, lesson.end_time)
+                                const lessonHeight = Math.max((lessonDuration / 60) * 4, 1) // 4rem per hour
+                                
+                                return (
+                                  <div
+                                    key={lessonIndex}
+                                    className="absolute left-1 right-1 bg-blue-100 border border-blue-200 rounded text-xs p-1 z-20"
+                                    style={{
+                                      top: `${(lessonMinute / 60) * 4}rem`,
+                                      height: `${lessonHeight}rem`
+                                    }}
+                                  >
+                                    <div className="font-medium text-blue-900 truncate">
+                                      {lesson.student_name || 'Student'}
+                                    </div>
+                                    <div className="text-blue-700 text-xs">
+                                      {formatTime(lesson.start_time)} - {formatTime(lesson.end_time)}
+                                    </div>
+                                  </div>
+                                )
+                              })}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            )}
+            
+            {viewType === 'today' && (
+              <div className="grid grid-cols-2">
+                {/* Time column */}
+                <div className="border-r border-neutral-200 bg-neutral-50">
+                  <div className="h-12 border-b border-neutral-200"></div>
+                  {Array.from({ length: 24 }, (_, hour) => (
+                    <div key={hour} className="h-16 border-b border-neutral-200 flex items-start justify-end pr-2 pt-1">
+                      <span className="text-xs text-neutral-500">
+                        {hour === 0 ? '12 AM' : hour < 12 ? `${hour} AM` : hour === 12 ? '12 PM' : `${hour - 12} PM`}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Today's schedule */}
+                <div className="relative">
+                  {(() => {
+                    const today = getCalendarDays()[0]
+                    const dayLessons = getLessonsForDay(today)
+                    const now = new Date()
+                    const currentHour = now.getHours()
+                    const currentMinute = now.getMinutes()
+                    const currentTimePosition = ((currentHour * 60 + currentMinute) / (24 * 60)) * 100
+                    
+                    return (
+                      <>
+                        {/* Current time line */}
+                        <div 
+                          className="absolute left-0 right-0 h-0.5 bg-red-500 z-10"
+                          style={{ top: `${currentTimePosition}%` }}
+                        >
+                          <div className="absolute -left-1 -top-1 w-2 h-2 bg-red-500 rounded-full"></div>
+                        </div>
+                        
+                        {Array.from({ length: 24 }, (_, hour) => (
+                          <div key={hour} className="h-16 border-b border-neutral-100 relative">
+                            {/* Hour markers */}
+                            <div className="absolute left-0 right-0 top-0 h-px bg-neutral-200"></div>
+                            
+                            {/* Lessons for this hour */}
+                            {dayLessons
+                              .filter(lesson => {
+                                const lessonHour = new Date(lesson.start_time).getHours()
+                                return lessonHour === hour
+                              })
+                              .map((lesson, lessonIndex) => {
+                                const lessonStart = new Date(lesson.start_time)
+                                const lessonMinute = lessonStart.getMinutes()
+                                const lessonDuration = calculateDuration(lesson.start_time, lesson.end_time)
+                                const lessonHeight = Math.max((lessonDuration / 60) * 4, 1)
+                                
+                                return (
+                                  <div
+                                    key={lessonIndex}
+                                    className="absolute left-1 right-1 bg-blue-100 border border-blue-200 rounded text-xs p-1 z-20"
+                                    style={{
+                                      top: `${(lessonMinute / 60) * 4}rem`,
+                                      height: `${lessonHeight}rem`
+                                    }}
+                                  >
+                                    <div className="font-medium text-blue-900 truncate">
+                                      {lesson.student_name || 'Student'}
+                                    </div>
+                                    <div className="text-blue-700 text-xs">
+                                      {formatTime(lesson.start_time)} - {formatTime(lesson.end_time)}
+                                    </div>
+                                  </div>
+                                )
+                              })}
+                          </div>
+                        ))}
+                      </>
+                    )
+                  })()}
+                </div>
+              </div>
+            )}
+            
+            {viewType === 'month' && (
+              <div className="grid grid-cols-7 gap-1 p-4">
+                {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day) => (
+                  <div key={day} className="text-center text-sm font-medium text-neutral-500 py-2">
+                    {day}
+                  </div>
+                ))}
+                {getCalendarDays().map((date, i) => {
+                  const dayLessons = getLessonsForDay(date)
+                  const isToday = date.toDateString() === new Date().toDateString()
+                  
+                  return (
+                    <div 
+                      key={i} 
+                      className={`h-32 border border-neutral-200 rounded-lg p-2 ${
+                        isToday ? 'bg-blue-50 border-blue-200' : ''
+                      }`}
+                    >
+                      <div className={`text-sm font-medium ${
+                        isToday ? 'text-blue-900' : 'text-neutral-900'
+                      }`}>
+                        {date.getDate()}
+                      </div>
+                      <div className="mt-1 space-y-1">
+                        {dayLessons.slice(0, 3).map((lesson, lessonIndex) => (
+                          <div 
+                            key={lessonIndex}
+                            className="text-xs bg-blue-100 text-blue-800 px-1 py-0.5 rounded truncate"
+                            title={`${lesson.student_name || 'Student'} - ${lesson.subject} (${formatTime(lesson.start_time)})`}
+                          >
+                            {lesson.student_name || 'Student'}
+                          </div>
+                        ))}
+                        {dayLessons.length > 3 && (
+                          <div className="text-xs text-neutral-500">
+                            +{dayLessons.length - 3} more
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            )}
           </div>
         </div>
 

@@ -4,10 +4,16 @@
     "student_id": "1760980460683",
     "student_name": "Laco Capak",
     "subject": "Verbs",
-    "start_time": "2025-10-23T04:30",
-    "duration": -90,
+    "start_time": "2025-10-23T00:30",
+    "duration": 138,
     "notes": "zaplatit fakturu",
     "status": "scheduled",
-    "created_at": "2025-10-22T02:22:40.740Z"
+    "created_at": "2025-10-22T02:22:40.740Z",
+    "title": "Math",
+    "description": "sa",
+    "end_time": "2025-10-23T02:48",
+    "price": 30,
+    "meeting_link": "https://translate.google.sk/?sl=sk&tl=en&text=prehladne&op=translate",
+    "updated_at": "2025-10-22T02:47:46.310Z"
   }
 ]

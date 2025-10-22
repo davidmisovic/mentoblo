@@ -295,11 +295,15 @@ export default function Scheduling() {
             {getCalendarDays().map((date, i) => {
               const dayLessons = getLessonsForDay(date)
               const isToday = date.toDateString() === new Date().toDateString()
+              const now = new Date()
+              const currentHour = now.getHours()
+              const currentMinute = now.getMinutes()
+              const currentTimePosition = ((currentHour * 60 + currentMinute) / (24 * 60)) * 100
               
               return (
                 <div 
                   key={i} 
-                  className={`h-24 border border-neutral-200 rounded-lg p-2 ${
+                  className={`h-32 border border-neutral-200 rounded-lg p-2 relative ${
                     isToday ? 'bg-blue-50 border-blue-200' : ''
                   }`}
                 >
@@ -308,19 +312,57 @@ export default function Scheduling() {
                   }`}>
                     {date.getDate()}
                   </div>
-                  <div className="mt-1 space-y-1">
-                    {dayLessons.slice(0, 2).map((lesson, lessonIndex) => (
+                  
+                  {/* Hour indicators for today */}
+                  {isToday && (
+                    <div className="absolute inset-0 left-0 right-0 top-6 pointer-events-none">
+                      {/* Current time line */}
                       <div 
-                        key={lessonIndex}
-                        className="text-xs bg-blue-100 text-blue-800 px-1 py-0.5 rounded truncate"
-                        title={`${lesson.student_name || 'Student'} - ${lesson.subject}`}
+                        className="absolute w-full h-0.5 bg-red-500 z-10"
+                        style={{ top: `${currentTimePosition}%` }}
                       >
-                        {lesson.student_name || 'Student'}
+                        <div className="absolute -left-1 -top-1 w-2 h-2 bg-red-500 rounded-full"></div>
                       </div>
-                    ))}
-                    {dayLessons.length > 2 && (
-                      <div className="text-xs text-neutral-500">
-                        +{dayLessons.length - 2} more
+                      
+                      {/* Hour markers */}
+                      {Array.from({ length: 24 }, (_, hour) => (
+                        <div 
+                          key={hour}
+                          className="absolute w-full h-px bg-neutral-200"
+                          style={{ top: `${(hour / 24) * 100}%` }}
+                        >
+                          <span className="absolute -left-8 -top-1 text-xs text-neutral-400">
+                            {hour === 0 ? '12 AM' : hour < 12 ? `${hour} AM` : hour === 12 ? '12 PM' : `${hour - 12} PM`}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  
+                  <div className="mt-1 space-y-1 relative z-20">
+                    {dayLessons.slice(0, 3).map((lesson, lessonIndex) => {
+                      const lessonStart = new Date(lesson.start_time)
+                      const lessonHour = lessonStart.getHours()
+                      const lessonMinute = lessonStart.getMinutes()
+                      const lessonPosition = ((lessonHour * 60 + lessonMinute) / (24 * 60)) * 100
+                      
+                      return (
+                        <div 
+                          key={lessonIndex}
+                          className="text-xs bg-blue-100 text-blue-800 px-1 py-0.5 rounded truncate absolute"
+                          style={{ 
+                            top: `${lessonPosition}%`,
+                            zIndex: 30
+                          }}
+                          title={`${lesson.student_name || 'Student'} - ${lesson.subject} (${formatTime(lesson.start_time)})`}
+                        >
+                          {lesson.student_name || 'Student'}
+                        </div>
+                      )
+                    })}
+                    {dayLessons.length > 3 && (
+                      <div className="text-xs text-neutral-500 absolute bottom-0">
+                        +{dayLessons.length - 3} more
                       </div>
                     )}
                   </div>

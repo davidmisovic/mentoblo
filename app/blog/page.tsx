@@ -1,9 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { supabase } from '@/lib/supabase'
 
 interface BlogPost {
   id: string
@@ -19,19 +17,10 @@ interface BlogPost {
 export default function Blog() {
   const [posts, setPosts] = useState<BlogPost[]>([])
   const [loading, setLoading] = useState(true)
-  const router = useRouter()
 
   useEffect(() => {
-    const checkUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser()
-      if (!user) {
-        router.push('/signin')
-        return
-      }
-      fetchPosts()
-    }
-    checkUser()
-  }, [router])
+    fetchPosts()
+  }, [])
 
   const fetchPosts = async () => {
     try {

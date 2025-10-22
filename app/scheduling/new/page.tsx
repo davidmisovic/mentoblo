@@ -257,6 +257,49 @@ export default function NewLesson() {
                   }}
                   className="mt-1 block w-full px-3 py-2 border border-neutral-300 rounded-md shadow-sm focus:outline-none focus:ring-neutral-500 focus:border-neutral-500"
                 />
+                
+                {/* Duration Suggestions */}
+                <div className="mt-3">
+                  <p className="text-sm text-neutral-600 mb-2">Quick duration:</p>
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (formData.start_time) {
+                          const endTime = calculateEndTime(formData.start_time, 30)
+                          setFormData(prev => ({ ...prev, end_time: endTime }))
+                        }
+                      }}
+                      className="px-3 py-1 text-xs bg-neutral-100 hover:bg-neutral-200 text-neutral-700 rounded-md transition"
+                    >
+                      30 min
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (formData.start_time) {
+                          const endTime = calculateEndTime(formData.start_time, 60)
+                          setFormData(prev => ({ ...prev, end_time: endTime }))
+                        }
+                      }}
+                      className="px-3 py-1 text-xs bg-neutral-100 hover:bg-neutral-200 text-neutral-700 rounded-md transition"
+                    >
+                      60 min
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (formData.start_time) {
+                          const endTime = calculateEndTime(formData.start_time, 90)
+                          setFormData(prev => ({ ...prev, end_time: endTime }))
+                        }
+                      }}
+                      className="px-3 py-1 text-xs bg-neutral-100 hover:bg-neutral-200 text-neutral-700 rounded-md transition"
+                    >
+                      90 min
+                    </button>
+                  </div>
+                </div>
               </div>
 
               <div>

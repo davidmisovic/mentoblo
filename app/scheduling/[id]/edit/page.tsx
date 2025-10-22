@@ -117,7 +117,16 @@ export default function EditLesson() {
     if (!startTime) return ''
     const start = new Date(startTime)
     const end = new Date(start.getTime() + durationMinutes * 60000)
-    return end.toISOString().slice(0, 16)
+    
+    // Format for datetime-local input (YYYY-MM-DDTHH:MM)
+    const year = end.getFullYear()
+    const month = String(end.getMonth() + 1).padStart(2, '0')
+    const day = String(end.getDate()).padStart(2, '0')
+    const hours = String(end.getHours()).padStart(2, '0')
+    const minutes = String(end.getMinutes()).padStart(2, '0')
+    const result = `${year}-${month}-${day}T${hours}:${minutes}`
+    
+    return result
   }
 
   const handleSubmit = async (e: React.FormEvent) => {

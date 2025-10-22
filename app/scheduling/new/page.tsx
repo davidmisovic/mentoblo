@@ -103,14 +103,6 @@ export default function NewLesson() {
     const minutes = String(end.getMinutes()).padStart(2, '0')
     const result = `${year}-${month}-${day}T${hours}:${minutes}`
     
-    console.log('calculateEndTime:', { 
-      startTime, 
-      duration, 
-      start: start.toISOString(), 
-      end: end.toISOString(), 
-      result,
-      localTime: end.toString()
-    })
     return result
   }
 
@@ -275,12 +267,6 @@ export default function NewLesson() {
                   className="mt-1 block w-full px-3 py-2 border border-neutral-300 rounded-md shadow-sm focus:outline-none focus:ring-neutral-500 focus:border-neutral-500"
                 />
                 
-                {/* Debug Info */}
-                <div className="mt-3 p-2 bg-gray-100 rounded text-xs">
-                  <p><strong>Debug:</strong> Start: {formData.start_time || 'Not set'}</p>
-                  <p><strong>Debug:</strong> End: {formData.end_time || 'Not set'}</p>
-                </div>
-                
                 {/* Duration Suggestions */}
                 <div className="mt-3">
                   <p className="text-sm text-neutral-600 mb-2">Quick duration:</p>
@@ -288,26 +274,9 @@ export default function NewLesson() {
                     <button
                       type="button"
                       onClick={() => {
-                        console.log('Clear end time button clicked')
-                        setFormData(prev => ({ ...prev, end_time: '' }))
-                      }}
-                      className="px-3 py-1 text-xs bg-red-100 hover:bg-red-200 text-red-700 rounded-md transition"
-                    >
-                      Clear
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        console.log('30min button clicked - current formData:', formData)
                         if (formData.start_time) {
                           const endTime = calculateEndTime(formData.start_time, 30)
-                          console.log('30min button clicked:', { startTime: formData.start_time, endTime })
-                          setFormData(prev => {
-                            console.log('Setting new formData:', { ...prev, end_time: endTime })
-                            return { ...prev, end_time: endTime }
-                          })
-                        } else {
-                          console.log('No start_time set, cannot calculate end time')
+                          setFormData(prev => ({ ...prev, end_time: endTime }))
                         }
                       }}
                       className="px-3 py-1 text-xs bg-neutral-100 hover:bg-neutral-200 text-neutral-700 rounded-md transition"
@@ -319,7 +288,6 @@ export default function NewLesson() {
                       onClick={() => {
                         if (formData.start_time) {
                           const endTime = calculateEndTime(formData.start_time, 60)
-                          console.log('60min button clicked:', { startTime: formData.start_time, endTime })
                           setFormData(prev => ({ ...prev, end_time: endTime }))
                         }
                       }}
@@ -332,7 +300,6 @@ export default function NewLesson() {
                       onClick={() => {
                         if (formData.start_time) {
                           const endTime = calculateEndTime(formData.start_time, 90)
-                          console.log('90min button clicked:', { startTime: formData.start_time, endTime })
                           setFormData(prev => ({ ...prev, end_time: endTime }))
                         }
                       }}
@@ -375,61 +342,6 @@ export default function NewLesson() {
               </div>
             </div>
 
-            <div className="mt-4">
-              <label className="block text-sm font-medium text-neutral-700 mb-2">
-                Quick Duration
-              </label>
-              <div className="flex gap-2">
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (formData.start_time) {
-                      const endTime = calculateEndTime(formData.start_time, 30)
-                      setFormData(prev => ({ ...prev, end_time: endTime }))
-                    }
-                  }}
-                  className="px-3 py-1 text-sm border border-neutral-300 rounded-md hover:bg-neutral-50"
-                >
-                  30 min
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (formData.start_time) {
-                      const endTime = calculateEndTime(formData.start_time, 60)
-                      setFormData(prev => ({ ...prev, end_time: endTime }))
-                    }
-                  }}
-                  className="px-3 py-1 text-sm border border-neutral-300 rounded-md hover:bg-neutral-50"
-                >
-                  1 hour
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (formData.start_time) {
-                      const endTime = calculateEndTime(formData.start_time, 90)
-                      setFormData(prev => ({ ...prev, end_time: endTime }))
-                    }
-                  }}
-                  className="px-3 py-1 text-sm border border-neutral-300 rounded-md hover:bg-neutral-50"
-                >
-                  1.5 hours
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (formData.start_time) {
-                      const endTime = calculateEndTime(formData.start_time, 120)
-                      setFormData(prev => ({ ...prev, end_time: endTime }))
-                    }
-                  }}
-                  className="px-3 py-1 text-sm border border-neutral-300 rounded-md hover:bg-neutral-50"
-                >
-                  2 hours
-                </button>
-              </div>
-            </div>
           </div>
 
           <div className="bg-white rounded-lg border border-neutral-200 p-6">

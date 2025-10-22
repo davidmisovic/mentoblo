@@ -94,6 +94,7 @@ export default function NewLesson() {
     if (!startTime) return ''
     const start = new Date(startTime)
     const end = new Date(start.getTime() + duration * 60000)
+    console.log('calculateEndTime:', { startTime, duration, start: start.toISOString(), end: end.toISOString(), result: end.toISOString().slice(0, 16) })
     return end.toISOString().slice(0, 16)
   }
 
@@ -258,6 +259,12 @@ export default function NewLesson() {
                   className="mt-1 block w-full px-3 py-2 border border-neutral-300 rounded-md shadow-sm focus:outline-none focus:ring-neutral-500 focus:border-neutral-500"
                 />
                 
+                {/* Debug Info */}
+                <div className="mt-3 p-2 bg-gray-100 rounded text-xs">
+                  <p><strong>Debug:</strong> Start: {formData.start_time || 'Not set'}</p>
+                  <p><strong>Debug:</strong> End: {formData.end_time || 'Not set'}</p>
+                </div>
+                
                 {/* Duration Suggestions */}
                 <div className="mt-3">
                   <p className="text-sm text-neutral-600 mb-2">Quick duration:</p>
@@ -265,10 +272,26 @@ export default function NewLesson() {
                     <button
                       type="button"
                       onClick={() => {
+                        console.log('Clear end time button clicked')
+                        setFormData(prev => ({ ...prev, end_time: '' }))
+                      }}
+                      className="px-3 py-1 text-xs bg-red-100 hover:bg-red-200 text-red-700 rounded-md transition"
+                    >
+                      Clear
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        console.log('30min button clicked - current formData:', formData)
                         if (formData.start_time) {
                           const endTime = calculateEndTime(formData.start_time, 30)
                           console.log('30min button clicked:', { startTime: formData.start_time, endTime })
-                          setFormData(prev => ({ ...prev, end_time: endTime }))
+                          setFormData(prev => {
+                            console.log('Setting new formData:', { ...prev, end_time: endTime })
+                            return { ...prev, end_time: endTime }
+                          })
+                        } else {
+                          console.log('No start_time set, cannot calculate end time')
                         }
                       }}
                       className="px-3 py-1 text-xs bg-neutral-100 hover:bg-neutral-200 text-neutral-700 rounded-md transition"

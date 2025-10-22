@@ -298,14 +298,17 @@ export default function Scheduling() {
               <div className="grid grid-cols-8">
                 {/* Time column */}
                 <div className="border-r border-neutral-200 bg-neutral-50">
-                  <div className="h-8 border-b border-neutral-200"></div>
-                  {Array.from({ length: 24 }, (_, hour) => (
-                    <div key={hour} className="h-8 border-b border-neutral-200 flex items-center justify-end pr-2">
-                      <span className="text-xs text-neutral-500">
-                        {hour === 0 ? '12 AM' : hour < 12 ? `${hour} AM` : hour === 12 ? '12 PM' : `${hour - 12} PM`}
-                      </span>
-                    </div>
-                  ))}
+                  <div className="h-6 border-b border-neutral-200"></div>
+                  {Array.from({ length: 13 }, (_, i) => {
+                    const hour = i + 8; // Start from 8 AM
+                    return (
+                      <div key={hour} className="h-6 border-b border-neutral-200 flex items-center justify-end pr-2">
+                        <span className="text-xs text-neutral-500">
+                          {hour === 12 ? '12 PM' : hour < 12 ? `${hour} AM` : `${hour - 12} PM`}
+                        </span>
+                      </div>
+                    );
+                  })}
                 </div>
                 
                 {/* Days of the week */}
@@ -316,12 +319,22 @@ export default function Scheduling() {
                   const now = new Date()
                   const currentHour = now.getHours()
                   const currentMinute = now.getMinutes()
-                  const currentTimePosition = ((currentHour * 60 + currentMinute) / (24 * 60)) * 100
+                  // Calculate position within business hours (8 AM to 8 PM)
+                  const businessStartHour = 8;
+                  const businessEndHour = 20;
+                  const businessHours = businessEndHour - businessStartHour;
+                  
+                  let currentTimePosition = 0;
+                  if (currentHour >= businessStartHour && currentHour < businessEndHour) {
+                    const hoursFromStart = currentHour - businessStartHour;
+                    const minutesFromStart = hoursFromStart * 60 + currentMinute;
+                    currentTimePosition = (minutesFromStart / (businessHours * 60)) * 100;
+                  }
                   
                   return (
                     <div key={i} className="border-r border-neutral-200 last:border-r-0">
                       {/* Day header */}
-                      <div className={`h-8 border-b border-neutral-200 flex items-center justify-center ${
+                      <div className={`h-6 border-b border-neutral-200 flex items-center justify-center ${
                         isToday ? 'bg-blue-50' : isWeekend ? 'bg-orange-50' : 'bg-white'
                       }`}>
                         <div className="text-center">
@@ -354,7 +367,7 @@ export default function Scheduling() {
                             {dayLessons
                               .filter(lesson => {
                                 const lessonHour = new Date(lesson.start_time).getHours()
-                                return lessonHour === hour
+                                return lessonHour === hour && lessonHour >= 8 && lessonHour < 20
                               })
                               .map((lesson, lessonIndex) => {
                                 const lessonStart = new Date(lesson.start_time)
@@ -393,14 +406,17 @@ export default function Scheduling() {
               <div className="grid grid-cols-2">
                 {/* Time column */}
                 <div className="border-r border-neutral-200 bg-neutral-50">
-                  <div className="h-8 border-b border-neutral-200"></div>
-                  {Array.from({ length: 24 }, (_, hour) => (
-                    <div key={hour} className="h-8 border-b border-neutral-200 flex items-center justify-end pr-2">
-                      <span className="text-xs text-neutral-500">
-                        {hour === 0 ? '12 AM' : hour < 12 ? `${hour} AM` : hour === 12 ? '12 PM' : `${hour - 12} PM`}
-                      </span>
-                    </div>
-                  ))}
+                  <div className="h-6 border-b border-neutral-200"></div>
+                  {Array.from({ length: 13 }, (_, i) => {
+                    const hour = i + 8; // Start from 8 AM
+                    return (
+                      <div key={hour} className="h-6 border-b border-neutral-200 flex items-center justify-end pr-2">
+                        <span className="text-xs text-neutral-500">
+                          {hour === 12 ? '12 PM' : hour < 12 ? `${hour} AM` : `${hour - 12} PM`}
+                        </span>
+                      </div>
+                    );
+                  })}
                 </div>
                 
                 {/* Today's schedule */}
@@ -411,7 +427,17 @@ export default function Scheduling() {
                     const now = new Date()
                     const currentHour = now.getHours()
                     const currentMinute = now.getMinutes()
-                    const currentTimePosition = ((currentHour * 60 + currentMinute) / (24 * 60)) * 100
+                    // Calculate position within business hours (8 AM to 8 PM)
+                  const businessStartHour = 8;
+                  const businessEndHour = 20;
+                  const businessHours = businessEndHour - businessStartHour;
+                  
+                  let currentTimePosition = 0;
+                  if (currentHour >= businessStartHour && currentHour < businessEndHour) {
+                    const hoursFromStart = currentHour - businessStartHour;
+                    const minutesFromStart = hoursFromStart * 60 + currentMinute;
+                    currentTimePosition = (minutesFromStart / (businessHours * 60)) * 100;
+                  }
                     
                     return (
                       <>
@@ -432,7 +458,7 @@ export default function Scheduling() {
                             {dayLessons
                               .filter(lesson => {
                                 const lessonHour = new Date(lesson.start_time).getHours()
-                                return lessonHour === hour
+                                return lessonHour === hour && lessonHour >= 8 && lessonHour < 20
                               })
                               .map((lesson, lessonIndex) => {
                                 const lessonStart = new Date(lesson.start_time)

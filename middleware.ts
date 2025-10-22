@@ -75,6 +75,7 @@ export async function middleware(req: NextRequest) {
     }
 
     // If user is not signed in and the current path is protected, redirect to signin
+    // Exclude blog routes from authentication requirement
     if (!session && req.nextUrl.pathname.startsWith('/dashboard')) {
       return NextResponse.redirect(new URL('/signin', req.url))
     }
@@ -93,7 +94,13 @@ export const config = {
      * - _next/static (static files)
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
+     * - blog (public blog routes)
+     * - api/auth/callback (Supabase auth callback)
+     * - api/ai (AI API routes)
+     * - api/invoices (Invoice API routes)
+     * - api/lessons (Lesson API routes)
+     * - api/students (Student API routes)
      */
-    '/((?!_next/static|_next/image|favicon.ico).*)',
+    '/((?!_next/static|_next/image|favicon.ico|blog|api/auth/callback|api/ai|api/invoices|api/lessons|api/students).*)',
   ],
 }

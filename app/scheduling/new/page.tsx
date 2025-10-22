@@ -72,7 +72,8 @@ export default function NewLesson() {
         },
         body: JSON.stringify({
           ...formData,
-          price: formData.price ? parseFloat(formData.price) : null
+          price: formData.price ? parseFloat(formData.price) : null,
+          duration: calculateDuration(formData.start_time, formData.end_time)
         }),
       })
 
@@ -94,6 +95,13 @@ export default function NewLesson() {
     const start = new Date(startTime)
     const end = new Date(start.getTime() + duration * 60000)
     return end.toISOString().slice(0, 16)
+  }
+
+  const calculateDuration = (startTime: string, endTime: string) => {
+    if (!startTime || !endTime) return 0
+    const start = new Date(startTime)
+    const end = new Date(endTime)
+    return Math.round((end.getTime() - start.getTime()) / 60000) // duration in minutes
   }
 
   return (
@@ -233,11 +241,18 @@ export default function NewLesson() {
                   required
                   value={formData.start_time}
                   onChange={(e) => {
-                    setFormData(prev => ({ ...prev, start_time: e.target.value }))
-                    // Auto-calculate end time if not set
-                    if (!formData.end_time && e.target.value) {
-                      const endTime = calculateEndTime(e.target.value, 60) // Default 60 minutes
-                      setFormData(prev => ({ ...prev, end_time: endTime }))
+                    const newStartTime = e.target.value
+                    setFormData(prev => ({ ...prev, start_time: newStartTime }))
+                    // Auto-calculate end time if not set or if current end time is invalid
+                    if (newStartTime) {
+                      const currentEndTime = formData.end_time
+                      const currentDuration = calculateDuration(newStartTime, currentEndTime)
+                      
+                      // If no end time set or duration is negative/invalid, set default 60 minutes
+                      if (!currentEndTime || currentDuration <= 0) {
+                        const endTime = calculateEndTime(newStartTime, 60) // Default 60 minutes
+                        setFormData(prev => ({ ...prev, end_time: endTime }))
+                      }
                     }
                   }}
                   className="mt-1 block w-full px-3 py-2 border border-neutral-300 rounded-md shadow-sm focus:outline-none focus:ring-neutral-500 focus:border-neutral-500"
@@ -253,7 +268,23 @@ export default function NewLesson() {
                   id="end_time"
                   required
                   value={formData.end_time}
-                  onChange={(e) => setFormData(prev => ({ ...prev, end_time: e.target.value }))}
+                  onChange={(e) => {
+                    const newEndTime = e.target.value
+                    const startTime = formData.start_time
+                    
+                    // Validate that end time is after start time
+                    if (startTime && newEndTime) {
+                      const start = new Date(startTime)
+                      const end = new Date(newEndTime)
+                      if (end <= start) {
+                        setError('End time must be after start time')
+                        return
+                      }
+                    }
+                    
+                    setFormData(prev => ({ ...prev, end_time: newEndTime }))
+                    setError('') // Clear any previous errors
+                  }}
                   className="mt-1 block w-full px-3 py-2 border border-neutral-300 rounded-md shadow-sm focus:outline-none focus:ring-neutral-500 focus:border-neutral-500"
                 />
               </div>

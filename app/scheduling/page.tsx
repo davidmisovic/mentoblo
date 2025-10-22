@@ -312,6 +312,7 @@ export default function Scheduling() {
                 {getCalendarDays().map((date, i) => {
                   const dayLessons = getLessonsForDay(date)
                   const isToday = date.toDateString() === new Date().toDateString()
+                  const isWeekend = date.getDay() === 0 || date.getDay() === 6 // Sunday or Saturday
                   const now = new Date()
                   const currentHour = now.getHours()
                   const currentMinute = now.getMinutes()
@@ -321,11 +322,11 @@ export default function Scheduling() {
                     <div key={i} className="border-r border-neutral-200 last:border-r-0">
                       {/* Day header */}
                       <div className={`h-8 border-b border-neutral-200 flex items-center justify-center ${
-                        isToday ? 'bg-blue-50' : 'bg-white'
+                        isToday ? 'bg-blue-50' : isWeekend ? 'bg-orange-50' : 'bg-white'
                       }`}>
                         <div className="text-center">
                           <div className={`text-sm font-semibold ${
-                            isToday ? 'text-blue-900' : 'text-neutral-900'
+                            isToday ? 'text-blue-900' : isWeekend ? 'text-orange-900' : 'text-neutral-900'
                           }`}>
                             {date.toLocaleDateString('en-US', { weekday: 'short' })} {date.getDate()}
                           </div>
@@ -476,16 +477,17 @@ export default function Scheduling() {
                 {getCalendarDays().map((date, i) => {
                   const dayLessons = getLessonsForDay(date)
                   const isToday = date.toDateString() === new Date().toDateString()
+                  const isWeekend = date.getDay() === 0 || date.getDay() === 6 // Sunday or Saturday
                   
                   return (
                     <div 
                       key={i} 
                       className={`h-20 border border-neutral-200 rounded-lg p-2 ${
-                        isToday ? 'bg-blue-50 border-blue-200' : ''
+                        isToday ? 'bg-blue-50 border-blue-200' : isWeekend ? 'bg-orange-50 border-orange-200' : ''
                       }`}
                     >
                       <div className={`text-sm font-medium ${
-                        isToday ? 'text-blue-900' : 'text-neutral-900'
+                        isToday ? 'text-blue-900' : isWeekend ? 'text-orange-900' : 'text-neutral-900'
                       }`}>
                         {date.getDate()}
                       </div>

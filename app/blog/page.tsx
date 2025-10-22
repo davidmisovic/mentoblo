@@ -148,15 +148,12 @@ export default function Blog() {
               <Link href="/blog" className="text-[14px] text-neutral-900 font-medium">Blog</Link>
             </nav>
             <div className="flex items-center gap-3">
-              <button
-                onClick={async () => {
-                  await supabase.auth.signOut()
-                  router.push('/')
-                }}
+              <Link 
+                href="/signin"
                 className="text-[14px] text-neutral-700 hover:text-neutral-900"
               >
-                Sign out
-              </button>
+                Sign in
+              </Link>
             </div>
           </div>
         </div>

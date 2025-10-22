@@ -267,6 +267,7 @@ export default function NewLesson() {
                       onClick={() => {
                         if (formData.start_time) {
                           const endTime = calculateEndTime(formData.start_time, 30)
+                          console.log('30min button clicked:', { startTime: formData.start_time, endTime })
                           setFormData(prev => ({ ...prev, end_time: endTime }))
                         }
                       }}
@@ -279,6 +280,7 @@ export default function NewLesson() {
                       onClick={() => {
                         if (formData.start_time) {
                           const endTime = calculateEndTime(formData.start_time, 60)
+                          console.log('60min button clicked:', { startTime: formData.start_time, endTime })
                           setFormData(prev => ({ ...prev, end_time: endTime }))
                         }
                       }}
@@ -291,6 +293,7 @@ export default function NewLesson() {
                       onClick={() => {
                         if (formData.start_time) {
                           const endTime = calculateEndTime(formData.start_time, 90)
+                          console.log('90min button clicked:', { startTime: formData.start_time, endTime })
                           setFormData(prev => ({ ...prev, end_time: endTime }))
                         }
                       }}

@@ -183,13 +183,13 @@ export default function Scheduling() {
                       <div className="flex items-center gap-3">
                         <div className="h-10 w-10 rounded-full bg-neutral-100 flex items-center justify-center">
                           <span className="text-sm font-medium text-neutral-600">
-                            {lesson.students.name.charAt(0)}
+                            {lesson.student_name?.charAt(0) || 'S'}
                           </span>
                         </div>
                         <div>
                           <h3 className="text-sm font-medium text-neutral-900">{lesson.title}</h3>
                           <p className="text-sm text-neutral-600">
-                            {lesson.students.name} • {lesson.subject}
+                            {lesson.student_name || 'Unknown Student'} • {lesson.subject}
                           </p>
                         </div>
                       </div>

@@ -1073,9 +1073,10 @@ const MentobloLanding = () => {
               <a href="#pillars" className="text-[13px] text-neutral-700 hover:text-neutral-900">Product</a>
               <a href="#why" className="text-[13px] text-neutral-700 hover:text-neutral-900">Why Mentoblo</a>
               <a href="#pricing" className="text-[13px] text-neutral-700 hover:text-neutral-900">Pricing</a>
+              <a href="/blog" className="text-[13px] text-neutral-700 hover:text-neutral-900">Blog</a>
               <a href="#contact" className="text-[13px] text-neutral-700 hover:text-neutral-900">Contact</a>
               <a href="#" className="text-[13px] text-neutral-700 hover:text-neutral-900">Privacy</a>
-              <a href="#" className="text-[13px] text-neutral-700 hover:text-neutral-900">Terms</a>
+              <a href="/terms" className="text-[13px] text-neutral-700 hover:text-neutral-900">Terms</a>
             </nav>
           </div>
           <div className="mt-6 flex items-center justify-between">

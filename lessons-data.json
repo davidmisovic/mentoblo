@@ -1,0 +1,13 @@
+[
+  {
+    "id": "1761099760740",
+    "student_id": "1760980460683",
+    "student_name": "Laco Capak",
+    "subject": "Verbs",
+    "start_time": "2025-10-23T04:30",
+    "duration": -90,
+    "notes": "zaplatit fakturu",
+    "status": "scheduled",
+    "created_at": "2025-10-22T02:22:40.740Z"
+  }
+]

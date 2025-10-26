@@ -100,7 +100,11 @@ const MentobloLanding = () => {
         return;
       }
       
-      setIsAuthenticated(!!session);
+      // Update state immediately
+      const isAuth = !!session;
+      setIsAuthenticated(isAuth);
+      console.log('Updated isAuthenticated to:', isAuth);
+      
       if (session && window.location.pathname === '/') {
         console.log('✅ User authenticated on main page - waiting for session to be fully established');
         // Wait longer for session to be fully established

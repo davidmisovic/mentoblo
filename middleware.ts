@@ -79,6 +79,12 @@ export async function middleware(req: NextRequest) {
     if (!session && req.nextUrl.pathname.startsWith('/dashboard')) {
       return NextResponse.redirect(new URL('/signin', req.url))
     }
+
+    // Handle OAuth callback on the main page - allow access to home page with tokens
+    if (req.nextUrl.pathname === '/' && req.nextUrl.hash?.includes('access_token=')) {
+      // Allow the main page to handle OAuth callback
+      return response
+    }
   } catch (error) {
     console.error('Middleware authentication error:', error)
     // Continue without authentication checks if there's an error

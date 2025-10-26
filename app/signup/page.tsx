@@ -19,14 +19,26 @@ export default function SignUp() {
     try {
       setLoading(true)
       setError('')
+      
+      // Get the base URL for redirects (works for both dev and production)
+      const baseUrl = process.env.NEXT_PUBLIC_APP_URL || window.location.origin
+      
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: `${window.location.origin}/api/auth/callback`
+          redirectTo: `${baseUrl}/api/auth/callback`,
+          queryParams: {
+            access_type: 'offline',
+            prompt: 'consent',
+          }
         }
       })
-      if (error) setError(error.message)
+      if (error) {
+        console.error('Google sign-up error:', error)
+        setError(error.message)
+      }
     } catch (err) {
+      console.error('Google sign-up error:', err)
       setError('An unexpected error occurred')
     } finally {
       setLoading(false)

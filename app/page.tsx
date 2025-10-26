@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { supabase } from '@/lib/supabase';
 import { 
   Target, 
   Rocket, 
@@ -54,12 +56,75 @@ import {
 } from 'lucide-react';
 
 const MentobloLanding = () => {
+  const router = useRouter();
+  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+
   useEffect(() => {
     const yearElement = document.getElementById('year');
     if (yearElement) {
       yearElement.textContent = new Date().getFullYear().toString();
     }
   }, []);
+
+  // Check authentication status
+  useEffect(() => {
+    const checkAuth = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      setIsAuthenticated(!!session);
+    };
+    
+    checkAuth();
+    
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      setIsAuthenticated(!!session);
+      if (session && window.location.pathname === '/') {
+        router.push('/dashboard');
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, [router]);
+
+  // Handle OAuth callback with access token in URL fragment
+  useEffect(() => {
+    const handleOAuthCallback = async () => {
+      // Check if we have an access token in the URL fragment
+      const hash = window.location.hash;
+      if (hash.includes('access_token=')) {
+        try {
+          // Extract the access token from the URL fragment
+          const urlParams = new URLSearchParams(hash.substring(1));
+          const accessToken = urlParams.get('access_token');
+          const refreshToken = urlParams.get('refresh_token');
+          const expiresIn = urlParams.get('expires_in');
+          
+          if (accessToken && refreshToken) {
+            // Set the session using the tokens
+            const { error } = await supabase.auth.setSession({
+              access_token: accessToken,
+              refresh_token: refreshToken,
+            });
+            
+            if (!error) {
+              // Clear the URL fragment and redirect to dashboard
+              window.history.replaceState({}, document.title, window.location.pathname);
+              router.push('/dashboard');
+            } else {
+              console.error('Error setting session:', error);
+              // Redirect to signin with error
+              router.push('/signin?error=auth_failed');
+            }
+          }
+        } catch (error) {
+          console.error('OAuth callback error:', error);
+          router.push('/signin?error=auth_failed');
+        }
+      }
+    };
+
+    handleOAuthCallback();
+  }, [router]);
 
   return (
     <div className="antialiased bg-white text-neutral-900 selection:bg-neutral-900 selection:text-white">
@@ -80,14 +145,22 @@ const MentobloLanding = () => {
               <a href="#contact" className="text-[14px] text-neutral-700 hover:text-neutral-900 transition">Contact</a>
             </nav>
             <div className="flex items-center gap-3">
-              <a href="/signin" className="hidden sm:inline-flex items-center gap-2 rounded-md border border-neutral-200 bg-white px-3.5 py-2 text-[14px] font-medium text-neutral-900 hover:bg-neutral-50 hover:border-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-800 transition">
-                <LogIn className="h-4 w-4" />
-                Sign in
-              </a>
-              <a href="/signup" className="inline-flex items-center gap-2 rounded-md border border-neutral-900 bg-neutral-900 px-3.5 py-2 text-[14px] font-medium text-white hover:bg-neutral-800 hover:border-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-800 transition">
-                <Sparkles className="h-4 w-4" />
-                Get started
-              </a>
+              {isAuthenticated ? (
+                <a href="/dashboard" className="inline-flex items-center gap-2 rounded-md border border-transparent bg-neutral-900 px-3.5 py-2 text-[14px] font-medium text-white hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-800 transition">
+                  Dashboard
+                </a>
+              ) : (
+                <>
+                  <a href="/signin" className="hidden sm:inline-flex items-center gap-2 rounded-md border border-neutral-200 bg-white px-3.5 py-2 text-[14px] font-medium text-neutral-900 hover:bg-neutral-50 hover:border-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-800 transition">
+                    <LogIn className="h-4 w-4" />
+                    Sign in
+                  </a>
+                  <a href="/signup" className="inline-flex items-center gap-2 rounded-md border border-neutral-900 bg-neutral-900 px-3.5 py-2 text-[14px] font-medium text-white hover:bg-neutral-800 hover:border-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-800 transition">
+                    <Sparkles className="h-4 w-4" />
+                    Get started
+                  </a>
+                </>
+              )}
             </div>
           </div>
         </div>

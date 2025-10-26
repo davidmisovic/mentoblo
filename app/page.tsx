@@ -68,8 +68,19 @@ const MentobloLanding = () => {
 
   // Check authentication status
   useEffect(() => {
+    console.log('=== MAIN PAGE AUTH CHECK ===');
+    console.log('Current URL:', window.location.href);
+    console.log('Pathname:', window.location.pathname);
+    
+    // Prevent any redirects if we're on the main page
+    if (window.location.pathname !== '/') {
+      console.log('Not on main page, skipping auth check');
+      return;
+    }
+    
     const checkAuth = async () => {
       const { data: { session } } = await supabase.auth.getSession();
+      console.log('Initial session check:', !!session);
       setIsAuthenticated(!!session);
     };
     
@@ -77,15 +88,26 @@ const MentobloLanding = () => {
     
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      console.log('Auth state change on main page:', event, !!session);
+      console.log('=== AUTH STATE CHANGE ===');
+      console.log('Event:', event);
+      console.log('Has session:', !!session);
+      console.log('Current pathname:', window.location.pathname);
+      console.log('Is authenticated state:', isAuthenticated);
+      
+      // Only redirect if we're still on the main page
+      if (window.location.pathname !== '/') {
+        console.log('Not on main page, skipping redirect');
+        return;
+      }
+      
       setIsAuthenticated(!!session);
       if (session && window.location.pathname === '/') {
-        console.log('Auth state change: redirecting to dashboard from main page');
+        console.log('✅ User authenticated on main page - redirecting to dashboard');
         router.push('/dashboard');
         // Also try window.location as backup
         setTimeout(() => {
           if (window.location.pathname === '/') {
-            console.log('Auth state change: forcing redirect with window.location');
+            console.log('⚠️ Still on main page - forcing redirect with window.location');
             window.location.href = '/dashboard';
           }
         }, 200);

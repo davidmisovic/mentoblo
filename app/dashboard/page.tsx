@@ -71,20 +71,23 @@ export default function Dashboard() {
   const router = useRouter()
 
   useEffect(() => {
+    console.log('=== DASHBOARD AUTH CHECK ===')
+    console.log('Current URL:', window.location.href)
+    
     const checkUser = async () => {
       // Wait a moment for session to be established
       await new Promise(resolve => setTimeout(resolve, 100))
       
       const { data: { user }, error } = await supabase.auth.getUser()
-      console.log('Dashboard auth check:', { user: !!user, error })
+      console.log('Dashboard auth check:', { user: !!user, error: error?.message })
       
       if (!user) {
-        console.log('No user found, redirecting to signin')
+        console.log('❌ No user found in dashboard, redirecting to signin')
         router.push('/signin')
         return
       }
       
-      console.log('User authenticated, loading dashboard data')
+      console.log('✅ User authenticated in dashboard, loading data')
       await fetchDashboardData()
       setLoading(false)
     }
@@ -93,10 +96,14 @@ export default function Dashboard() {
     
     // Listen for auth state changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      console.log('Auth state changed:', event, !!session)
+      console.log('=== DASHBOARD AUTH STATE CHANGE ===')
+      console.log('Event:', event, 'Has session:', !!session)
+      
       if (event === 'SIGNED_OUT' || !session) {
+        console.log('❌ User signed out, redirecting to signin')
         router.push('/signin')
       } else if (event === 'SIGNED_IN' && session) {
+        console.log('✅ User signed in, loading dashboard data')
         fetchDashboardData()
         setLoading(false)
       }

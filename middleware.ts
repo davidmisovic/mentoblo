@@ -3,13 +3,19 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export async function middleware(req: NextRequest) {
-  console.log('Middleware running for:', req.nextUrl.pathname)
+  console.log('=== MIDDLEWARE DEBUG ===')
+  console.log('URL:', req.url)
+  console.log('Pathname:', req.nextUrl.pathname)
+  console.log('Origin:', req.nextUrl.origin)
+  console.log('User-Agent:', req.headers.get('user-agent'))
   
   // Skip middleware completely for main page
   if (req.nextUrl.pathname === '/') {
-    console.log('Skipping middleware for main page')
+    console.log('✅ SKIPPING middleware for main page - returning NextResponse.next()')
     return NextResponse.next()
   }
+  
+  console.log('⚠️ Middleware will run for:', req.nextUrl.pathname)
   
   let response = NextResponse.next({
     request: {
@@ -107,7 +113,7 @@ export const config = {
   matcher: [
     /*
      * Only run middleware on specific protected routes
-     * Exclude main page, blog, API routes, and static files
+     * Explicitly exclude main page (/) from matcher
      */
     '/dashboard/:path*',
     '/students/:path*',

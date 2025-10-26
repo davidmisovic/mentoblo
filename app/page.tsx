@@ -102,15 +102,12 @@ const MentobloLanding = () => {
       
       setIsAuthenticated(!!session);
       if (session && window.location.pathname === '/') {
-        console.log('✅ User authenticated on main page - redirecting to dashboard');
-        router.push('/dashboard');
-        // Also try window.location as backup
+        console.log('✅ User authenticated on main page - waiting for session to be fully established');
+        // Wait longer for session to be fully established
         setTimeout(() => {
-          if (window.location.pathname === '/') {
-            console.log('⚠️ Still on main page - forcing redirect with window.location');
-            window.location.href = '/dashboard';
-          }
-        }, 200);
+          console.log('Redirecting to dashboard after session establishment delay');
+          window.location.href = '/dashboard';
+        }, 1000);
       }
     });
 

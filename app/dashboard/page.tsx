@@ -75,16 +75,28 @@ export default function Dashboard() {
     console.log('Current URL:', window.location.href)
     
     const checkUser = async () => {
-      // Wait a moment for session to be established
-      await new Promise(resolve => setTimeout(resolve, 100))
+      // Wait longer for session to be established
+      await new Promise(resolve => setTimeout(resolve, 500))
       
       const { data: { user }, error } = await supabase.auth.getUser()
       console.log('Dashboard auth check:', { user: !!user, error: error?.message })
       
       if (!user) {
-        console.log('❌ No user found in dashboard, redirecting to signin')
-        router.push('/signin')
-        return
+        console.log('❌ No user found in dashboard, trying session check instead')
+        // Try session check as fallback
+        const { data: { session } } = await supabase.auth.getSession()
+        console.log('Session check fallback:', { session: !!session })
+        
+        if (!session) {
+          console.log('❌ No session found either, checking if already on signin page')
+          if (window.location.pathname !== '/signin') {
+            console.log('Redirecting to signin')
+            router.push('/signin')
+          } else {
+            console.log('Already on signin page, not redirecting')
+          }
+          return
+        }
       }
       
       console.log('✅ User authenticated in dashboard, loading data')

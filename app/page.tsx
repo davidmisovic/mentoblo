@@ -82,6 +82,13 @@ const MentobloLanding = () => {
       if (session && window.location.pathname === '/') {
         console.log('Auth state change: redirecting to dashboard from main page');
         router.push('/dashboard');
+        // Also try window.location as backup
+        setTimeout(() => {
+          if (window.location.pathname === '/') {
+            console.log('Auth state change: forcing redirect with window.location');
+            window.location.href = '/dashboard';
+          }
+        }, 200);
       }
     });
 
@@ -123,8 +130,14 @@ const MentobloLanding = () => {
               // Clear the URL fragment and redirect to dashboard
               window.history.replaceState({}, document.title, window.location.pathname);
               console.log('About to redirect to dashboard...');
+              
+              // Try both methods to ensure redirect happens
               router.push('/dashboard');
-              console.log('Redirect command sent to router');
+              setTimeout(() => {
+                window.location.href = '/dashboard';
+              }, 100);
+              
+              console.log('Redirect command sent to router and window.location');
             } else {
               console.error('Error setting session:', error);
               // Redirect to signin with error

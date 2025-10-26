@@ -72,15 +72,37 @@ export default function Dashboard() {
 
   useEffect(() => {
     const checkUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser()
+      // Wait a moment for session to be established
+      await new Promise(resolve => setTimeout(resolve, 100))
+      
+      const { data: { user }, error } = await supabase.auth.getUser()
+      console.log('Dashboard auth check:', { user: !!user, error })
+      
       if (!user) {
+        console.log('No user found, redirecting to signin')
         router.push('/signin')
         return
       }
+      
+      console.log('User authenticated, loading dashboard data')
       await fetchDashboardData()
       setLoading(false)
     }
+    
     checkUser()
+    
+    // Listen for auth state changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      console.log('Auth state changed:', event, !!session)
+      if (event === 'SIGNED_OUT' || !session) {
+        router.push('/signin')
+      } else if (event === 'SIGNED_IN' && session) {
+        fetchDashboardData()
+        setLoading(false)
+      }
+    })
+
+    return () => subscription.unsubscribe()
   }, [router])
 
   // Auto-refresh timestamps every minute

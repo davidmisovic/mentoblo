@@ -106,13 +106,18 @@ const MentobloLanding = () => {
           
           if (accessToken && refreshToken) {
             // Set the session using the tokens
-            const { error } = await supabase.auth.setSession({
+            const { data, error } = await supabase.auth.setSession({
               access_token: accessToken,
               refresh_token: refreshToken,
             });
             
-            if (!error) {
-              console.log('Session established successfully, redirecting to dashboard');
+            console.log('Session set result:', { data, error });
+            
+            if (!error && data.session) {
+              console.log('Session established successfully, waiting before redirect...');
+              // Wait a moment for session to be fully established
+              await new Promise(resolve => setTimeout(resolve, 500));
+              
               // Clear the URL fragment and redirect to dashboard
               window.history.replaceState({}, document.title, window.location.pathname);
               router.push('/dashboard');

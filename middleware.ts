@@ -75,14 +75,13 @@ export async function middleware(req: NextRequest) {
     }
 
     // If user is not signed in and the current path is protected, redirect to signin
-    // Exclude blog routes from authentication requirement
+    // Exclude blog routes and main page from authentication requirement
     if (!session && req.nextUrl.pathname.startsWith('/dashboard')) {
       return NextResponse.redirect(new URL('/signin', req.url))
     }
 
-    // Handle OAuth callback on the main page - allow access to home page with tokens
-    if (req.nextUrl.pathname === '/' && req.nextUrl.hash?.includes('access_token=')) {
-      // Allow the main page to handle OAuth callback
+    // Allow access to main page without authentication (for OAuth callback handling)
+    if (req.nextUrl.pathname === '/') {
       return response
     }
   } catch (error) {
@@ -106,7 +105,8 @@ export const config = {
      * - api/invoices (Invoice API routes)
      * - api/lessons (Lesson API routes)
      * - api/students (Student API routes)
+     * - / (main page - handled by client-side OAuth)
      */
-    '/((?!_next/static|_next/image|favicon.ico|blog|api/auth/callback|api/ai|api/invoices|api/lessons|api/students).*)',
+    '/((?!_next/static|_next/image|favicon.ico|blog|api/auth/callback|api/ai|api/invoices|api/lessons|api/students|^$).*)',
   ],
 }

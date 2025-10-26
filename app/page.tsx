@@ -91,13 +91,18 @@ const MentobloLanding = () => {
     const handleOAuthCallback = async () => {
       // Check if we have an access token in the URL fragment
       const hash = window.location.hash;
+      console.log('Checking for OAuth tokens in URL:', hash);
+      
       if (hash.includes('access_token=')) {
+        console.log('OAuth tokens detected, processing...');
         try {
           // Extract the access token from the URL fragment
           const urlParams = new URLSearchParams(hash.substring(1));
           const accessToken = urlParams.get('access_token');
           const refreshToken = urlParams.get('refresh_token');
           const expiresIn = urlParams.get('expires_in');
+          
+          console.log('Tokens extracted:', { accessToken: !!accessToken, refreshToken: !!refreshToken });
           
           if (accessToken && refreshToken) {
             // Set the session using the tokens
@@ -107,6 +112,7 @@ const MentobloLanding = () => {
             });
             
             if (!error) {
+              console.log('Session established successfully, redirecting to dashboard');
               // Clear the URL fragment and redirect to dashboard
               window.history.replaceState({}, document.title, window.location.pathname);
               router.push('/dashboard');
@@ -115,11 +121,15 @@ const MentobloLanding = () => {
               // Redirect to signin with error
               router.push('/signin?error=auth_failed');
             }
+          } else {
+            console.log('Missing required tokens');
           }
         } catch (error) {
           console.error('OAuth callback error:', error);
           router.push('/signin?error=auth_failed');
         }
+      } else {
+        console.log('No OAuth tokens found in URL');
       }
     };
 

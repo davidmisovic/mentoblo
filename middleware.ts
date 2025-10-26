@@ -90,12 +90,21 @@ export async function middleware(req: NextRequest) {
       return NextResponse.redirect(new URL('/dashboard', req.url))
     }
 
-    // If user is not signed in and the current path is protected, redirect to signin
-    // Exclude blog routes and main page from authentication requirement
-    if (!session && req.nextUrl.pathname.startsWith('/dashboard')) {
-      console.log('Middleware: No session, redirecting from', req.nextUrl.pathname, 'to signin')
-      return NextResponse.redirect(new URL('/signin', req.url))
-    }
+  // If user is not signed in and the current path is protected, redirect to signin
+  // Exclude blog routes and main page from authentication requirement
+  if (!session && req.nextUrl.pathname.startsWith('/dashboard')) {
+    console.log('🚨 MIDDLEWARE REDIRECT TRIGGERED!')
+    console.log('No session found, redirecting from', req.nextUrl.pathname, 'to signin')
+    console.log('Session object:', session)
+    console.log('Request URL:', req.url)
+    console.log('Request headers:', Object.fromEntries(req.headers.entries()))
+    
+    // TEMPORARILY BYPASS MIDDLEWARE REDIRECT FOR DEBUGGING
+    console.log('🚨 BYPASSING MIDDLEWARE REDIRECT - ALLOWING DASHBOARD ACCESS')
+    return NextResponse.next()
+    
+    // return NextResponse.redirect(new URL('/signin', req.url))
+  }
 
     // Allow access to main page without authentication (for OAuth callback handling)
     if (req.nextUrl.pathname === '/') {

@@ -77,8 +77,10 @@ const MentobloLanding = () => {
     
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      console.log('Auth state change on main page:', event, !!session);
       setIsAuthenticated(!!session);
       if (session && window.location.pathname === '/') {
+        console.log('Auth state change: redirecting to dashboard from main page');
         router.push('/dashboard');
       }
     });
@@ -120,7 +122,9 @@ const MentobloLanding = () => {
               
               // Clear the URL fragment and redirect to dashboard
               window.history.replaceState({}, document.title, window.location.pathname);
+              console.log('About to redirect to dashboard...');
               router.push('/dashboard');
+              console.log('Redirect command sent to router');
             } else {
               console.error('Error setting session:', error);
               // Redirect to signin with error

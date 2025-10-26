@@ -3,6 +3,8 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export async function middleware(req: NextRequest) {
+  console.log('Middleware running for:', req.nextUrl.pathname)
+  
   let response = NextResponse.next({
     request: {
       headers: req.headers,
@@ -71,17 +73,20 @@ export async function middleware(req: NextRequest) {
 
     // If user is signed in and the current path is /signin or /signup, redirect to dashboard
     if (session && (req.nextUrl.pathname === '/signin' || req.nextUrl.pathname === '/signup')) {
+      console.log('Middleware: User signed in, redirecting from', req.nextUrl.pathname, 'to dashboard')
       return NextResponse.redirect(new URL('/dashboard', req.url))
     }
 
     // If user is not signed in and the current path is protected, redirect to signin
     // Exclude blog routes and main page from authentication requirement
     if (!session && req.nextUrl.pathname.startsWith('/dashboard')) {
+      console.log('Middleware: No session, redirecting from', req.nextUrl.pathname, 'to signin')
       return NextResponse.redirect(new URL('/signin', req.url))
     }
 
     // Allow access to main page without authentication (for OAuth callback handling)
     if (req.nextUrl.pathname === '/') {
+      console.log('Middleware: Allowing access to main page')
       return response
     }
   } catch (error) {

@@ -106,12 +106,12 @@ const MentobloLanding = () => {
       console.log('Updated isAuthenticated to:', isAuth);
       
       if (session && window.location.pathname === '/') {
-        console.log('✅ User authenticated on main page - waiting for session to be fully established');
-        // Wait longer for session to be fully established
+        console.log('✅ User authenticated on main page - redirecting to dashboard');
+        // Shorter delay for better UX
         setTimeout(() => {
-          console.log('Redirecting to dashboard after session establishment delay');
+          console.log('Redirecting to dashboard');
           window.location.href = '/dashboard';
-        }, 1000);
+        }, 500);
       }
     });
 

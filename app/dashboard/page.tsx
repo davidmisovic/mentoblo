@@ -78,17 +78,8 @@ export default function Dashboard() {
       console.log('=== DASHBOARD CHECKING USER ===')
       console.log('Current URL:', window.location.href)
       
-      // TEMPORARILY BYPASS ALL AUTH CHECKS FOR DEBUGGING
-      console.log('🚨 BYPASSING ALL AUTH CHECKS - LOADING DASHBOARD DIRECTLY')
-      
-      console.log('✅ Loading dashboard data without auth check')
-      await fetchDashboardData()
-      setLoading(false)
-      
-      // Original auth check code (commented out for debugging)
-      /*
-      // Wait much longer for session to be established
-      await new Promise(resolve => setTimeout(resolve, 2000))
+      // Wait for session to be established
+      await new Promise(resolve => setTimeout(resolve, 1000))
       
       const { data: { user }, error } = await supabase.auth.getUser()
       console.log('Dashboard auth check:', { user: !!user, error: error?.message })
@@ -100,16 +91,9 @@ export default function Dashboard() {
         console.log('Session check fallback:', { session: !!session })
         
         if (!session) {
-          console.log('❌ No session found either, but NOT redirecting to signin for debugging')
-          console.log('Loading dashboard anyway to test if this fixes the issue')
-          // Temporarily disable redirect to signin for debugging
-          // if (window.location.pathname !== '/signin') {
-          //   console.log('Redirecting to signin')
-          //   router.push('/signin')
-          // } else {
-          //   console.log('Already on signin page, not redirecting')
-          // }
-          // return
+          console.log('❌ No session found, redirecting to signin')
+          router.push('/signin')
+          return
         } else {
           console.log('✅ Session found, proceeding with dashboard load')
         }
@@ -118,7 +102,6 @@ export default function Dashboard() {
       console.log('✅ User authenticated in dashboard, loading data')
       await fetchDashboardData()
       setLoading(false)
-      */
     }
     
     checkUser()

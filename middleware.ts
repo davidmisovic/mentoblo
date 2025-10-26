@@ -3,20 +3,10 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export async function middleware(req: NextRequest) {
-  console.log('=== MIDDLEWARE DEBUG ===')
-  console.log('URL:', req.url)
-  console.log('Pathname:', req.nextUrl.pathname)
-  console.log('Origin:', req.nextUrl.origin)
-  console.log('User-Agent:', req.headers.get('user-agent'))
-  console.log('Cookies:', req.cookies.getAll().map(c => `${c.name}=${c.value.substring(0, 20)}...`))
-  
   // Skip middleware completely for main page
   if (req.nextUrl.pathname === '/') {
-    console.log('✅ SKIPPING middleware for main page - returning NextResponse.next()')
     return NextResponse.next()
   }
-  
-  console.log('⚠️ Middleware will run for:', req.nextUrl.pathname)
   
   let response = NextResponse.next({
     request: {
@@ -93,17 +83,8 @@ export async function middleware(req: NextRequest) {
   // If user is not signed in and the current path is protected, redirect to signin
   // Exclude blog routes and main page from authentication requirement
   if (!session && req.nextUrl.pathname.startsWith('/dashboard')) {
-    console.log('🚨 MIDDLEWARE REDIRECT TRIGGERED!')
-    console.log('No session found, redirecting from', req.nextUrl.pathname, 'to signin')
-    console.log('Session object:', session)
-    console.log('Request URL:', req.url)
-    console.log('Request headers:', Object.fromEntries(req.headers.entries()))
-    
-    // TEMPORARILY BYPASS MIDDLEWARE REDIRECT FOR DEBUGGING
-    console.log('🚨 BYPASSING MIDDLEWARE REDIRECT - ALLOWING DASHBOARD ACCESS')
-    return NextResponse.next()
-    
-    // return NextResponse.redirect(new URL('/signin', req.url))
+    console.log('Middleware: No session, redirecting from', req.nextUrl.pathname, 'to signin')
+    return NextResponse.redirect(new URL('/signin', req.url))
   }
 
     // Allow access to main page without authentication (for OAuth callback handling)

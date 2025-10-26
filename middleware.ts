@@ -8,6 +8,7 @@ export async function middleware(req: NextRequest) {
   console.log('Pathname:', req.nextUrl.pathname)
   console.log('Origin:', req.nextUrl.origin)
   console.log('User-Agent:', req.headers.get('user-agent'))
+  console.log('Cookies:', req.cookies.getAll().map(c => `${c.name}=${c.value.substring(0, 20)}...`))
   
   // Skip middleware completely for main page
   if (req.nextUrl.pathname === '/') {

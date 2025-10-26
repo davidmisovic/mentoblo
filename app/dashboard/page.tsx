@@ -78,6 +78,15 @@ export default function Dashboard() {
       console.log('=== DASHBOARD CHECKING USER ===')
       console.log('Current URL:', window.location.href)
       
+      // TEMPORARILY BYPASS ALL AUTH CHECKS FOR DEBUGGING
+      console.log('🚨 BYPASSING ALL AUTH CHECKS - LOADING DASHBOARD DIRECTLY')
+      
+      console.log('✅ Loading dashboard data without auth check')
+      await fetchDashboardData()
+      setLoading(false)
+      
+      // Original auth check code (commented out for debugging)
+      /*
       // Wait much longer for session to be established
       await new Promise(resolve => setTimeout(resolve, 2000))
       
@@ -109,6 +118,7 @@ export default function Dashboard() {
       console.log('✅ User authenticated in dashboard, loading data')
       await fetchDashboardData()
       setLoading(false)
+      */
     }
     
     checkUser()

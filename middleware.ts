@@ -5,6 +5,12 @@ import type { NextRequest } from 'next/server'
 export async function middleware(req: NextRequest) {
   console.log('Middleware running for:', req.nextUrl.pathname)
   
+  // Skip middleware completely for main page
+  if (req.nextUrl.pathname === '/') {
+    console.log('Skipping middleware for main page')
+    return NextResponse.next()
+  }
+  
   let response = NextResponse.next({
     request: {
       headers: req.headers,
@@ -100,18 +106,17 @@ export async function middleware(req: NextRequest) {
 export const config = {
   matcher: [
     /*
-     * Match all request paths except for the ones starting with:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * - blog (public blog routes)
-     * - api/auth/callback (Supabase auth callback)
-     * - api/ai (AI API routes)
-     * - api/invoices (Invoice API routes)
-     * - api/lessons (Lesson API routes)
-     * - api/students (Student API routes)
-     * - / (main page - handled by client-side OAuth)
+     * Only run middleware on specific protected routes
+     * Exclude main page, blog, API routes, and static files
      */
-    '/((?!_next/static|_next/image|favicon.ico|blog|api/auth/callback|api/ai|api/invoices|api/lessons|api/students|^$).*)',
+    '/dashboard/:path*',
+    '/students/:path*',
+    '/scheduling/:path*',
+    '/invoicing/:path*',
+    '/ai/:path*',
+    '/signin',
+    '/signup',
+    '/forgot-password',
+    '/reset-password',
   ],
 }

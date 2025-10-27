@@ -222,6 +222,10 @@ GROUP BY c.id, c.tutor_id, t.full_name, t.avatar_url;
 -- 10. Create function to handle new user profile creation
 -- This function should be called when a new user signs up
 
+-- Drop existing functions if they exist
+DROP FUNCTION IF EXISTS handle_new_user();
+DROP FUNCTION IF EXISTS handle_updated_user();
+
 CREATE OR REPLACE FUNCTION handle_new_user()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -235,6 +239,10 @@ BEGIN
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- Drop existing triggers if they exist
+DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
+DROP TRIGGER IF EXISTS on_auth_user_updated ON auth.users;
 
 -- Create trigger to automatically create profile when user signs up
 CREATE TRIGGER on_auth_user_created

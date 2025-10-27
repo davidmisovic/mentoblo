@@ -87,7 +87,7 @@ export default function BookingCalendar({ tutorId, tutorName }: BookingCalendarP
 
     try {
       // Create start and end times
-      const [hours, minutes] = time.split(':').map(Number)
+      const [hours, minutes] = selectedTime.split(':').map(Number)
       const startTime = new Date(selectedDate)
       startTime.setHours(hours, minutes, 0, 0)
       

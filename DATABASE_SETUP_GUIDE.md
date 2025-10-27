@@ -37,6 +37,8 @@ This guide will help you set up the core database schema for Mentoblo, focusing 
 3. Copy and paste the contents of `database-schema.sql`
 4. Execute the script
 
+**Note**: The schema now includes automatic profile creation triggers, so new users will automatically get profiles created when they sign up.
+
 ### Step 2: Verify Tables Created
 Check that these tables exist:
 - `profiles` (with new columns)
@@ -55,6 +57,14 @@ The schema includes comprehensive RLS policies:
 Two helpful views are created:
 - `tutor_students_summary`: Overview of all students for a tutor
 - `student_progress_dashboard`: Progress overview for a student
+
+### Step 5: Test with Real Users
+1. Sign up some users through your application
+2. Check that profiles are automatically created:
+   ```sql
+   SELECT id, role, full_name FROM profiles;
+   ```
+3. (Optional) Add sample data using `sample-data.sql` for testing
 
 ## Key Features Enabled
 

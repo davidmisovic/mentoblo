@@ -219,55 +219,42 @@ LEFT JOIN lesson_logs ll ON c.id = ll.client_id
 LEFT JOIN homework h ON c.id = h.client_id
 GROUP BY c.id, c.tutor_id, t.full_name, t.avatar_url;
 
--- 10. Insert sample data for testing (optional)
--- This can be removed in production
+-- 10. Create function to handle new user profile creation
+-- This function should be called when a new user signs up
 
--- Sample tutor profile
-INSERT INTO profiles (id, role, booking_slug, full_name, avatar_url) 
-VALUES (
-    '00000000-0000-0000-0000-000000000001',
-    'tutor',
-    'jane-doe-tutor',
-    'Jane Doe',
-    'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face'
-) ON CONFLICT (id) DO NOTHING;
+CREATE OR REPLACE FUNCTION handle_new_user()
+RETURNS TRIGGER AS $$
+BEGIN
+  INSERT INTO public.profiles (id, role, full_name, avatar_url)
+  VALUES (
+    NEW.id,
+    'tutor', -- Default role, can be changed later
+    COALESCE(NEW.raw_user_meta_data->>'full_name', NEW.email),
+    NEW.raw_user_meta_data->>'avatar_url'
+  );
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
 
--- Sample student profile
-INSERT INTO profiles (id, role, full_name, avatar_url) 
-VALUES (
-    '00000000-0000-0000-0000-000000000002',
-    'student',
-    'John Smith',
-    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face'
-) ON CONFLICT (id) DO NOTHING;
+-- Create trigger to automatically create profile when user signs up
+CREATE TRIGGER on_auth_user_created
+  AFTER INSERT ON auth.users
+  FOR EACH ROW EXECUTE FUNCTION handle_new_user();
 
--- Sample client relationship
-INSERT INTO clients (tutor_id, student_id) 
-VALUES (
-    '00000000-0000-0000-0000-000000000001',
-    '00000000-0000-0000-0000-000000000002'
-) ON CONFLICT (tutor_id, student_id) DO NOTHING;
+-- 11. Create function to update user profile when auth user is updated
+CREATE OR REPLACE FUNCTION handle_updated_user()
+RETURNS TRIGGER AS $$
+BEGIN
+  UPDATE public.profiles
+  SET 
+    full_name = COALESCE(NEW.raw_user_meta_data->>'full_name', OLD.raw_user_meta_data->>'full_name'),
+    avatar_url = COALESCE(NEW.raw_user_meta_data->>'avatar_url', OLD.raw_user_meta_data->>'avatar_url')
+  WHERE id = NEW.id;
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
 
--- Sample lesson log
-INSERT INTO lesson_logs (client_id, log_date, title, grammar_topics, vocab_list, notes)
-SELECT 
-    c.id,
-    CURRENT_DATE - INTERVAL '3 days',
-    'Past Tense Review',
-    'Simple Past, Past Continuous, Past Perfect',
-    'walked, ran, jumped, was reading, had finished',
-    'Great progress on irregular verbs. Need more practice with past perfect.'
-FROM clients c
-WHERE c.tutor_id = '00000000-0000-0000-0000-000000000001'
-LIMIT 1;
-
--- Sample homework
-INSERT INTO homework (client_id, title, instructions, due_date)
-SELECT 
-    c.id,
-    'Practice Past Tense',
-    'Write 10 sentences using different past tense forms. Include at least 3 irregular verbs.',
-    CURRENT_DATE + INTERVAL '2 days'
-FROM clients c
-WHERE c.tutor_id = '00000000-0000-0000-0000-000000000001'
-LIMIT 1;
+-- Create trigger to update profile when auth user is updated
+CREATE TRIGGER on_auth_user_updated
+  AFTER UPDATE ON auth.users
+  FOR EACH ROW EXECUTE FUNCTION handle_updated_user();

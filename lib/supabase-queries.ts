@@ -416,10 +416,31 @@ export async function updateBooking(bookingId: string, updates: BookingUpdate): 
 // ============================================================================
 
 export async function getTutorDashboardData(tutorId: string) {
+  // First get the client IDs for this tutor
+  const { data: clients, error: clientsError } = await supabase
+    .from('clients')
+    .select('id')
+    .eq('tutor_id', tutorId)
+
+  if (clientsError) {
+    console.error('Error fetching clients:', clientsError)
+    return {
+      students: [],
+      recentLogs: [],
+      recentHomework: [],
+      totalStudents: 0,
+      totalLessons: 0,
+      totalHomework: 0,
+      completedHomework: 0
+    }
+  }
+
+  const clientIds = clients?.map(c => c.id) || []
+
   const [students, recentLogs, recentHomework] = await Promise.all([
     getTutorStudents(tutorId),
     getRecentLessonLogs(tutorId, 5),
-    supabase
+    clientIds.length > 0 ? supabase
       .from('homework')
       .select(`
         *,
@@ -427,14 +448,9 @@ export async function getTutorDashboardData(tutorId: string) {
           student:profiles!clients_student_id_fkey(*)
         )
       `)
-      .in('client_id', 
-        supabase
-          .from('clients')
-          .select('id')
-          .eq('tutor_id', tutorId)
-      )
+      .in('client_id', clientIds)
       .order('created_at', { ascending: false })
-      .limit(5)
+      .limit(5) : { data: [] }
   ])
 
   return {

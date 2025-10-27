@@ -47,3 +47,4 @@ After running all three steps, you should have:
 You can verify by checking the tables in your Supabase dashboard under the "Table Editor" section.
 
 
+

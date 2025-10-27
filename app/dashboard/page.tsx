@@ -75,10 +75,12 @@ export default function Dashboard() {
       const { data: { user } } = await supabase.auth.getUser()
       
       if (!user) {
-        router.push('/signin')
+        console.log('No user found in dashboard')
+        setLoading(false)
         return
       }
       
+      console.log('User found in dashboard:', user.email)
       await fetchDashboardData()
       setLoading(false)
     }
@@ -87,9 +89,8 @@ export default function Dashboard() {
     
     // Listen for auth state changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'SIGNED_OUT' || !session) {
-        router.push('/signin')
-      } else if (event === 'SIGNED_IN' && session) {
+      console.log('Dashboard auth state change:', event, !!session)
+      if (event === 'SIGNED_IN' && session) {
         fetchDashboardData()
         setLoading(false)
       }

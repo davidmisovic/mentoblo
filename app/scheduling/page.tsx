@@ -495,11 +495,11 @@ export default function Scheduling() {
             
             {viewType === 'month' && (
               <div className="grid grid-cols-7 gap-1 p-4">
-                {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day) => (
-                  <div key={day} className="text-center text-sm font-medium text-neutral-500 py-2">
-                    {day}
-                  </div>
-                ))}
+            {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day) => (
+              <div key={day} className="text-center text-sm font-medium text-neutral-500 py-2">
+                {day}
+              </div>
+            ))}
                 {getCalendarDays().map((date, i) => {
                   const dayLessons = getLessonsForDay(date)
                   const isToday = date.toDateString() === new Date().toDateString()

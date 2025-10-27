@@ -20,10 +20,19 @@ export default function SignUp() {
       setLoading(true)
       setError('')
       
+      const redirectUrl = `${window.location.origin}/auth/callback`
+      console.log('Starting Google OAuth with redirect URL:', redirectUrl)
+      
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: `${window.location.origin}/`,
+          redirectTo: redirectUrl,
+          queryParams: {
+            access_type: 'offline',
+            prompt: 'consent',
+          },
+          // Force PKCE flow to get a code instead of hash
+          flowType: 'pkce'
         }
       })
       

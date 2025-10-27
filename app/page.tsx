@@ -58,6 +58,21 @@ import {
 const MentobloLanding = () => {
   const router = useRouter();
   const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+  const [debugInfo, setDebugInfo] = React.useState('');
+  const [error, setError] = React.useState('');
+
+  const checkAuthStatus = async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    const { data: { user } } = await supabase.auth.getUser();
+    setDebugInfo(`Session: ${!!session}, User: ${!!user}, Email: ${user?.email || 'none'}`);
+    console.log('Auth check:', { session: !!session, user: !!user, email: user?.email });
+    
+    // Also check URL hash for OAuth tokens
+    const hash = window.location.hash;
+    if (hash) {
+      console.log('Current URL hash:', hash);
+    }
+  };
 
   useEffect(() => {
     const yearElement = document.getElementById('year');
@@ -71,21 +86,18 @@ const MentobloLanding = () => {
     const checkAuth = async () => {
       const { data: { session } } = await supabase.auth.getSession();
       setIsAuthenticated(!!session);
-      
-      // Only redirect if user is authenticated and on main page
-      if (session && window.location.pathname === '/') {
-        window.location.href = '/dashboard';
-      }
     };
     
     checkAuth();
     
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      console.log('Auth state change:', event, !!session);
       setIsAuthenticated(!!session);
       
-      // Only redirect if user is authenticated and on main page
-      if (session && window.location.pathname === '/') {
+      // If user just signed in and we're on the main page, redirect to dashboard
+      if (event === 'SIGNED_IN' && session && window.location.pathname === '/') {
+        console.log('User signed in, redirecting to dashboard...');
         window.location.href = '/dashboard';
       }
     });
@@ -97,12 +109,48 @@ const MentobloLanding = () => {
   useEffect(() => {
     const handleOAuthCallback = async () => {
       const hash = window.location.hash;
+      const searchParams = new URLSearchParams(window.location.search);
+      
+      console.log('OAuth callback handler called');
+      console.log('Current URL:', window.location.href);
+      console.log('OAuth callback - hash:', hash);
+      console.log('OAuth callback - search params:', searchParams.toString());
+      
+      // Check if we're on the auth callback page
+      if (window.location.pathname === '/auth/callback') {
+        console.log('On auth callback page, checking for session...');
+        const { data: { session }, error } = await supabase.auth.getSession();
+        if (session) {
+          console.log('Session found, redirecting to dashboard');
+          window.location.href = '/dashboard';
+        } else {
+          console.log('No session found, redirecting to signin');
+          window.location.href = '/signin';
+        }
+        return;
+      }
+      
+      // Check for OAuth error in URL params
+      const error = searchParams.get('error');
+      const errorDescription = searchParams.get('error_description');
+      
+      if (error) {
+        console.error('OAuth error:', error, errorDescription);
+        setError(`OAuth Error: ${error} - ${errorDescription}`);
+        return;
+      }
       
       if (hash.includes('access_token=')) {
         try {
           const urlParams = new URLSearchParams(hash.substring(1));
           const accessToken = urlParams.get('access_token');
-          const refreshToken = urlParams.get('refresh_token');
+          const refreshToken = urlParams.get('refresh_token') || urlParams.get('provider_refresh_token');
+          
+          console.log('OAuth tokens found:', { 
+            accessToken: !!accessToken, 
+            refreshToken: !!refreshToken,
+            allParams: Object.fromEntries(urlParams.entries())
+          });
           
           if (accessToken && refreshToken) {
             const { data, error } = await supabase.auth.setSession({
@@ -110,20 +158,28 @@ const MentobloLanding = () => {
               refresh_token: refreshToken,
             });
             
+            console.log('Session set result:', { error, session: !!data.session, user: !!data.user });
+            
             if (!error && data.session) {
               // Clear the URL fragment
               window.history.replaceState({}, document.title, window.location.pathname);
-              // Redirect to dashboard
-              window.location.href = '/dashboard';
+              console.log('Session established successfully, redirecting to dashboard...');
+              
+              // Add a small delay to ensure session is properly established
+              setTimeout(() => {
+                window.location.href = '/dashboard';
+              }, 100);
             } else {
-              window.location.href = '/signin?error=auth_failed';
+              console.error('Failed to set session:', error);
+              setError(`Session error: ${error?.message || 'Unknown error'}`);
             }
           } else {
-            window.location.href = '/signin?error=missing_tokens';
+            console.error('Missing tokens:', { accessToken: !!accessToken, refreshToken: !!refreshToken });
+            setError(`Missing OAuth tokens: accessToken=${!!accessToken}, refreshToken=${!!refreshToken}`);
           }
         } catch (error) {
           console.error('OAuth callback error:', error);
-          window.location.href = '/signin?error=callback_error';
+          setError(`Callback error: ${error}`);
         }
       }
     };
@@ -1136,6 +1192,52 @@ const MentobloLanding = () => {
           </div>
         </div>
       </section>
+
+      {/* Debug Section - Remove in production */}
+      <div className="bg-yellow-50 border border-yellow-200 p-4 m-4 rounded">
+        <h3 className="font-bold text-yellow-800 mb-2">Debug Info (Remove in production)</h3>
+        <p className="text-sm text-yellow-700 mb-2">Auth Status: {isAuthenticated ? 'Authenticated' : 'Not authenticated'}</p>
+        <p className="text-sm text-yellow-700 mb-2">Debug: {debugInfo}</p>
+        {error && (
+          <div className="bg-red-100 border border-red-300 p-2 rounded mb-2">
+            <p className="text-sm text-red-700 font-medium">Error: {error}</p>
+          </div>
+        )}
+        <div className="flex gap-2 flex-wrap">
+          <button 
+            onClick={checkAuthStatus}
+            className="px-3 py-1 bg-yellow-600 text-white text-sm rounded hover:bg-yellow-700"
+          >
+            Check Auth Status
+          </button>
+          <button 
+            onClick={async () => {
+              const { error } = await supabase.auth.signInWithOAuth({
+                provider: 'google',
+                options: {
+                  redirectTo: `${window.location.origin}/`,
+                  queryParams: {
+                    access_type: 'offline',
+                    prompt: 'consent',
+                  }
+                }
+              });
+              if (error) console.error('Google sign-in error:', error);
+            }}
+            className="px-3 py-1 bg-blue-600 text-white text-sm rounded hover:bg-blue-700"
+          >
+            Test Google Sign-In
+          </button>
+          {isAuthenticated && (
+            <button 
+              onClick={() => window.location.href = '/dashboard'}
+              className="px-3 py-1 bg-green-600 text-white text-sm rounded hover:bg-green-700"
+            >
+              Go to Dashboard
+            </button>
+          )}
+        </div>
+      </div>
 
       {/* Footer */}
       <footer className="border-t border-neutral-200">

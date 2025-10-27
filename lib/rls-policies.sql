@@ -136,3 +136,4 @@ CREATE POLICY "Tutors can delete own AI reports" ON public.ai_reports
   FOR DELETE USING (auth.uid() = tutor_id);
 
 
+

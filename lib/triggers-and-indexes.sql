@@ -28,3 +28,4 @@ CREATE INDEX IF NOT EXISTS idx_availability_tutor_id ON public.availability(tuto
 CREATE INDEX IF NOT EXISTS idx_ai_reports_tutor_id ON public.ai_reports(tutor_id);
 
 
+

@@ -35,9 +35,7 @@ export default function SignIn() {
           queryParams: {
             access_type: 'offline',
             prompt: 'consent',
-          },
-          // Force PKCE flow to get a code instead of hash
-          flowType: 'pkce'
+          }
         }
       })
       

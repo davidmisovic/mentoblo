@@ -71,35 +71,14 @@ export default function Dashboard() {
   const router = useRouter()
 
   useEffect(() => {
-    console.log('=== DASHBOARD AUTH CHECK ===')
-    console.log('Current URL:', window.location.href)
-    
     const checkUser = async () => {
-      console.log('=== DASHBOARD CHECKING USER ===')
-      console.log('Current URL:', window.location.href)
-      
-      // Wait for session to be established
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      const { data: { user }, error } = await supabase.auth.getUser()
-      console.log('Dashboard auth check:', { user: !!user, error: error?.message })
+      const { data: { user } } = await supabase.auth.getUser()
       
       if (!user) {
-        console.log('❌ No user found in dashboard, trying session check instead')
-        // Try session check as fallback
-        const { data: { session } } = await supabase.auth.getSession()
-        console.log('Session check fallback:', { session: !!session })
-        
-        if (!session) {
-          console.log('❌ No session found, redirecting to signin')
-          router.push('/signin')
-          return
-        } else {
-          console.log('✅ Session found, proceeding with dashboard load')
-        }
+        router.push('/signin')
+        return
       }
       
-      console.log('✅ User authenticated in dashboard, loading data')
       await fetchDashboardData()
       setLoading(false)
     }
@@ -108,14 +87,9 @@ export default function Dashboard() {
     
     // Listen for auth state changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      console.log('=== DASHBOARD AUTH STATE CHANGE ===')
-      console.log('Event:', event, 'Has session:', !!session)
-      
       if (event === 'SIGNED_OUT' || !session) {
-        console.log('❌ User signed out, redirecting to signin')
         router.push('/signin')
       } else if (event === 'SIGNED_IN' && session) {
-        console.log('✅ User signed in, loading dashboard data')
         fetchDashboardData()
         setLoading(false)
       }

@@ -3,8 +3,8 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export async function middleware(req: NextRequest) {
-  // Skip middleware completely for main page
-  if (req.nextUrl.pathname === '/') {
+  // Skip middleware for public routes
+  if (req.nextUrl.pathname === '/' || req.nextUrl.pathname.startsWith('/book/')) {
     return NextResponse.next()
   }
   
@@ -19,7 +19,6 @@ export async function middleware(req: NextRequest) {
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
   if (!supabaseUrl || !supabaseAnonKey) {
-    console.warn('Supabase environment variables not found, skipping authentication middleware')
     return response
   }
 
@@ -74,27 +73,18 @@ export async function middleware(req: NextRequest) {
       data: { session },
     } = await supabase.auth.getSession()
 
-    // If user is signed in and the current path is /signin or /signup, redirect to dashboard
+    // If user is signed in and trying to access signin/signup, redirect to dashboard
     if (session && (req.nextUrl.pathname === '/signin' || req.nextUrl.pathname === '/signup')) {
-      console.log('Middleware: User signed in, redirecting from', req.nextUrl.pathname, 'to dashboard')
       return NextResponse.redirect(new URL('/dashboard', req.url))
     }
 
-  // If user is not signed in and the current path is protected, redirect to signin
-  // Exclude blog routes and main page from authentication requirement
-  if (!session && req.nextUrl.pathname.startsWith('/dashboard')) {
-    console.log('Middleware: No session, redirecting from', req.nextUrl.pathname, 'to signin')
-    return NextResponse.redirect(new URL('/signin', req.url))
-  }
-
-    // Allow access to main page without authentication (for OAuth callback handling)
-    if (req.nextUrl.pathname === '/') {
-      console.log('Middleware: Allowing access to main page')
-      return response
+    // If user is not signed in and trying to access protected routes, redirect to signin
+    if (!session && req.nextUrl.pathname.startsWith('/dashboard')) {
+      return NextResponse.redirect(new URL('/signin', req.url))
     }
+
   } catch (error) {
-    console.error('Middleware authentication error:', error)
-    // Continue without authentication checks if there's an error
+    console.error('Middleware error:', error)
   }
 
   return response
@@ -102,10 +92,6 @@ export async function middleware(req: NextRequest) {
 
 export const config = {
   matcher: [
-    /*
-     * Only run middleware on specific protected routes
-     * Explicitly exclude main page (/) from matcher
-     */
     '/dashboard/:path*',
     '/students/:path*',
     '/scheduling/:path*',

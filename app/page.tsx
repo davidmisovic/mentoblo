@@ -68,125 +68,66 @@ const MentobloLanding = () => {
 
   // Check authentication status
   useEffect(() => {
-    console.log('=== MAIN PAGE AUTH CHECK ===');
-    console.log('Current URL:', window.location.href);
-    console.log('Pathname:', window.location.pathname);
-    
-    // Prevent any redirects if we're on the main page
-    if (window.location.pathname !== '/') {
-      console.log('Not on main page, skipping auth check');
-      return;
-    }
-    
     const checkAuth = async () => {
       const { data: { session } } = await supabase.auth.getSession();
-      console.log('Initial session check:', !!session);
       setIsAuthenticated(!!session);
+      
+      // Only redirect if user is authenticated and on main page
+      if (session && window.location.pathname === '/') {
+        window.location.href = '/dashboard';
+      }
     };
     
     checkAuth();
     
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      console.log('=== AUTH STATE CHANGE ===');
-      console.log('Event:', event);
-      console.log('Has session:', !!session);
-      console.log('Current pathname:', window.location.pathname);
-      console.log('Is authenticated state:', isAuthenticated);
+      setIsAuthenticated(!!session);
       
-      // Only redirect if we're still on the main page
-      if (window.location.pathname !== '/') {
-        console.log('Not on main page, skipping redirect');
-        return;
-      }
-      
-      // Update state immediately
-      const isAuth = !!session;
-      setIsAuthenticated(isAuth);
-      console.log('Updated isAuthenticated to:', isAuth);
-      
+      // Only redirect if user is authenticated and on main page
       if (session && window.location.pathname === '/') {
-        console.log('✅ User authenticated on main page - redirecting to dashboard');
-        // Shorter delay for better UX
-        setTimeout(() => {
-          console.log('Redirecting to dashboard');
-          window.location.href = '/dashboard';
-        }, 500);
+        window.location.href = '/dashboard';
       }
     });
 
     return () => subscription.unsubscribe();
-  }, [router]);
+  }, []);
 
   // Handle OAuth callback with access token in URL fragment
   useEffect(() => {
     const handleOAuthCallback = async () => {
-      // Check if we have an access token in the URL fragment
       const hash = window.location.hash;
-      console.log('=== OAuth Callback Debug ===');
-      console.log('Current URL:', window.location.href);
-      console.log('Hash:', hash);
-      console.log('Pathname:', window.location.pathname);
       
       if (hash.includes('access_token=')) {
-        console.log('OAuth tokens detected, processing...');
         try {
-          // Extract the access token from the URL fragment
           const urlParams = new URLSearchParams(hash.substring(1));
           const accessToken = urlParams.get('access_token');
           const refreshToken = urlParams.get('refresh_token');
-          const expiresIn = urlParams.get('expires_in');
-          
-          console.log('Tokens extracted:', { 
-            accessToken: !!accessToken, 
-            refreshToken: !!refreshToken,
-            expiresIn 
-          });
           
           if (accessToken && refreshToken) {
-            console.log('Setting session with tokens...');
-            // Set the session using the tokens
             const { data, error } = await supabase.auth.setSession({
               access_token: accessToken,
               refresh_token: refreshToken,
             });
             
-            console.log('Session set result:', { 
-              hasSession: !!data.session, 
-              hasUser: !!data.user,
-              error: error?.message 
-            });
-            
             if (!error && data.session) {
-              console.log('Session established successfully!');
-              console.log('User:', data.user?.email);
-              
-              // Clear the URL fragment immediately
+              // Clear the URL fragment
               window.history.replaceState({}, document.title, window.location.pathname);
-              
-              // Force redirect to dashboard
-              console.log('Forcing redirect to dashboard...');
+              // Redirect to dashboard
               window.location.href = '/dashboard';
-              
             } else {
-              console.error('Error setting session:', error);
-              console.log('Redirecting to signin with error');
               window.location.href = '/signin?error=auth_failed';
             }
           } else {
-            console.log('Missing required tokens');
             window.location.href = '/signin?error=missing_tokens';
           }
         } catch (error) {
           console.error('OAuth callback error:', error);
           window.location.href = '/signin?error=callback_error';
         }
-      } else {
-        console.log('No OAuth tokens found in URL');
       }
     };
 
-    // Run immediately
     handleOAuthCallback();
   }, []);
 

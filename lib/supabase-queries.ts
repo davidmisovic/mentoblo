@@ -158,6 +158,24 @@ export async function getLessonLogs(clientId: string): Promise<LessonLog[]> {
 }
 
 export async function getRecentLessonLogs(tutorId: string, limit: number = 10): Promise<LessonLog[]> {
+  // First get the client IDs for this tutor
+  const { data: clients, error: clientsError } = await supabase
+    .from('clients')
+    .select('id')
+    .eq('tutor_id', tutorId)
+
+  if (clientsError) {
+    console.error('Error fetching clients:', clientsError)
+    return []
+  }
+
+  if (!clients || clients.length === 0) {
+    return []
+  }
+
+  const clientIds = clients.map(c => c.id)
+
+  // Then get the lesson logs for these clients
   const { data, error } = await supabase
     .from('lesson_logs')
     .select(`
@@ -166,12 +184,7 @@ export async function getRecentLessonLogs(tutorId: string, limit: number = 10): 
         student:profiles!clients_student_id_fkey(*)
       )
     `)
-    .in('client_id', 
-      supabase
-        .from('clients')
-        .select('id')
-        .eq('tutor_id', tutorId)
-    )
+    .in('client_id', clientIds)
     .order('log_date', { ascending: false })
     .limit(limit)
   
@@ -248,6 +261,24 @@ export async function getHomework(clientId: string): Promise<Homework[]> {
 }
 
 export async function getPendingHomework(studentId: string): Promise<Homework[]> {
+  // First get the client IDs for this student
+  const { data: clients, error: clientsError } = await supabase
+    .from('clients')
+    .select('id')
+    .eq('student_id', studentId)
+
+  if (clientsError) {
+    console.error('Error fetching clients:', clientsError)
+    return []
+  }
+
+  if (!clients || clients.length === 0) {
+    return []
+  }
+
+  const clientIds = clients.map(c => c.id)
+
+  // Then get the homework for these clients
   const { data, error } = await supabase
     .from('homework')
     .select(`
@@ -256,12 +287,7 @@ export async function getPendingHomework(studentId: string): Promise<Homework[]>
         tutor:profiles!clients_tutor_id_fkey(*)
       )
     `)
-    .in('client_id', 
-      supabase
-        .from('clients')
-        .select('id')
-        .eq('student_id', studentId)
-    )
+    .in('client_id', clientIds)
     .eq('status', 'assigned')
     .order('due_date', { ascending: true })
   
@@ -425,15 +451,24 @@ export async function getTutorDashboardData(tutorId: string) {
 export async function getStudentDashboardData(studentId: string) {
   const [tutors, progress] = await Promise.all([
     getStudentTutors(studentId),
-    supabase
-      .from('student_progress_dashboard')
-      .select('*')
-      .in('client_id', 
-        supabase
-          .from('clients')
-          .select('id')
-          .eq('student_id', studentId)
-      )
+    // First get client IDs for progress query
+    (async () => {
+      const { data: clients } = await supabase
+        .from('clients')
+        .select('id')
+        .eq('student_id', studentId)
+      
+      if (!clients || clients.length === 0) {
+        return { data: [] }
+      }
+      
+      const clientIds = clients.map(c => c.id)
+      
+      return supabase
+        .from('student_progress_dashboard')
+        .select('*')
+        .in('client_id', clientIds)
+    })()
   ])
 
   const clientIds = tutors.map(t => t.id)
